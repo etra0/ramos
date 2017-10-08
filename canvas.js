@@ -1,5 +1,5 @@
 var width = 1200,
-	height = 600;
+	height = 800;
 
 var canvas = d3.select(".canvas")
 	.append("svg")
@@ -30,8 +30,18 @@ var drawer = canvas.append('g')
 
 var all_ramos = {
 	s1: [new Ramo('Matemáticas I', 'MAT021', 5, 'PC'),
-		new Ramo('Programación', 'IWI101', 3, 'FI')
-	]
+		new Ramo('Programación', 'IWI131', 3, 'FI'),
+		new Ramo('Introducción a la Física', 'FIS100', 3, 'PC'),
+		new Ramo('Humanístico I', 'HRW132', 2, 'HUM'),
+		new Ramo('Educación Física I', 'DEW100', 1, 'HUM')
+	],
+	s2: [new Ramo('Química y Sociedad', 'QUI010', 3, 'PC'),
+		new Ramo('Matemáticas II', 'MAT022', 5, 'PC'),
+		new Ramo('Física General I', 'FIS110', 3, 'PC'),
+		new Ramo('Introducción a la Ingeniería', 'IWG101', 2, 'TIN'),
+		new Ramo('Humanístico II', 'HRW133', 1, 'HUM'),
+		new Ramo('Educación Física II', 'DEW101', 1, 'HUM')
+	],
 };
 
 var globalY = 0;
@@ -45,4 +55,31 @@ for (var semester in all_ramos) {
 	});
 	globalX += 120;
 };
+
+drawer.selectAll(".ramo-label")
+	.call(wrap, 90);
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
+}
 
