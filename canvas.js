@@ -42,6 +42,21 @@ var all_ramos = {
 		new Ramo('Humanístico II', 'HRW133', 1, 'HUM'),
 		new Ramo('Educación Física II', 'DEW101', 1, 'HUM')
 	],
+	s3: [new Ramo('Estructuras de Datos', 'INF134', 3, 'FI'),
+		new Ramo('Matemáticas III', 'MAT023', 4, 'PC'),
+		new Ramo('Física General III', 'FIS130', 4, 'PC'),
+		new Ramo('Estructuras Discretas', 'INF152', 3, 'FI'),
+		new Ramo('Teoría de Sistemas', 'INF260', 3, 'SD'),
+		new Ramo('Libre I', 'INF1', 1, 'HUM')
+	],
+	s4: [
+		new Ramo('Lenguajes de Programación', 'INF253', 3, 'FI'),
+		new Ramo('Matemáticas IV', 'MAT024', 4, 'PC'),
+		new Ramo('Física General II', 'FIS120',  4, 'PC'),
+		new Ramo('Informática Teórica', 'INF155', 3, 'FI'),
+		new Ramo('Economía IA', 'IWN170', 3, 'IND'),
+		new Ramo('Libre II', 'INF2', 1, 'HUM')
+	],
 };
 
 var globalY = 0;
