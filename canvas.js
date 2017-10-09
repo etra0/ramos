@@ -29,37 +29,37 @@ var drawer = canvas.append('g')
 	.attr('transform', 'translate(10, 10)');
 
 var all_ramos = {
-	s1: [new Ramo('Matemáticas I', 'MAT021', 5, 'PC'),
-		new Ramo('Programación', 'IWI131', 3, 'FI'),
-		new Ramo('Introducción a la Física', 'FIS100', 3, 'PC'),
-		new Ramo('Humanístico I', 'HRW132', 2, 'HUM'),
-		new Ramo('Educación Física I', 'DEW100', 1, 'HUM')
+	s1: [new Ramo('Matemáticas I', 'MAT-021', 5, 'PC'),
+		new Ramo('Programación', 'IWI-131', 3, 'FI'),
+		new Ramo('Introducción a la Física', 'FIS-100', 3, 'PC'),
+		new Ramo('Humanístico I', 'HRW-132', 2, 'HUM'),
+		new Ramo('Educación Física I', 'DEW-100', 1, 'HUM')
 	],
-	s2: [new Ramo('Química y Sociedad', 'QUI010', 3, 'PC'),
-		new Ramo('Matemáticas II', 'MAT022', 5, 'PC'),
-		new Ramo('Física General I', 'FIS110', 3, 'PC'),
-		new Ramo('Introducción a la Ingeniería', 'IWG101', 2, 'TIN'),
-		new Ramo('Humanístico II', 'HRW133', 1, 'HUM'),
-		new Ramo('Educación Física II', 'DEW101', 1, 'HUM')
+	s2: [new Ramo('Química y Sociedad', 'QUI-010', 3, 'PC'),
+		new Ramo('Matemáticas II', 'MAT-022', 5, 'PC'),
+		new Ramo('Física General I', 'FIS-110', 3, 'PC'),
+		new Ramo('Introducción a la Ingeniería', 'IWG-101', 2, 'TIN'),
+		new Ramo('Humanístico II', 'HRW-133', 1, 'HUM'),
+		new Ramo('Educación Física II', 'DEW-101', 1, 'HUM')
 	],
-	s3: [new Ramo('Estructuras de Datos', 'INF134', 3, 'FI'),
-		new Ramo('Matemáticas III', 'MAT023', 4, 'PC'),
-		new Ramo('Física General III', 'FIS130', 4, 'PC'),
-		new Ramo('Estructuras Discretas', 'INF152', 3, 'FI'),
-		new Ramo('Teoría de Sistemas', 'INF260', 3, 'SD'),
-		new Ramo('Libre I', 'INF1', 1, 'HUM')
+	s3: [new Ramo('Estructuras de Datos', 'INF-134', 3, 'FI'),
+		new Ramo('Matemáticas III', 'MAT-023', 4, 'PC'),
+		new Ramo('Física General III', 'FIS-130', 4, 'PC'),
+		new Ramo('Estructuras Discretas', 'INF-152', 3, 'FI'),
+		new Ramo('Teoría de Sistemas', 'INF-260', 3, 'SD'),
+		new Ramo('Libre I', 'INF-1', 1, 'HUM')
 	],
 	s4: [
-		new Ramo('Lenguajes de Programación', 'INF253', 3, 'FI'),
-		new Ramo('Matemáticas IV', 'MAT024', 4, 'PC'),
-		new Ramo('Física General II', 'FIS120',  4, 'PC'),
-		new Ramo('Informática Teórica', 'INF155', 3, 'FI'),
-		new Ramo('Economía IA', 'IWN170', 3, 'IND'),
-		new Ramo('Libre II', 'INF2', 1, 'HUM')
+		new Ramo('Lenguajes de Programación', 'INF-253', 3, 'FI'),
+		new Ramo('Matemáticas IV', 'MAT-024', 4, 'PC'),
+		new Ramo('Física General II', 'FIS-120',  4, 'PC'),
+		new Ramo('Informática Teórica', 'INF-155', 3, 'FI'),
+		new Ramo('Economía IA', 'IWN-170', 3, 'IND'),
+		new Ramo('Libre II', 'INF-2', 1, 'HUM')
 	],
 	s5: [
-		new Ramo('Bases de Datos', 'INF239', 3, 'IS'),
-		new Ramo('Arquitectura y Organización de Computadores', 'INF245', 3, 'TIC')
+		new Ramo('Bases de Datos', 'INF-239', 3, 'IS'),
+		new Ramo('Arquitectura y Organización de Computadores', 'INF-245', 3, 'TIC')
 	],
 };
 
@@ -99,7 +99,9 @@ function wrap(text, width) {
         tspan = text.append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
       }
     }
-	  if (text.selectAll('tspan')._groups[0].length > 2) {
+	  if (text.selectAll('tspan')._groups[0].length === 1) {
+		  text.selectAll('tspan').attr('y', (+d3.select(this).attr('y')) + (+5));
+	  } else if (text.selectAll('tspan')._groups[0].length > 2) {
 		  text.selectAll('tspan').attr('y', d3.select(this).attr('y') - 10);
 	  }
   });

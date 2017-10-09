@@ -105,7 +105,7 @@ function Ramo(nombre, sigla, creditos, sector) {
 
 		cross.append("path")
 			.attr("d", "M" + posX + "," + posY + "L" + (posX+size*1.1) + "," + (posY+size))
-			.attr("stroke", "black")
+			.attr("stroke", "#D4726A")
 			.attr("stroke-width", 9);
 
 		ramo.on('mouseover', function() {
