@@ -1,3 +1,4 @@
+var APPROVED = [];
 /* PC: Plan común
  * FI: Fundamentos de Informática
  * HUM: Humanistas, libres y deportes
@@ -16,11 +17,12 @@ var colorBySector = {
 	'TIC': '#6D57A5'
 };
 
-function Ramo(nombre, sigla, creditos, sector) {
+function Ramo(nombre, sigla, creditos, sector, prer=[]) {
 	this.nombre = nombre;
 	this.sigla = sigla;
 	this.creditos = creditos;
 	this.sector = sector;
+	this.prer = new Set(prer);
 	let approved = false;
 	let self = this;
 
@@ -103,6 +105,7 @@ function Ramo(nombre, sigla, creditos, sector) {
 
 		var cross = ramo.append('g').attr("class", "cross").attr("opacity", 0);
 
+
 		cross.append("path")
 			.attr("d", "M" + posX + "," + posY + "L" + (posX+size*1.1) + "," + (posY+size))
 			.attr("stroke", "#D4726A")
@@ -117,8 +120,13 @@ function Ramo(nombre, sigla, creditos, sector) {
 		ramo.on('click', function() {
 			if (!approved) {
 				d3.select(this).select(".cross").transition().delay(20).attr("opacity", "1");
+				APPROVED.push(self.sigla);
 			} else {
 				d3.select(this).select(".cross").transition().delay(20).attr("opacity", "0.01");
+				let _i = APPROVED.indexOf(self.sigla)
+				if (_i > -1) {
+					APPROVED.splice(_i, 1);
+				}
 			}
 			approved = !approved;
 		});
