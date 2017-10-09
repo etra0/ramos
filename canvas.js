@@ -57,6 +57,10 @@ var all_ramos = {
 		new Ramo('Economía IA', 'IWN170', 3, 'IND'),
 		new Ramo('Libre II', 'INF2', 1, 'HUM')
 	],
+	s5: [
+		new Ramo('Bases de Datos', 'INF239', 3, 'IS'),
+		new Ramo('Arquitectura y Organización de Computadores', 'INF245', 3, 'TIC')
+	],
 };
 
 var globalY = 0;
@@ -72,7 +76,7 @@ for (var semester in all_ramos) {
 };
 
 drawer.selectAll(".ramo-label")
-	.call(wrap, 90);
+	.call(wrap, 100);
 
 function wrap(text, width) {
   text.each(function() {
@@ -95,6 +99,9 @@ function wrap(text, width) {
         tspan = text.append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
       }
     }
+	  if (text.selectAll('tspan')._groups[0].length > 2) {
+		  text.selectAll('tspan').attr('y', d3.select(this).attr('y') - 10);
+	  }
   });
 }
 
