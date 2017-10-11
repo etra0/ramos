@@ -76,6 +76,46 @@ d3.json('./data.json', function(data) {
 		});
 		d3.select(".info").select("#creditos").text(c);
 	}, 30);
+	var first_time = canvas.append("g")
+	first_time.append("rect")
+		.attr("x", 0)
+		.attr("y", 0)
+		.attr("width", width)
+		.attr("height", height)
+		.attr("fill", "white")
+		.attr("opacity", 0.9);
+	first_time.append("text")
+		.attr("x", width/2)
+		.attr("y", height/2 - 90)
+		.attr("dy", 0)
+		.attr("text-anchor", "middle")
+		.attr("font-size", 40)
+		.attr("opacity", 0.01)
+		.text("¡Bienvenido a la Malla Interactiva de Info!")
+		.transition().duration(800)
+		.attr("y", height/2)
+		.attr("opacity", 1)
+		.call(wrap, 900);
+	first_time.append("text")
+		.attr("x", width/2)
+		.attr("y", height/2 - 90)
+		.attr("dy", "2.1em")
+		.attr("text-anchor", "middle")
+		.attr("font-size", 30)
+		.attr("opacity", 0.01)
+		.text(`Puedes tachar tus ramos aprobados haciendo click sobre ellos.
+	A medida que vas aprobando ramos, se van liberando los que tienen prerrequisitos.
+	Haz click en cualquier lado para comenzar.`)
+		.transition().duration(800)
+		.attr("y", height/2)
+		.attr("opacity", 1)
+		.call(wrap, 900);
+
+	first_time.on('click', function() {
+		d3.select(this).transition().duration(200).style('opacity', 0.1).on('end', function() {
+			d3.select(this).remove();
+		});
+	});
 });
 
 
