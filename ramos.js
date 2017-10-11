@@ -5,6 +5,7 @@ var APPROVED = [];
  * TIN: Transversal e Integración
  * SD: Sistemas de decisión informática
  * IND: Industrias
+ * AN: Análisis Numérico
  */
 var colorBySector = {
 	'PC': '#00838F',
@@ -14,20 +15,24 @@ var colorBySector = {
 	'SD': '#991B1E',
 	'IND': '#6BA8D1',
 	'IS': '#FDDE15',
-	'TIC': '#6D57A5'
+	'TIC': '#6D57A5',
+	 'AN': '#00AD5D',
+	 'ELEC': '#F78E1E'
 };
 
-function Ramo(nombre, sigla, creditos, sector, prer=[]) {
+function Ramo(nombre, sigla, creditos, sector, prer=[], id) {
 	this.nombre = nombre;
 	this.sigla = sigla;
 	this.creditos = creditos;
 	this.sector = sector;
 	this.prer = new Set(prer);
+	this.id = id;
 	let approved = false;
 	let self = this;
+	let ramo;
 
 	this.draw = function(canvas, posX, posY, size) {
-		var ramo = canvas.append('g')
+		ramo = canvas.append('g')
 			.attr('id', self.sigla);
 		var graybar = size/5;
 
@@ -86,6 +91,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[]) {
 			.attr("text-anchor", "middle")
 			.attr("dy", 0)
 
+		// Sigla
 		ramo.append("text")
 			.attr("x", posX + 2)
 			.attr("y", posY + size/7)
@@ -100,7 +106,8 @@ function Ramo(nombre, sigla, creditos, sector, prer=[]) {
 			.attr("y", posY)
 			.attr("width", size*1.1)
 			.attr("height", size)
-			.attr("fill", 'none')
+			.attr("fill", 'white')
+			.attr("opacity", "0.001")
 			.attr("class", "invisible");
 
 		var cross = ramo.append('g').attr("class", "cross").attr("opacity", 0);
@@ -108,29 +115,86 @@ function Ramo(nombre, sigla, creditos, sector, prer=[]) {
 
 		cross.append("path")
 			.attr("d", "M" + posX + "," + posY + "L" + (posX+size*1.1) + "," + (posY+size))
-			.attr("stroke", "#D4726A")
+			.attr("stroke", "#550000")
 			.attr("stroke-width", 9);
 
-		ramo.on('mouseover', function() {
-				d3.select(this).select(".invisible").attr("fill", "rgba(255, 255, 255, 0.6)");
-		}).on('mouseout', function() {
-				d3.select(this).select(".invisible").attr("fill", "none");
+		// id
+		ramo.append("circle")
+			.attr("cx", posX + size*1.1-10)
+			.attr("cy", posY + graybar/2 )
+			.attr("fill", "white")
+			.attr("r", 8);
+		ramo.append("text")
+			.attr("x", function() {
+				if (self.id > 9)
+					return posX + size*1.1-10
+				return posX + size*1.1 - 10.5
+			})
+			.attr("y", posY + graybar/2 + 3)
+			.attr("text-anchor", "middle")
+			.attr('font-family', 'sans-serif')
+			.attr("fill", "black")
+			.attr('font-size', 10)
+			.text(self.id);
+
+		// prerr circles!
+		let c_x = 0;
+		self.prer.forEach(function(p) {
+			let r = 10;
+			ramo.append("circle")
+				.attr('cx', posX + r + c_x + 5)
+				.attr('cy', posY + size - graybar/2)
+				.attr('r', r)
+				.attr('fill', colorBySector[all_ramos[p].sector])
+				.attr('stroke', 'white');
+			ramo.append('text')
+				.attr('x', posX + r + c_x + 5)
+				.attr('y', posY + size - graybar/2 + 5)
+				.text(all_ramos[p].id)
+				.attr("text-anchor", "middle")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", 12)
+				.attr('fill', 'white');
+			c_x += r*2;
 		});
+
+		//		ramo.on('mouseover', function() {
+		//				d3.select(this).select(".invisible").attr("fill", "rgba(255, 255, 255, 0.6)");
+		//		}).on('mouseout', function() {
+		//				d3.select(this).select(".invisible").attr("fill", "none");
+		//		});
 
 		ramo.on('click', function() {
 			if (!approved) {
 				d3.select(this).select(".cross").transition().delay(20).attr("opacity", "1");
-				APPROVED.push(self.sigla);
+				APPROVED.push(self);
 			} else {
 				d3.select(this).select(".cross").transition().delay(20).attr("opacity", "0.01");
-				let _i = APPROVED.indexOf(self.sigla)
+				let _i = APPROVED.indexOf(self)
 				if (_i > -1) {
 					APPROVED.splice(_i, 1);
 				}
 			}
 			approved = !approved;
+			console.log(APPROVED);
 		});
 
 		return;
 	}
+
+	this.verifyPrer = function() {
+		let _a = [];
+		APPROVED.forEach(function(ramo) {
+			_a.push(ramo.sigla);
+		});
+		_a = new Set(_a);
+		for(let r of self.prer) {
+			if (!_a.has(r)) {
+				ramo.select(".invisible").attr("opacity", "0.71");
+				return;
+			}
+		}
+		ramo.select(".invisible").attr("opacity", "0.0");
+	}
+
 }

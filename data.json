@@ -1,0 +1,81 @@
+{
+	"s1": [
+		["Programación", "IWI-131", 3, "FI"],
+		["Matemáticas I", "MAT-021", 5, "PC"],
+		["Introducción a la Física", "FIS-100", 3, "PC"],
+		["Humanístico I", "HRW-132", 2, "HUM"],
+		["Educación Física I", "DEW-100", 1, "HUM"]
+	],
+	"s2": [["Química y Sociedad", "QUI-010", 3, "PC"],
+		["Matemáticas II", "MAT-022", 5, "PC", ["MAT-021"]],
+		["Física General I", "FIS-110", 3, "PC", ["MAT-021", "FIS-100"]],
+		["Introducción a la Ingeniería", "IWG-101", 2, "TIN"],
+		["Humanístico II", "HRW-133", 1, "HUM"],
+		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]]
+	],
+	"s3": [["Estructuras de Datos", "INF-134", 3, "FI", ["IWI-131"]],
+		["Matemáticas III", "MAT-023", 4, "PC", ["MAT-022"]],
+		["Física General III", "FIS-130", 4, "PC", ["MAT-022", "FIS-110"]],
+		["Estructuras Discretas", "INF-152", 3, "FI", ["IWI-131", "MAT-021"]],
+		["Teoría de Sistemas", "INF-260", 3, "SD", ["IWG-101"]],
+		["Libre I", "INF-1", 1, "HUM"]
+	],
+	"s4": [
+		["Lenguajes de Programación", "INF-253", 3, "FI", ["INF-134"]],
+		["Matemáticas IV", "MAT-024", 4, "PC", ["MAT-023"]],
+		["Física General II", "FIS-120",  4, "PC", ["MAT-022", "FIS-110"]],
+		["Informática Teórica", "INF-155", 3, "FI", ["INF-134", "INF-152"]],
+		["Economía IA", "IWN-170", 3, "IND", ["MAT-023"]],
+		["Libre II", "INF-2", 1, "HUM"]
+	],
+	"s5": [
+		["Bases de Datos", "INF-239", 3, "IS", ["INF-134"]],
+		["Arquitectura y Organización de Computadores", "INF-245", 3, "TIC", ["INF-134"]],
+		["Física General IV", "FIS-140", 4, "PC", ["FIS-130", "FIS-120"]],
+		["Estadística Computacional", "INF-280", 3, "AN", ["IWI-131", "MAT-023"]],
+		["Organizaciones y Sistemas de Información", "INF-270", 3, "SD", ["INF-260"]],
+		["Libre III", "INF-3", 1, "HUM"]
+	],
+	"s6": [
+		["Análisis y Diseño de Software", "INF-236", 3, "IS", ["INF-239", "INF-253"]],
+		["Sistemas Operativos", "INF-246", 3, "TIC", ["INF-245"]],
+		["Ingeniería, Informática y Sociedad", "INF-276", 3, "TIN", ["INF-270"]],
+		["Algoritmos y Complejidad", "INF-221", 3, "FI", ["INF-152", "INF-253"]],
+		["Optimización", "INF-292", 3, "SD", ["MAT-023"]],
+		["Libre IV", "INF-4", 1, "HUM"]
+	],
+	"s7": [
+		["Ingeniería de Software", "INF-225", 3, "IS", ["INF-236"]],
+		["Redes de Computadores", "INF-256", 3, "TIC", ["INF-246"]],
+		["Información y Matemáticas Financieras", "ICN-270", 3, "IND", ["IWN-170"]],
+		["Computación Científica", "INF-285", 3, "AN", ["MAT-024", "INF-221"]],
+		["Investigación de Operaciones", "INF-293", 3, "SD", ["INF-292"]],
+		["Libre V", "INF-5", 1, "HUM"]
+	],
+	"s8": [
+		["Diseño Interfaces Usuarias", "INF-322", 3, "IS", ["INF-225"]],
+		["Sistemas Distribuidos", "INF-343", 3, "TIC", ["INF-256"]],
+		["Electivo Informática I", "INF-301", 3, "ELEC"],
+		["Inteligencia Artificial", "INF-295", 3, "AN", ["INF-292", "INF-221"]],
+		["Sistemas de Gestión", "INF-266", 3, "SD", ["INF-276"]],
+		["Libre VI", "INF-6", 1, "HUM"]
+	],
+	"s9": [
+		["Electivo Informática II", "INF-302", 3, "ELEC"],
+		["Electivo Informática III", "INF-303", 3, "ELEC"],
+		["Electivo I", "INF-311", 3, "ELEC"],
+		["Electivo II", "INF-312", 3, "ELEC"],
+		["Gestión de Proyectos de Informática", "INF-360", 3, "SD", ["INF-322", "INF-266"]],
+		["Libre VII", "INF-7", 1, "HUM"]
+	],
+	"s10": [
+		["Electivo Informática IV", "INF-304", 3, "ELEC"],
+		["Electivo III", "INF-313", 3, "ELEC"],
+		["Electivo IV", "INF-314", 3, "ELEC"],
+		["Taller Desarollo de Proyecto de Informática", "INF-228", 6, "TIN", ["INF-360"]],
+		["Trabajo de Título 1", "INF-309", 1, "TIN", ["INF-360"]]
+	],
+	"s11": [
+		["Trabajo de Título 2", "INF-310", 12, "TIN", ["INF-228", "INF-309"]]
+	]
+}

@@ -1,59 +1,83 @@
-var width = 1200,
-	height = 800;
+var width = 1330,
+	height = 730;
 
 var canvas = d3.select(".canvas")
 	.append("svg")
 	.attr('width', width)
 	.attr('height', height);
 
-var range_show = 2;
-var scale_x = d3.scaleLinear()
-	.domain([-range_show, range_show])
-	.range([0, height]);
-
-var scale_y = d3.scaleLinear()
-	.domain([range_show, -range_show])
-	.range([0, width]);
-
-
 /* ---------- axis ---------- */
-// x_axis
 var drawer = canvas.append('g')
 	.attr('transform', 'translate(10, 20)');
 
 var globalY = 0;
 var globalX = 0;
 var _semester = 1;
-var _s = ["I", "II", "III", "IV", "V"]
-for (var semester in all_ramos) {
-	globalY = 0;
-	drawer.append("rect")
-		.attr("x", globalX)
-		.attr("y", globalY)
-		.attr("width", 110)
-		.attr("height", 30)
-		.attr("fill", 'gray');
+var _s = ["I", "II", "III", "IV", "V", 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV']
 
-	drawer.append("text")
-		.attr('x', globalX + 110/2)
-		.attr('y', globalY + 2*30/3)
-		.text(_s[_semester-1])
-		.attr('text-anchor', 'middle')
-		.attr("font-family", "sans-serif")
-		.attr("font-weight", "bold")
-		.attr("fill", "white");
-	_semester++;
-	globalY += 40;
+var malla = {};
+var all_ramos = {};
+let id = 1;
+d3.json('./data.json', function(data) {
+	// load the data
+	for (var semester in data) {
+		malla[semester] = {};
+		data[semester].forEach(function(ramo) {
+			malla[semester][ramo[1]] = new Ramo(ramo[0], ramo[1], ramo[2], ramo[3], (function() {
+				if (ramo.length > 4)
+					return ramo[4];
+				return [];
+			})(), id++)
+			all_ramos[ramo[1]] = malla[semester][ramo[1]];
+		});
+	}
 
-	all_ramos[semester].forEach(function(ramo) {
-		ramo.draw(drawer, globalX, globalY, 100);
-		globalY += 110;
-	});
-	globalX += 120;
-};
+	for (var semester in malla) {
+		globalY = 0;
+		// draw the axis
+		drawer.append("rect")
+			.attr("x", globalX)
+			.attr("y", globalY)
+			.attr("width", 110)
+			.attr("height", 30)
+			.attr("fill", 'gray');
 
-drawer.selectAll(".ramo-label")
-	.call(wrap, 100);
+		drawer.append("text")
+			.attr('x', globalX + 110/2)
+			.attr('y', globalY + 2*30/3)
+			.text(_s[_semester-1])
+			.attr('text-anchor', 'middle')
+			.attr("font-family", "sans-serif")
+			.attr("font-weight", "bold")
+			.attr("fill", "white");
+		_semester++;
+		globalY += 40;
+
+		for (var ramo in malla[semester]) {
+			malla[semester][ramo].draw(drawer, globalX, globalY, 100);
+			globalY += 110;
+		};
+		globalX += 120;
+	};
+	drawer.selectAll(".ramo-label")
+		.call(wrap, 100);
+
+	// verificar prerrequisitos
+	d3.interval(function() {
+		for (var semester in malla) {
+			for (var ramo in malla[semester]) {
+				malla[semester][ramo].verifyPrer();
+			}
+		}
+
+		let c = 0;
+		APPROVED.forEach(function(ramo) {
+			c += ramo.creditos;
+		});
+		d3.select(".info").select("#creditos").text(c);
+	}, 30);
+});
+
 
 function wrap(text, width) {
   text.each(function() {

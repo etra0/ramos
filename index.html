@@ -6,18 +6,26 @@
 	 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
   </head>
   <style>
-	  svg {
-		  border: 1px solid black;
-	  }
-
 		body {
-			display: flex;
+			display: inline;
+			text-align: center;
+		}
+		html {
+			font-family: sans-serif;
+		}
+
+		.info {
+			font-size: 30px;
 		}
   </style>  
 
   <body>
 
+		<h1>Malla Informática</h1>
 		<div class='canvas'></div>		
+		<div class="info">
+			Créditos aprobados: <span id='creditos'></span>
+		</div>
 
 		<script src='d3.js'></script>
 		<script src='ramos.js'></script>
