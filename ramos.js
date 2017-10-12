@@ -190,11 +190,11 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id) {
 		_a = new Set(_a);
 		for(let r of self.prer) {
 			if (!_a.has(r)) {
-				ramo.select(".invisible").attr("opacity", "0.71");
+				ramo.select(".invisible").transition().duration(70).attr("opacity", "0.71");
 				return;
 			}
 		}
-		ramo.select(".invisible").attr("opacity", "0.0");
+		ramo.select(".invisible").transition().duration(70).attr("opacity", "0.0");
 	}
 
 }
