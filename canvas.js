@@ -63,7 +63,7 @@ d3.json('./data.json', function(data) {
 		.call(wrap, 100);
 
 	// verificar cache
-	if (localStorage['approvedRamos'] !== "") {
+	if ('approvedRamos' in localStorage && localStorage['approvedRamos'] !== "") {
 		let approvedRamos = localStorage['approvedRamos'].split(",");
 		approvedRamos.forEach(function(ramo) {
 			all_ramos[ramo].approveRamo();
