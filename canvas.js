@@ -62,6 +62,14 @@ d3.json('./data.json', function(data) {
 	drawer.selectAll(".ramo-label")
 		.call(wrap, 100);
 
+	// verificar cache
+	if (localStorage['approvedRamos'] !== "") {
+		let approvedRamos = localStorage['approvedRamos'].split(",");
+		approvedRamos.forEach(function(ramo) {
+			all_ramos[ramo].approveRamo();
+		});
+	}
+
 	// verificar prerrequisitos
 	d3.interval(function() {
 		for (var semester in malla) {
@@ -76,6 +84,16 @@ d3.json('./data.json', function(data) {
 		});
 		d3.select(".info").select("#creditos").text(c);
 	}, 30);
+
+	// filling the cache!
+	d3.interval(function() {
+		let willStore = []
+		APPROVED.forEach(function(ramo) {
+			willStore.push(ramo.sigla);
+		});
+		localStorage['approvedRamos'] = willStore;
+	}, 2000);
+
 	var first_time = canvas.append("g")
 	first_time.append("rect")
 		.attr("x", 0)
