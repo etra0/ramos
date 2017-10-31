@@ -26,6 +26,6 @@ Para modificar el JSON, se debe saber lo siguiente:
 3. *Créditos*: Entero, la cantidad de créditos.
 4. *Sector*: Sector del ramo al que pertenece (por ejemplo, *PC*: Plan Común), falta exportar la configuración de los colores.
 5. *Prerrequisitos*: Una lista de strings que contiene los prerrequisitos del ramo. Es **importante**
-que la sigla ya exista, de lo contrario podría fallar.
+que la sigla ya exista, de lo contrario podría fallar. Esta lista es opcional.
 
 Se aceptan Fork requests para agregar carreras, pronto se incorporará la selección de carrera
