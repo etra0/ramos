@@ -166,3 +166,9 @@ function wrap(text, width) {
   });
 }
 
+function limpiarRamos() {
+	for (let i = APPROVED.length - 1; i >= 0; i--) {
+		APPROVED[i].approveRamo();
+	}
+}
+

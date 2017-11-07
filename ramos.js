@@ -108,7 +108,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id) {
 			.attr("height", size)
 			.attr("fill", 'white')
 			.attr("opacity", "0.001")
-			.attr("class", "invisible");
+			.attr("class", "non-approved");
 
 		var cross = ramo.append('g').attr("class", "cross").attr("opacity", 0);
 		cross.append("path")
@@ -163,7 +163,6 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id) {
 
 	this.approveRamo = function() {
 			if (!approved) {
-				console.log(d3.select(self.ramo));
 				d3.select("#" + self.sigla).select(".cross").transition().delay(20).attr("opacity", "1");
 				APPROVED.push(self);
 			} else {
@@ -184,11 +183,11 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id) {
 		_a = new Set(_a);
 		for(let r of self.prer) {
 			if (!_a.has(r)) {
-				ramo.select(".invisible").transition().duration(70).attr("opacity", "0.71");
+				ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.71");
 				return;
 			}
 		}
-		ramo.select(".invisible").transition().duration(70).attr("opacity", "0.0");
+		ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.0");
 	}
 
 }

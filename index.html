@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8">
 	<title>Ramos</title>
-	 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
   </head>
   <style>
 		body {
@@ -24,12 +27,12 @@
 		<h1>Malla Informática</h1>
 		<div class='canvas'></div>		
 		<div class="info">
-			Créditos aprobados: <span id='creditos'></span>
+			Créditos aprobados: <span id='creditos'></span> <br>
+			<button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
 		</div>
 		<p>Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
 		<script src='d3.js'></script>
 		<script src='ramos.js'></script>
-		<script src='data.js'></script>
 		<script src='canvas.js'></script>
   </body>
 </html>
