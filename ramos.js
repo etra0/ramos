@@ -1,26 +1,6 @@
 var APPROVED = [];
-/* PC: Plan común
- * FI: Fundamentos de Informática
- * HUM: Humanistas, libres y deportes
- * TIN: Transversal e Integración
- * SD: Sistemas de decisión informática
- * IND: Industrias
- * AN: Análisis Numérico
- */
-var colorBySector = {
-	'PC': '#00838F',
-	'FI': '#2E58A7',
-	'HUM': '#B0B91D',
-	'TIN': '#C54B73',
-	'SD': '#991B1E',
-	'IND': '#6BA8D1',
-	'IS': '#FDDE15',
-	'TIC': '#6D57A5',
-	 'AN': '#00AD5D',
-	 'ELEC': '#F78E1E'
-};
 
-function Ramo(nombre, sigla, creditos, sector, prer=[], id) {
+function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 	this.nombre = nombre;
 	this.sigla = sigla;
 	this.creditos = creditos;

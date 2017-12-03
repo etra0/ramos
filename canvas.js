@@ -18,7 +18,22 @@ var _s = ["I", "II", "III", "IV", "V", 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XI
 var malla = {};
 var all_ramos = {};
 let id = 1;
-d3.json('./data.json', function(data) {
+
+/* PC: Plan común
+ * FI: Fundamentos de Informática
+ * HUM: Humanistas, libres y deportes
+ * TIN: Transversal e Integración
+ * SD: Sistemas de decisión informática
+ * IND: Industrias
+ * AN: Análisis Numérico
+ */
+d3.queue()
+	.defer(d3.json, "./data.json")
+	.defer(d3.json, "./colors.json")
+  .await(main_function);
+
+function main_function(error, data, colorBySector) {
+	console.log(colorBySector)
 	// load the data
 	for (var semester in data) {
 		malla[semester] = {};
@@ -27,7 +42,7 @@ d3.json('./data.json', function(data) {
 				if (ramo.length > 4)
 					return ramo[4];
 				return [];
-			})(), id++)
+			})(), id++, colorBySector)
 			all_ramos[ramo[1]] = malla[semester][ramo[1]];
 		});
 	}
@@ -134,7 +149,7 @@ d3.json('./data.json', function(data) {
 			d3.select(this).remove();
 		});
 	});
-});
+}
 
 
 function wrap(text, width) {
