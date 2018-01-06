@@ -10,16 +10,16 @@
 		["Programación", "IWI131", 3, "ROS"],
 		["Matemáticas II", "MAT022", 5, "CEL", ["MAT021"]],
 		["Física General I", "FIS110", 5, "FI", ["MAT021", "FIS100"]],
-		["Humanístico I", "HRW 1", 2, "HUM"],
+		["Humanístico I", "HRW1", 2, "HUM"],
 		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
 	],
 	"s3": [
 		["Teoría de Redes Electricas I", "ELO102", 4, "VER", ["MAT022", "FIS110"]],
 		["Matemáticas III", "MAT023", 4, "CEL", ["MAT022"]],
 		["Física General II", "FIS120",  4, "FI", ["MAT022", "FIS110"]],
-		["Humanístico II", "HRW 2", 2, "HUM"],
-		["Humanístico III", "HRW 3", 2, "HUM"],
-		["Deportes", "DEW 0", 1, "HUM", ["DEW101"]]
+		["Humanístico II", "HRW2", 2, "HUM"],
+		["Humanístico III", "HRW3", 2, "HUM"],
+		["Deportes", "DEW0", 1, "HUM", ["DEW101"]]
 	],
 	"s4": [
 		["Teoría de Redes Electricas II", "ELO103", 3, "VER", ["ELO102"]],
