@@ -1,4 +1,4 @@
-var width = 1330,
+var width = 1500,
 	height = 730;
 
 var canvas = d3.select(".canvas")
