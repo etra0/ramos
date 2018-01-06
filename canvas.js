@@ -1,4 +1,4 @@
-var width = 1500,
+var width = 1580,
 	height = 730;
 
 var canvas = d3.select(".canvas")
@@ -8,7 +8,8 @@ var canvas = d3.select(".canvas")
 
 var carreras = {
 	'INF': 'Informática',
-	'ELO': 'Electrónica'
+	'ELO': 'Electrónica',
+	'TEL': 'Telemática'
 }
 
 /* ---------- axis ---------- */
@@ -89,7 +90,7 @@ function main_function(error, data, colorBySector) {
 		drawer.append("rect")
 			.attr("x", globalX)
 			.attr("y", globalY)
-			.attr("width", 110)
+			.attr("width", 120)
 			.attr("height", 30)
 			.attr("fill", 'gray');
 
@@ -108,10 +109,10 @@ function main_function(error, data, colorBySector) {
 			malla[semester][ramo].draw(drawer, globalX, globalY, 100);
 			globalY += 110;
 		};
-		globalX += 120;
+		globalX += 130;
 	};
 	drawer.selectAll(".ramo-label")
-		.call(wrap, 100);
+		.call(wrap, 120);
 
 	// verificar cache
 	var cache_variable = 'approvedRamos_' + current_malla;
