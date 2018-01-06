@@ -21,7 +21,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 			.attr("y", posY)
 			.attr("width", size*1.1)
 			.attr("height", size)
-			.attr("fill", colorBySector[sector]);
+			.attr("fill", colorBySector[sector][0]);
 
 		// above bar
 		ramo.append("rect")
@@ -123,7 +123,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 				.attr('cx', posX + r + c_x + 5)
 				.attr('cy', posY + size - graybar/2)
 				.attr('r', r)
-				.attr('fill', colorBySector[all_ramos[p].sector])
+				.attr('fill', colorBySector[all_ramos[p].sector][0])
 				.attr('stroke', 'white');
 			ramo.append('text')
 				.attr('x', posX + r + c_x + 5)

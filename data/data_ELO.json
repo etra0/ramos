@@ -2,22 +2,24 @@
 	"s1": [
 		["Química y Sociedad", "QUI010", 3, "ROS"],
 		["Matemáticas I", "MAT021", 5, "CEL"],
-		["Introducción a la Física", "FIS100", 3, "ROS"],
-		["Humanístico I", "HRW1", 2, "HUM"],
+		["Introducción a la Física", "FIS100", 3, "FI"],
 		["Educación Física I", "DEW100", 1, "HUM"],
 		["Introducción a la Ingeniería", "IWG101", 2, "FI"]
 	],
-	"s2": [["Programación", "IWI131", 3, "ROS"],
+	"s2": [
+		["Programación", "IWI131", 3, "ROS"],
 		["Matemáticas II", "MAT022", 5, "CEL", ["MAT021"]],
 		["Física General I", "FIS110", 5, "FI", ["MAT021", "FIS100"]],
-		["Humanístico II", "HRW2", 2, "HUM"],
+		["Humanístico I", "HRW 1", 2, "HUM"],
 		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
 	],
-	"s3": [["Física General II", "FIS120",  4, "FI", ["MAT022", "FIS110"]],
-		["Deportes", "DEW0", 1, "HUM", ["DEW101"]],
+	"s3": [
+		["Teoría de Redes Electricas I", "ELO102", 4, "VER", ["MAT022", "FIS110"]],
 		["Matemáticas III", "MAT023", 4, "CEL", ["MAT022"]],
-		["Humanístico III", "HRW3", 2, "HUM"],
-		["Teoría de Redes Electricas I", "ELO102", 4, "VER", ["MAT022", "FIS110"]]
+		["Física General II", "FIS120",  4, "FI", ["MAT022", "FIS110"]],
+		["Humanístico II", "HRW 2", 2, "HUM"],
+		["Humanístico III", "HRW 3", 2, "HUM"],
+		["Deportes", "DEW 0", 1, "HUM", ["DEW101"]]
 	],
 	"s4": [
 		["Teoría de Redes Electricas II", "ELO103", 3, "VER", ["ELO102"]],
@@ -27,8 +29,8 @@
 		["Laboratorio Electronica A", "ELO107", 3, "RO", ["ELO102"]]
 	],
 	"s5": [
-		["Matemáticas IV", "MAT024", 4, "CEL", ["MAT023"]],
 		["Electronica B", "ELO108", 4, "VER", ["ELO106"]],
+		["Matemáticas IV", "MAT024", 4, "CEL", ["MAT023"]],
 		["Laboratorio Electronica B", "ELO109", 3, "RO", ["ELO107", "ELO106"]],
 		["Sistemas Digitales", "ELO211", 3, "VER", ["ELO102"]],
 		["Laboratorio de Sistemas Digitales", "ELO212", 3, "RO", ["ELO102"]],

@@ -53,7 +53,6 @@ function main_function(error, data, colorBySector) {
 		$(".canvas").prepend("<h1>OPS!, malla no encontrada, <a href='http://labcomp.cl/~saedo/apps/viz/ramos'>Volver al inicio</a></h1>");
 		return;
 	}
-	console.log(colorBySector)
 	// load the data
 	for (var semester in data) {
 		malla[semester] = {};
@@ -66,6 +65,23 @@ function main_function(error, data, colorBySector) {
 			all_ramos[ramo[1]] = malla[semester][ramo[1]];
 		});
 	}
+
+	// colores de la malla
+	Object.keys(colorBySector).forEach(key => {
+		color_description = d3.select(".color-description").append("div")
+			.attr("style", "display:flex;vertical-align:middle;margin-right:15px;");
+		circle_color = color_description.append("svg")
+			.attr("height", "25px")
+			.attr("width", "25px");
+		circle_color.append("circle")
+			.attr("r", 10)
+			.attr("cx", 12)
+			.attr("cy", 12)
+			.attr("fill", colorBySector[key][0]);
+
+		color_description.append("span").text(colorBySector[key][1]);
+
+	});
 
 	for (var semester in malla) {
 		globalY = 0;
