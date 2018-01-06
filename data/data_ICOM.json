@@ -1,0 +1,80 @@
+{
+	"s1": [
+		["Programación", "IWI-131", 3, "FI"],
+		["Álgebra y geometría", "MATE10", 4, "PC"],
+		["Introducción a la Física", "FIS-100", 3, "PC"],
+		["Introducción a la ingeniería", "IWG-101", 2, "HUM"],
+		["Educación Física I", "DEW-100", 1, "HUM"]
+	],
+	"s2": [["Química y Sociedad", "QUI-010", 3, "PC"],
+		["Pre-cálculo", "MATE11", 3, "PC", ["MATE10"]],
+	        ["Álgebra lineal", "MATE20", 3, "PC", ["MATE10"]],
+		["Administración de empresas", "ICS001", 3, "ICOM", ["IWG-101]],
+		["Inglés Básico", "HCW319", 2, "HUM"],
+		["Humanístico I", "HRW 1", 2, "HUM"],
+		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]]
+	],
+	"s3": [["Cálculo diferencial", "MATE25", 4, "PC", ["MATE11", "MATE20"]],
+		["Contabilidad I", "ICS002", 3, "ICOM", ["ICS001"]],
+		["Deporte", "DEW 0", 1, "HUM", ["DEW-101]],
+		["Humanistico II", "HRW 2", 2, "HUM"],
+		["Inglés medio I", "HCW321", 2, "HUM", ["HCW319"]],
+		["Legislación empresarial", "ICS003", 3, "ICOM", ["ICS001"]],
+	],
+	"s4": [
+		["Cálculo integral", "MATE26", 3, "PC", ["MATE25"]],
+		["CONTABILIDAD II", "ICS004", 3, "ICOM", ["ICS002"]],
+		["Humanistico III", "HRW 3", 2, "HUM"],
+		["Inglés medio II", "HCW322", 2, "HUM", ["HCW321"]],
+		["Laboratorio de procesos industriales", "ILN252", 4, "IND", ["MAT-023"]],
+		["Microeconomía I", "ICS005", 3, "ICOM", ["MATE25"]]
+	],
+	"s5": [
+		["Gestión de investigación de operaciones", "ICS010", 4, "ICOM", ["MAT26"]],
+		["Ingeniería economica ", "ICS009", 3, "ICOM", ["ICS002"]],
+		["Inglés avanzado I", "HCW323", 2, "HUM", ["HCW322"]],
+		["Legislación tributaria", "ICS008", 3, "ICOM", ["ICS003"]],
+		["Macroeconomía I", "ICS007", 3, "ICOM", ["ICS005"]],
+		["Microeconomía II", "ICS006", 3, "ICOM", ["ICS005"]],
+		["Probabilidad y estadística comercial", "MAT032", 4, "PC", ["MATE26"]],
+	],
+	"s6": [
+		["Econometría", "ICS013", 4, "ICOM", ["MAT32"]],
+		["Finanzas I", "ICS014", 3, "ICOM", ["ICS004"]],
+		["Inglés avanzado II", "HCW324", 2, "HUM", ["HCW323"]],
+		["Macroeconomía II", "ICS012", 3, "ICOM", ["ICS007"]],
+		["Organización industrial", "ICS011", 3, "ICOM", ["ICS005"]],
+		["Recursos humanos", "ICS015", 3, "ICOM", ["ICS001"]],
+	],
+	"s7": [
+		["Evaluación de proyectos generales", "ICS019", 3, "ICOM", ["ICS005"]],
+		["Finanzas II", "ICS018", 3, "ICOM", ["ICS014"]],
+		["Gestión de operaciones", "ICS020", 4, "ICOM", ["ICS010"]],
+		["Inglés conversación I", "HCW325", 2, "HUM", ["HCW324"]],
+		["Marketing I", "ICS017", 3, "ICOM", ["ICS004"]],
+		["Sistemas de información para la gestión", "ICS016", 3, "ICOM", ["IWI-131", "ICS005"]],
+	],
+	"s8": [
+		["Desarrollo y control de proyectos", "ICS024", 3, "ICOM", ["ICS019"]],
+		["Electivo I", "ICS801", 3, "ICOM"],
+		["Gestión estratégica", "ICS022", 3, "ICOM", ["ICS014", "ICS017", "ICS015"]],
+		["Inglés conversación II", "HCW326", 2, "HUM", ["HCW325"]],
+		["Liderazgo empresarial", "ICS021", 3, "ICOM", ["ICS015", "ICS017"]],
+		["Marketing II", "ICS023", 3, "ICOM", ["ICS017", "ICS013"]],
+	],
+	"s9": [
+		["Creación de empresas", "ICS026", 3, "ICOM", ["ICS022"]],
+		["Economía internacional", "ICS030", 3, "ICOM", ["ICS012"]],
+		["Gestión de calidad total", "ICS027", 3, "ICOM", ["ICS010]],
+		["Gestión estratégica II", "ICS028", 3, "ICOM", ["ICS022"]],
+		["Proyectos", "ICS025", 4, "ICOM", ["ICS019"]],
+		["Taller de título I", "ICS029", 2, "ICOM", ["ICS022"]],
+	],
+	"s10": [
+		["Electivo II", "ICS802", 3, "ICOM"],
+		["Electivo III", "ICS803", 3, "ICOM"],
+		["Espíritu empresarial", "ICS033", 3, "ICOM", ["ICS021"]],
+		["Juego de negocios", "ICS031", 3, "ICOM", ["ICS022"]],
+		["Taller de título II", "ICS032", 8, "ICOM", ["ICS029"]]
+	]
+}
