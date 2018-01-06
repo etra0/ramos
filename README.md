@@ -32,8 +32,25 @@ Para modificar el JSON se debe saber lo siguiente:
 1. *Ramo*: El nombre completo del ramo.
 2. *Sigla*: Sigla del ramo. Este campo es importante, ya que con éstos se calculan los prerrequisitos.
 3. *Créditos*: Entero, la cantidad de créditos.
-4. *Sector*: Sector del ramo al que pertenece (por ejemplo, *PC*: Plan Común), se pueden agregar ó editar en el json `colors_CARR.json`.
+4. *Sector*: Sector del ramo al que pertenece (por ejemplo, *PC*: Plan Común), se deben agregar ó editar en el json `colors_CARR.json`.
 5. *Prerrequisitos*: Una lista de strings que contiene los prerrequisitos del ramo. Es **importante**
 que la sigla ya exista, de lo contrario podría fallar. Esta lista es opcional.
 
-Se aceptan Fork requests para agregar carreras, pronto se incorporará la selección de carrera
+El json `colors_CARR.json` debe tener el formato
+
+```json
+{
+	"SIGLA": ["COLOR", "pequeña descripcion"],
+}
+```
+
+Ejemplo:
+
+```json
+{
+	"PC": ["#00838F", "Plan Común"],
+	...
+}
+```
+
+Se aceptan Fork requests para agregar carreras.
