@@ -19,7 +19,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
-			.attr("width", size*1.1)
+			.attr("width", size*1.2)
 			.attr("height", size)
 			.attr("fill", colorBySector[sector][0]);
 
@@ -27,7 +27,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
-			.attr("width", size*1.1)
+			.attr("width", size*1.2)
 			.attr("height", graybar)
 			.attr("fill", '#6D6E71');
 
@@ -35,19 +35,19 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY + size - graybar)
-			.attr("width", size*1.1)
+			.attr("width", size*1.2)
 			.attr("height", graybar)
 			.attr("fill", '#6D6E71');
 
 		// credits rect
 		ramo.append("rect")
-			.attr("x", posX + size - 23)
+			.attr("x", posX + size*1.2 - 23)
 			.attr("y", posY + size - graybar + 1)
 			.attr("width", 19)
 			.attr("height", 18)
 			.attr("fill", 'white');
 		ramo.append("text")
-			.attr("x", posX + size - 17)
+			.attr("x", posX + size*1.2 - 17)
 			.attr("y", posY + size - 6)
 			.text(self.creditos)
 			.attr("font-family", "sans-serif")
@@ -57,7 +57,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 			
 		
 		ramo.append("text")
-			.attr("x", posX + size*1.1/2)
+			.attr("x", posX + size*1.2/2)
 			.attr("y", posY + size/2)
 			.text(self.nombre)
 			.attr("class", "ramo-label")
@@ -84,7 +84,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
-			.attr("width", size*1.1)
+			.attr("width", size*1.2)
 			.attr("height", size)
 			.attr("fill", 'white')
 			.attr("opacity", "0.001")
@@ -98,15 +98,15 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 
 		// id
 		ramo.append("circle")
-			.attr("cx", posX + size*1.1-10)
+			.attr("cx", posX + size*1.2-10)
 			.attr("cy", posY + graybar/2 )
 			.attr("fill", "white")
 			.attr("r", 8);
 		ramo.append("text")
 			.attr("x", function() {
 				if (self.id > 9)
-					return posX + size*1.1-10
-				return posX + size*1.1 - 10.5
+					return posX + size*1.2-10
+				return posX + size*1.2 - 10.5
 			})
 			.attr("y", posY + graybar/2 + 3)
 			.attr("text-anchor", "middle")
