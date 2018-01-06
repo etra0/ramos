@@ -24,12 +24,23 @@
 
   <body>
 
-		<h1>Malla Informática</h1>
+<nav class="navbar navbar-default"style='display:flex;justify-content:center'>
+  <div class="container-fluid" >
+    <ul class="nav navbar-nav">
+      <li><a href="?m=INF">Informática</a></li>
+      <li><a href="?m=ELO">Electrónica</a></li>
+    </ul>
+  </div>
+</nav>
+	  <h1>Malla Interactiva <span id="carrera"></span></h1>
 		<div class='canvas'></div>		
 		<div class="info">
 			Créditos aprobados: <span id='creditos'></span> <br>
 			<button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
 		</div>
+
+		<p><img src="data/ramo.svg" style="width:300px;"></p>
+
 		<p>Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
 		<script src='d3.js'></script>
 		<script src='ramos.js'></script>

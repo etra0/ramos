@@ -1,0 +1,87 @@
+{
+	"s1": [
+		["Química y Sociedad", "QUI010", 3, "ROS"],
+		["Matemáticas I", "MAT021", 5, "CEL"],
+		["Introducción a la Física", "FIS100", 3, "ROS"],
+		["Humanístico I", "HRW1", 2, "HUM"],
+		["Educación Física I", "DEW100", 1, "HUM"],
+		["Introducción a la Ingeniería", "IWG101", 2, "FI"]
+	],
+	"s2": [["Programación", "IWI131", 3, "ROS"],
+		["Matemáticas II", "MAT022", 5, "CEL", ["MAT021"]],
+		["Física General I", "FIS110", 5, "FI", ["MAT021", "FIS100"]],
+		["Humanístico II", "HRW2", 2, "HUM"],
+		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
+	],
+	"s3": [["Física General II", "FIS120",  4, "FI", ["MAT022", "FIS110"]],
+		["Deportes", "DEW0", 1, "HUM", ["DEW101"]],
+		["Matemáticas III", "MAT023", 4, "CEL", ["MAT022"]],
+		["Humanístico III", "HRW3", 2, "HUM"],
+		["Teoría de Redes Electricas I", "ELO102", 4, "VER", ["MAT022", "FIS110"]]
+	],
+	"s4": [
+		["Teoría de Redes Electricas II", "ELO103", 3, "VER", ["ELO102"]],
+		["Analisis de Sistemas Lineales", "ELO104", 4, "VER", ["MAT023", "ELO102"]],
+		["Física General III", "FIS130", 4, "FI", ["MAT022", "FIS110"]],
+		["Electronica A", "ELO106", 4, "VER", ["ELO102"]],
+		["Laboratorio Electronica A", "ELO107", 3, "RO", ["ELO102"]]
+	],
+	"s5": [
+		["Matemáticas IV", "MAT024", 4, "CEL", ["MAT023"]],
+		["Electronica B", "ELO108", 4, "VER", ["ELO106"]],
+		["Laboratorio Electronica B", "ELO109", 3, "RO", ["ELO107", "ELO106"]],
+		["Sistemas Digitales", "ELO211", 3, "VER", ["ELO102"]],
+		["Laboratorio de Sistemas Digitales", "ELO212", 3, "RO", ["ELO102"]],
+		["Ingles I", "HCW100", 2, "HUM"]
+	],
+	"s6": [
+		["Control Automatico I", "ELO270", 3, "VER", ["ELO104"]],
+		["Laboratorio de Control Automatico", "ELO271", 3, "RO", ["ELO104"]],
+		["Estructura de Computadores", "ELO311", 3, "VER", ["ELO211"]],
+		["Laboratorio de Estructura de Computadores", "ELO312", 4, "RO", ["ELO212"]],
+		["Sistemas Electromecanicos", "ELO281", 4, "VER", ["FIS120", "ELO103"]]
+	],
+	"s7": [
+		["Campos Electromagneticos", "ELO250", 4, "VER", ["FIS120", "FIS130", "MAT024"]],
+		["Ingles II", "HCW101", 2, "HUM"],
+		["Laboratorio de Comunicaciones", "ELO241", 3, "RO", ["ELO109", "ELO104"]],
+		["Probabilidad y Procesos Aleatorios I", "ELO204", 4, "IND", ["MAT022"]],
+		["Teoría de Comunicaciones", "ELO240", 3, "VER", ["ELO104"]],
+		["1A. Asignatura Libre", "ELO21", 3, "HUM"]
+	],
+	"s8": [
+		["Administración General", "IWN261", 3, "IND"], 
+		["Gestión de Investigación de Operaciones", "ILN250", 4, "VER", ["ELO204"]],
+		["Física General IV", "FIS140", 4, "FI", ["FIS130", "FIS120"]],
+		["1A. Asignatura de la Mencion", "ELO1", 3, "AMA"],
+		["2A. Asignatura de la Mencion", "ELO2", 3, "AMA"]
+	],
+	"s9": [
+		["Analisis Numerico", "MAT270", 4, "CEL", ["MAT024"]],
+		["Economia I-A", "IWN170", 3, "IND", ["MAT023"]],
+		["1A. Asignatura Complementaria", "ELO11", 3, "MO"],
+		["3A. Asignatura de la Mencion", "ELO3", 3, "AMA"],
+		["4A. Asignatura de la Mencion", "ELO4", 3, "AMA"]
+	],
+	"s10": [
+		["Informacion y Control Financiero", "IWN270", 3, "IND", ["IWN170"]],
+		["2A. Asignatura Complementaria", "ELO12", 3, "MO"],
+		["2A. Asignatura Libre", "ELO22", 3, "HUM"],
+		["3A. Asignatura Libre", "ELO23", 3, "HUM"],
+		["5A. Asignatura de la Mencion", "ELO5", 3, "AMA"],
+		["6A. Asignatura de la Mencion", "ELO6", 3, "AMA"]
+	],
+	"s11": [
+		["Proyecto de Titulación para Ing. Civil ELO", "ELO307", 4, "NARA"],
+		["Ingeniería Economica", "INL230", 3, "IND", ["IWN270"]],
+		["3A. Asignatura Complementaria", "ELO13", 3, "MO"],
+		["4A. Asignatura Complementaria", "ELO14", 3, "MO"],
+		["7A. Asignatura de la Mencion", "ELO7", 3, "AMA"]
+	],
+	"s12": [
+		["Administración de la Producción", "ICN345", 3, "IND", ["ILN250"]],
+		["Memoria de Titulación para Ing. Civil ELO","ELO308", 6, "NARA", ["ELO307"]],
+		["Proyectos Electronicos", "ELO302", 3, "NARA", ["INL230", "ELO311"]],
+		["5A. Asignatura Complementaria", "ELO15", 3, "MO"]
+	]
+}

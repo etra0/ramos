@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 949.4 434.9" style="enable-background:new 0 0 949.4 434.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00828E;}
+	.st1{fill:#6D6E70;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#231F20;}
+	.st4{font-family:'OpenSans-Bold';}
+	.st5{font-size:29.1442px;}
+	.st6{letter-spacing:-1;}
+	.st7{font-size:35.8698px;}
+	.st8{font-family:'OpenSans-Regular';}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st10{font-family:'OpenSans-Italic';}
+	.st11{font-size:45.6679px;}
+	.st12{fill:none;stroke:#6D6E70;stroke-miterlimit:10;}
+	.st13{fill:#00828E;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;}
+	.st14{font-size:31.3247px;}
+</style>
+<g>
+	<rect x="336.8" y="39.6" class="st0" width="291.7" height="281.9"/>
+	<rect x="335.4" y="42.6" class="st1" width="293.1" height="75.9"/>
+	<g>
+		<rect x="336.8" y="265.3" class="st1" width="293.1" height="56.2"/>
+	</g>
+	<g>
+		<g>
+			<path class="st2" d="M603.1,80.6c0,11.4-9.3,20.7-20.7,20.7c-11.5,0-20.7-9.3-20.7-20.7c0-11.5,9.3-20.7,20.7-20.7
+				C593.8,59.8,603.1,69.1,603.1,80.6z"/>
+			<g>
+				<text transform="matrix(1 0 0 1 573.4041 90.134)" class="st3 st4 st5 st6">8</text>
+			</g>
+		</g>
+		<text transform="matrix(1 0 0 1 362.1854 90.5481)" class="st2 st4 st7 st6">FIS-110</text>
+	</g>
+	<g>
+		<rect x="564.1" y="269.3" class="st2" width="51.8" height="51.8"/>
+		<text transform="matrix(1 0 0 1 580.4725 307.2263)" class="st3 st4 st7 st6">5</text>
+	</g>
+	<text transform="matrix(1 0 0 1 441.535 179.6379)"><tspan x="0" y="0" class="st2 st8 st7 st6">Física</tspan><tspan x="-28.1" y="43" class="st2 st8 st7 st6">General I</tspan></text>
+	<rect x="335.4" y="38.3" class="st9" width="294.4" height="284.5"/>
+	<g>
+		<text transform="matrix(1 0 0 1 688.3963 76.2903)"><tspan x="0" y="0" class="st1 st10 st11 st6">Número</tspan><tspan x="0" y="34.3" class="st1 st10 st11 st6">asignatura</tspan></text>
+	</g>
+	<line class="st12" x1="533.9" y1="350.8" x2="587.8" y2="321"/>
+	<line class="st12" x1="614.2" y1="80.5" x2="682.7" y2="80.5"/>
+	<g>
+		<text transform="matrix(1 0 0 1 688.3963 187.7668)"><tspan x="0" y="0" class="st1 st10 st11 st6">Nombre</tspan><tspan x="0" y="34.3" class="st1 st10 st11 st6">asignatura</tspan></text>
+	</g>
+	<line class="st12" x1="614.2" y1="180.6" x2="682.7" y2="180.6"/>
+	<g>
+		<text transform="matrix(1 0 0 1 136.8197 76.2903)"><tspan x="0" y="0" class="st1 st10 st11 st6">Código </tspan><tspan x="-60.9" y="34.3" class="st1 st10 st11 st6">asignatura</tspan></text>
+	</g>
+	<line class="st12" x1="290" y1="80.5" x2="358.4" y2="80.5"/>
+	<g>
+		<text transform="matrix(1 0 0 1 27.4198 306.8254)" class="st1 st10 st11 st6">Pre Requisito</text>
+	</g>
+	<line class="st12" x1="290" y1="299.6" x2="358.4" y2="299.6"/>
+	<g>
+		<text transform="matrix(1 0 0 1 347.9882 398.6091)" class="st1 st10 st11 st6">Créditos  USM</text>
+	</g>
+	<g>
+		<ellipse class="st13" cx="391.5" cy="291.1" rx="22.3" ry="22.3"/>
+		<g>
+			<text transform="matrix(1 0 0 1 382.6073 301.4504)" class="st2 st4 st14 st6">2</text>
+		</g>
+	</g>
+	<g>
+		<path class="st13" d="M458.4,291.1c0,12.3-10,22.3-22.3,22.3c-12.3,0-22.3-10-22.3-22.3c0-12.3,10-22.3,22.3-22.3
+			C448.4,268.9,458.4,278.8,458.4,291.1z"/>
+		<g>
+			<text transform="matrix(1 0 0 1 427.1854 301.4504)" class="st2 st4 st14 st6">3</text>
+		</g>
+	</g>
+</g>
+</svg>

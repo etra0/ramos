@@ -6,6 +6,11 @@ var canvas = d3.select(".canvas")
 	.attr('width', width)
 	.attr('height', height);
 
+var carreras = {
+	'INF': 'Informática',
+	'ELO': 'Electrónica'
+}
+
 /* ---------- axis ---------- */
 var drawer = canvas.append('g')
 	.attr('transform', 'translate(10, 20)');
@@ -19,6 +24,17 @@ var malla = {};
 var all_ramos = {};
 let id = 1;
 
+// verificamos que malla busca
+var current_malla = 'INF';
+if (window.location.search) {
+	var params = new URLSearchParams(window.location.search);
+	if (params.has('m'))
+		current_malla = params.get('m');
+	
+}
+
+$("#carrera").text(carreras[current_malla]);
+
 /* PC: Plan común
  * FI: Fundamentos de Informática
  * HUM: Humanistas, libres y deportes
@@ -28,11 +44,15 @@ let id = 1;
  * AN: Análisis Numérico
  */
 d3.queue()
-	.defer(d3.json, "./data.json")
-	.defer(d3.json, "./colors.json")
+	.defer(d3.json, "./data/data_" + current_malla + ".json")
+	.defer(d3.json, "./data/colors_" + current_malla + ".json")
   .await(main_function);
 
 function main_function(error, data, colorBySector) {
+	if (error) {
+		$(".canvas").prepend("<h1>OPS!, malla no encontrada, <a href='http://labcomp.cl/~saedo/apps/viz/ramos'>Volver al inicio</a></h1>");
+		return;
+	}
 	console.log(colorBySector)
 	// load the data
 	for (var semester in data) {
@@ -78,8 +98,9 @@ function main_function(error, data, colorBySector) {
 		.call(wrap, 100);
 
 	// verificar cache
-	if ('approvedRamos' in localStorage && localStorage['approvedRamos'] !== "") {
-		let approvedRamos = localStorage['approvedRamos'].split(",");
+	var cache_variable = 'approvedRamos_' + current_malla;
+	if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
+		let approvedRamos = localStorage[cache_variable].split(",");
 		approvedRamos.forEach(function(ramo) {
 			all_ramos[ramo].approveRamo();
 		});
@@ -106,7 +127,7 @@ function main_function(error, data, colorBySector) {
 		APPROVED.forEach(function(ramo) {
 			willStore.push(ramo.sigla);
 		});
-		localStorage['approvedRamos'] = willStore;
+		localStorage[cache_variable] = willStore;
 	}, 2000);
 
 	var first_time = canvas.append("g")
@@ -124,7 +145,7 @@ function main_function(error, data, colorBySector) {
 		.attr("text-anchor", "middle")
 		.attr("font-size", 40)
 		.attr("opacity", 0.01)
-		.text("¡Bienvenido a la Malla Interactiva de Info!")
+		.text(`¡Bienvenido a la Malla Interactiva de ${carreras[current_malla]}!`)
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
