@@ -8,7 +8,8 @@ var canvas = d3.select(".canvas")
 
 var carreras = {
 	'INF': 'Informática',
-	'ELO': 'Electrónica'
+	'ELO': 'Electrónica',
+	'TEL': 'Telemática'
 }
 
 /* ---------- axis ---------- */

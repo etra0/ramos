@@ -1,0 +1,96 @@
+{
+	"s1": [
+		["Matemáticas I", "MAT-021", 5, "CSC"],
+		["Iniciación a la Programación", "TEL-101", 3, "SW"],
+		["Introducción a la Física", "FIS-100", 3, "FIS"],
+		["Introducción a la Ingeniería", "IWG-101", 2, "TIN"],
+		["Humanístico I", "HRW-101", 2, "FG"],
+		["Educación Física I", "DEW-100", 1, "DEW"]
+	],
+	"s2": [
+		["Matemáticas II", "MAT-022", 5, "CSC", ["MAT-021"]],
+		["Física General I", "FIS-110", 3, "FIS", ["MAT-021", "FIS-100"]],
+		["Seminario de Programación", "TEL-102", 3, "SW", ["TEL-101"]],
+		["Expresión Oral y Escrita", "HFW-144", 2, "FG"],
+		["Humanístico II", "HRW-102", 2, "FG"],
+		["Educación Física II", "DEW-101", 1, "DEW", ["DEW-100"]]
+	],
+	"s3": [
+		["Matemáticas III", "MAT-023", 4, "CSC", ["MAT-022"]],
+		["Física General II", "FIS-120",  4, "FIS", ["MAT-022", "FIS-110"]],
+                ["Estructura de Datos y Algoritmos", "ELO-320", 3, "SW", ["TEL-102"]],
+		["Redes de Computadores", "ELO-322", 3, "REDES", ["TEL-101"]],
+		["Inglés 1", "HCW-100", 2, "ENG"],
+		["Deportes", "DEW-110", 1, "DEW", ["DEW-101"]]
+	],
+	"s4": [
+                ["Química y Sociedad", "QUI-010", 3, "CSC"],
+		["Probabilidades y Procesos Aleatorios", "ELO-204", 4, "CSC", ["MAT-022"]],
+		["Bases de Datos", "INF-239", 3, "SW", ["ELO-320"]],
+		["Electrónica Digital", "TEL-131", 3, "ELO", ["MAT-022", "FIS-120"]],
+		["Laboratorio de Electrónica Digital", "TEL-132", 3, "ELO"],
+		["Inglés 2", "HCW-101", 2, "ENG", ["HCW-100"]]
+	],
+	"s5": [
+		["Física General III", "FIS-130", 4, "FIS", ["MAT-022", "FIS-110"]],
+		["Fundamentos de Transmisión de Señales", "TEL-222", 3, "TELECO", ["MAT-023", "FIS-120"]],
+		["Diseño y Program. Orientada a Objetos", "ELO-329", 3, "SW", ["TEL-101"]],
+		["Análisis y Diseño de Software", "INF-236", 3, "SW", ["INF-239"]],
+		["Laboratorio de Redes de Computadores", "TEL-241", 3, "REDES", ["ELO-322"]],
+		["Inglés 3", "HCW-102", 2, "ENG", ["HCW-101"]]
+	],
+	"s6": [
+		["Matemáticas IV", "MAT-024", 4, "CSC", ["MAT-023"]],
+		["Sistemas de Telecomunicaciones", "TEL-231", 3, "TELECO", ["TEL-222"]],
+		["Laboratorio de Comunicaciones", "ELO-241", 3, "TELECO", ["TEL-222", "MAT-023"]],
+		["Teoría de Sistemas Operativos", "ELO-321", 3, "SW", ["TEL-102"]],
+		["Ingeniería de Software", "INF-225", 3, "SW", ["INF-236"]],
+		["Inglés 4", "HCW-200", 2, "ENG", ["HCW-102"]]
+	],
+	"s7": [
+		["Análisis Numérico", "MAT-270", 3, "CSC", ["MAT-024"]],
+		["Sistemas Digitales", "ELO-211", 3, "ELO", ["TEL-131"]],
+		["Laboratorio de Sistemas Digitales", "ELO-212", 3, "ELO", ["TEL-131"]],
+		["Disponibilidad y Rendimiento de Sistemas TIC", "TEL-211", 3, "REDES", ["ELO-204", "ELO-322"]],
+		["Pensamiento de Diseño en Ingeniería", "TEL-360", 3, "FG"],
+		["Inglés 5", "HCW-201", 2, "ENG", ["HCW-200"]]
+	],
+	"s8": [
+		["Física General IV", "FIS-140", 4, "FIS", ["FIS-130", "FIS-120"]],
+		["Teoría de Comunicaciones Digitales", "TEL-341", 3, "TELECO", ["ELO-204", "TEL-231"]],
+		["Criptografía y Seguridad de la Información", "INF-252", 3, "SW", ["ELO-204", "TEL-131", "TEL-102"]],
+		["Diseño de Aplicaciones Web y Móviles", "TEL-335", 3, "SW", ["ELO-329", "INF-239"]],
+		["Administración de Servicios y Redes de Computadores", "TEL-342", 3, "REDES", ["TEL-241"]],
+		["Inglés 6", "HCW-202", 2, "ENG", ["HCW-201"]]
+	],
+	"s9": [
+		["Redes de Acceso y Comunicac. Ópticas", "TEL-236", 3, "TELECO", ["ELO-204", "TEL-222", "TEL-231"]],
+		["Gestión de Investig. de Operaciones", "ILN-250", 3, "IND", ["ELO-204"]],
+		["Minería de Datos", "TEL-354", 3, "SW", ["ELO-204", "ELO-320", "ELO-322", "MAT-023"]],
+		["Simulación de Redes", "TEL-341", 3, "REDES", ["ELO-204", "ELO-320", "ELO-322"]],
+		["Seguridad en Redes de Computadores", "TEL-312", 3, "REDES", ["TEL-342"]],
+		["Redes Inalámbricas", "TEL-315", 3, "REDES", ["ELO-204", "ELO-322"]]
+	],
+	"s10": [
+		["Economía IA", "IWN-170", 3, "IND", ["MAT-023"]],
+		["Planificación y Dimensionamiento de Redes", "TEL-343", 3, "REDES", ["ELO-204"]],
+		["Procesamiento Digital de Imágenes", "ELO-328", 3, "SW", ["ELO-204", "ELO-329"]],
+		["Redes Ópticas WDM", "TEL-317", 3, "REDES", ["ELO-204", "ELO-322"]],
+		["Redes de Sensores", "TEL-329", 3, "REDES", ["TEL-241", "TEL-315"]],
+		["Complementario 1", "TEL-011", 3, "COMPL"]
+	],
+	"s11": [
+		["Administración General", "IWN-261", 3, "IND"],
+		["Complementario 2", "TEL-012", 3, "COMPL"],
+		["Mem. Multid.: Transversal 1", "IWG-396", 3, "COMPL"],
+		["Mem. Multid.: Innovación", "IWG-397", 3, "COMPL"],
+		["Taller Memoria Multidisciplinaria 1", "IWG-394", 5, "COMPL"]
+	],
+	"s12": [
+		["Electivo", "TEL-021", 3, "COMPL"],
+		["Complementario 3", "TEL-013", 3, "COMPL"],
+		["Mem. Multid.: Transversal 2", "IWG-398", 3, "COMPL"],
+		["Mem. Multid.: Emprendimiento", "IWG-399", 3, "COMPL"],
+		["Taller Memoria Multidisciplinaria 2", "IWG-395", 5, "COMPL", ["IWG-394"]]
+	]
+}

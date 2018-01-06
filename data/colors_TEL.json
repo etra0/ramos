@@ -1,0 +1,15 @@
+{
+	"FIS": ["#00838F", "Física"],
+	"TIN": ["#C54B73", "Transversal e Integración"],
+	"IND": ["#6BA8D1", "Industrias"],
+
+	"CSC": ["#92D050", "Ciencias Básicas"],
+	"ELO": ["#AEA3C2", "Electrónica"],
+	"SW": ["#813FA0", "Software"],
+	"TELECO": ["#D6D600", "Telecomunicaciones"],
+	"REDES": ["#FF7B7B", "Redes"],
+	"FG": ["#1B57C9", "Formación General"],
+	"ENG": ["#00B0F0", "Inglés"],
+	"COMPL": ["#F0DF82", "Complementarios"],
+	"DEW": ["#BFBFBF", "Deportes"]
+}
