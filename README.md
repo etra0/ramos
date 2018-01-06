@@ -10,8 +10,12 @@ visualizar los ramos aprobados.
 
 ## Aportar
 
-Para aportar, en la carpeta raíz se tienen 2 `json`, uno con los colores por sector, y otro con los ramos.
-Se pueden tomar los colores como base y modificar los ramos o modificar ambos.
+Para aportar, en la carpeta `data` se tienen dos ficheros por cada
+carrera, estos son  `data_CARR.json` y `colors_CARR.json`. Se deben
+crear ambos jsons (se pueden usar los existentes como base) para agregar
+una carrera a la malla interactiva.
+
+Un ejemplo de un semestre en `data_CARR.json` sería:
 
 ```json
 "s2": [["Química y Sociedad", "QUI-010", 3, "PC"],
@@ -22,13 +26,13 @@ Se pueden tomar los colores como base y modificar los ramos o modificar ambos.
 		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]]
 	]
 ```
-Para modificar el JSON `data.json`, se debe saber lo siguiente:
+Para modificar el JSON se debe saber lo siguiente:
 
 `s2` Corresponde al semestre, en este caso, Semestre II. Es una lista con 5 objetos:
 1. *Ramo*: El nombre completo del ramo.
 2. *Sigla*: Sigla del ramo. Este campo es importante, ya que con éstos se calculan los prerrequisitos.
 3. *Créditos*: Entero, la cantidad de créditos.
-4. *Sector*: Sector del ramo al que pertenece (por ejemplo, *PC*: Plan Común), se pueden agregar ó editar en el json `colors.json`.
+4. *Sector*: Sector del ramo al que pertenece (por ejemplo, *PC*: Plan Común), se pueden agregar ó editar en el json `colors_CARR.json`.
 5. *Prerrequisitos*: Una lista de strings que contiene los prerrequisitos del ramo. Es **importante**
 que la sigla ya exista, de lo contrario podría fallar. Esta lista es opcional.
 
