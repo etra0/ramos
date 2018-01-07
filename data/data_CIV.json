@@ -18,7 +18,7 @@
 		["Matemáticas III", "MAT-023", 4, "PC", ["MAT-022"]],
 		["Física General II", "FIS-120", 4, "PC", ["MAT-022", "FIS-110"]],
 		["Estática De Estructuras", "CIV-131", 4, "CIV", ["MAT-022", "FIS-110"]],
-		["Dibujo En Ingeniería Civil", "CIV-103", 3, "SD", ["IWG-131"]],
+		["Dibujo En Ingeniería Civil", "CIV-103", 3, "SD", ["IWI-131"]],
 		["Humanístico II", "HXW-002", 1, "HUM",["HXW-001"]],
 		["Deportes", "DEW-0", 1, "HUM", ["DEW-101"]]
 	],
@@ -76,7 +76,7 @@
 	"s11": [
 		["Evaluación de Proyectos", "CIV-390", 3, "CIV", ["CIV-380"]],
 		["Ingeniería del Medio Ambiente","CIV-378", 3, "CIV", ["CIV-377"]],
-		["Ingeniería Sísmica", "CIV-338", 3, "CIV", ["CIV-235","CIV-337","CIV-336"]],
+		["Ingeniería Sísmica", "CIV-338", 3, "CIV", ["CIV-235","CIV-331","CIV-336"]],
 		["Optativo de Especialidad II", "CIVOE-2", 4, "HUM", ["CIVOE-1"]],
 		["Taller de Titulación I", "CIV-397", 4, "CIV"]
 	],
