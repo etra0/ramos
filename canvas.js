@@ -1,4 +1,4 @@
-var width = 1580,
+var width = 1570,
 	height = 730;
 
 var canvas = d3.select(".canvas")
@@ -9,7 +9,8 @@ var canvas = d3.select(".canvas")
 var carreras = {
 	'INF': 'Informática',
 	'ELO': 'Electrónica',
-	'TEL': 'Telemática'
+	'TEL': 'Telemática',
+	'ICOM': 'Comercial'
 }
 
 /* ---------- axis ---------- */
@@ -55,8 +56,13 @@ function main_function(error, data, colorBySector) {
 		return;
 	}
 	// load the data
+	let longest_semester = 0;
 	for (var semester in data) {
 		malla[semester] = {};
+
+		if (data[semester].length > longest_semester)
+			longest_semester = data[semester].length;
+
 		data[semester].forEach(function(ramo) {
 			malla[semester][ramo[1]] = new Ramo(ramo[0], ramo[1], ramo[2], ramo[3], (function() {
 				if (ramo.length > 4)
@@ -66,6 +72,13 @@ function main_function(error, data, colorBySector) {
 			all_ramos[ramo[1]] = malla[semester][ramo[1]];
 		});
 	}
+
+	// update width y height debido a que varian segun la malla
+	width = 130*Object.keys(malla).length;
+	height = 110*longest_semester + 30 + 25
+
+	canvas.attr("width", width)
+		.attr("height", height);
 
 	// colores de la malla
 	Object.keys(colorBySector).forEach(key => {
