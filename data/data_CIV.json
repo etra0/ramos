@@ -61,7 +61,7 @@
 	],
 	"s9": [
 		["Diseño Geométrico y Capacidad Vial", "CIV-370", 3, "CIV",["CIV-368"]],
-		["Gestión de la Calidad Total en la Cadena de Suministros", "CIV-381", 3, "HUM",["CIV-380"]],
+		["Gest. de la Calidad Total en la Cadena de Suministros", "CIV-381", 3, "HUM",["CIV-380"]],
 		["Hidráulica Aplicada", "CIV-346", 3, "CIV",["CIV-243"]],
 		["Hormigón Armado", "CIV-331", 5, "CIV",["CIV-235","CIV-251"]],
 		["Mecánica de Suelos II", "CIV-366", 4, "CIV", ["CIV-261"]]
