@@ -4,9 +4,9 @@
 	"HUM": ["#B0B91D", "Humanistas, libres y deportes"],
 	"TIN": ["#C54B73", "Transversal e Integración"],
 	"SD": ["#991B1E", "Sistemas de decisión informática"],
-	"IND": ["#6BA8D1", "Industrias"],
 	"IS": ["#FDDE15", "Ingeniería de Software"],
 	"TIC": ["#6D57A5", "Infraestructura TIC"],
 	 "AN": ["#00AD5D", "Análisis Numérico"],
-	 "ELEC": ["#F78E1E", "Electivos Informática"]
+	 "ELEC": ["#F78E1E", "Electivos Informática"],
+	"CIV": ["#6BA8D1","Obras Civiles"]
 }
