@@ -10,8 +10,7 @@
 	"s2": [["Química y Sociedad", "QUI-010", 3, "PC"],
 		["Matemáticas II", "MAT-022", 5, "PC", ["MAT-021"]],
 		["Física General I", "FIS-110", 3, "PC", ["MAT-021", "FIS-100"]],
-		["Introducción a la Ingeniería", "IWG-101", 2, "TIN"],
-		["Humanístico I", "HXW-001", 1, "HUM"],
+		["Humanístico I", "HXW-001", 2, "HUM"],
 		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]]
 	],
 	"s3": [
@@ -19,7 +18,7 @@
 		["Física General II", "FIS-120", 4, "PC", ["MAT-022", "FIS-110"]],
 		["Estática De Estructuras", "CIV-131", 4, "CIV", ["MAT-022", "FIS-110"]],
 		["Dibujo En Ingeniería Civil", "CIV-103", 3, "SD", ["IWI-131"]],
-		["Humanístico II", "HXW-002", 1, "HUM",["HXW-001"]],
+		["Humanístico II", "HXW-002", 2, "HUM",["HXW-001"]],
 		["Deportes", "DEW-0", 1, "HUM", ["DEW-101"]]
 	],
 	"s4": [
@@ -27,21 +26,21 @@
 		["Física General III", "FIS-130",  4, "PC", ["MAT-022", "FIS-110"]],
 		["Mecánica De Materiales", "CIV-133", 4, "CIV", ["CIV-131", "MAT-023"]],
 		["Topografía", "CIV-206", 4, "CIV", ["CIV-103"]],
-		["Humanístico III", "HXW-003", 1, "HUM",["HXW-002"]]
+		["Humanístico III", "HXW-003", 2, "HUM",["HXW-002"]]
 	],
 	"s5": [
 		["Análisis Numérico", "MAT-270", 4, "AN", ["MAT-024"]],
 		["Tecnología de Materiales", "CIV-251", 4, "CIV", ["CIV-133","QUI-010"]],
 		["Mecánica Racional", "CIV-202", 4, "CIV", ["MAT-024", "CIV-131"]],
 		["Geología", "CIV-205", 3, "CIV", ["CIV-206"]],
-		["Humanístico IV", "HXW-004", 1, "HUM", ["HXW-003"]]
+		["Humanístico IV", "HXW-004", 2, "HUM", ["HXW-003"]]
 	],
 	"s6": [
 		["Fundamentos de Análisis Estructural", "CIV-233", 3, "CIV", ["CIV-202", "CIV-133"]],
 	
 		["Probabilidad y Estadística Para Ingeniería Civil", "MAT-044", 4, "AN", ["MAT-023"]],
-		["Mecánica de Fluídos", "CIV-244", 4, "CIV", ["CIV-202"]],
-		["Humanístico v", "HXW-005", 1, "HUM", ["HXW-004"]],
+		["Mecánica de Fluidos", "CIV-244", 4, "CIV", ["CIV-202"]],
+		["Humanístico V", "HXW-005", 2, "HUM", ["HXW-004"]],
 		["Fundamentos de Ing. de Construcción y Administración", "CIV-222", 4, "CIV", ["CIV-251"]]
 	],
 	"s7": [
@@ -57,7 +56,7 @@
 		["Hidrología", "CIV-243", 3, "CIV", ["CIV-242","MAT-044"]],
 		["Ingeniería en Transporte", "CIV-368", 3, "CIV",["ILI-281"]],
 		["Mecánica de Suelos I", "CIV-261", 4, "CIV", ["CIV-242", "CIV-133"]],
-		["Planficacíon y control de Proyectos", "CIV-380", 3, "HUM",["CIV-222","ICS-733","ILI-281"]]
+		["Planficación y control de Proyectos", "CIV-380", 3, "HUM",["CIV-222","ICS-733","ILI-281"]]
 	],
 	"s9": [
 		["Diseño Geométrico y Capacidad Vial", "CIV-370", 3, "CIV",["CIV-368"]],
