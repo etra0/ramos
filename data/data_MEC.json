@@ -52,7 +52,7 @@
     ["Humanístico III", "HRW103", 2, "HUM"]
 	],
 	"s8": [
-		["Ingeniería Térmica", "MEC278", 3, "VER",["MEC220","MEC230"], 
+		["Ingeniería Térmica", "MEC278", 3, "VER",["MEC220","MEC230"]], 
     ["Mediciones Mecánicas", "MEC260", 3, "VER"],
 		["Regulación y Contaminación Ambiental", "MEC346", 3, "VER",["MEC120","MEC230"]],
 		["Fundamentos de Electrotecnia", "ELI270", 4, "MO",["MAT022","FIS120"]],
