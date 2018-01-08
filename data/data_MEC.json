@@ -60,24 +60,24 @@
 	],
 	"s9": [
 		["Equipo y Máquinas Térmicas", "MEC378", 4, "VER", ["MEC278"]],
-    ["Métodos Numéricos en Ingeniería Mecánica", "MEC270", 3, "VER"],
-    ["Fundamentos de Calidad", "MEC280, 3, "VER"],
+	    	["Métodos Numéricos en Ingeniería Mecánica", "MEC270", 3, "VER"],
+    		["Fundamentos de Calidad", "MEC280, 3, "VER"],
 		["Fundamentos de Electronica", "ILD208", 3, "RO",["FIS120"]],
 		["Electivo 2", "MEC2", 3, "AMA"]
 	],
 	"s10": [
 		["Automatización,Neumática y Oleohidráulica", "MEC373", 3, "VER"],
-    ["Tecnologias de Control Ambiental", "MEC383", 3, "VER",["MEC346"]],
-    ["Turbomáquinas", "MEC374", 4, "VER"],
-    ["Electivo 3", "MEC3", 3, "AMA"]
+    		["Tecnologias de Control Ambiental", "MEC383", 3, "VER",["MEC346"]],
+    		["Turbomáquinas", "MEC374", 4, "VER"],
+    		["Electivo 3", "MEC3", 3, "AMA"]
 	],
 	"s11": [
 		["Proyecto en Ingeniería Mecánica", "MEC381", 4, "NARA"],
 		["Seminario de Titulación de Ingenierp Civil Mecánico", "MEC397", 3, "NARA"],
-    ["Electivo 4", "MEC4", 3, "AMA"]
+    		["Electivo 4", "MEC4", 3, "AMA"]
 	],
 	"s12": [
 		["Título De Ingeniería Civil Mecánica","MEC399", 8, "NARA"],
-    ["Electivo 5", "MEC5", 3, "AMA"]
+    		["Electivo 5", "MEC5", 3, "AMA"]
 	]
 }
