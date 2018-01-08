@@ -40,7 +40,7 @@
 	"s6": [
 		["Elementos de Máquinas", "MEC258", 3, "VER", ["MEC255"]],
 		["Fundamentos del Diseño", "MEC245", 3, "VER"],
-		["Mecánica de Fluidos", "MEC120", 4, "VER", ["MAT024", "MEC110"]],
+		["Mecánica de Fluidos", "MEC120", 4, "VER", ["MAT024","MEC110"]],
     ["Humanístico II", "HRW102", 2, "HUM"]
 	],
 	"s7": [
@@ -52,7 +52,7 @@
     ["Humanístico III", "HRW103", 2, "HUM"]
 	],
 	"s8": [
-		["Ingeniería Térmica", "MEC278", 3, "VER",["MEC220","	MEC230"], 
+		["Ingeniería Térmica", "MEC278", 3, "VER",["MEC220","MEC230"], 
     ["Mediciones Mecánicas", "MEC260", 3, "VER"],
 		["Regulación y Contaminación Ambiental", "MEC346", 3, "VER",["MEC120","MEC230"],
 		["Fundamentos de Electrotecnia", "ELI270", 4, "MO",["MAT022","FIS120"]],
@@ -61,7 +61,7 @@
 	"s9": [
 		["Equipo y Máquinas Térmicas", "MEC378", 4, "VER", ["MEC278"]],
 	    	["Métodos Numéricos en Ingeniería Mecánica", "MEC270", 3, "VER"],
-    		["Fundamentos de Calidad", "MEC280, 3, "VER"],
+    		["Fundamentos de Calidad", "MEC280", 3, "VER"],
 		["Fundamentos de Electronica", "ILD208", 3, "RO",["FIS120"]],
 		["Electivo 2", "MEC2", 3, "AMA"]
 	],
