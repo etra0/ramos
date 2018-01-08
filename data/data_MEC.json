@@ -9,7 +9,7 @@
 	"s2": [
 		["Química y Sociedad", "QUI010", 3, "ROS"],
 		["Matemáticas II", "MAT022", 5, "CEL", ["MAT021"]],
-		["Física General I", "FIS110", 5, "FI", ["MAT021", "FIS100"]],
+		["Física General I", "FIS110", 5, "FI", ["MAT021","FIS100"]],
 		["Ingles I", "HCW100", 2, "ING"],
 		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]],
     ["Gráfica en Ingeniería Mecánica", "MEC141", 3, "VER",["FIS100"]]
@@ -18,7 +18,7 @@
 	"s3": [
 		["Estática", "MEC151", 3, "VER", ["MAT022", "FIS110"]],
 		["Matemáticas III", "MAT023", 4, "CEL", ["MAT022"]],
-		["Física General II", "FIS120",  4, "FI", ["MAT022", "FIS110"]],
+		["Física General II", "FIS120",  4, "FI", ["MAT022","FIS110"]],
 		["Gráfica de Sistemas Mecánicos", "MEC142", 4, "VER",["MEC141"]],
 		["Ingles II", "HCW101", 2, "ING","HCW100"],
 		["Materiales Para Ingeniería", "MET203", 3, "ROS", ["QUI010"]]
@@ -33,7 +33,7 @@
 	"s5": [
     ["Analisis Numerico", "MAT270", 4, "CEL", ["MAT024"]],
 		["Mecánica de Materiales", "MEC255", 4, "VER", ["MEC151","MET203"]],
-		["Termodinámica", "MEC110", 4, "VER", ["MAT023", "FIS110"]],
+		["Termodinámica", "MEC110", 4, "VER", ["MAT023","FIS110"]],
 		["Ingles IV", "HCW200", 2, "ING","HCW102"],
     ["Humanístico I", "HRW101", 2, "HUM"]
 	],
