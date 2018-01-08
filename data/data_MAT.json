@@ -1,0 +1,85 @@
+{
+	"s1": [
+		["Matemáticas I", "MAT-021", 5, "PC"],
+		["Programación", "IWI-131", 3, "CI"],
+		["Introducción a la Física", "FIS-100", 3, "PC"],
+		["Introducción a la Ingeniería", "IWG-101", 2, "IAA"],
+		["Humanístico I", "HRW-101", 2, "FC"],
+		["Educación Física I", "DEW-100", 1, "DEW"]
+	],
+	"s2": [
+		["Matemáticas II", "MAT-022", 5, "PC", ["MAT-021"]],
+		["Física General I", "FIS-110", 3, "PC", ["MAT-021", "FIS-100"]],
+		["Química y Sociedad", "QUI-010", 3, "PC"],
+		["Humanístico II", "HRW-102", 2, "FC"],
+		["Inglés 1", "HCW-100", 2, "ENG"],
+		["Educación Física II", "DEW-101", 1, "DEW", ["DEW-100"]]
+	],
+	"s3": [
+		["Matemáticas III", "MAT-023", 4, "PC", ["MAT-022"]],
+		["Física General II", "FIS-120",  4, "PC", ["MAT-022", "FIS-110"]],
+        ["Estructura de Datos y Algoritmos", "ELO-320", 3, "CI", ["IWI-131"]],
+		["Inglés 2", "HCW-101", 2, "ENG",["HCW-100"]],
+		["Álgebra Lineal I", "MAT-210", 4, "ICMATB", ["MAT-022"]]
+	],
+	"s4": [
+		["Introducción a la Matemática Avanzada", "MAT-125",4,"ICMATB",["MAT-022"]],
+		["Probabilidades y Estadistíca", "MAT-041", 4, "CI", ["MAT-023"]],
+		["Matemáticas IV", "MAT-024", 4, "PC", ["MAT-023"]],
+		["Física General III", "FIS-130", 4, "PC", ["MAT-023", "FIS-120"]],
+		["Inglés 3", "HCW-102", 2, "ENG", ["HCW-101"]]
+	],
+	"s5": [
+		["Análisis I","MAT-225",4,"ICMATB" ,["MAT-125","MAT-023"]],
+		["Estructuras Algebraicas","MAT-214",4,"ICMATB",["MAT-210"]],
+		["Física General IV", "FIS-140", 4, "PC", ["MAT-022", "FIS-110"]],
+		["Análisis Numérico I", "MAT-270", 4, "CI", ["MAT-024", "IWI-131"]],
+		["Inglés 4", "HCW-103", 2, "ENG", ["HCW-102"]]
+	],
+	"s6": [
+		["Análisis II", "MAT-226", 4, "ICMATB", ["MAT-225"]],
+		["Variable Compleja", "MAT-235", 4, "ICMATB", ["MAT-024"]],
+		["EDO", "MAT-243", 4, "ICMATA", ["MAT-210", "MAT-125"]],
+		["Laboratorio de Modelación", "MAT-282", 3, "IAA", ["MAT-270","ELO-320","MAT-041"]],
+		["Fund. Investigaciones Operaciones", "ILI-281", 3, "CI", ["MAT-041"]]
+	],
+	"s7": [
+		["Análisis III", "MAT-277", 4, "ICMATB", ["MAT-226"]],
+		["Análisis Numérico II", "MAT-274", 4, "ICMATA", ["MAT-270"]],
+		["Teo. de Prob. y Proc. Estocásticos", "MAT-263", 4, "ICMATA", ["MAT-226","MAT-041"]],
+		["Electivo de Ingeniería 1", "EI-1", 3, "ELI"],
+		["Electivo de Gestión 1", "EG-1", 3, "ELG"]
+	],
+	"s8": [
+		["Optimización no Lineal", "MAT-279", 4, "ICMATA", ["ILI-281", "MAT-225"]],
+		["EDP", "MAT-247", 4, "ICMATA", ["MAT-235", "MAT-277","MAT-243"]],
+		["Inferencia Estadistíca", "MAT-206", 4, "ICMATA", ["MAT-263"]],
+		["Aplic. Matemática Ingeniería", "MAT-281", 3, "IAA", ["ELO-320", "MAT-225","MAT-270"]],
+		["Electivo de Ingeniería 2", "EI-2", 3, "ELI" ]
+	],
+	"s9": [
+		["Optimización y Control", "MAT-379", 4, "ICMATA", ["MAT-226", "MAT-243"]],
+		["Matemática Discreta", "MAT-215", 4, "ICMATA", ["MAT-214"]],
+		["Análisis Numérico de EDP", "MAT-227", 4, "ICMATA", ["MAT-247", "MAT-274"]],
+		["Electivo de Ingeniería 3", "EI-3", 3, "ELI"],
+		["Electivo de Gestión 2", "EG-2", 3, "ELG"]
+	],
+	"s10": [
+		["Electivo Proyectos de Ingeniería", "EP", 3, "IAA"],
+		["Electivo de Ingeniería 4", "EI-4", 3, "ELI"],
+		["Electivo de Ingeniería 5", "EI-5", 3, "ELI"],
+		["Humanístico III", "HRW-103", 2, "FC"],
+		["Electivo de Gestión 3", "EG-3", 3, "ELG"]
+	],
+	"s11": [
+		["Proyecto de Memoria de Titulo", "MAT-301", 2, "IAA"],
+		["Laboratorio de Modelación II", "MAT-283", 3, "IAA"],
+		["Electivo de Ingeniería 6", "EI-6", 3, "ELI"],
+		["Electivo de Formación Complementario", "COM-1", 1,"COMP"],
+		["Electivo de Gestión 4", "EG-4", 3, "ELG"]
+	],
+	"s12": [
+		["Memoria de Titulo", "MAT-308", 8,"IAA"],
+		["Electivo de Formación Complementario", "COM-2", 1, "COMP"]
+	]
+}

@@ -53,7 +53,7 @@ Ejemplo:
 }
 ```
 
-Se aceptan Fork requests para agregar carreras.
+Se aceptan Pull Requests para agregar carreras.
 
 ---
 # Gracias
@@ -64,3 +64,4 @@ Se agradece especialmente a:
 * [Manizuca](https://github.com/Manizuca) por agregar la malla de TEL
 * Fernando Cardenas por agregar la malla de ICOM
 * Abel Morgenstern  por agregar la malla de CIV
+* Bernardo Recabarren por agregar la malla de MAT
