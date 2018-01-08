@@ -11,7 +11,9 @@ var carreras = {
 	'ELO': 'Electrónica',
 	'TEL': 'Telemática',
 	'ICOM': 'Comercial',
-	'CIV': 'Civil'
+	'CIV': 'Civil',
+	'MAT': 'Matemática',
+	'MEC': 'Mecánica'
 }
 
 /* ---------- axis ---------- */
