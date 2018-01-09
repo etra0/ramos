@@ -28,7 +28,7 @@
 		["Mecánica General", "IWM151",  4, "MEC", ["FIS110"]]
 		["VIsión Estética", "HWR103",  2, "HUM"]
 		["Crecimiento y Desarrollo", "HWR104",  2, "HUM"]
-	]
+	],
 	"s5": [
 		["Redes Eléctricas I", "ELI211",  4, "ELI", ["ELI110"]]
 		["Análisis Numérico", "MAT270",  4, "MAT", ["MAT024"]]
@@ -36,42 +36,42 @@
 		["Resistencia de Materiales Generales", "IWM255",  4, ["IWM151"]]
 		["Inglés II", "HCW101",  2, ["HCW100"]]
 		["Estadística", "MAT031",  3, "MAT", ["MAT023"]]
-	]
+	],
 	"s6": [
 		["Campos Electromagnéticos", "ELI215",  4, "ELI", ["FIS120", "ELI211"]]
 		["Redes Eléctricas II", "ELI212",  4, "ELI", ["ELI211"]]
 		["Electrónica General I", "ELI216",  4, "ELI", ["MAT024", "ELI211"]]
 		["Metrología Eléctrica", "ELI214",  4, "ELI", ["FIS120", "ELI211"]]
 		["Humanístico VI", "HW6",  2, "HUM"]
-	]
+	],
 	"s7": [
 		["Control Automático I", "ELO270",  3, "ELO", ["ELI212"]]
 		["Conversión Electromecánica de Energía", "ELI220",  4, ["ELI212"]]
 		["Termodinámica General y Laboratorio", "IWM210",  4, "MEC", ["FIS130", "MAT023"]]
 		["Humanístico VII", "HW7",  2, "HUM"]
 		["Electrónica General II", "ELI217",  4, "ELI", ["ELI216"]]
-	]
+	],
 	"s8": [
 		["Física General IV", "FIS140",  4, "FI", ["FIS120", "FIS130"]]
 		["Economía I", "ILN270",  3, "IND", ["MAT023"]]
 		["Lab Conversión Electromecánica de Energía", "ELI221",  3, "ELI", ["ELI214", "ELI212"]]
 		["Mecánica de Fluidos General", "IWM220",  4, "MEC", ["MAT024", "IWM210"]]
 		["Análisis de Sistemas Eléctricos de Potencia I", "ELI246",  4, "ELI", ["ELI220"]]
-	]
+	],
 	"s9": [
 		["Análisis de Sistemas Eléctricos de Potencia II", "ELI347",  4, "ELI", ["ELI246"]]
 		["Economía II", "ILN271",  3, "IND", ["ILN270"]]
 		["Máquinas ELéctricas I", "ELI326",  4, "ELI", ["ELI220"]]
 		["Electrónica de Potencia", "ELI319",  4, "ELI", ["ELI216"]]
 		["Técnicas de Alta Tensión I", "ELI360",  3, "ELI", ["ELI212", "ELI246"]]
-	]
+	],
 	"s10": [
 		["Análisis de Sistemas Eléctricos de Potencia III", "ELI348",  4, "ELI", ["ELI347"]]
 		["Laboratorio de Maquinas Eléctricas", "ELI327",  4, "ELI", ["ELI326"]]
 		["Accionamientos Eléctricos", "ELI328",  4, "ELI", ["ELO270", "ELI326", "ELI319"]]
 		["Laboratorio de Alta Tensión", "ELI361",  3, "ELI", ["ELI360"]]
 		["Información y Control Financiero", "IWN270",  3, "IND", ["ILN270"]]
-	]
+	],
 	"s11": [
 		["Administración General", "IWN261",  3, "IND"]
 		["Lab Accionamientos Eléctricos", "ELI329",  3, "ELI", ["ELI328"]]
@@ -79,7 +79,7 @@
 		["Operación de Sistemas Eléctricos de Potencia", "ELI349",  3, "ELI", ["ELI347"]]
 		["Fundamentos de Investigación y Operaciones", "INF281",  3, "ELO", ["MAT031"]]
 		["Seminario de Titulación", "ELI376",  2, "ELI"]
-	]
+	],
 	"s12": [
 		["Planificación Eléctrica", "ELI350",  3, "ELI", ["ICN366", "ELI349"]]
 		["Memoria de Titulación", "ELI390",  8, "ELI", ["ELI376"]]
