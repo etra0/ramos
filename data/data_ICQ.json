@@ -3,7 +3,7 @@
 		["Matemáticas I", "MAT021", 5, "MAT"],
 		["Introducción a la Física", "FIS100", 3, "FIS"],
 		["Química y Sociedad", "QUI010", 3, "PC"],
-		["Introducción a la Ingeniería", "IWG101", 2, "PC"].
+		["Introducción a la Ingeniería", "IWG101", 2, "PC"],
 		["Educación Física I", "DEW100", 1, "HUM"]
 	],
 	"s2": [
@@ -27,10 +27,10 @@
 		["Química de Procesos", "QUI024", 3, "QUI", ["QUI021"]],
 		["Química Organica", "QUI134", 4, "QUI", ["QUI021"]],
 		["Ingles Cientifico Tecnologico I", "HCW310", 1, "HUM"],
-		["Humanístico I", "HRW1", 2, "HUM"]
+		["Humanístico II", "HRW2", 2, "HUM"]
 	],
 	"s5": [
-		["Mecánica de Fluidos", "IWQ210", 4, "OPU", ["FIS110"]],
+		["Mecánica de Fluidos", "IWQ221", 4, "OPU", ["FIS110"]],
 		["Física General IV", "FIS140", 4, "FIS", ["FIS130", "FIS120"]],
 		["Termodinámica", "IWQ111", 4, "OPU", ["QUI024"]],
 		["Bioquímica", "QUI250", 3, "QUI", ["QUI134"]],
@@ -48,11 +48,11 @@
 		["Diseño de Reactores", "ILQ261", 4, "ICQ",["ILQ230", "FIS140", "IWQ222"]],
 		["Analisis y Diseño de Experimentos Industriales", "IWQ214", 3, "ICQ", ["IWQ111"]],
 		["Analisis Instrumental", "QUI325", 3, "QUI", ["QUI134", "QUI022"]],
-		["Electrotecnia Básica", "ELI271", 3, "PC", ["MAT023", "FIS120"]],
+		["Electrotecnia Básica", "ELI271", 3, "PC", ["MAT023", "FIS120"]]
 	],
 	"s8": [
 		["Fundamento del Control Industrial", "IWQ350", 4, "ICQ", ["IWQ223"]],	
-		["Gestión de Investigación de Operaciones", "ILN250", 4, "IND", ["ELO204"]],
+		["Gestión de Investigación de Operaciones", "ILN250", 4, "IND", ["IWQ214"]],
 		["Electivo 1", "ICQ1", 3, "EL"],
 		["Introducción a la Microbiologia", "IWQ261", 3, "ICQ"],
 		["Economia I-A", "IWN170", 3, "IND", ["MAT023"]],
@@ -67,8 +67,8 @@
 		["Taller de Ingeniería Química II","IWQ386", 1, "TIT", ["IWQ382"]]
 	],
 	"s10": [
-		["Diseño de Procesos", "ICQ341", 4, "ICQ", ["IWQ224", "ILQ261", "ICQ373"]],
-		["Laboratorio de investigación", "ICQ392", 4, "ICQ", ["IWQ224", "IWQ214"]],
+		["Diseño de Procesos", "ICQ341", 4, "ICQ", ["IWQ223", "ILQ261", "ICQ373"]],
+		["Laboratorio de investigación", "ICQ392", 4, "ICQ", ["IWQ223", "IWQ214"]],
 		["Electivo II", "ICQ2", 3, "EL"],
 		["Fundamentos del Diseño", "ICM286", 3, "PC", ["IWM179"]],
 		["Administración General", "IWN261", 3, "IND"], 
@@ -79,13 +79,13 @@
 		["Industria Quimica Chilena", "IWQ240", 3, "ICQ", ["ICQ341"]],
 		["Electivo III", "ICQ3", 3, "EL"],
 		["Administración de la Producción", "ICN345", 3, "IND", ["ILN250"]],
-		["Supervisión de Personal", "IWQ374", 3, "ICQ", ["IWN261"]],
+		["Supervisión de Personal", "IWQ374", 3, "ICQ", ["IWN261"]]
 	],
 	"s12": [
-		["Proyectos Especificos","ELO308", 6, "ICQ", ["ELO307"]],
+		["Proyectos Especificos","ELO308", 6, "ICQ", ["ICQ381"]],
 		["Electivo IV", "ICQ4", 3, "EL"],
 		["Administración de la Calidad", "IWQ272", 2, "IND", ["IWQ214"]],
-		["Humanístico 3", "HRW3", 2, "HUM"]
+		["Humanístico III", "HRW3", 2, "HUM"]
     
 	]
 }
