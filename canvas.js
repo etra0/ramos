@@ -129,7 +129,7 @@ function main_function(error, data, colorBySector) {
 		globalX += 130;
 	};
 	drawer.selectAll(".ramo-label")
-		.call(wrap, 120);
+		.call(wrap, 115);
 
 	// verificar cache
 	var cache_variable = 'approvedRamos_' + current_malla;

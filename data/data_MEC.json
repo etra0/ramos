@@ -59,7 +59,7 @@
 	],
 	"s9": [
 		["Equipo y Máquinas Térmicas", "MEC378", 4, "VER", ["MEC278"]],
-		["Métodos Numéricos en Ingeniería Mecánica", "MEC270", 3, "VER"],
+		["Métodos Numéricos en Ing. Mecánica", "MEC270", 3, "VER"],
 		["Fundamentos de Calidad", "MEC280", 3, "VER"],
 		["Fundamentos de Electronica", "ILD208", 3, "RO",["FIS120"]],
 		["Electivo 2", "MEC2", 3, "AMA"]
