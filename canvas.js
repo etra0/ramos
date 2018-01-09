@@ -13,7 +13,8 @@ var carreras = {
 	'ICOM': 'Comercial',
 	'CIV': 'Civil',
 	'MAT': 'Matemática',
-	'MEC': 'Mecánica'
+	'MEC': 'Mecánica',
+	'ICQ': 'Química'
 }
 
 /* ---------- axis ---------- */
