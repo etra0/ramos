@@ -54,14 +54,14 @@
 	"s8": [
 		["Física General IV", "FIS140",  4, "FI", ["FIS120", "FIS130"]],
 		["Economía I", "ILN270",  3, "IND", ["MAT023"]],
-		["Lab Conversión Electromecánica de Energía", "ELI221",  3, "ELI", ["ELI214", "ELI212"]],
+		["Lab. Conversión Electromecánica de Energía", "ELI221",  3, "ELI", ["ELI214", "ELI212"]],
 		["Mecánica de Fluidos General", "IWM220",  4, "MEC", ["MAT024", "IWM210"]],
 		["Análisis de Sistemas Eléctricos de Potencia I", "ELI246",  4, "ELI", ["ELI220"]]
 	],
 	"s9": [
 		["Análisis de Sistemas Eléctricos de Potencia II", "ELI347",  4, "ELI", ["ELI246"]],
 		["Economía II", "ILN271",  3, "IND", ["ILN270"]],
-		["Máquinas ELéctricas I", "ELI326",  4, "ELI", ["ELI220"]],
+		["Máquinas Eléctricas I", "ELI326",  4, "ELI", ["ELI220"]],
 		["Electrónica de Potencia", "ELI319",  4, "ELI", ["ELI216"]],
 		["Técnicas de Alta Tensión I", "ELI360",  3, "ELI", ["ELI212", "ELI246"]]
 	],
@@ -74,8 +74,8 @@
 	],
 	"s11": [
 		["Administración General", "IWN261",  3, "IND"],
-		["Lab Accionamientos Eléctricos", "ELI329",  3, "ELI", ["ELI328"]],
-		["Evaluación de Proyecctos", "ICN366",  3, "IND", ["IWN270"]],
+		["Lab. Accionamientos Eléctricos", "ELI329",  3, "ELI", ["ELI328"]],
+		["Evaluación de Proyectos", "ICN366",  3, "IND", ["IWN270"]],
 		["Operación de Sistemas Eléctricos de Potencia", "ELI349",  3, "ELI", ["ELI347"]],
 		["Fundamentos de Investigación y Operaciones", "INF281",  3, "ELO", ["MAT031"]],
 		["Seminario de Titulación", "ELI376",  2, "ELI"]

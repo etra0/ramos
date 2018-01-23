@@ -14,7 +14,8 @@ var carreras = {
 	'CIV': 'Civil',
 	'MAT': 'Matemática',
 	'MEC': 'Mecánica',
-	'ICQ': 'Química'
+	'ICQ': 'Química',
+	'ELI': 'Eléctrica'
 }
 
 /* ---------- axis ---------- */
