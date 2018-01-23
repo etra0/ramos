@@ -19,7 +19,7 @@
 		["Matemática 3", "MAT023",  4, "MAT", ["MAT022"]],
 		["Deportes", "DEW0", 1, "HUM", ["DEW101"]],
 		["Inglés I", "HCW100",  2, "HUM"],
-		["Materiales para la ingeniería", "IWC203",  3, "VER", ["FIS110", "QUI010"]]
+		["Materiales para la ingeniería", "IWC203",  3, "MEC", ["FIS110", "QUI010"]]
 	],
 	"s4": [
 		["Introducción a la electrotécnia", "ELI110",  4, "ELI", ["MAT022", "FIS120"]]
@@ -33,7 +33,7 @@
 		["Redes Eléctricas I", "ELI211",  4, "ELI", ["ELI110"]]
 		["Análisis Numérico", "MAT270",  4, "MAT", ["MAT024"]]
 		["Formación y Liderazgo Empresarial", "HWR131",  2, "HUM"]
-		["Resistencia de Materiales Generales", "IWM255",  4, ["IWM151"]]
+		["Resistencia de Materiales Generales", "IWM255",  4, "MEC", ["IWM151"]]
 		["Inglés II", "HCW101",  2, ["HCW100"]]
 		["Estadística", "MAT031",  3, "MAT", ["MAT023"]]
 	],
@@ -46,7 +46,7 @@
 	],
 	"s7": [
 		["Control Automático I", "ELO270",  3, "ELO", ["ELI212"]]
-		["Conversión Electromecánica de Energía", "ELI220",  4, ["ELI212"]]
+		["Conversión Electromecánica de Energía", "ELI220",  4, "ELI", ["ELI212"]]
 		["Termodinámica General y Laboratorio", "IWM210",  4, "MEC", ["FIS130", "MAT023"]]
 		["Humanístico VII", "HW7",  2, "HUM"]
 		["Electrónica General II", "ELI217",  4, "ELI", ["ELI216"]]
