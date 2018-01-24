@@ -1,11 +1,11 @@
 # Ramos SVG
-Generador de la malla (por ahora de Informática) que permitirá
+Generador de la malla que permitirá
 visualizar los ramos aprobados.
 
 # TODO
 * [x] Almacenar los ramos aprobados en caché
 * [x] Generalizar el `JSON`, en lo posible agregar compatibilidad con `CSV`
-* [ ] Comentar código, limpiarlo.
+* [ ] **Comentar código, limpiarlo.**
 * [x] Disfrutar un buen café.
 
 ## Aportar
@@ -52,6 +52,11 @@ Ejemplo:
 	...
 }
 ```
+
+## Probar malla
+Para probar la malla, se tiene que abrir el `index.html` con **Firefox** (debido a que los otros navegadores tienen
+desactivada la lectura de archivos locales por defecto), y al final de la URL agregar `?m=CARR`. Por ejemplo, 
+para abrir `data_INF.json` debería quedar algo como `index.html?m=INF`.
 
 Se aceptan Pull Requests para agregar carreras.
 
