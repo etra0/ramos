@@ -57,7 +57,7 @@
 	],
 	"s8": [
 		["Física General IV", "FIS-140", 4, "FIS", ["FIS-130", "FIS-120"]],
-		["Teoría de Comunicaciones Digitales", "TEL-341", 3, "TELECO", ["ELO-204", "TEL-231"]],
+		["Teoría de Comunicaciones Digitales", "ELO-341", 3, "TELECO", ["ELO-204", "TEL-231"]],
 		["Criptografía y Seguridad de la Información", "INF-252", 3, "SW", ["ELO-204", "TEL-131", "TEL-102"]],
 		["Diseño de Aplicaciones Web y Móviles", "TEL-335", 3, "SW", ["ELO-329", "INF-239"]],
 		["Administración de Servicios y Redes de Computadores", "TEL-342", 3, "REDES", ["TEL-241"]],
