@@ -1,0 +1,12 @@
+﻿{
+        "DEFI": ["#6BA8D1", "DEFIDER"],
+        "FIS": ["#00838F", "Física"],
+        "IDP": ["#FF6600", "Ingeniería en Diseño"],
+        "QUI": ["#00AD5D", "Química"],
+        "MAT": ["#6D57A5", "Matemática"],
+        "INF": ["#2E58A7", "Informática"],
+        "HUM": ["#B0B91D", "Estudios Humanísticos"],
+        "MEC": ["#00AD5D", " Mecánica"],
+        "IND": ["#FDDE15", "Industrias"],
+        "MET": ["#991B1E", " Metalúrgica y Materiales"]
+}
