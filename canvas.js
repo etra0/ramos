@@ -15,7 +15,8 @@ var carreras = {
 	'MAT': 'Matemática',
 	'MEC': 'Mecánica',
 	'ICQ': 'Química',
-	'ELI': 'Eléctrica'
+	'ELI': 'Eléctrica',
+	'IDP': 'Diseño de Productos'
 }
 
 /* ---------- axis ---------- */
