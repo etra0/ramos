@@ -29,6 +29,8 @@ var _s = ["I", "II", "III", "IV", "V", 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XI
 
 var malla = {};
 var all_ramos = {};
+var total_creditos = 0;
+var total_ramos = 0;
 let id = 1;
 
 // verificamos que malla busca
@@ -76,6 +78,8 @@ function main_function(error, data, colorBySector) {
 				return [];
 			})(), id++, colorBySector)
 			all_ramos[ramo[1]] = malla[semester][ramo[1]];
+            total_creditos += ramo[2];
+            total_ramos++;
 		});
 	}
 
@@ -150,11 +154,12 @@ function main_function(error, data, colorBySector) {
 			}
 		}
 
-		let c = 0;
+		let current_credits = 0;
+        let current_ramos = APPROVED.length;
 		APPROVED.forEach(function(ramo) {
-			c += ramo.creditos;
+			current_credits += ramo.creditos;
 		});
-		d3.select(".info").select("#creditos").text(c);
+		d3.select(".info").select("#creditos").text(`${current_credits} (${parseInt((current_credits/total_creditos)*100)}%), Total ramos: ${parseInt(current_ramos*100/total_ramos)}%`);
 	}, 30);
 
 	// filling the cache!
