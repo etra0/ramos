@@ -1,0 +1,7 @@
+{
+           "PC": ["#991B1E", "Plan Común"],
+           "MF": ["#2E58A7", "Matemáticas y Físicas"],
+           "HUM": ["#00AD5D", "Humanísticos e Inglés"],
+           "CON": ["#FDDE15", "Construcción"],
+           "IND": ["#6BA8D1", "Industrias"]
+}           
