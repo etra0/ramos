@@ -15,7 +15,8 @@ var carreras = {
 	'MAT': 'Matemática',
 	'MEC': 'Mecánica',
 	'ICQ': 'Química',
-	'ELI': 'Eléctrica'
+	'ELI': 'Eléctrica',
+    'CONSTRU': 'Construcción'
 }
 
 /* ---------- axis ---------- */
@@ -181,7 +182,7 @@ function main_function(error, data, colorBySector) {
 		.attr("opacity", 0.9);
 	first_time.append("text")
 		.attr("x", width/2)
-		.attr("y", height/2 - 90)
+		.attr("y", height/2 - 180)
 		.attr("dy", 0)
 		.attr("text-anchor", "middle")
 		.attr("font-size", 40)

@@ -3,77 +3,77 @@
 		["Programación", "IWI-131", 3, "PC"],
 		["Matemáticas I", "MAT-011", 5, "MF"],
 		["Introducción a la Física", "FIS-100", 3, "MF"],
-		["Introducción a la Ingeniería","IWG-101", 2, "PC"],
+		["Introducción a la Ingeniería", "IWG-101", 2, "PC"],
 		["Educación Física I", "DEW-100", 1, "PC"]
 	],
-  "s2": [
-    ["Química y Sociedad", "QUI-010", 3, "PC"],
+	"s2": [
+		["Química y Sociedad", "QUI-010", 3, "PC"],
 		["Matemáticas II", "MAT-012", 5, "MF", ["MAT-011"]],
 		["Física Básica I", "FIS-109", 5, "MF", ["MAT-011", "FIS-100"]],
 		["Humanístico I", "HRW-001", 2, "HUM"],
 		["Educación Física II", "DEW-101", 1, "PC", ["DEW-100"]]
 	],
-  "s3": [
-    ["Geometría Descriptiva", "CON-100", 3, "CON"],
-    ["Estructuras I", "CON-130", 4, "CON", ["MAT-012", "FIS_109"]],
-    ["Matemáticas III", "MAT-013", 4, "MF", ["MAT-012"]],
-    ["Física Básica II", "FIS-119", 3, "MF", ["MAT-012", "FIS-109"]],
-    ["Humanístico II", "HRW-002", 2, "HUM"],
-    ["Deportes", "DEW-0", 1, "PC", ["DEW-101"]]
-  ],
-  "s4": [
-    ["Dibujo de Construcción", "CON-101", 3, "CON", ["CON-100"]],
-    ["Estructuras II", "CON-131", 3, "CON", ["CON-130"]],
-    ["Materiales de Construcción I", "CON-250", 3, "CON", ["QUI-010"]],
-    ["Matemáticas IV", "MAT-014", 4, "MF", ["MAT-012"]],
-    ["Física Básica III", "FIS-129", 3, "MF", ["FIS-119"]],
-    ["Humanístico III, "HRW-003", 2, "HUM"],
-    ["Inglés Científico Tecnológico I", "HCW-310", 1, "HUM"]
-  ],
-  "s5": [
-    ["Topografía y taller", "CON-200", 4, "CON", ["CON101"]],
-    ["Tecnología del Hormigón y Laboratorio", "CON-252", 4, "CON", ["CON-130", "CON-250"]],
-    ["Tecnología de la Madera y Laboratorio", "CON-253", 4, "CON", ["CON-250"]],
-    ["Estadística", "MAT-031", 3, "MF", ["MAT-013"]],
-    ["Equipos de Construcción", "CON-201", 3, "CON"]
-  ],
-  "s6": [
-    ["Hidráulica", "CON-240", 3, "CON", ["CON-130"]],
-    ["Estructura de Madera y Acero", "CON230", 4, "CON", ["CON-131"]],
-    ["Materiales de Construcción II", "CON-251", 3, "CON", ["CON-250", "CON-252", "CON-253"]],
-    ["Hormigón Armado", "CON-231", 4, "CON", ["MAT-014", "MAT-031", "CON-252"]],
-    ["Economía I", "ILN-270", 3, "IND", ["MAT-013"]],
-    ["Inglés Científico Tecnológico II", "HCW-311", 1, "HUM", ["HCW-310"]]
-  ],
-  "s7": [
-    ["Mecánica de Suelos I", "CON-260", 3, "CON", ["CON-240"]],
-    ["Ingeniería Hidráulica", "CON-241", 4, "CON", ["CON-240"]],
-    ["Construcciones Sismorresistentes", "CON-232", 3, "CON", ["CON-230", "FIS-129"]],
-    ["Construcción I", "CON-220", 4, "CON", ["CON-230", "CON-231"]],
-    ["Economía II", "ILN-271", 3, "IND", ["ILN-270"]]
-  ],
-  "s8": [
-    ["Mecánica de Suelos II", "CON-261", 2, "CON", ["CON-260"]],
-    ["Vialidad I y Laboratorio", "CON-280", 3, "CON", ["CON-200", "CON-260"]],
-    ["Obras Sanitarias", "CON-310", 4, "CON", ["CON-241"]],
-    ["Construcciones Industriales", "CON-223", 3, "CON", ["CON-232"]],
-    ["Construcción II", "CON-221", 4, "CON", ["CON-220"]],
-    ["Seminario de Seguridad Industrial", "CON-202", 2, "CON", ["MAT-031"]]
-  ],
-  "s9": [
-    ["Construcción de Obras Civiles", "CON-222", 3, "CON", ["CON-261", "CON-280"]],
-    ["Vialidad II y Laboratorio", "CON-281", 3, "CON", ["CON-280"]],
-    ["Instalaciones en Edificaciones", "CON-224", 3, "CON", ["CON-221"]],
-    ["Propuestas y Licitaciones", "CON-320", 4, "CON", ["CON-221"]],
-    ["Administración de la Construcción", "CON-390", 4, "CON", ["ILN-271"]],
-    ["Historia de la Construción", "HRW-203", 2, "HUM"]
-  ],
-  "s10": [
-    ["Legislación de la Construcción", "CON-300", 2, "CON"],
-    ["Seminario de Tasacciones", "CON-321", 2, "CON"],
-    ["Construcción y Medio Ambiente", "CON-311", 3, "CON", ["CON-310"],
-    ["Gestión Financiera de Obras", "CON-393", 3, "CON", ["CON-320", "CON-390"]],
-    ["Administración de Obras", "CON-392", 4, "CON", ["CON-320", "CON-390"]],
-    ["Proyectos Inmobiliarios", "CON-391", 4, "CON", ["ILN-271"]]
-  ]
+	"s3": [
+		["Geometría Descriptiva", "CON-100", 3, "CON"],
+		["Estructuras I", "CON-130", 4, "CON", ["MAT-012", "FIS-109"]],
+		["Matemáticas III", "MAT-013", 4, "MF", ["MAT-012"]],
+		["Física Básica II", "FIS-119", 3, "MF", ["MAT-012", "FIS-109"]],
+		["Humanístico II", "HRW-002", 2, "HUM"],
+		["Deportes", "DEW-0", 1, "PC", ["DEW-101"]]
+	],
+	"s4": [
+		["Dibujo de Construcción", "CON-101", 3, "CON", ["CON-100"]],
+		["Estructuras II", "CON-131", 3, "CON", ["CON-130"]],
+		["Materiales de Construcción I", "CON-250", 3, "CON", ["QUI-010"]],
+		["Matemáticas IV", "MAT-014", 4, "MF", ["MAT-012"]],
+		["Física Básica III", "FIS-129", 3, "MF", ["FIS-119"]],
+		["Humanístico III", "HRW-003", 2, "HUM"],
+		["Inglés Científico Tecnológico I", "HCW-310", 1, "HUM"]
+	],
+	"s5": [
+		["Topografía y taller", "CON-200", 4, "CON", ["CON-101"]],
+		["Tecnología del Hormigón y Laboratorio", "CON-252", 4, "CON", ["CON-130", "CON-250"]],
+		["Tecnología de la Madera y Laboratorio", "CON-253", 4, "CON", ["CON-250"]],
+		["Estadística", "MAT-031", 3, "MF", ["MAT-013"]],
+		["Equipos de Construcción", "CON-201", 3, "CON"]
+	],
+	"s6": [
+		["Hidráulica", "CON-240", 3, "CON", ["CON-130"]],
+		["Estructura de Madera y Acero", "CON-230", 4, "CON", ["CON-131"]],
+		["Materiales de Construcción II", "CON-251", 3, "CON", ["CON-250", "CON-252", "CON-253"]],
+		["Hormigón Armado", "CON-231", 4, "CON", ["MAT-014", "MAT-031", "CON-252"]],
+		["Economía I", "ILN-270", 3, "IND", ["MAT-013"]],
+		["Inglés Científico Tecnológico II", "HCW-311", 1, "HUM", ["HCW-310"]]
+	],
+	"s7": [
+		["Mecánica de Suelos I", "CON-260", 3, "CON", ["CON-240"]],
+		["Ingeniería Hidráulica", "CON-241", 4, "CON", ["CON-240"]],
+		["Construcciones Sismorresistentes", "CON-232", 3, "CON", ["CON-230", "FIS-129"]],
+		["Construcción I", "CON-220", 4, "CON", ["CON-230", "CON-231"]],
+		["Economía II", "ILN-271", 3, "IND", ["ILN-270"]]
+	],
+	"s8": [
+		["Mecánica de Suelos II", "CON-261", 2, "CON", ["CON-260"]],
+		["Vialidad I y Laboratorio", "CON-280", 3, "CON", ["CON-200", "CON-260"]],
+		["Obras Sanitarias", "CON-310", 4, "CON", ["CON-241"]],
+		["Construcciones Industriales", "CON-223", 3, "CON", ["CON-232"]],
+		["Construcción II", "CON-221", 4, "CON", ["CON-220"]],
+		["Seminario de Seguridad Industrial", "CON-202", 2, "CON", ["MAT-031"]]
+	],
+	"s9": [
+		["Construcción de Obras Civiles", "CON-222", 3, "CON", ["CON-261", "CON-280"]],
+		["Vialidad II y Laboratorio", "CON-281", 3, "CON", ["CON-280"]],
+		["Instalaciones en Edificaciones", "CON-224", 3, "CON", ["CON-221"]],
+		["Propuestas y Licitaciones", "CON-320", 4, "CON", ["CON-221"]],
+		["Administración de la Construcción", "CON-390", 4, "CON", ["ILN-271"]],
+		["Historia de la Construción", "HRW-203", 2, "HUM"]
+	],
+	"s10": [
+		["Legislación de la Construcción", "CON-300", 2, "CON"],
+		["Seminario de Tasacciones", "CON-321", 2, "CON"],
+		["Construcción y Medio Ambiente", "CON-311", 3, "CON", ["CON-310"]],
+		["Gestión Financiera de Obras", "CON-393", 3, "CON", ["CON-320", "CON-390"]],
+		["Administración de Obras", "CON-392", 4, "CON", ["CON-320", "CON-390"]],
+		["Proyectos Inmobiliarios", "CON-391", 4, "CON", ["ILN-271"]]
+	]
 }
