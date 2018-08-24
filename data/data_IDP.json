@@ -1,0 +1,86 @@
+﻿{
+	"s1": [
+                ["Matemática I", "MAT-011", 5, "MAT"],
+                ["Introducción a la Física", "FIS-100", 3, "FIS"],
+                ["Introducción a la Ingeniería", "IWG-101", 2, "IDP"],
+                ["Química y Sociedad", "QUI-010", 3, "QUI"],
+		["Educación Física I", "DEW-100", 1, "DEFI"]
+		
+	],
+	"s2": [
+		["Matemáticas II", "MAT-012", 5, "MAT", ["MAT-011"]],
+                ["Física Básica I", "FIS-109", 5, "FIS", ["MAT-011", "FIS-100"]],
+		["Programación", "IWI-131", 3, "INF"],
+		["Visión Trascendente del Quehacer Humano", "HRW-101", 2, "HUM"],
+                ["Educación Física II", "DEW-101", 1, "DEFI", ["DEW-100"]]
+		
+	],
+	"s3": [
+		["Matemáticas III", "MAT-013", 4, "MAT", ["MAT-012"]],
+                ["Física Básica II", "FIS-119",  3, "FIS", ["MAT-012", "FIS-109"]],
+                ["Taller de Productos I", "IDP-111", 3, "IDP", ["FIS-100", "IWG-101"]],
+                ["Diseño en Ingeniería", "IDP-102", 3, "IDP", ["FIS-109"]],
+		["Visión Inmanente del Quehacer Humano", "HRW-102", 2, "HUM"],
+                ["Inglés para Ingeniería I", "HIW-310", 2, "HUM"]
+	],
+	"s4": [
+		["Matemática IV", "MAT-014", 4, "MAT", ["MAT-013"]],
+		["Física Básica III", "FIS-129", 3, "FIS", ["FIS-119"]],
+                ["Taller de Productos II", "IDP-112", 3, "IDP", ["IDP-111"]],
+                ["Gráfica de Productos", "IDP-200", 3, "IDP"],
+                ["Fundamentos de Calor y Fluidos", "MEC-119", 3, "MEC", ["FIS-119"]],
+                ["Inglés para Ingeniería II", "HIW-311", 2, "HUM", ["HIW-310"]]
+
+                
+	],
+	"s5": [
+                ["Elementos de Mecánica y Resistencia de Mat.", "ILM-152", 3, "MEC", ["FIS-109"]],
+                ["Manufacturas I", "MET-224", 3, "MET", ["QUI-010", "FIS-119"]],
+                ["Taller de Productos III", "IDP-113", 5, "IDP", ["IDP-112", "IDP-102"]],
+                ["Modelación de Productos", "IDP-205", 3, "IDP", ["IDP-200"]],
+                ["Economía I-A", "IWN-170", 3, "IND", ["MAT-013"]],
+		["Deportes", "DEW 0", 1, "DEFI", ["DEW-101"]]
+                
+	],
+	"s6": [
+		["Factor Humano", "IDP-103", 3, "IDP", ["IDP-112"]],
+                ["Manufacturas II", "MEC-273", 4, "MEC", ["MET-224"]],
+                ["Taller de Productos IV", "IDP-114", 5, "IDP", ["IDP-113", "MET-224", "IDP-205"]],
+                ["Representación Virtual de Productos", "IDP-210", 3, "IDP", ["IDP-205"]],
+                ["Información y Control Financiero", "IWN-270", 3, "IND", ["IWN-170"]],
+                ["Visión Estética del Quehacer Humano", "HRW-103", 2, "HUM"]
+	],
+	"s7": [
+		["Administración General", "IWN-261", 3, "IND"],
+                ["Manufacturas III", "MEC-274", 4, "MEC", ["MEC-273"]],
+                ["Taller de Productos V", "IDP-115", 5, "IDP", ["ILM-152", "IDP-114", "IDP-103"]],
+                ["Concepción de Productos", "IDP-215", 3, "IDP", ["ILM-152", "IDP-205", "MEC-119"]],
+                ["Evaluación de Proyectos", "ICN-336", 3, "IND", ["IWN-270"]]
+
+
+	],
+	"s8": [
+                ["Marketing", "ICN-321", 3, "IND", ["IWN-170"]],
+                ["Métodos Avanzados en Manufcatura", "MEC-275", 3, "MEC", ["MEC-274"]],
+                ["Taller de Productos VI", "IDP-116", 5, "IDP", ["IDP-115", "MEC-274"]],
+		["Estrategias en Ingeniería de Productos", "IDP-104", 3, "IDP", ["IDP-115"]],
+                ["Finanzas", "ICN-320", 3, "IND", ["IWN-270"]]
+
+
+
+	],
+	"s9": [
+		["Creación de Empresas", "ICN-339", 3, "IND", ["ICN-320", "ICN-321"]],
+                ["Materiales, Función y Procesos", "MET-324", 3, "MET", ["MET-224", "IDP-115"]],
+                ["Taller de Productos VII", "IDP-117", 5, "IDP", ["IDP-104", "IDP-215", "IDP-116"]],
+                ["Investigación Aplicada", "IDP-301", 3, "IDP", ["IDP-104"]]
+
+
+	],
+	"s10": [
+		["Recursos Humanos", "ICN-323", 3, "IND", ["IWN-261"]],
+                ["Trabajo en Equipo y Liderazgo", "IDP-302", 3, "IDP", ["IDP-116"]],
+                ["Taller de Título", "IDP-118", 8, "IDP", ["IDP-301", "IDP-117"]]
+
+	]
+}
