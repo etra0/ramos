@@ -8,6 +8,7 @@ var canvas = d3.select(".canvas")
 
 var carreras = {
 	'INF': 'Informática',
+    'ICI': 'Industrial',
 	'ELO': 'Electrónica',
 	'TEL': 'Telemática',
 	'ICOM': 'Comercial',
