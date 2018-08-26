@@ -1,0 +1,83 @@
+{
+	"s1": [
+		["Matemáticas I", "MAT021", 5, "MAT"],
+		["Introducción a la Física", "FIS100", 3, "FIS"],
+		["Química y Sociedad", "QUI010", 3, "PC"],
+		["Introducción a la Ingeniería de Minas", "MIN100", 3, "MET"],
+		["Educación Física I", "DEW100", 1, "HUM"]
+	],
+	"s2": [
+		["Matemáticas II", "MAT022", 5, "MAT", ["MAT021"]],
+ 		["Física General I", "FIS110", 5, "FIS", ["MAT021", "FIS100"]],
+		["Trabajo en Equipo", "MIN101", 2, "MET", ["MIN100"]],
+		["Programación", "IWI131", 3, "PC"],		
+		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
+	],
+	"s3": [
+		["Matemáticas III", "MAT023", 4, "MAT", ["MAT022"]],
+		["Física General III", "FIS130",  4, "FIS", ["MAT022", "FIS110"]],
+		["Química Básica", "QUI021", 3, "QUI", ["QUI010"]],
+		["Ciencia Ambiental", "MIN103", 3, "MET", ["QUI010"]],
+		["Industria Minera", "MIN102", 3, "MET", ["MIN100"]],
+		["Deportes", "DEW102", 1, "HUM", ["DEW101"]]
+	],
+	"s4": [
+		["Matemáticas IV", "MAT024", 4, "MAT", ["MAT023"]],
+		["Física General II", "FIS120", 4, "FIS", ["MAT022", "FIS110"]],
+		["Geología", "MIN130", 3, "MET", ["MIN102"]],
+		["Gráfica en Ingeniería", "IWM185", 3, "MEC", ["IWI131"]],
+		["Materiales para la Industria Minera", "MIN205", 4, "MET", ["QUI010", "FIS110"]]
+		
+	],
+	"s5": [
+		["Geología Estructural y Geotecnia", "MIN232", 4, "MET", ["MIN130"]],
+		["Física General IV", "FIS140", 4, "FIS", ["FIS130", "FIS120"]],
+		["Geomática", "MIN233", 3, "MET", ["MIN102", "MIN130"]],
+		["Procesamiento de Minerales I", "MIN250", 3, "MET", ["MIN102", "MIN103"]],
+		["Ingles para Ingeniería I", "HIW310", 2, "HUM", ["HCW310"]],
+		["Resistencia de Materiales", "MIN240", 3, "MET", ["MAT023", "FIS110", "MIN205"]]
+	],
+	"s6": [
+		["Fluidodinámica en Minería", "MIN265", 4, "MET", ["MAT024", "FIS130"]],
+		["Geoestadística y Análisis Espacial", "MIN235", 3, "MET", ["MIN101", "MIN233"]],
+		["Mecánica de Rocas", "MIN242", 4, "MET", ["MAT024", "MIN232", "MIN240"]],
+		["Perforación y Tronadura", "MIN244", 3, "MET", ["QUI021", "FIS130", "MIN232"]],
+		["Procesamiento de Minerales", "MIN260", 3, "MET", ["QUI021", "MIN102", "MIN103", "MIN130"]],
+		["Ingles para Ingeniería II", "HIW311", 1, "HUM", ["HIW310"]]
+	],
+	"s7": [
+		["Economía I-A", "IWN170", 3, "IND", ["MAT023"]],
+		["Ingeniería de Medios Granulares", "MIN324", 3, "MET",["MIN240", "FIS140"]],
+		["Ingeniería de Rocas", "MIN314", 3, "MET", ["MIN242", "MIN244", "IWM185"]],
+		["Minería de Superficie", "MIN334", 3, "MET", ["MIN232", "MIN233", "MIN242", "MIN244"]],
+		["Procesamiento de Minerales III", "MIN270", 3, "MET", ["MIN250", "MIN260", "MIN265"]]
+	],
+	"s8": [
+		["Administración General", "IWN261", 3, "IND"],	
+		["Geología Económica", "MIN332", 3, "MET", ["MIN244", "MIN270"]],
+		["Electivo I", "MIN 1", 3, "EL"],
+		["Minería Subterránea", "MIN334", 5, "MET", ["MIN232", "MIN233", "MIN242", "MIN314", "MIN324"]],
+		["Procesamiento de Minerales IV", "MIN280", 3, "MET", ["MIN270"]]
+	],
+	"s9": [
+		["Automatización, Control y Robótica", "MIN354", 3, "MET", ["MIN270", "MIN344"]],
+		["Electivo II", "MIN 2", 3, "El"],
+		["Evaluación de Yacimientos y Planificación Minera", "MIN364", 4, "MET", ["IWN170", "MIN235", "MIN270", "MIN334", "MIN344"]],
+		["Humanístico I", "HRW1", 2, "HUM"],
+ 		["Informacion y Control Financiero", "IWN270", 3, "IND", ["IWN170"]],
+		["Simulación y Modelación","MIN220", 3, "MET", ["IWI131"]]
+	],
+	"s10": [
+		["Humanístico II", "HRW2", 2, "HUM"],
+		["Legislación Minera y Laboral", "MIN384", 2, "MET", ["IWN261", "IWN270", "MIN233"]],
+		["Negocio Minero Sustentable", "374", 3, "MET", ["MIN280", "MIN364"]],
+		["Seguridad Industrial y Ventilación", "MIN370", 3, "MET", ["MIN314", "MIN344"]],
+		["Taller de Gestión de Proyectos", "MIN394", 5, "MET", ["MIN332", "MIN364"]], 
+		["Trabajo de Titulación I", "MIN397", 3, "MET"]
+	],
+	"s11": [
+		["Electivo III", "MIN 3", 3, "EL", ["ICQ373", "ICQ341"]],
+		["Trabajo de Titulación II", "MIN398", 9, "MET"],
+
+	]
+}
