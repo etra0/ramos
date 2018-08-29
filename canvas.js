@@ -18,7 +18,8 @@ var carreras = {
 	'ICQ': 'Química',
 	'ELI': 'Eléctrica',
     'CONSTRU': 'Construcción',
-	'IDP': 'Diseño de Productos'
+	'IDP': 'Diseño de Productos',
+    'MET': 'Metalúrgica'
 }
 
 /* ---------- axis ---------- */

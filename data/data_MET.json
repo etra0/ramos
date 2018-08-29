@@ -1,0 +1,112 @@
+﻿{
+	"s1": [
+		["Matemáticas I", "MAT021", 5, "MAT"],
+		["Introducción a la Física", "FIS100", 3, "FIS"],
+		["Química y Sociedad", "QUI010", 3, "PC"],
+		["Introducción a la Ingeniería", "IWG101", 2, "PC"],
+		["Educación Física I", "DEW100", 1, "HUM"]
+	],
+
+
+	"s2": [
+		["Matemáticas II", "MAT022", 5, "MAT", ["MAT021"]],
+		["Física General I", "FIS110", 5, "FIS", ["MAT021", "FIS100"]],
+
+		["Programación", "IWI131", 3, "PC"],
+		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
+	],
+
+
+	"s3": [
+		["Matemáticas III", "MAT023", 4, "MAT", ["MAT022"]],
+		["Física General III", "FIS130", 4, "FIS", ["MAT022", "FIS110"]],
+		["Química Básica", "QUI021", 3, "QUI", ["QUI010"]],
+		["Laboratorio de Materiales y Procesos", "MET101", 3, "MET", ["QUI010", "FIS100"]],
+		["Ingles para Ingeniería I", "HIW310", 2, "HUM"],
+		["Deportes", "DEW0", 1, "HUM", ["DEW101"]]
+	],
+
+
+	"s4": [
+		["Matemáticas IV", "MAT024", 4, "MAT", ["MAT023"]],
+		["Física General II", "FIS120", 4, "FIS", ["MAT022", "FIS110"]],
+		["Cálculo de Procesos", "MET110", 3, "MET", ["QUI021"]],
+		["Laboratorio de Metalurgia Extractiva", "MET102", 3, "QUI", ["QUI010", "FIS100"]],
+		["Laboratorio de Química Básica", "QUI103", 4, "QUI"]
+	],
+
+
+
+	"s5": [
+		["Ciencia de Materiales", "MET120", 3, "MET", ["FIS110"]],
+		["Física General IV", "FIS140", 4, "FIS", ["FIS130", "FIS120"]],
+		["Termodinámica Metalúrgica I", "MET136", 3, "MET", ["MAT023", "MET110"]],
+		["Química de Materiales", "QUI022", 3, "QUI", ["QUI010"]],
+		["Gráfica para Ingeniería I", "IWM185", 3, "PC", ["IWI131"]],
+		["Inglés para Ingeniería II", "HIW311", 2, "HUM", ["HIW310"]]
+	],
+
+	"s6": [
+		["Geología y Mineralogía", "MET281", 3, "MET", ["MET120"]],
+		["Mecánica de Fluidos", "IWQ221", 4, "ICQ", ["FIS110"]],
+		["Mecánica de Sólidos", "MET240", 3, "MET", ["FIS110"]],
+		["Metalurgia Física I", "MET226", 3, "MET", ["MET120", "MET136"]],
+		["Termodinámica Metalúrgica II", "MET137", 3, "MET", ["MET136"]]
+	],
+
+
+	"s7": [
+		["Análisis y Diseño de Experim. Industriales", "IWQ214", 3, "ICQ", ["MET136"]],
+		["Cinética Metalúrgica y Diseño de Reactores", "MET332", 3, "MET", ["MET137"]],
+		["Beneficio de Minerales", "ICQ328", 3, "ICQ", ["IWQ221"]],
+		["Metalurgia Física II", "MET227", 3, "MET", ["MET226"]],
+		["Transferencia de Calor", "IWQ222", 5, "ICQ", ["IWQ221", "MET136"]]
+	],
+
+
+	"s8": [
+		["Comportamiento Mecánico de Materiales", "MET244", 4, "MET", ["MET240", "MET226"]],
+		["Economía I-A", "IWN170", 3, "IND", ["MAT023"]],
+		["Fundición", "MET310", 3, "MET", ["MET226"]],
+		["Hidrometalurgia", "MET237", 3, "MET", ["MET332"]],
+		["Humanístico I", "HRW 1", 2, "HUM"],
+		["Lab de Ingeniería Química I", "ILQ225", 3, "ICQ", ["IWQ221", "IWQ222"]]
+	],
+
+
+	"s9": [
+		["Electrotecnia Básica", "ELI271", 3, "EL", ["MAT023", "FIS120"]],
+		["Flotación", "ILQ327", 4, "ICQ", ["IWQ214", "MET136", "ICQ328"]],
+		["Gestión de Investigación de Operaciones", "ILN250", 4, "IND", ["IWQ214"]],
+		["Pirometalurgia", "MET236", 3, "MET", ["MET137"]],
+		["Soldadura", "MET320", 3, "MET", ["MET244", "MET227"]]
+
+	],
+
+
+	"s10": [
+		["Electivo Especialidad I", "MET11", 3, "MET"],
+		["FUndamenots de Control Industrial", "ILQ350", 3, "IND", ["IWQ222"]],
+		["Humanístico II", "HRW 2", 2, "HUM"],
+		["Información y Control Financiero", "IWN270", 3, "IND", ["IWN170"]],
+		["Laboratorio de Ingeniería Metalúrgica", "MET308", 3, "IND", ["MET236", "MET237"]],
+		["Simulación de Procesos Metalúrgicos", "MET311", 3, "MET", ["MET236", "MET237"]]
+	],
+
+
+	"s11": [
+		["Administración General", "IWN261", 3, "IND"],
+		["Asignatura Electiva I", "MET 1", 3, "MET"],
+		["Electivo Especialidad II", "MET 12", 3, "MET"],
+		["Humanístico III", "HRW III", 2, "HUM"],
+		["Proyecto Metalúrgico I", "MET370", 3, "MET", ["IWN270"]],
+		["Taller de Titulación", "MET391", 2, "MET"]
+	],
+	"s12": [
+		["Administración de la Producción", "ICN345", 3, "IND", ["ILN250"]],
+		["Asignatura Electiva II", "MET 2", 3, "MET"],
+		["Memoria de Titulación", "MET392", 8, "MET", ["MET391"]],
+		["Proyecto Metalúrgico II", "MET380", 3, "MET", ["MET370"]]
+
+	]
+}
