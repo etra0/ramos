@@ -32,7 +32,7 @@
 		["Física General II", "FIS120", 4, "FIS", ["MAT022", "FIS110"]],
 		["Cálculo de Procesos", "MET110", 3, "MET", ["QUI021"]],
 		["Laboratorio de Metalurgia Extractiva", "MET102", 3, "QUI", ["QUI010", "FIS100"]],
-		["Laboratorio de Química Básica", "QUI103", 4, "QUI"]
+		["Laboratorio de Química Básica", "QUI103", 3, "QUI"]
 	],
 
 
