@@ -98,7 +98,7 @@
 		["Administración General", "IWN261", 3, "IND"],
 		["Asignatura Electiva I", "MET1", 3, "MET"],
 		["Electivo Especialidad II", "MET12", 3, "MET"],
-		["Humanístico III", "HRW III", 2, "HUM"],
+		["Humanístico III", "HRW3", 2, "HUM"],
 		["Proyecto Metalúrgico I", "MET370", 3, "MET", ["IWN270"]],
 		["Taller de Titulación", "MET391", 2, "MET"]
 	],
