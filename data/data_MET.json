@@ -69,7 +69,7 @@
 		["Economía I-A", "IWN170", 3, "IND", ["MAT023"]],
 		["Fundición", "MET310", 3, "MET", ["MET226"]],
 		["Hidrometalurgia", "MET237", 3, "MET", ["MET332"]],
-		["Humanístico I", "HRW 1", 2, "HUM"],
+		["Humanístico I", "HRW1", 2, "HUM"],
 		["Lab de Ingeniería Química I", "ILQ225", 3, "ICQ", ["IWQ221", "IWQ222"]]
 	],
 
@@ -87,7 +87,7 @@
 	"s10": [
 		["Electivo Especialidad I", "MET11", 3, "MET"],
 		["FUndamenots de Control Industrial", "ILQ350", 3, "IND", ["IWQ222"]],
-		["Humanístico II", "HRW 2", 2, "HUM"],
+		["Humanístico II", "HRW2", 2, "HUM"],
 		["Información y Control Financiero", "IWN270", 3, "IND", ["IWN170"]],
 		["Laboratorio de Ingeniería Metalúrgica", "MET308", 3, "IND", ["MET236", "MET237"]],
 		["Simulación de Procesos Metalúrgicos", "MET311", 3, "MET", ["MET236", "MET237"]]
@@ -96,15 +96,15 @@
 
 	"s11": [
 		["Administración General", "IWN261", 3, "IND"],
-		["Asignatura Electiva I", "MET 1", 3, "MET"],
-		["Electivo Especialidad II", "MET 12", 3, "MET"],
+		["Asignatura Electiva I", "MET1", 3, "MET"],
+		["Electivo Especialidad II", "MET12", 3, "MET"],
 		["Humanístico III", "HRW III", 2, "HUM"],
 		["Proyecto Metalúrgico I", "MET370", 3, "MET", ["IWN270"]],
 		["Taller de Titulación", "MET391", 2, "MET"]
 	],
 	"s12": [
 		["Administración de la Producción", "ICN345", 3, "IND", ["ILN250"]],
-		["Asignatura Electiva II", "MET 2", 3, "MET"],
+		["Asignatura Electiva II", "MET2", 3, "MET"],
 		["Memoria de Titulación", "MET392", 8, "MET", ["MET391"]],
 		["Proyecto Metalúrgico II", "MET380", 3, "MET", ["MET370"]]
 
