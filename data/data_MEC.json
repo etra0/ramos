@@ -37,6 +37,7 @@
 		["Humanístico I", "HRW101", 2, "HUM"]
 	],
 	"s6": [
+		["Probabilidad y Estadistica para Ingenieria", "MAT035",4, "CEL", ["MAT023"]],
 		["Elementos de Máquinas", "MEC258", 3, "VER", ["MEC255"]],
 		["Fundamentos del Diseño", "MEC245", 3, "VER"],
 		["Mecánica de Fluidos", "MEC120", 4, "VER", ["MAT024","MEC110"]],
@@ -44,30 +45,31 @@
 	],
 	"s7": [
 		["Mecánica de Fluidos Avanzadas", "MEC220", 3, "VER", ["MEC120"]],
-		["Mecánica de Máquinas", "MEC353", 3, "VER"],
+		["Mecánica de Máquinas", "MEC353", 3, "VER", ["MAT270","MEC252"]],
 		["Procesos de Manufactura", "MEC161", 3, "VER", ["MEC160"]],
-		["Termodinámica Aplicada", "MEC210", 4, "VER"],
+		["Termodinámica Aplicada", "MEC210", 4, "VER",["MEC110"]],
 		["Transferencia de Calor", "MEC230", 4, "VER", ["MEC120"]],
 		["Humanístico III", "HRW103", 2, "HUM"]
 	],
 	"s8": [
 		["Ingeniería Térmica", "MEC278", 3, "VER",["MEC220","MEC230"]], 
-		["Mediciones Mecánicas", "MEC260", 3, "VER"],
+		["Mediciones Mecánicas", "MEC260", 3, "VER", ["MEC160"]],
+		["Diseño Mecanico", "MEC346", 3, "VER",["MEC245","MEC258"]]
 		["Regulación y Contaminación Ambiental", "MEC346", 3, "VER",["MEC120","MEC230"]],
 		["Fundamentos de Electrotecnia", "ELI270", 4, "MO",["MAT022","FIS120"]],
 		["Electivo 1", "MEC1", 3, "AMA"]
 	],
 	"s9": [
 		["Equipo y Máquinas Térmicas", "MEC378", 4, "VER", ["MEC278"]],
-		["Métodos Numéricos en Ing. Mecánica", "MEC270", 3, "VER"],
-		["Fundamentos de Calidad", "MEC280", 3, "VER"],
+		["Métodos Numéricos en Ing. Mecánica", "MEC270", 3, "VER",["MAT270","MEC255","MEC120"]],
+		["Fundamentos de Calidad", "MEC280", 3, "VER",["MAT035"]],
 		["Fundamentos de Electronica", "ILD208", 3, "RO",["FIS120"]],
 		["Electivo 2", "MEC2", 3, "AMA"]
 	],
 	"s10": [
-		["Automatización, Neumática y Oleohidráulica", "MEC373", 3, "VER"],
+		["Automatización, Neumática y Oleohidráulica", "MEC373", 3, "VER",["MEC260","MEC120"]],
 		["Tecnologías de Control Ambiental", "MEC383", 3, "VER",["MEC346"]],
-		["Turbomáquinas", "MEC374", 4, "VER"],
+		["Turbomáquinas", "MEC374", 4, "VER",["MEC120"]],
 		["Electivo 3", "MEC3", 3, "AMA"]
 	],
 	"s11": [
