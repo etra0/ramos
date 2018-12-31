@@ -54,7 +54,7 @@
 	"s8": [
 		["Ingeniería Térmica", "MEC278", 3, "VER",["MEC220","MEC230"]], 
 		["Mediciones Mecánicas", "MEC260", 3, "VER", ["MEC160"]],
-		["Diseño Mecanico", "MEC346", 3, "VER",["MEC245","MEC258"]]
+		["Diseño Mecanico", "MEC346", 3, "VER",["MEC245","MEC258"]],
 		["Regulación y Contaminación Ambiental", "MEC346", 3, "VER",["MEC120","MEC230"]],
 		["Fundamentos de Electrotecnia", "ELI270", 4, "MO",["MAT022","FIS120"]],
 		["Electivo 1", "MEC1", 3, "AMA"]
