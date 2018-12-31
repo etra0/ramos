@@ -54,7 +54,23 @@ Ejemplo:
 ```
 
 ## Probar malla
-Para probar la malla, se tiene que abrir el `index.html` con **Firefox** (debido a que los otros navegadores tienen
+Para probar la malla, existen dos metodos:
+
+### Usando python (preferido)
+Lo ideal sería probarlo usando python, ya que permite levantar un mini servidor http lo que facilita la carga
+para el navegador. Para esto, se tiene que abrir una terminal, ir al directorio principal de la malla (ramos/)
+y ejecutar lo siguiente:
+
+* Si tiene Python 2 (el usado en la universidad): `python -m SimpleHTTPServer`
+* Si tiene Python 3 (el actual): `python -m http.server`
+
+Independiente de la version, una vez ejecutado la linea, despues se debe abrir un navegador
+e ir a la dirección http://localhost:8000 y ahí debería ver la malla.
+Dependiendo de la malla a probar, deberá navegar agregando al final de la url `?m=CARR`. Por ejemplo, 
+para abrir `data_INF.json` debería quedar algo como `index.html?m=INF`.
+
+### Usando Firefox
+Se tiene que abrir el `index.html` con **Firefox** (debido a que los otros navegadores tienen
 desactivada la lectura de archivos locales por defecto), y al final de la URL agregar `?m=CARR`. Por ejemplo, 
 para abrir `data_INF.json` debería quedar algo como `index.html?m=INF`.
 
