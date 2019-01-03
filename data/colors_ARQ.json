@@ -1,0 +1,14 @@
+﻿{
+	"TAL": ["#307070", "Taller"],
+	"MAT": ["#FFA647 ", "Matemáticas"],
+	"FIS": ["#00BFFF", "Física y Estructuras"],
+	"TH" : ["#AEB404", "Teoría e Historia"],
+	"HUM": ["#52AD0C", "Humanistas y Deportes"],
+	"CONS": ["#1F758E", "Construcción"],
+	"OPT": ["#D7E251", "Optativos"],
+	"ECO": ["#421970", "Economia"],
+	"COMP": ["#FF4000", "Metodos Computacionales"],
+	"URB": ["#DF013A", "Urbanismo"],
+	"SUST": ["#21610B", "Sustentabilidad"],
+	"TIT": ["#9B9999", "Titulo"]
+}

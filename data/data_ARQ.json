@@ -1,0 +1,73 @@
+﻿{
+	"s1": [
+		["Taller Introducción a la Arquitectura", "ARQ101", 10, "TAL"],
+		["Matemáticas I", "MAT050", 4, "MAT"],
+		["Introducción a la Física", "FIS100", 3, "FIS"],
+		["Educación Física I", "DEW100", 1, "HUM"]
+	],
+	"s2": [
+		["Taller Introducción a la Arquitectura", "ARQ102", 10, "TAL", ["ARQ101"]],
+		["Matemáticas II", "MAT051", 4, "MAT", ["MAT050"]],
+ 		["Física Básica para Arquitectos", "FIS103", 3, "FIS", ["MAT050", "FIS100"]],		
+		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
+	],
+	"s3": [
+		["Taller Espacio Urbano", "ARQ251", 7, "TAL", ["ARQ102"]],
+		["Teoría e Historia de la ciudad", "ARQ211", 2, "TH", ["ARQ102"]],
+		["Matemáticas III", "MAT052", 4, "MAT", ["MAT051"]],
+		["Concepto de Estructuras", "IAO261",  3, "FIS", ["FIS103"]],
+		["Geometría Arquitectónica", "ARQ241", 2, "MAT", ["ARQ102", "MAT051"]],
+		["Deportes", "DEW0", 1, "HUM", ["DEW101"]]
+	],
+	"s4": [
+		["Taller Espacio Intermedio y Clima", "ARQ252", 7, "TAL", ["ARQ251"]],
+		["Teoría e Historia de la Arq. Vernácula", "ARQ212", 2, "TH", ["ARQ102"]],
+		["Cultura Urbana Contemporánea", "ARQ222", 2, "URB", ["ARQ211"]],
+		["Métodos Computacionales en Arquitectura", "ARQ232", 2, "COMP", ["MAT051"]], 
+		["Análisis Aproximado", "IAO262", 3, "FIS", ["IAO261", "MAT051"]],
+		["Tecnologías Sustentables", "ARQ242", 3, "SUST", ["ARQ102","FIS103"]]
+	],
+	"s5": [
+		["Taller Modelación del Espacio", "ARQ351", 7, "TAL", ["ARQ252","MAT052"]],
+		["Teoría e Historia de la Represent. en Arq.", "ARQ311", 2, "TH", ["ARQ241", "ARQ251"]],
+		["Estrategias de Intervención Territorial", "ARQ321", 2, "URB", ["ARQ222"]],
+		["Taller de Métodos Computacionales en Arq.", "ARQ331", 2, "COMP", ["ARQ232"]],
+		["Suelos y Fundaciones", "IAO361", 3, "FIS", ["IAO262"]],
+		["Sistemas Constructivos Básicos", "ARQ341", 3, "CONS", ["IAO261","FIS103"]]
+	],
+	"s6": [
+		["Taller Espacio y Tectónica", "ARQ352", 7, "TAL", ["ARQ351"]],
+		["Teoría e Historia de la Construcción", "ARQ312", 2, "TH", ["ARQ341", "ARQ212"]],
+		["Economia I", "ICS733", 3, "ECO", ["MAT052","FIS103"]],
+		["Estructuras Sismorresistentes", "IAO362", 3, "FIS", ["IAO262"]],
+		["Pre-Practica Administración y Prog. de Obra", "ARQ342", 2, "CONS", ["ARQ341"]],
+		["Inglés I", "HCW001", 2, "HUM"]
+	],
+	"s7": [
+		["Taller Avanzado I", "ARQ451", 9, "TAL", ["ARQ352","ARQ242","ARQ341"]],
+		["Marketing e Investigacion de Mercado", "ILN321", 3, "ECO", ["ICS733"]],
+		["Optativa", "ARQ001", 2, "OPT"],
+		["Instalaciones Sanitarias, Eléctricas y de Clima", "ARQ441", 3, "CONS", ["ARQ342"]],
+		["Inglés II", "HCW002", 2, "HUM", ["HCW001"]]
+	],
+	"s8": [
+		["Taller Avanzado II", "ARQ452", 9, "TAL", ["ARQ451","ARQ331"]],
+		["Evaluación de Proyectos Inmobialiarios", "ILN272", 3, "ECO", ["ILN321"]],
+		["Optativa", "ARQ002", 2, "OPT"],
+		["Hormigón Armado", "IAO462", 3, "FIS", ["IAO362"]],
+		["Inglés III", "HCW003", 2, "HUM", ["HCW002"]]
+	],
+	"s9": [
+		["Taller Avanzado III", "ARQ551", 9, "TAL", ["ARQ452"]],
+		["Gestión Territorial", "ARQ521", 2, "URB", ["ARQ321"]],
+		["Optativa", "ARQ003", 2, "OPT"],
+		["Estructuras de Acero", "IAO561", 3, "FIS", ["IAO362"]],
+		["Sistemas Constructivos Complejos", "ARQ541", 3, "CONS", ["ARQ441"]]
+	],
+	"s10": [
+		["Proyecto de Titulación", "ARQ650", 6, "TIT", ["ARQ551"]]
+	],
+	"s11": [
+		["Proyecto de Titulación", "ARQ651", 6, "TIT", ["ARQ650"]]
+	]
+}
