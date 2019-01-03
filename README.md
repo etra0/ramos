@@ -67,7 +67,7 @@ y ejecutar lo siguiente:
 Independiente de la version, una vez ejecutado la linea, despues se debe abrir un navegador
 e ir a la dirección http://localhost:8000 y ahí debería ver la malla.
 Dependiendo de la malla a probar, deberá navegar agregando al final de la url `?m=CARR`. Por ejemplo, 
-para abrir `data_INF.json` debería quedar algo como `index.html?m=INF`.
+para abrir `data_INF.json` debería quedar algo como `http://localhost:8000/index.html?m=INF`.
 
 ### Usando Firefox
 Se tiene que abrir el `index.html` con **Firefox** (debido a que los otros navegadores tienen
