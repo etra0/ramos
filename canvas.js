@@ -7,6 +7,7 @@ var canvas = d3.select(".canvas")
 	.attr('height', height);
 
 var carreras = {
+	'ARQ': 'Arquitectura',
 	'INF': 'Informática',
     'ICI': 'Industrial',
 	'ELO': 'Electrónica',
