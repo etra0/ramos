@@ -1,0 +1,11 @@
+{
+	"MAT": ["#00838F", "Matemáticas"],
+	"FIS": ["#2E58A7", "Físicas"],
+	"HUM": ["#B0B91D", "Humanistas y Deportes"],
+	"IND": ["#6BA8D1", "Industrias"],
+	"QUI": ["#991B1E", "Química"],
+	"IQA": ["#00AD5D", "Ingeniería Química y Ambiental"],
+	"INF": ["#F47C23", "Informática"],
+	"ELI": ["#FDDE15", "Eléctrica"],
+	"MEC": ["#6D57A5", "Mecánica"]
+}
