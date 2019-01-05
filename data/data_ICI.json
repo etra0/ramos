@@ -1,15 +1,15 @@
 {
 	"s1": [
-		["Programación", "IWI-131", 3, "PC"],
+		["Química y Sociedad", "QUI-010", 3, "PC"],
 		["Matemáticas I", "MAT-021", 5, "PC"],
 		["Introducción a la Física", "FIS-100", 3, "PC"],
 		["Introducción a la Ingeniería", "IWG-101", 2, "PC"],
 		["Educación Física I", "DEW-100", 1, "DEF"]
 	],
 	"s2": [
-		["Química y Sociedad", "QUI-010", 3, "PC"],
+		["Programación", "IWI-131", 3, "PC"],
 		["Matemáticas II", "MAT-022", 5, "PC", ["MAT-021"]],
-		["Física General I", "FIS-110", 3, "PC", ["MAT-021", "FIS-100"]],
+		["Física General I", "FIS-110", 5, "PC", ["MAT-021", "FIS-100"]],
 		["Humanístico I", "HXW-001", 2, "HUM"],
 		["Educación Física II", "DEW-101", 1, "DEF", ["DEW-100"]]
 	],
@@ -22,16 +22,16 @@
 	],
 	"s4": [
 		["Matemáticas IV", "MAT-024", 4, "PC", ["MAT-023"]],
-		["Física General III", "FIS-130", 4, "PC", ["FIS-120", "FIS-110"]],
-		["Taller de Ingeniería Industrial II", "ILN-011", 4, "IND", ["ILN-010"]],
-		["Electrotecnia Básica", "ELI-271", 4, "ELEC", ["FIS-120"]],
-		["Humanístico II", "HXW-002", 2, "HUM", ["HXW-001"]],
+		["Física General III", "FIS-130", 4, "PC", ["MAT-022", "FIS-110"]],
+		["Taller de Ingeniería Industrial II", "ILN-011", 3, "IND", ["ILN-010"]],
+		["Electrotecnia Básica", "ELI-271", 3, "ELEC", ["MAT-023","FIS-120"]],
+		["Humanístico II", "HXW-002", 2, "HUM"],
 		["Inglés I", "HCW-100", 2, "HUM"]
 	],
 	"s5": [
 		["Administración de Empresas", "ICN-262", 3, "IND"],
-		["Taller de Ingeniería Industrial III", "ILN-012", 3, "IND", ["ILN-011"]],
-		["Laboratorio de Procesos Industriales", "ILN-255", 4, "IND", ["FIS-120"]],
+		["Taller de Ingeniería Industrial III", "ILN-012", 3, "IND", ["ILN-010"]],
+		["Laboratorio de Procesos Industriales", "ILN-255", 4, "IND", ["FIS-120","FIS-130"]],
 		["Termodinámica", "IWM-210", 4, "MEC", ["FIS-130"]],
 		["Microeconomia", "ILN-210", 3, "IND", ["MAT-023"]],
 		["Deportes", "DEW-0", 1, "DEF", ["DEW-101"]]
@@ -41,43 +41,43 @@
 		["Legislación Empresarial", "ICS-003", 3, "IND", ["ICN-262"]],
 		["Gestión Energetica I", "ILN-221", 4, "PC", ["IWM-210"]],
 		["Macroeconomía", "ILN-211", 3, "IND", ["ILN-210"]],
-		["Gráfica a la Ingeniería", "IWM-185", 4, "MEC", ["IWI-131"]],
+		["Gráfica en Ingeniería", "IWM-185", 3, "MEC", ["IWI-131"]],
 		["Ingles II", "HCW-102", 2, "PC", ["HCW-100"]]
 	],
 	"s7": [
-		["Fisica General IV", "FIS-140", 4, "PC", ["FIS-130"]],
-		["Probabilidad y Estadistica", "MAT-042", 4, "PC", ["MAT-023"]],
-		["Gestión Energetica II", "ILN-222", 2, "PC", ["ILN-221"]],
+		["Fisica General IV", "FIS-140", 4, "PC", ["FIS-120","FIS-130"]],
+		["Probabilidad y Estadistica Industrial", "MAT-042", 4, "PC", ["MAT-023"]],
+		["Gestión Energetica II", "ILN-222", 4, "PC", ["ILN-221"]],
 		["Recursos Humanos", "ICN-323", 3, "IND", ["ICN-262"]],
-		["Ingeniería Economica", "ILN-230", 3, "HUM", ["IWN-270"]]
+		["Ingeniería Economica", "ILN-230", 3, "IND", ["IWN-270"]]
 	],
 	"s8": [
 		["Econometría", "ICN-312", 4, "IND", ["MAT-042"]],
 		["Organización Industrial", "ICN-212", 3, "IND", ["ILN-210"]],
-		["Gestion de Investigacion de Operaciones", "ILN-250", 4, "IND", ["ILN-210"]],
-		["Sistema Informacion para la Gestión", "ILN-292", 3, "IND", ["ILN-210"]],
-		["Ingeniería de Plantas", "ICN-342", 3, "HUM", ["ILN-230"]]
+		["Gestion de Investigacion de Operaciones", "ILN-250", 4, "IND", ["ILN-210","MAT-042"]],
+		["Sistemas de Informacion para la Gestión", "ILN-292", 3, "IND", ["ILN-210","IWI-131"]],
+		["Ingeniería de Plantas", "ICN-342", 3, "IND", ["ILN-230","MAT-042"]]
 	],
 	"s9": [
 		["Finanzas", "ICN-320", 3, "IND", ["IWN-270"]],
-		["Marketing", "ICN-321", 3, "IND", ["IWN-270"]],
-		["Gestion de Calidad Total", "ICN-346", 3, "IND", ["ILN-250"]],
+		["Marketing", "ICN-321", 3, "IND", ["ILN-210"]],
+		["Gestion Calidad Total", "ICN-346", 3, "IND", ["ILN-250"]],
 		["Asignatura de Especialización I", "ICN-011", 3, "IND"],
 		["Gestión de Operaciones", "ICN-343", 4, "IND", ["ILN-250"]],
-		["Humanístico III", "HXW-003", 2, "HUM", ["HXW-002"]]
+		["Humanístico III", "HXW-003", 2, "HUM"]
 	],
 	"s10": [
-		["Evaluación de Proyectos Generales", "ICN-338", 3, "IND", ["IWM-210", "ILN-230"]],
+		["Evaluación de Proyectos Generales", "ICN-338", 3, "IND", ["ILN-210", "ILN-230"]],
 		["Asignatura de Especialización II", "ICN-012", 3, "IND", ["ICN-011"]],
 		["Gestión Estratégica", "ICN-332", 3, "IND", ["ICN-323", "ICN-320", "ICN-321"]],
-		["Humanístico IV", "HXW-004", 2, "HUM", ["HXW-003"]],
+		["Humanístico IV", "HXW-004", 2, "HUM"],
 		["Gestión de Operaciones II", "ICN-344", 4, "IND", ["ICN-343"]],
-		["Taller de Titulación I", "ICN-398", 3, "IND", ["ICN-321"]]
+		["Taller de Título I", "ICN-398", 2, "IND", ["ICN-321"]]
 	],
 	"s11": [
 		["Desarrollo y Control de Proyectos", "ICN-337", 3, "IND", ["ICN-338"]],
-		["Asignatura de Especialización III", "ICN-013", 3, "IND", ["ICN-012"]],
-		["Asignatura Especialización IV", "ICN-014", 3, "IND", ["ICN-012"]],
-		["Taller de Titulación II", "INC-399", 8, "IND", ["ICN-398"]]
+		["Asignatura de Especialización III", "ICN-013", 3, "IND"],
+		["Asignatura Especialización IV", "ICN-014", 3, "IND"],
+		["Taller de Título II", "INC-399", 8, "IND", ["ICN-398"]]
 	]
 }
