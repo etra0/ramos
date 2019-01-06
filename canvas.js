@@ -20,7 +20,8 @@ var carreras = {
 	'ELI': 'Eléctrica',
     'CONSTRU': 'Construcción',
 	'IDP': 'Diseño de Productos',
-    'MET': 'Metalúrgica'
+    'MET': 'Metalúrgica',
+    'ICA': 'Ambiental'
 }
 
 /* ---------- axis ---------- */

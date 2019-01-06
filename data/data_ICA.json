@@ -1,0 +1,91 @@
+{
+	"s1": [
+		["Química y Sociedad", "QUI010", 3, "QUI"],
+		["Matemáticas I", "MAT021", 5, "MAT"],
+		["Introducción a la Física", "FIS100", 3, "FIS"],
+		["Introducción a la Ingeniería", "IWG101", 2, "IQA"],
+		["Educación Física I", "DEW100", 1, "HUM"]
+	],
+	"s2": [
+		["Programación", "IWI131", 3, "INF"],
+		["Matemáticas II", "MAT022", 5, "MAT", ["MAT021"]],
+		["Física General I", "FIS110", 5, "FIS", ["MAT021", "FIS100"]],
+		["Humanístico I", "HRW1", 2, "HUM"],
+		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
+	],
+	"s3": [
+		["Biología", "IMQ010",  3, "IQA", ["QUI010"]],
+		["Matemáticas 3", "MAT023",  4, "MAT", ["MAT022"]],
+		["Física General II", "FIS120",  4, "FIS", ["MAT022", "FIS110"]],
+		["Química Básica", "QUI021",  3, "QUI", ["QUI010"]],
+		["Laboratorio de Química Básica", "QUI103",  3, "QUI"],
+		["Deportes", "DEW0", 1, "HUM", ["DEW101"]]
+	],
+	"s4": [
+		["Introducción a la Microbiología", "IWQ261", 3, "IQA", ["QUI010"]],
+		["Matemáticas IV", "MAT024",  4, "MAT", ["MAT023"]],
+		["Física General III", "FIS130",  4, "FIS", ["FIS110", "MAT022"]],
+		["Química de Procesos", "QUI024", 3, "QUI", ["QUI021"]],
+		["Química Orgánica", "QUI134", 4, "QUI", ["QUI021"]]
+	],
+	"s5": [
+		["Ecología", "IMQ100", 3, "IQA", ["QUI010"]],
+		["Electrotecnia Básica", "ELI271", 3, "ELI", ["MAT023", "FIS120"]],
+		["Física General IV", "FIS140", 4, "FIS", ["FIS120", "FIS130"]],
+		["Mecánica de Fluidos", "IWQ221", 4, "IQA", ["FIS110"]],
+		["Termodinámica", "IWQ111", 4, "IQA", ["QUI024"]]
+	],
+	"s6": [
+		["Análisis Instrumental", "QUI320", 4, "QUI", ["QUI134"]],
+		["Economía I-A", "IWN170", 3, "IND", ["MAT023"]],
+		["Fenómenos de Transporte", "ILQ230", 4, "IQA", ["IWQ111", "MAT024", "IWQ221"]],
+		["Introducción a las Ciencias de la Tierra", "IMQ217", 3, "IQA", ["IWQ111"]],
+		["Termodinámica para Ingeniería Ambiental", "IMQ212", 4, "IQA", ["IWQ111"]]
+	],
+	"s7": [
+		["Análisis y Diseño de Experim. Industriales", "IWQ214", 3, "IQA", ["IWQ111"]],
+		["Fundamentos de Ingeniería Bioquímica", "IWQ250", 3, "IQA", ["QUI134"]],
+		["Información y Control Financiero", "IWN270", 3, "IND", ["IWN170"]],
+		["Ingeniería Geográfica", "IMQ351", 4, "IQA", ["IMQ217"]],
+		["Transferencia de Calor y Materia", "IMQ223", 5, "IQA", ["IMQ212", "IWQ221"]]
+	],
+	"s8": [
+		["Diseño de Reactores", "ILQ261", 4, "IQA", ["IMQ223", "FIS140", "ILQ230"]],
+		["Fundamentos de Control Industrial", "IWQ350", 4, "IQA", ["IMQ223"]],
+		["Tecnología de la Combustión", "ICM312", 3, "MEC", ["IMQ223"]],
+		["Tratamiento de Residuos Sólidos", "IMQ320", 4, "IQA", ["ILQ230"]],
+		["Taller de Ingeniería Ambiental", "IMQ380", 1, "IQA"],
+		["Humanístico II", "HRW2", 2, "HUM"],
+		["Inglés Científico Tecnológico I", "HCW310", 1, "HUM"]
+	],
+	"s9": [
+		["Legislación Ambiental", "IMQ340", 3, "IQA", ["ILQ230"]],
+		["Modelación Ambiental", "IMQ300", 3, "IQA", ["ILQ230", "IMQ223"]],
+		["Operación de Plantas", "IWQ294", 3, "IQA", ["IWQ350"]],
+		["Tratamiento de Gases", "IMQ310", 4, "IQA", ["ILQ230", "IMQ223"]],
+		["Dibujo y Taller Mecánico", "IWM179", 4, "MEC"],
+		["Inglés Científico Tecnológico II", "HCW311", 1, "HUM", ["HCW310"]]
+	],
+	"s10": [
+		["Gestión Ambiental", "IMQ350", 3, "IQA", ["IMQ340"]],
+		["Tratamiento de Riles", "IMQ311", 4, "IQA", ["ILQ261", "ILQ230"]],
+		["Gestión de Investigación de Operaciones", "ILN250", 4, "IND", ["IWQ214"]],
+		["Electivo I", "ICA 1", 3, "IQA"],
+		["Administración General", "IWN261", 3, "IND"],
+		["Seminario de Ingeniería Ambiental", "IMQ383", 1, "IQA", ["IWQ294"]]
+	],
+	"s11": [
+		["Economía Ambiental", "IMQ200", 3, "IQA", ["IWN170"]],
+		["Proyecto en Ingeniería Ambiental", "IMQ381", 4, "IQA", ["IWQ294", "IMQ310", "IMQ311", "IMQ320"]],
+		["Supervisión de Personal", "IWQ374", 3, "IQA", ["IWN261"]],
+		["Electivo II", "ICA 2", 3, "IQA"],
+		["Taller de Titulación I", "IWQ395", 2, "IQA"],
+		["Humanístico III", "HRW3", 2, "HUM"]
+	],
+	"s12": [
+		["Ética Ambiental", "IMQ330", 2, "IQA", ["IMQ381"]],
+		["Evaluación de Impacto Ambiental", "IMQ382", 4, "IQA", ["IMQ340", "IMQ310", "IMQ311", "IMQ320"]],
+		["Proyectos Específicos Ambientales", "IMQ391", 4, "IQA", ["IMQ381"]],
+		["Taller de Titulación II", "IWQ396", 7, "IQA", ["IWQ395"]]
+	]
+}
