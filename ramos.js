@@ -11,44 +11,44 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 	let self = this;
 	let ramo;
 
-	this.draw = function(canvas, posX, posY, size) {
+	this.draw = function(canvas, posX, posY, sizeX, sizeY) {
 		ramo = canvas.append('g')
 			.attr('id', self.sigla);
-		var graybar = size/5;
+		var graybar = sizeY/5;
 
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
-			.attr("width", size*1.2)
-			.attr("height", size)
+			.attr("width", sizeX*1.2)
+			.attr("height", sizeY)
 			.attr("fill", colorBySector[sector][0]);
 
 		// above bar
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
-			.attr("width", size*1.2)
+			.attr("width", sizeX*1.2)
 			.attr("height", graybar)
 			.attr("fill", '#6D6E71');
 
 		// below bar
 		ramo.append("rect")
 			.attr("x", posX)
-			.attr("y", posY + size - graybar)
-			.attr("width", size*1.2)
+			.attr("y", posY + sizeY - graybar)
+			.attr("width", sizeX*1.2)
 			.attr("height", graybar)
 			.attr("fill", '#6D6E71');
 
 		// credits rect
 		ramo.append("rect")
-			.attr("x", posX + size*1.2 - 23)
-			.attr("y", posY + size - graybar + 1)
+			.attr("x", posX + sizeX*1.2 - 23)
+			.attr("y", posY + sizeY - graybar + 1)
 			.attr("width", 19)
 			.attr("height", 18)
 			.attr("fill", 'white');
 		ramo.append("text")
-			.attr("x", posX + size*1.2 - 17)
-			.attr("y", posY + size - 6)
+			.attr("x", posX + sizeX*1.2 - 17)
+			.attr("y", posY + sizeY - 6)
 			.text(self.creditos)
 			.attr("font-family", "sans-serif")
 			.attr("font-weight", "regular")
@@ -57,8 +57,8 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 			
 		
 		ramo.append("text")
-			.attr("x", posX + size*1.2/2)
-			.attr("y", posY + size/2)
+			.attr("x", posX + sizeX*1.2/2)
+			.attr("y", posY + sizeY/2)
 			.text(self.nombre)
 			.attr("class", "ramo-label")
 			.attr("font-family", 'sans-serif')
@@ -74,7 +74,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		// Sigla
 		ramo.append("text")
 			.attr("x", posX + 2)
-			.attr("y", posY + size/7)
+			.attr("y", posY + sizeY/7)
 			.text(self.sigla)
 			.attr("font-family", "sans-serif")
 			.attr("font-weight", "bold")
@@ -84,15 +84,15 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
-			.attr("width", size*1.2)
-			.attr("height", size)
+			.attr("width", sizeX*1.2)
+			.attr("height", sizeY)
 			.attr("fill", 'white')
 			.attr("opacity", "0.001")
 			.attr("class", "non-approved");
 
 		var cross = ramo.append('g').attr("class", "cross").attr("opacity", 0);
 		cross.append("path")
-			.attr("d", "M" + posX + "," + posY + "L" + (posX+size*1.1) + "," + (posY+size))
+			.attr("d", "M" + posX + "," + posY + "L" + (posX+sizeX*1.1) + "," + (posY+sizeY))
 			.attr("stroke", "#550000")
 			.attr("stroke-width", 9);
 

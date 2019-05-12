@@ -1,5 +1,7 @@
-var width = 1570,
-	height = 730;
+var	scaleX = 1,
+	scaleY = 1;
+var width = 1570 * scaleX,
+	height = 730 * scaleY;
 
 var canvas = d3.select(".canvas")
 	.append("svg")
@@ -90,8 +92,8 @@ function main_function(error, data, colorBySector) {
 	}
 
 	// update width y height debido a que varian segun la malla
-	width = 130*Object.keys(malla).length;
-	height = 110*longest_semester + 30 + 25
+	width = (130*Object.keys(malla).length) * scaleX;
+	height = (110*longest_semester + 30 + 25) * scaleY
 
 	canvas.attr("width", width)
 		.attr("height", height);
@@ -119,29 +121,29 @@ function main_function(error, data, colorBySector) {
 		drawer.append("rect")
 			.attr("x", globalX)
 			.attr("y", globalY)
-			.attr("width", 120)
-			.attr("height", 30)
+			.attr("width", 120 * scaleX)
+			.attr("height", 30 * scaleY)
 			.attr("fill", 'gray');
 
 		drawer.append("text")
-			.attr('x', globalX + 110/2)
-			.attr('y', globalY + 2*30/3)
+			.attr('x', globalX + 110/2 * scaleX)
+			.attr('y', globalY + 2*30/3 * scaleY)
 			.text(_s[_semester-1])
 			.attr('text-anchor', 'middle')
 			.attr("font-family", "sans-serif")
 			.attr("font-weight", "bold")
 			.attr("fill", "white");
 		_semester++;
-		globalY += 40;
+		globalY += 40 * scaleY;
 
 		for (var ramo in malla[semester]) {
-			malla[semester][ramo].draw(drawer, globalX, globalY, 100);
-			globalY += 110;
+			malla[semester][ramo].draw(drawer, globalX, globalY, scaleX * 100, scaleY * 100);
+			globalY += 110 * scaleY;
 		};
-		globalX += 130;
+		globalX += 130 * scaleX;
 	};
 	drawer.selectAll(".ramo-label")
-		.call(wrap, 115);
+		.call(wrap, 115 * scaleX);
 
 	// verificar cache
 	var cache_variable = 'approvedRamos_' + current_malla;
@@ -187,10 +189,10 @@ function main_function(error, data, colorBySector) {
 		.attr("opacity", 0.9);
 	first_time.append("text")
 		.attr("x", width/2)
-		.attr("y", height/2 - 180)
+		.attr("y", height/2 - 180 * scaleY)
 		.attr("dy", 0)
 		.attr("text-anchor", "middle")
-		.attr("font-size", 40)
+		.attr("font-size", 40* scaleX)
 		.attr("opacity", 0.01)
 		.text(`¡Bienvenido a la Malla Interactiva de ${carreras[current_malla]}!`)
 		.transition().duration(800)
@@ -199,10 +201,10 @@ function main_function(error, data, colorBySector) {
 		.call(wrap, 900);
 	first_time.append("text")
 		.attr("x", width/2)
-		.attr("y", height/2 - 90)
+		.attr("y", height/2 - 90 * scaleY)
 		.attr("dy", "2.1em")
 		.attr("text-anchor", "middle")
-		.attr("font-size", 30)
+		.attr("font-size", 30*scaleX)
 		.attr("opacity", 0.01)
 		.text(`Puedes tachar tus ramos aprobados haciendo click sobre ellos.
 	A medida que vas aprobando ramos, se van liberando los que tienen prerrequisitos.
@@ -210,7 +212,7 @@ function main_function(error, data, colorBySector) {
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
-		.call(wrap, 900);
+		.call(wrap, 900 * scaleX);
 
 	first_time.on('click', function() {
 		d3.select(this).transition().duration(200).style('opacity', 0.1).on('end', function() {
