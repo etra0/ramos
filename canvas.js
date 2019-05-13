@@ -1,4 +1,5 @@
-var	scaleX = 1,
+// Cambie las variables scale para aumentar o reducir las dimensiones de la malla
+// Se recomienda fuertemente valores NO MENORES a 0.5
 	scaleY = 1;
 var width = 1570 * scaleX,
 	height = 730 * scaleY;
@@ -92,8 +93,9 @@ function main_function(error, data, colorBySector) {
 	}
 
 	// update width y height debido a que varian segun la malla
-	width = (130*Object.keys(malla).length) * scaleX;
-	height = (110*longest_semester + 30 + 25) * scaleY
+		// + 10 para evitar ocultamiento de parte de la malla
+	width = (130*Object.keys(malla).length) * scaleX + 10;
+	height = (110*longest_semester + 30 + 25) * scaleY + 10;
 
 	canvas.attr("width", width)
 		.attr("height", height);
@@ -143,7 +145,7 @@ function main_function(error, data, colorBySector) {
 		globalX += 130 * scaleX;
 	};
 	drawer.selectAll(".ramo-label")
-		.call(wrap, 115 * scaleX);
+		.call(wrap, 115 * scaleX, (100 - 100/5*2) * scaleY);
 
 	// verificar cache
 	var cache_variable = 'approvedRamos_' + current_malla;
@@ -179,6 +181,9 @@ function main_function(error, data, colorBySector) {
 		localStorage[cache_variable] = willStore;
 	}, 2000);
 
+
+
+
 	var first_time = canvas.append("g")
 	first_time.append("rect")
 		.attr("x", 0)
@@ -198,7 +203,7 @@ function main_function(error, data, colorBySector) {
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
-		.call(wrap, 900);
+		.call(wrap, 900 * scaleX, height);
 	first_time.append("text")
 		.attr("x", width/2)
 		.attr("y", height/2 - 90 * scaleY)
@@ -212,7 +217,7 @@ function main_function(error, data, colorBySector) {
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
-		.call(wrap, 900 * scaleX);
+		.call(wrap, 900 * scaleX, height);
 
 	first_time.on('click', function() {
 		d3.select(this).transition().duration(200).style('opacity', 0.1).on('end', function() {
@@ -222,7 +227,7 @@ function main_function(error, data, colorBySector) {
 }
 
 
-function wrap(text, width) {
+function wrap(text, width, height) {
   text.each(function() {
     var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
@@ -231,23 +236,45 @@ function wrap(text, width) {
         lineNumber = 0,
         lineHeight = 1.1, // ems
         y = text.attr("y"),
-        dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em");
+				dy = parseFloat(text.attr("dy")),
+				fontsize = Number(text.attr("font-size")),
+				tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
+				textLines,
+				textHeight;
     while (word = words.pop()) {
-      line.push(word);
-      tspan.text(line.join(" "));
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop();
-        tspan.text(line.join(" "));
-        line = [word];
-        tspan = text.append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-      }
-    }
-	  if (text.selectAll('tspan')._groups[0].length === 1) {
+				line.push(word);
+				tspan.text(line.join(" "));
+				while (tspan.node().getComputedTextLength() > width) {
+					if (line.length == 1) {
+						text.attr("font-size", String(--fontsize));
+					}
+					else {
+						line.pop();
+						tspan.text(line.join(" "));
+						line = [word];
+						tspan = text.append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+					}
+				}
+		}
+		textLines =  text.selectAll('tspan')._groups[0].length;
+	  if (textLines === 1) {
 		  text.selectAll('tspan').attr('y', (+d3.select(this).attr('y')) + (+5));
-	  } else if (text.selectAll('tspan')._groups[0].length > 2) {
-		  text.selectAll('tspan').attr('y', d3.select(this).attr('y') - 10);
-	  }
+	  } else if (textLines > 2) {
+		  text.selectAll('tspan').attr('y', d3.select(this).attr('y') - (110/2) * scaleY/4 );
+		}
+		textHeight = text.node().getBoundingClientRect().height;
+
+		while (textHeight > height - 5) {
+			text.attr("font-size", String(--fontsize));
+			textHeight = text.node().getBoundingClientRect().height;
+			lineNumber = 0;
+			let tspans = text.selectAll('tspan')
+			for (let index = 0; index < textLines; index++) {
+				let tspan = tspans._groups[0][index];
+				tspan.setAttribute('dy', lineNumber++ * 1 + dy + 'em'); 
+				
+			}
+		}
   });
 }
 
