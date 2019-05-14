@@ -1,6 +1,6 @@
 // Cambie las variables scale para aumentar o reducir las dimensiones de la malla
 // Se recomienda fuertemente valores NO MENORES a 0.5
-var	scaleX = 1,
+var	scaleX = 0.67,
 	scaleY = 1;
 var width = 1570 * scaleX,
 	height = 730 * scaleY;
@@ -100,6 +100,8 @@ function main_function(error, data, colorBySector) {
 
 	canvas.attr("width", width)
 		.attr("height", height);
+	drawer.attr("width", width)
+	.attr("height", height);
 
 	// colores de la malla
 	Object.keys(colorBySector).forEach(key => {
@@ -200,7 +202,7 @@ function main_function(error, data, colorBySector) {
 		.attr("text-anchor", "middle")
 		.attr("font-size", 40* scaleX)
 		.attr("opacity", 0.01)
-		.text(`¡Bienvenido a la Malla Interactiva de ${carreras[current_malla]}!`)
+		.text(`¡Bienvenido a [Inserte funcion aqui] de la malla ${carreras[current_malla]}!`)
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
@@ -212,9 +214,8 @@ function main_function(error, data, colorBySector) {
 		.attr("text-anchor", "middle")
 		.attr("font-size", 30*scaleX)
 		.attr("opacity", 0.01)
-		.text(`Puedes tachar tus ramos aprobados haciendo click sobre ellos.
-	A medida que vas aprobando ramos, se van liberando los que tienen prerrequisitos.
-	Haz click en cualquier lado para comenzar.`)
+		.text(`Aquí va a suceder algo tan mágico que te sentiras feliz
+		por el resto de tu vida en la U.`)
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
