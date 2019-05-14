@@ -1,6 +1,6 @@
 // Cambie las variables scale para aumentar o reducir las dimensiones de la malla
 // Se recomienda fuertemente valores NO MENORES a 0.5
-	scaleY = 1;
+var	scaleX = 1,
 var width = 1570 * scaleX,
 	height = 730 * scaleY;
 
