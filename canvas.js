@@ -139,7 +139,7 @@ function main_function(error, data, colorBySector) {
 		globalY += 40 * scaleY;
 
 		for (var ramo in malla[semester]) {
-			malla[semester][ramo].draw(drawer, globalX, globalY, scaleX * 100, scaleY * 100);
+			malla[semester][ramo].draw(drawer, globalX, globalY, scaleX, scaleY);
 			globalY += 110 * scaleY;
 		};
 		globalX += 130 * scaleX;

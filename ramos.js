@@ -11,9 +11,11 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 	let self = this;
 	let ramo;
 
-	this.draw = function(canvas, posX, posY, sizeX, sizeY) {
+	this.draw = function(canvas, posX, posY, scaleX, scaleY) {
 		ramo = canvas.append('g')
 			.attr('id', self.sigla);
+		var sizeX = 100 * scaleX,
+			sizeY = 100 * scaleY
 		var graybar = sizeY/5;
 
 		ramo.append("rect")
@@ -41,19 +43,19 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 
 		// credits rect
 		ramo.append("rect")
-			.attr("x", posX + sizeX*1.2 - 23)
+			.attr("x", posX + sizeX *1.2 - 23 * scaleX)
 			.attr("y", posY + sizeY - graybar + 1)
-			.attr("width", 19)
-			.attr("height", 18)
+			.attr("width", 19 * scaleX)
+			.attr("height", 18 * scaleY)
 			.attr("fill", 'white');
 		ramo.append("text")
-			.attr("x", posX + sizeX*1.2 - 17)
-			.attr("y", posY + sizeY - 6)
+			.attr("x", posX + sizeX*1.2 - 17 * scaleX)
+			.attr("y", posY + sizeY - 6 * scaleY)
 			.text(self.creditos)
 			.attr("font-family", "sans-serif")
 			.attr("font-weight", "regular")
 			.attr("fill", "black")
-			.attr("font-size", 12);
+			.attr("font-size", 12 * scaleY);
 			
 		
 		ramo.append("text")
@@ -79,7 +81,11 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 			.attr("font-family", "sans-serif")
 			.attr("font-weight", "bold")
 			.attr("fill", "white")
-			.attr("font-size", 12);
+			.attr("font-size", function() {
+				if (scaleX < 0.59)
+					return 9;
+				return 12;
+			});
 
 		ramo.append("rect")
 			.attr("x", posX)
@@ -98,15 +104,15 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 
 		// id
 		ramo.append("circle")
-			.attr("cx", posX + size*1.2-10)
+			.attr("cx", posX + sizeX*1.2-10)
 			.attr("cy", posY + graybar/2 )
 			.attr("fill", "white")
 			.attr("r", 8);
 		ramo.append("text")
 			.attr("x", function() {
 				if (self.id > 9)
-					return posX + size*1.2-10
-				return posX + size*1.2 - 10.5
+					return posX + sizeX*1.2 - 10
+				return posX + sizeX*1.2 - 10.5
 			})
 			.attr("y", posY + graybar/2 + 3)
 			.attr("text-anchor", "middle")
@@ -118,20 +124,29 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		// prerr circles!
 		let c_x = 0;
 		self.prer.forEach(function(p) {
-			let r = 10;
+			let r = 9,
+			fontsize = 12,
+			variantX = 5
+			variantY = 5;
+			if (scaleX < 0.75) {
+				r--;
+				fontsize--;
+				variantX = 1;
+				variantY--;
+			}
 			ramo.append("circle")
-				.attr('cx', posX + r + c_x + 5)
-				.attr('cy', posY + size - graybar/2)
+				.attr('cx', posX + r + c_x + variantX)
+				.attr('cy', posY + sizeY - graybar/2)
 				.attr('r', r)
 				.attr('fill', colorBySector[all_ramos[p].sector][0])
 				.attr('stroke', 'white');
 			ramo.append('text')
-				.attr('x', posX + r + c_x + 5)
-				.attr('y', posY + size - graybar/2 + 5)
+				.attr('x', posX + r + c_x + variantX)
+				.attr('y', posY + sizeY - graybar/2 + variantY)
 				.text(all_ramos[p].id)
 				.attr("text-anchor", "middle")
 				.attr("font-family", "sans-serif")
-				.attr("font-size", 12)
+				.attr("font-size", fontsize)
 				.attr('fill', 'white');
 			c_x += r*2;
 		});
