@@ -177,12 +177,43 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		if (!selected) {
 			d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
 			SELECTED.push(self);
+			let card = d3.select('#priorix').select('.card-body').append('div');
+			card.attr('id', "p-" + self.sigla);
+			card.attr('class', 'form-group mb-1');
+			card.attr('style', 'opacity:0.001');
+			card.append('label')
+			  .attr('class', 'text-left mb-1')
+			  .attr('for', 'nota-' + self.sigla)
+			  .text(self.nombre);
+			let insideCard = card.append('div');
+			insideCard.attr('class','input-group');
+			insideCard.append('div')
+			  .attr('class','input-group-prepend')
+			  .append('span')
+			    .attr('class','input-group-text')
+				.text('Nota');
+			insideCard.append('input')
+				.attr('class', 'form-control')
+				.attr('name', 'nota-' + self.sigla)
+			  .attr('type', 'number')
+			  .attr('min','0')
+			  .attr('max','100')
+			  .attr('value', '0');
+			insideCard.append('div')
+			  .attr('class','input-group-append')
+			  .append('span')
+			    .attr('class','input-group-text')
+				.text('x ' + self.creditos + ' creditos');
+			card.transition().duration(300).style("opacity", "1");
 		} else {
 			d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", "0.01");
 			let _i = SELECTED.indexOf(self)
 			if (_i > -1) {
 				SELECTED.splice(_i, 1);
 			}
+			let card = d3.select('#p-' + self.sigla);
+			card.transition().duration(300).style("opacity", "0.001").remove();
+
 		}
 		selected = !selected;
 	}
