@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
 
         <title>Temp title</title>
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
     </head>
     <style>
@@ -27,35 +27,38 @@
 
   <body>
 
-<nav class="navbar navbar-default"style='display:flex;justify-content:center'>
-  <div class="container-fluid" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light"style='justify-content:center'>
     <ul class="nav navbar-nav">
-      <li><a href="?m=ICA">Ambiental</a></li>
-      <li><a href="?m=ARQ">Arquitectura</a></li>
-      <li><a href="?m=CIV">Civil</a></li>
-      <li><a href="?m=ICOM">Comercial</a></li>
-      <li><a href="?m=CONSTRU">Construcción</a></li>
-      <li><a href="?m=IDP">Diseño de productos</a></li>
-      <li><a href="?m=ELI">Eléctrica</a></li>
-      <li><a href="?m=ELO">Electrónica</a></li>
-      <li><a href="?m=INF">Informática</a></li>
-      <li><a href="?m=ICI">Industrial</a></li>
-      <li><a href="?m=MAT">Matemática</a></li>
-      <li><a href="?m=MEC">Mecánica</a></li>
-      <li><a href="?m=MET">Metalúrgica</a></li>
-      <li><a href="?m=ICQ">Química</a></li>
-      <li><a href="?m=TEL">Telemática</a></li>
+      <li><a class="nav-item nav-link" href="?m=ICA">Ambiental</a></li>
+      <li><a class="nav-item nav-link" href="?m=ARQ">Arquitectura</a></li>
+      <li><a class="nav-item nav-link" href="?m=CIV">Civil</a></li>
+      <li><a class="nav-item nav-link" href="?m=ICOM">Comercial</a></li>
+      <li><a class="nav-item nav-link" href="?m=CONSTRU">Construcción</a></li>
+      <li><a class="nav-item nav-link" href="?m=IDP">Diseño de productos</a></li>
+      <li><a class="nav-item nav-link" href="?m=ELI">Eléctrica</a></li>
+      <li><a class="nav-item nav-link" href="?m=ELO">Electrónica</a></li>
+      <li><a class="nav-item nav-link" href="?m=INF">Informática</a></li>
+      <li><a class="nav-item nav-link" href="?m=ICI">Industrial</a></li>
+      <li><a class="nav-item nav-link" href="?m=MAT">Matemática</a></li>
+      <li><a class="nav-item nav-link" href="?m=MEC">Mecánica</a></li>
+      <li><a class="nav-item nav-link" href="?m=MET">Metalúrgica</a></li>
+      <li><a class="nav-item nav-link" href="?m=ICQ">Química</a></li>
+      <li><a class="nav-item nav-link" href="?m=TEL">Telemática</a></li>
     </ul>
-  </div>
 </nav>
-      <h1>Malla <span id="carrera"></span></h1>
+      <h1 class="title" >Malla <span id="carrera"></span></h1>
     <div class="container-fluid">
-    <div class="row no-gutters">
+    <div class="row">
         <div class="col-md-7 ">
-          <div class='canvas'></div>		          
+          <div class='canvas' style="overflow-x:auto"></div>		          
         </div>
-        <div class="col-sm">
-            <h3 class="text-left">Do something Here</h3>
+        <div class="col">
+          <div class="card mt-5" style="max-width: 30rem;height: 40rem">
+            <h4 class="card-header">Do something Here</h4>
+            <div class="card-body">
+          
+            </div>
+          </div>
         </div>
     </div>
     </div>
@@ -67,7 +70,7 @@
 		<p>Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
 		<p><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
 		<script src='../d3.js'></script>
-		<script src='../ramos.js'></script>
+		<script src='../ramos2.js'></script>
 		<script src='../canvas2.js'></script>
   </body>
 </html>
