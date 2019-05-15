@@ -8,11 +8,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+        <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
     </head>
     <style>
 		body {
 			display: inline;
-			text-align: center;
+			/* text-align: center; */
 			justify-content:center;
 		}
 		html {
@@ -46,21 +47,38 @@
       <li><a class="nav-item nav-link" href="?m=TEL">Telemática</a></li>
     </ul>
 </nav>
-      <h1 class="title" >Malla <span id="carrera"></span></h1>
-    <div class="container-fluid">
+      <h1 class="title text-center" >Malla <span id="carrera"></span></h1>
+    <div class="container-fluid mx-2">
     <div class="row">
         <div class="col-md-7 ">
           <div class='canvas' style="overflow-x:auto"></div>		          
         </div>
         <div class="col">
           <form id="priorix" class="card mt-5" style="max-width: 30rem;height: 40rem">
-            <h4 class="card-header">Do something Here</h4>
+            <h4 class="card-header text-center">Do something Here</h4>
               <div class="card-body" style="overflow-y:auto">
+                <div class="badge badge-info text-left">Semestre Nº<span id="semestre"></span></div>
               </div>
-              <div class="card-footer">
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-info">Calcular</button>
-                  <button type="reset" class="btn btn-danger">Restablecer</button>
+              <div class="card-footer container-fluid">
+                <!-- Botones para cambiar semestre y calcular prioridad -->
+                <div class="row">
+                  <div class="col text-center">
+                      <button id="back" type="button" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                      </button>
+
+                  </div>
+                  <div class="col">
+                    <div class="btn-group" role="group">
+                    <button id="calculo" type="button" onclick="calcularPrioridad()" title="" data-content="" data-toggle="popover" class="btn btn-info">Calcular</button>
+                    <button type="reset" class="btn btn-danger">Restablecer</button>
+                    </div>
+                  </div>
+                  <div class="col text-center">
+                      <button id="forward" type="button" class="btn btn-secondary">
+                      <i class="fas fa-arrow-right"></i>
+                      </button>
+                  </div>
                 </div>
               </div>
             </form>
@@ -77,5 +95,6 @@
 		<script src='../d3.js'></script>
 		<script src='../ramos2.js'></script>
 		<script src='../canvas2.js'></script>
+    <script src="./calculator.js"></script>
   </body>
 </html>

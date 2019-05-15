@@ -226,6 +226,7 @@ function main_function(error, data, colorBySector) {
 			d3.select(this).remove();
 		});
 	});
+	start_priorix();
 }
 
 
