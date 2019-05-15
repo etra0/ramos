@@ -1,14 +1,40 @@
 // Cambie las variables scale para aumentar o reducir las dimensiones de la malla
 // Se recomienda fuertemente valores NO MENORES a 0.5
-var	scaleX = 1,
-	scaleY = 1;
-var width = 1570 * scaleX,
-	height = 730 * scaleY;
+var scaleX, scaleY, canvas, tipoRamo;
 
-var canvas = d3.select(".canvas")
-	.append("svg")
-	.attr('width', width)
-	.attr('height', height);
+// variables de mensaje
+var welcomeTitle, welcomeDesc;
+
+if (d3.select(".canvas")._groups[0][0]) {
+	
+	scaleX = 1;
+	scaleY = 1;
+	canvas = d3.select(".canvas");
+	tipoRamo = Ramo;
+	welcomeTitle = `¡Bienvenido a la Malla Interactiva de `
+	welcomeDesc = `Puedes tachar tus ramos aprobados haciendo click sobre ellos.
+	A medida que vas aprobando ramos, se van liberando los que tienen prerrequisitos.
+	Haz click en cualquier lado para comenzar.`
+
+}	else if (d3.select(".priori-canvas")._groups[0][0]) {
+	
+	scaleX = 0.67;
+	scaleY = 1;
+	canvas = d3.select(".priori-canvas");
+	tipoRamo = SelectableRamo;
+	welcomeTitle = `¡Bienvenido a [Inserte funcion aqui] de la malla `
+	welcomeDesc = `Aquí va a suceder algo tan mágico que te sentiras feliz
+	por el resto de tu vida en la U.`
+	start_priorix();
+
+}
+
+var height = 730 * scaleX,
+	width =1570 * scaleY;
+
+canvas = canvas.append("svg")
+		.attr('width', width)
+		.attr('height', height);
 
 var carreras = {
 	'ARQ': 'Arquitectura',
@@ -82,7 +108,7 @@ function main_function(error, data, colorBySector) {
 			longest_semester = data[semester].length;
 
 		data[semester].forEach(function(ramo) {
-			malla[semester][ramo[1]] = new Ramo(ramo[0], ramo[1], ramo[2], ramo[3], (function() {
+			malla[semester][ramo[1]] = new tipoRamo(ramo[0], ramo[1], ramo[2], ramo[3], (function() {
 				if (ramo.length > 4)
 					return ramo[4];
 				return [];
@@ -99,6 +125,8 @@ function main_function(error, data, colorBySector) {
 	height = (110*longest_semester + 30 + 25) * scaleY + 10;
 
 	canvas.attr("width", width)
+		.attr("height", height);
+	drawer.attr("width", width)
 		.attr("height", height);
 
 	// colores de la malla
@@ -200,7 +228,7 @@ function main_function(error, data, colorBySector) {
 		.attr("text-anchor", "middle")
 		.attr("font-size", 40* scaleX)
 		.attr("opacity", 0.01)
-		.text(`¡Bienvenido a la Malla Interactiva de ${carreras[current_malla]}!`)
+		.text(welcomeTitle + carreras[current_malla] + `!`)
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
@@ -212,9 +240,7 @@ function main_function(error, data, colorBySector) {
 		.attr("text-anchor", "middle")
 		.attr("font-size", 30*scaleX)
 		.attr("opacity", 0.01)
-		.text(`Puedes tachar tus ramos aprobados haciendo click sobre ellos.
-	A medida que vas aprobando ramos, se van liberando los que tienen prerrequisitos.
-	Haz click en cualquier lado para comenzar.`)
+		.text(welcomeDesc)
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)

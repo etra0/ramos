@@ -1,19 +1,18 @@
 var APPROVED = [];
 var SELECTED = [];
 
-function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
-	this.nombre = nombre;
-	this.sigla = sigla;
-	this.creditos = creditos;
-	this.sector = sector;
-	this.prer = new Set(prer);
-	this.id = id;
-	let approved = false;
-	let selected = false;
-	let self = this;
-	let ramo;
+// Clase hijo de ramo, al clickear el ramo, este se selecciona en vez de aprobar
+// Aprobar el ramo sigue siendo posible,
+// pero ahora queda a discreción del desarrollador el como accionarlo
+function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 
-	this.draw = function(canvas, posX, posY, scaleX, scaleY) {
+    Ramo.call(this, nombre, sigla, creditos, sector, prer=[], id, colorBySector);
+    var selected = false;
+    var approved = false
+    var self = this;
+
+
+    this.draw = function(canvas, posX, posY, scaleX, scaleY) {
 		ramo = canvas.append('g')
 			.attr('id', self.sigla);
 		var sizeX = 100 * scaleX,
@@ -87,8 +86,9 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 				if (scaleX < 0.59)
 					return 9;
 				return 12;
-			});
-
+            });
+            
+        // Ramos sin requisitos (Ahora envueltos en una cubierta negra!) 
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
@@ -98,7 +98,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 			.attr("opacity", "0.001")
 			.attr("class", "non-approved");
 
-			// Ramo selccionado
+			// Ramo selccionado (NEW!!!)
 			ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
@@ -166,14 +166,17 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 			c_x += r*2;
 		});
 
+        // Ahora se selecciona en vez de aprobar
 		ramo.on('click', self.selectRamo);
 
 		return;
 	}
 
-	
-	this.selectRamo = function() {
-		if (approved) {
+
+    // NEW!!!
+    this.selectRamo = function() {
+        
+		if (approved) { // Si el ramo esta aprovado, no se selecciona
 		d3.select("#" + self.sigla).select(".selected").attr('stroke','red');
 		d3.select("#" + self.sigla).select(".selected").transition().duration(200).attr("opacity", ".8")
 			.transition().duration(150).attr("opacity", ".5")
@@ -181,8 +184,9 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 			.transition().duration(200).attr("opacity", ".001")
 		  .attr('stroke','green');
 		return;
-		}
-		if (!selected) {
+        }
+        
+		if (!selected) { // Ramo se ha seleccionado
 				d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
 				SELECTED.push(self);
 				let card = d3.select('#priorix').select('.card-body').append('div');
@@ -214,7 +218,7 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 						.attr('class','input-group-text')
 					.text('x ' + self.creditos + ' creditos');
 				card.transition().duration(300).style("opacity", "1");
-		} else {
+		} else { // Ramo ya no esta seleccionado
 			d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", "0.01");
 			let _i = SELECTED.indexOf(self)
 			if (_i > -1) {
@@ -227,21 +231,8 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		selected = !selected;
 	}
 
-	this.approveRamo = function() {
-			if (!approved) {
-				d3.select("#" + self.sigla).select(".cross").transition().delay(20).attr("opacity", "1");
-				APPROVED.push(self);
-			} else {
-				d3.select("#" + self.sigla).select(".cross").transition().delay(20).attr("opacity", "0.01");
-				let _i = APPROVED.indexOf(self)
-				if (_i > -1) {
-					APPROVED.splice(_i, 1);
-				}
-			}
-			approved = !approved;
-	}
-
-	this.verifyPrer = function() {
+    // Ligero cambio en la opacidad
+    this.verifyPrer = function() {
 		let _a = [];
 		APPROVED.forEach(function(ramo) {
 			_a.push(ramo.sigla);
