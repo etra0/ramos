@@ -19,6 +19,7 @@ function start_priorix() {
     card.select('#semestre').text(semestre);
 }
 
+// $('#calculo').popover(); 
 
 function calcularPrioridad() {
     // Calculo prioridad
@@ -56,10 +57,8 @@ function valoresSemestresAnteriores() {
     sumaNotasCreditos = 0
     creditosAprovados = 0
     creditosTotales = 0
-    for ( var n in Array(semestre)) {
-        if (n+1 == semestre) 
-            break;
-        let id = mallaPriori + '_' + (n+1);
+    for ( var s = 1 ; s < semestre; s++) {
+        let id = mallaPriori + '_' + (s);
         let semestre = JSON.parse(localStorage[id]);
         for (var sigla in semestre) {
             ramo = all_ramos[sigla];
@@ -75,11 +74,13 @@ function semestreAnterior() {
     semestre--
     valoresSemestresAnteriores();
     limpiarCalculadora();
-    loadSemester();
-    d3.select('#semestre').text(semestre);
-    if (semestre == 1)
-        d3.select('#back').attr('disabled', 'disabled');
-    }
+    setTimeout(function(){ // Tiempo para que se limpie la calculadora
+        loadSemester();
+        d3.select('#semestre').text(semestre);
+        if (semestre == 1)
+            d3.select('#back').attr('disabled', 'disabled');    
+    }, 350)
+}
 
 function proximoSemestre() {
     let valoresPrioridad = calcularPrioridad();
@@ -93,6 +94,7 @@ function proximoSemestre() {
     ramos.push(ramo);
     });
     var hayProximoSemestre = localStorage[mallaPriori + '_' + (semestre + 1)];
+    var delay = 300
     ramos.forEach(ramo => {
         if (Number(document.getElementById('nota-' + ramo.sigla).value) > 54) {
             ramo.selectRamo();
@@ -105,6 +107,7 @@ function proximoSemestre() {
               .transition().duration(150).attr("opacity", ".8")
               .transition().duration(150).attr("opacity", ".001")
               .attr('stroke','green');
+            delay = 760;
         } else {
             d3.select("#" + ramo.sigla).select(".selected").transition().duration(150).attr('stroke','red')
                 .transition().duration(150).attr("opacity", ".5")
@@ -112,12 +115,16 @@ function proximoSemestre() {
                 .transition().duration(150).attr("opacity", ".5")
                 .transition().duration(150).attr("opacity", ".8")
                 .attr('stroke','green');
+            delay = 760;
+
         }
     });
     d3.select('#semestre').text(semestre);
     if (semestre == 2) 
         d3.select('#back').attr('disabled', null);
-    loadSemester();
+        setTimeout(function(){ // Tiempo para que se limpie la calculadora
+            loadSemester();
+        }, delay)
 }
 
 function saveSemester() {

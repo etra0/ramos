@@ -209,7 +209,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 					.attr('type', 'number')
 					.attr('min','0')
 					.attr('max','100')
-					.attr('value', '0');
+					.attr('placeholder', '0');
 				insideCard.append('div')
 					.attr('class','input-group-append')
 					.append('span')
