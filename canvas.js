@@ -176,12 +176,14 @@ function main_function(error, data, colorBySector) {
 		.call(wrap, 115 * scaleX, (100 - 100/5*2) * scaleY);
 
 	// verificar cache
-	var cache_variable = 'approvedRamos_' + current_malla;
-	if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
-		let approvedRamos = localStorage[cache_variable].split(",");
-		approvedRamos.forEach(function(ramo) {
-			all_ramos[ramo].approveRamo();
-		});
+	if (d3.select(".priori-canvas")._groups[0][0] == null) {
+		var cache_variable = 'approvedRamos_' + current_malla;
+		if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
+			let approvedRamos = localStorage[cache_variable].split(",");
+			approvedRamos.forEach(function(ramo) {
+				all_ramos[ramo].approveRamo();
+			});
+		}
 	}
 
 	// verificar prerrequisitos
@@ -202,11 +204,13 @@ function main_function(error, data, colorBySector) {
 
 	// filling the cache!
 	d3.interval(function() {
+		if (d3.select(".priori-canvas")._groups[0][0] == null) { 
 		let willStore = []
 		APPROVED.forEach(function(ramo) {
 			willStore.push(ramo.sigla);
 		});
 		localStorage[cache_variable] = willStore;
+		}
 	}, 2000);
 
 

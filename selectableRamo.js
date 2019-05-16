@@ -5,11 +5,10 @@ var SELECTED = [];
 // Aprobar el ramo sigue siendo posible,
 // pero ahora queda a discreción del desarrollador el como accionarlo
 function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
-		var approved = false
-		var self = this;
-    Ramo.call(this, nombre, sigla, creditos, sector, prer=[], id, colorBySector);
-    var selected = false;
-
+	Ramo.call(this, nombre, sigla, creditos, sector, prer, id, colorBySector);
+	var selected = false;
+	var self = this;
+  let ramo;
 
     this.draw = function(canvas, posX, posY, scaleX, scaleY) {
 		ramo = canvas.append('g')
@@ -87,13 +86,13 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 				return 12;
             });
             
-        // Ramos sin requisitos (Ahora envueltos en una cubierta negra!) 
+        // Ramos sin requisitos
 		ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
 			.attr("width", sizeX*1.2)
 			.attr("height", sizeY)
-			.attr("fill", 'black')
+			.attr("fill", 'white')
 			.attr("opacity", "0.001")
 			.attr("class", "non-approved");
 

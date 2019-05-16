@@ -13,6 +13,9 @@ function start_priorix() {
     
     // En un momento cargara valores guardados anteriormente
     var card = d3.select('#priorix');
+    if (semestre == 1) {
+        d3.select('#back').attr('disabled', 'disabled');
+    }
     card.select('#semestre').text(semestre);
 }
 
