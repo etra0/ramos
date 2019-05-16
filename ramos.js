@@ -185,4 +185,10 @@ function Ramo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
 		ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.0");
 	}
 
+	// Lo necesito
+	this.isApproved = function() {
+		return approved;
+	}
+
+
 }

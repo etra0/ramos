@@ -5,6 +5,14 @@ var scaleX, scaleY, canvas, tipoRamo;
 // variables de mensaje
 var welcomeTitle, welcomeDesc;
 
+// verificamos que malla busca
+var current_malla = 'INF';
+if (window.location.search) {
+	var params = new URLSearchParams(window.location.search);
+	if (params.has('m'))
+		current_malla = params.get('m');
+	
+}
 if (d3.select(".canvas")._groups[0][0]) {
 	
 	scaleX = 1;
@@ -69,14 +77,6 @@ var total_creditos = 0;
 var total_ramos = 0;
 let id = 1;
 
-// verificamos que malla busca
-var current_malla = 'INF';
-if (window.location.search) {
-	var params = new URLSearchParams(window.location.search);
-	if (params.has('m'))
-		current_malla = params.get('m');
-	
-}
 
 $("#carrera").text(carreras[current_malla]);
 

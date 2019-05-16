@@ -5,11 +5,10 @@ var SELECTED = [];
 // Aprobar el ramo sigue siendo posible,
 // pero ahora queda a discreción del desarrollador el como accionarlo
 function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
-
+		var approved = false
+		var self = this;
     Ramo.call(this, nombre, sigla, creditos, sector, prer=[], id, colorBySector);
     var selected = false;
-    var approved = false
-    var self = this;
 
 
     this.draw = function(canvas, posX, posY, scaleX, scaleY) {
@@ -174,17 +173,17 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 
 
     // NEW!!!
-    this.selectRamo = function() {
+  this.selectRamo = function() {
         
-		if (approved) { // Si el ramo esta aprovado, no se selecciona
-		d3.select("#" + self.sigla).select(".selected").attr('stroke','red');
-		d3.select("#" + self.sigla).select(".selected").transition().duration(200).attr("opacity", ".8")
-			.transition().duration(150).attr("opacity", ".5")
-			.transition().duration(150).attr("opacity", ".8")
-			.transition().duration(200).attr("opacity", ".001")
-		  .attr('stroke','green');
-		return;
-        }
+		if (self.isApproved()) { // Si el ramo esta aprovado, no se selecciona
+			d3.select("#" + self.sigla).select(".selected").attr('stroke','red');
+			d3.select("#" + self.sigla).select(".selected").transition().duration(200).attr("opacity", ".8")
+				.transition().duration(150).attr("opacity", ".5")
+				.transition().duration(150).attr("opacity", ".8")
+				.transition().duration(200).attr("opacity", ".001")
+				.attr('stroke','green');
+			return;
+  	}
         
 		if (!selected) { // Ramo se ha seleccionado
 				d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
@@ -231,8 +230,12 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		selected = !selected;
 	}
 
+	this.isSelected = function() {
+		return selected;
+	}
+
     // Ligero cambio en la opacidad
-    this.verifyPrer = function() {
+	this.verifyPrer = function() {
 		let _a = [];
 		APPROVED.forEach(function(ramo) {
 			_a.push(ramo.sigla);
