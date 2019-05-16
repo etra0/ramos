@@ -33,7 +33,6 @@ if (d3.select(".canvas")._groups[0][0]) {
 	welcomeTitle = `¡Bienvenido a [Inserte funcion aqui] de la malla `
 	welcomeDesc = `Aquí va a suceder algo tan mágico que te sentiras feliz
 	por el resto de tu vida en la U.`
-	start_priorix();
 
 }
 
@@ -251,6 +250,9 @@ function main_function(error, data, colorBySector) {
 			d3.select(this).remove();
 		});
 	});
+
+	if (d3.select(".priori-canvas")._groups[0][0]) 
+		start_priorix();
 }
 
 

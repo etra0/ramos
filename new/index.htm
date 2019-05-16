@@ -57,13 +57,13 @@
           <form id="priorix" class="card mt-5" style="max-width: 30rem;height: 40rem">
             <h4 class="card-header text-center">Do something Here</h4>
               <div class="card-body" style="overflow-y:auto">
-                <div class="badge badge-info text-left">Semestre Nº<span id="semestre"></span></div>
+                <div class="badge badge-info text-left">Semestre Nº <span id="semestre"></span></div>
               </div>
               <div class="card-footer container-fluid">
                 <!-- Botones para cambiar semestre y calcular prioridad -->
                 <div class="row">
                   <div class="col text-center">
-                      <button id="back" type="button" class="btn btn-secondary">
+                      <button id="back" onclick="semestreAnterior()" type="button" class="btn btn-secondary">
                         <i class="fas fa-arrow-left"></i>
                       </button>
 
@@ -75,7 +75,7 @@
                     </div>
                   </div>
                   <div class="col text-center">
-                      <button id="forward" type="button" class="btn btn-secondary">
+                      <button id="forward" onclick="proximoSemestre()" type="button" class="btn btn-secondary">
                       <i class="fas fa-arrow-right"></i>
                       </button>
                   </div>
