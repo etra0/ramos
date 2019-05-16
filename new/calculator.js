@@ -23,6 +23,7 @@ function start_priorix() {
 
 function calcularPrioridad() {
     // Calculo prioridad
+    factorActividadExt = document.getElementById('fae').value;
     var creditosTotalesSemestre = creditosTotales;
     var creditosAprovadosSemestre = creditosAprovados;
     var sumaNotasCreditosSemestre = sumaNotasCreditos;
@@ -129,16 +130,28 @@ function proximoSemestre() {
 
 function saveSemester() {
     let id = mallaPriori + '_' + semestre;
+    // Guardar notas
     var willStore = {}
     SELECTED.forEach(ramo => {
         willStore[ramo.sigla] = Number(document.getElementById('nota-' + ramo.sigla).value);
     });
+    localStorage.setItem(id, JSON.stringify(willStore));
+    // Guardar FAE
+    id = mallaPriori + '_FAE'
+    willStore = localStorage.getItem(id);
+    if (willStore == null) {
+        willStore = {}
+    } else {
+        willStore = JSON.parse(willStore);
+    }
+    willStore[semestre] = factorActividadExt;
     localStorage.setItem(id, JSON.stringify(willStore));
 }
 
 function loadSemester() {
     let id = mallaPriori + '_' + semestre;
     var toLoad = localStorage[id];
+    var faeToLoad = JSON.parse(localStorage[mallaPriori + '_FAE']);
     if (toLoad) {
         toLoad = JSON.parse(toLoad);
         for (var sigla in toLoad) {
@@ -150,7 +163,9 @@ function loadSemester() {
                 d3.select('#nota-' + sigla).attr('value', toLoad[sigla]);
             }
         }
+        document.getElementById('fae').value = faeToLoad[semestre];
     }
+
 }
 
 
@@ -162,6 +177,7 @@ function limpiarSemestre() {
     ramos.forEach(ramo => {
         ramo.selectRamo();
     });
+    document.getElementById('fae').value = 1;
 }
 
 function limpiarCalculadora() {
@@ -181,6 +197,8 @@ function limpiarCalculadora() {
         localStorage.removeItem(mallaPriori + '_' + s);
         s++;
     }
+    localStorage.removeItem(mallaPriori + '_FAE')
+    document.getElementById('fae').value = 1;
     semestre = 1
     d3.select('#back').attr('disabled', 'disabled');
     d3.select('#semestre').text(semestre);

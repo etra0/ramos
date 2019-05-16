@@ -57,10 +57,24 @@
       <div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
     </div>
         <div class="col">
+          <!-- Inicio calculadora -->
           <form id="priorix" class="card mt-5" style="max-width: 30rem;height: 42rem">
             <h4 class="card-header text-center">Calculadora de prioridad</h4>
-              <div class="card-body" style="overflow-y:auto">
-                <div class="badge badge-info text-left">Semestre Nº <span id="semestre"></span></div>
+              <div class="card-body container" style="overflow-y:auto">
+                <div class="row">
+                <div class="col"><div class="badge badge-info text-left">Semestre Nº <span id="semestre"></span></div></div>
+                <div class="col text-right">
+                  <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">FAE: </span>
+                      </div>
+                      <input id="fae" type="number" class="form-control" value="1">
+                    </div>
+                  </div>
+                </div>
+                <div id="ramos" class="row">
+                  <!-- Aqui van los ramos seleccionados -->
+                </div>
               </div>
               <div class="card-footer container-fluid">
               <!-- Botones para cambiar semestre y calcular prioridad -->
@@ -89,9 +103,11 @@
                   </button>
                 </div>
               </div>
+              <!-- Fin botones -->
               </div>
             </div>
             </form>
+            <!-- Fin calculadora -->
         </div>
     </div>
     <div class="row">
