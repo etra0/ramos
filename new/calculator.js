@@ -73,7 +73,7 @@ function valoresSemestresAnteriores() {
 function semestreAnterior() {
     semestre--
     valoresSemestresAnteriores();
-    limpiarCalculadora();
+    limpiarSemestre();
     setTimeout(function(){ // Tiempo para que se limpie la calculadora
         loadSemester();
         d3.select('#semestre').text(semestre);
@@ -154,7 +154,7 @@ function loadSemester() {
 }
 
 
-function limpiarCalculadora() {
+function limpiarSemestre() {
     let ramos = []
     SELECTED.forEach(ramo => {
     ramos.push(ramo);
@@ -162,4 +162,26 @@ function limpiarCalculadora() {
     ramos.forEach(ramo => {
         ramo.selectRamo();
     });
+}
+
+function limpiarCalculadora() {
+    creditosTotales = 0
+    creditosAprovados = 0
+    sumaNotasCreditos = 0
+    limpiarSemestre();
+    let ramos = [];
+    APPROVED.forEach(ramo => {
+        ramos.push(ramo);
+    });
+    ramos.forEach(ramo => {
+        ramo.approveRamo();
+    });
+    var s = 1
+    while (localStorage[mallaPriori + '_' + s] != null) {
+        localStorage.removeItem(mallaPriori + '_' + s);
+        s++;
+    }
+    semestre = 1
+    d3.select('#back').attr('disabled', 'disabled');
+    d3.select('#semestre').text(semestre);
 }

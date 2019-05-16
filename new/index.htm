@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
 
-        <title>Temp title</title>
+        <title>Priorix: Calculadora web</title>
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -48,51 +48,63 @@
       <li><a class="nav-item nav-link" href="?m=TEL">Telemática</a></li>
     </ul>
 </nav>
-      <h1 class="title text-center" >Malla <span id="carrera"></span></h1>
-    <div class="container-fluid mx-2">
-    <div class="row">
-        <div class="col-md-7 ">
-          <div class='priori-canvas' style="text-align:center;overflow-x:auto"></div>		          
-        </div>
+
+<h1 class="title text-center" >Malla <span id="carrera"></span></h1>
+<div class="container-fluid mx-2">
+  <div class="row">
+    <div class="col-md-7 ">
+      <div class='priori-canvas' style="text-align:center;overflow-x:auto"></div>		          
+      <div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
+    </div>
         <div class="col">
-          <form id="priorix" class="card mt-5" style="max-width: 30rem;height: 40rem">
-            <h4 class="card-header text-center">Do something Here</h4>
+          <form id="priorix" class="card mt-5" style="max-width: 30rem;height: 42rem">
+            <h4 class="card-header text-center">Calculadora de prioridad</h4>
               <div class="card-body" style="overflow-y:auto">
                 <div class="badge badge-info text-left">Semestre Nº <span id="semestre"></span></div>
               </div>
               <div class="card-footer container-fluid">
-                <!-- Botones para cambiar semestre y calcular prioridad -->
-                <div class="row">
-                  <div class="col text-center">
-                      <button id="back" onclick="semestreAnterior()" type="button" class="btn btn-secondary">
-                        <i class="fas fa-arrow-left"></i>
-                      </button>
-
-                  </div>
-                  <div class="col">
+              <!-- Botones para cambiar semestre y calcular prioridad -->
+              <div class="row align-items-center">
+                <div class="col text-center">
+                    <button id="back" onclick="semestreAnterior()" type="button" class="btn btn-secondary">
+                      <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+                <div class="col-8">
+                  <div class="container-fluid">
+                  <div class="row justify-content-center">
                     <div class="btn-group" role="group">
-                    <button id="calculo" type="button" onclick="calcularPrioridad()" tabindex="0" data-toggle="popover" title="Prioridad:" data-content="Resultado Aquí" data-placement="top" class="btn btn-info">Calcular</button>
-                    <button type="reset" class="btn btn-danger">Restablecer</button>
+                      <button id="calculo" type="button" onclick="calcularPrioridad()" tabindex="0" data-toggle="popover" title="Prioridad:" data-content="Resultado Aquí" data-placement="top" class="btn btn-info">Calcular</button>
+                      <button type="reset" onclick="limpiarSemestre()" class="btn btn-danger">Limpiar Semestre</button>
                     </div>
                   </div>
-                  <div class="col text-center">
-                      <button id="forward" onclick="proximoSemestre()" type="button" class="btn btn-secondary">
-                      <i class="fas fa-arrow-right"></i>
-                      </button>
+                  <div class="row justify-content-center text-center">
+                    <button onclick="limpiarCalculadora()" type="button" class="btn btn-danger mt-1">Restablecer Calculadora</button>
+                  </div>
                   </div>
                 </div>
+                <div class="col text-center">
+                  <button id="forward" onclick="proximoSemestre()" type="button" class="btn btn-secondary">
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
               </div>
+              </div>
+            </div>
             </form>
         </div>
     </div>
+    <div class="row">
+      <div class="col">
+      <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
+  
+      <p class="text-center">Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+      <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
+      </div>
     </div>
-		<div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
+    </div>
 
 
-		<p><img src="../data/ramo.svg" style="width:300px;"></p>
-
-		<p>Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-		<p><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
     <script src='../d3.js'></script>
     <script src='../ramos.js'></script>
     <script src='../selectableRamo.js'></script>
