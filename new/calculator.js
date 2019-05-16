@@ -36,8 +36,18 @@ function calcularPrioridad() {
     saveSemester();
     let prioridad = 100 * (sumaNotasCreditosSemestre/(14 * Math.pow(semestre,1.06))) * (creditosAprovadosSemestre/creditosTotalesSemestre) * factorActividadExt
     // Mostrar resultado
-    console.log(prioridad);
+    d3.select('#calculo').attr('data-content', prioridad)
+    $('#calculo').popover('show')
+    console.log(creditosAprovadosSemestre, creditosTotalesSemestre, sumaNotasCreditosSemestre);
+    // var t = d3.timer(function(elapsed) {
+    //     $('#calculo').popover('toggle')
+    //     if (elapsed > 200) t.stop();
+    //   }, 2000);
     // La prioridad se guarda por si acaso
+    var t = d3.timeout(function(elapsed) {
+        $('#calculo').popover('hide');       
+        $('#calculo').popover('dispose');       
+      }, 1500);
     return [creditosTotalesSemestre, creditosAprovadosSemestre, sumaNotasCreditosSemestre, prioridad];
 }
 

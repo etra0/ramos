@@ -76,7 +76,6 @@ var total_creditos = 0;
 var total_ramos = 0;
 let id = 1;
 
-
 $("#carrera").text(carreras[current_malla]);
 
 /* PC: Plan común
