@@ -31,8 +31,10 @@ if (d3.select(".canvas")._groups[0][0]) {
 	canvas = d3.select(".priori-canvas");
 	tipoRamo = SelectableRamo;
 	welcomeTitle = `¡Bienvenido a [Inserte funcion aqui] de la malla `
-	welcomeDesc = `Aquí va a suceder algo tan mágico que te sentiras feliz
-	por el resto de tu vida en la U.`
+	welcomeDesc = `Si estas aquí, has clonado mi fork y estas presenciando
+	 un preview de una de dos features nuevas para la malla interactiva. 
+	 Si encuentras algun error ,problema o tienes una sugerencia con la pagina,
+	  genera una issue y detalla el problema/sugerencia`
 
 }
 
