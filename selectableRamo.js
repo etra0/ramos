@@ -187,7 +187,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		if (!selected) { // Ramo se ha seleccionado
 				d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
 				SELECTED.push(self);
-				let card = d3.select('#priorix').select('.card-body').append('div');
+				let card = d3.select('#ramos').append('div');
 				card.attr('id', "p-" + self.sigla);
 				card.attr('class', 'form-group mb-1');
 				card.attr('style', 'opacity:0.001');

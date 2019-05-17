@@ -72,6 +72,8 @@ function valoresSemestresAnteriores() {
 }
 
 function semestreAnterior() {
+    if (semestre == 1) return;
+    d3.select('#back').attr('onclick', null);
     semestre--
     valoresSemestresAnteriores();
     limpiarSemestre();
@@ -80,10 +82,12 @@ function semestreAnterior() {
         d3.select('#semestre').text(semestre);
         if (semestre == 1)
             d3.select('#back').attr('disabled', 'disabled');    
+        d3.select('#back').attr('onclick', 'semestreAnterior()');
     }, 350)
 }
 
 function proximoSemestre() {
+    d3.select('#forward').attr('onclick', null);
     let valoresPrioridad = calcularPrioridad();
     creditosTotales = valoresPrioridad[0];
     creditosAprovados = valoresPrioridad[1];
@@ -117,7 +121,6 @@ function proximoSemestre() {
                 .transition().duration(150).attr("opacity", ".8")
                 .attr('stroke','green');
             delay = 760;
-
         }
     });
     d3.select('#semestre').text(semestre);
@@ -125,7 +128,10 @@ function proximoSemestre() {
         d3.select('#back').attr('disabled', null);
         setTimeout(function(){ // Tiempo para que se limpie la calculadora
             loadSemester();
+            d3.select('#forward').attr('onclick', 'proximoSemestre()');
+
         }, delay)
+    
 }
 
 function saveSemester() {
@@ -151,9 +157,10 @@ function saveSemester() {
 function loadSemester() {
     let id = mallaPriori + '_' + semestre;
     var toLoad = localStorage[id];
-    var faeToLoad = JSON.parse(localStorage[mallaPriori + '_FAE']);
+    var faeToLoad = localStorage[mallaPriori + '_FAE'];
     if (toLoad) {
         toLoad = JSON.parse(toLoad);
+        faeToLoad = JSON.parse(faeToLoad);
         for (var sigla in toLoad) {
             var ramo = all_ramos[sigla]
             if (!ramo.isSelected()) {
