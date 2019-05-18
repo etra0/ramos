@@ -6,12 +6,25 @@ var sumaNotasCreditos = 0
 var factorActividadExt = 1;
 var ramosSemestre = [];
 var mallaPriori
-
+var custom_ramos = new Set();
 function start_priorix() {
+    // los ramos fuera de malla se cargan primero
     mallaPriori = "prioridad-" + current_malla;
-    loadSemester();
-    
+    if (localStorage[mallaPriori + "_CUSTOM"]) {
+        let ramosFueraMalla = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
+        for (var sigla in ramosFueraMalla) {
+            // inicializar ramos fuera de malla
+            let datosRamo = ramosFueraMalla[sigla]
+            let ramo = new SelectableRamo(datosRamo[0],datosRamo[1],datosRamo[2],datosRamo[3],[],id,datosRamo[4]);
+            id++;
+            all_ramos[sigla] = ramo
+            custom_ramos.add(sigla)
+        }
+    }
     // En un momento cargara valores guardados anteriormente
+    loadSemester();
+    updateCustomTable();
+    // Cargar ramos fuera de malla
     var card = d3.select('#priorix');
     if (semestre == 1) {
         d3.select('#back').attr('disabled', 'disabled');
@@ -36,7 +49,7 @@ function calcularPrioridad() {
         }
     });
     saveSemester();
-    let prioridad = 100 * (sumaNotasCreditosSemestre/(14 * Math.pow(semestre,1.06))) * (creditosAprovadosSemestre/creditosTotalesSemestre) * factorActividadExt
+    let prioridad = 100 * (sumaNotasCreditosSemestre/(14 * Math.pow(semestre,1.06))) * (creditosAprovadosSemestre/creditosTotalesSemestre) * factorActividadExt;
     // Mostrar resultado
     d3.select('#calculo').attr('data-content', prioridad)
     $('#calculo').popover('show')
@@ -205,8 +218,156 @@ function limpiarCalculadora() {
         s++;
     }
     localStorage.removeItem(mallaPriori + '_FAE')
+    localStorage.removeItem(mallaPriori + '_CUSTOM')
     document.getElementById('fae').value = 1;
     semestre = 1
     d3.select('#back').attr('disabled', 'disabled');
     d3.select('#semestre').text(semestre);
 }
+// Ramos custom
+function crearRamo() {
+    let nombre, sigla, creditos;
+
+    nombre = document.getElementById('custom-name').value;
+    sigla = document.getElementById('custom-sigla').value;
+    creditos = document.getElementById('custom-credits').value;
+
+    let sector = {"CR": ["#000000", "Fuera de la malla oficial"]}
+    let customRamo = [nombre,sigla, creditos, 'CUSTOM' ,sector]
+    let ramo = new SelectableRamo(nombre, sigla, Number(creditos), 'CUSTOM', [], id, sector)
+    id++
+    all_ramos[sigla] = ramo;
+    custom_ramos.add(sigla);
+    let willStore = localStorage.getItem(mallaPriori+'_CUSTOM');
+    if (willStore == null) {
+        willStore = {};
+    } else {
+        willStore = JSON.parse(willStore);
+    }
+    willStore[sigla] = customRamo
+    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(willStore)
+    ramo.selectRamo();
+}
+
+function borrarRamo(sigla) {
+    let cache = JSON.parse(localStorage[mallaPriori+'_CUSTOM']);
+    let ramo = all_ramos[sigla]
+    
+    // No tengo idea de como hacerlo
+    
+    
+    //parte final
+    delete all_ramos[ramo.sigla];
+    custom_ramos.delete(ramo.sigla)
+    delete cache[ramo.sigla];
+    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(cache)
+    d3.select('#CUSTOM-' + ramo.sigla).remove();
+}
+
+function updateCustomTable(){
+    let table = d3.select('#customTableContent');
+	custom_ramos.forEach(ramo => {
+        let approved = false;
+        let selected = false;
+        ramo = all_ramos[ramo];
+        let fila = d3.select('#CUSTOM-' + ramo.sigla)
+        let acciones;
+        
+        SELECTED.forEach(selectedRamo => {
+            if (selectedRamo == ramo)
+                selected = true;
+        });
+        APPROVED.forEach(approvedRamo => {
+            if(approvedRamo == ramo)
+            approved = true;
+        });
+
+        if (!fila._groups[0][0]) {
+            fila = table.append('tr');
+
+            fila.attr('id','CUSTOM-'+ ramo.sigla);
+            fila.append('th')
+              .attr('scope','row')
+              .text(ramo.sigla);
+            fila.append('td')
+              .text(ramo.nombre)
+            fila.append('td')
+              .text(ramo.creditos);
+            if (selected) {
+                fila.append('td').attr('id','state-' + ramo.sigla).text('Seleccionado')
+            } else if (approved) {
+                fila.append('td').attr('id','state-' + ramo.sigla).text('Aprobado')
+            } else {
+                fila.append('td').attr('id','state-' + ramo.sigla).text('No Seleccionado')
+            }
+            acciones = fila.append('td').append('div')
+            acciones.attr('class', 'btn-group').attr('role','group')
+            if (selected) {
+                acciones.append('button')
+                  .attr('id','add-'+ ramo.sigla)
+                  .attr('class','btn btn-secondary')
+                  .attr('type','button')
+                  .attr('onclick','all_ramos[\"'+ ramo.sigla+'\"].selectRamo()')
+                  .text('De-Seleccionar Ramo');
+                acciones.append('button')
+                  .attr('id','delete-'+ ramo.sigla)
+                  .attr('class','btn btn-danger')
+                  .attr('type','button')
+                  .attr('onclick','borrarRamo("'+ ramo.sigla + '")')
+                  .attr('disabled','disabled')
+                  .text('Eliminar Ramo');
+
+            } else if (approved) {
+                acciones.append('button')
+                  .attr('id','add-'+ ramo.sigla)
+                  .attr('class','btn btn-secondary')
+                  .attr('type','button')
+                  .attr('onclick','all_ramos["'+ ramo.sigla+'"].selectRamo()')
+                  .attr('disabled','disabled')
+                  .text('Seleccionar Ramo');
+                acciones.append('button')
+                  .attr('id','delete-'+ ramo.sigla)
+                  .attr('class','btn btn-danger')
+                  .attr('type','button')
+                  .attr('onclick','borrarRamo("'+ ramo.sigla + '")')
+                  .attr('disabled','disabled')
+                  .text('Eliminar Ramo');
+            } else {
+                acciones.append('button')
+                  .attr('id','add-'+ ramo.sigla)
+                  .attr('class','btn btn-secondary')
+                  .attr('type','button')
+                  .attr('onclick','all_ramos["'+ ramo.sigla+'"].selectRamo()')
+                  .text('Seleccionar Ramo');
+                acciones.append('button')
+                  .attr('id','delete-'+ ramo.sigla)
+                  .attr('class','btn btn-danger')
+                  .attr('type','button')
+                  .attr('onclick','borrarRamo("'+ ramo.sigla + '")')
+                  .text('Eliminar Ramo');
+            }
+        } else {
+            let state = d3.select('#state-' + ramo.sigla)
+            let addButton = d3.select('#add-' + ramo.sigla);
+            let deleteButton = d3.select('#delete-' + ramo.sigla);
+            if (selected) {
+                state.text('Seleccionado')
+                addButton.attr('disabled', null).text('De-Seleccionar Ramo');
+                deleteButton.attr('disabled','disabled').text('Eliminar Ramo');
+
+            } else if (approved) {
+                state.text('Aprobado')                
+                addButton.attr('disabled','disabled').text('Seleccionar Ramo');
+                deleteButton.attr('disabled','disabled').text('Eliminar Ramo');
+            } else {
+                state.text('No Seleccionado')
+                addButton.attr('disabled', null).text('Seleccionar Ramo');
+                deleteButton.attr('disabled', null).text('Eliminar Ramo');
+            }
+        } 
+    });
+}
+
+d3.interval(function() {
+    updateCustomTable();
+    }, 200);

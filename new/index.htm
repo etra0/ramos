@@ -45,7 +45,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="crearRamo">Añadir ramo personalizado</h5>
+          <h5 class="modal-title" id="crearRamo">Añadir ramo fuera de la malla</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -104,7 +104,7 @@
     </div>
         <div class="col-auto">
           <!-- Inicio calculadora -->
-          <form id="priorix" class="card mt-5" style="max-height: 42rem;min-height: 30rem">
+          <form id="priorix" class="card mt-5" style="height: 42rem">
             <h4 class="card-header text-center">Calculadora de prioridad</h4>
             <div class="card-body container my-0 py-2" style="max-height: 3rem">
                 <div class="row">
@@ -169,14 +169,13 @@
             </form>
             <!-- Fin calculadora -->
         </div>
-    </div>
     <div class="row justify-content-center mt-5">
       <div class="col-7">
           <div class="card">
               <div  class="card-header">
                 <h3 class="card-title">Ramos fuera de malla</h3>
               </div>
-                  <table class="card-body table table-hover">
+              <table id="customTable" class="card-body table table-hover">
                     <thead>
                       <tr>
                         <th scope="col">Sigla</th>
@@ -186,8 +185,8 @@
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
-                    <!-- <tbody>
-                      <tr>
+                <tbody id="customTableContent">
+                  <!-- <tr>
                         <th scope="row">INF-123</th>
                         <td>Introducción a la malla interactiva</td>
                         <td>2</td>
@@ -216,11 +215,11 @@
                           <button type="button" class="btn btn-secondary">Seleccionar</button>
                           <button type="button" class="btn btn-danger">Eliminar</button>
                         </div></td>
-                      </tr>
-                    </tbody> -->
+                  </tr> -->
+                </tbody>
                   </table>
                   <div class="card-footer">
-                    <button type="button" onclick="prepareToCreate()"  class="btn btn-primary btn-sm">Crear ramo</button>
+                <button type="button" data-toggle="modal" data-target="#crearRamoModal"  class="btn btn-primary btn-sm">Crear ramo</button>
                   </div>
             </div>
       </div>
@@ -232,6 +231,7 @@
       <p class="text-center">   Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
       <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
       </div>
+    </div>
     </div>
     </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearRamoModal">s</button>
