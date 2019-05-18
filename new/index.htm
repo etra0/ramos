@@ -12,6 +12,7 @@
       </script>
 <!-- Para ver cuantos se aldelantan al release -->
 
+<!-- En verdad, lamento la cantidad horrorosa de divs -->
         <meta charset="UTF-8">
 
         <title>Priorix: Calculadora web</title>
@@ -39,6 +40,40 @@
   </style>  
 
   <body>
+<!-- Agregar ramo personalizado -->
+<div class="modal fade" id="crearRamoModal" tabindex="-1" role="dialog" aria-labelledby="crearRamo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="crearRamo">Añadir ramo personalizado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="newRamo">Nombre asignatura</label>
+                <input type="text" class="form-control" id="custom-name" placeholder="Introducción a la malla interactiva">
+              </div>
+              <div class="form-group">
+                  <label for="newRamo">Sigla asignatura</label>
+                  <input type="text" class="form-control" id="custom-sigla" placeholder="INF-123">
+                  <small id="sigla-Help" class="form-text text-muted">Asegurate de que la sigla NO contenga espacios.</small>
+                </div>
+                <div class="form-group">
+                    <label for="newRamo">Creditos</label>
+                    <input type="number" class="form-control" id="custom-credits" placeholder="1">
+                  </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" onclick="crearRamo(true)" class="btn btn-primary">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- fin ramo -->
+
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light"style='justify-content:center'>
     <ul class="nav navbar-nav">
@@ -62,16 +97,16 @@
 
 <h1 class="title text-center" >Malla <span id="carrera"></span></h1>
 <div class="container-fluid mx-2">
-  <div class="row">
-    <div class="col-md-7 ">
+  <div class="row justify-content-center">
+    <div class="col-xl-7 ">
       <div class='priori-canvas' style="text-align:center;overflow-x:auto"></div>		          
       <div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
     </div>
-        <div class="col">
+        <div class="col-auto">
           <!-- Inicio calculadora -->
-          <form id="priorix" class="card mt-5" style="max-width: 30rem;height: 42rem">
+          <form id="priorix" class="card mt-5" style="max-height: 42rem;min-height: 30rem">
             <h4 class="card-header text-center">Calculadora de prioridad</h4>
-              <div class="card-body container" style="overflow-y:auto">
+            <div class="card-body container my-0 py-2" style="max-height: 3rem">
                 <div class="row">
                 <div class="col"><div class="badge badge-info text-left">Semestre Nº <span id="semestre"></span></div></div>
                 <div class="col text-right">
@@ -83,18 +118,17 @@
                     </div>
                   </div>
                 </div>
-                <div class="row no-gutters">
-                  <div class="col">
+            </div>
+              <div class="card-body list-group list-group-flush list-group-item" style="overflow-y:auto">
                   <span id="ramos">
                   <!-- Aqui van los ramos seleccionados -->
                   </span>
                 </div>
-                </div>
-              </div>
+            <p class="card-body my-0 py-1" style="max-height: 2rem"><small class=" text-muted">¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!</small></p>
               <div class="card-footer container-fluid">
               <!-- Botones para cambiar semestre y calcular prioridad -->
               <div class="row align-items-center">
-                <div class="col text-center">
+                <div class="col-2 text-center">
                     <button id="back" onclick="semestreAnterior()" type="button" class="btn btn-secondary">
                       <i class="fas fa-arrow-left"></i>
                     </button>
@@ -103,7 +137,18 @@
                   <div class="container-fluid">
                   <div class="row justify-content-center">
                     <div class="btn-group" role="group">
-                      <button id="calculo" type="button" onclick="calcularPrioridad()" tabindex="0" data-toggle="popover" title="Prioridad:" data-content="Resultado Aquí" data-placement="top" class="btn btn-info">Calcular</button>
+                      <button
+                        id="calculo"
+                        type="button"
+                        onclick="calcularPrioridad()"
+                        tabindex="0"
+                        data-toggle="popover"
+                        title="Prioridad:"
+                        data-content="Resultado Aquí"
+                        data-placement="top"
+                        class="btn btn-info">
+                          Calcular
+                      </button>
                       <button type="reset" onclick="limpiarSemestre()" class="btn btn-danger">Limpiar Semestre</button>
                     </div>
                   </div>
@@ -112,7 +157,7 @@
                   </div>
                   </div>
                 </div>
-                <div class="col text-center">
+                <div class="col-2 text-center">
                   <button id="forward" onclick="proximoSemestre()" type="button" class="btn btn-secondary">
                     <i class="fas fa-arrow-right"></i>
                   </button>
@@ -125,17 +170,76 @@
             <!-- Fin calculadora -->
         </div>
     </div>
+    <div class="row justify-content-center mt-5">
+      <div class="col-7">
+          <div class="card">
+              <div  class="card-header">
+                <h3 class="card-title">Ramos fuera de malla</h3>
+              </div>
+                  <table class="card-body table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Sigla</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Creditos</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <!-- <tbody>
+                      <tr>
+                        <th scope="row">INF-123</th>
+                        <td>Introducción a la malla interactiva</td>
+                        <td>2</td>
+                        <td>Aprovado en S1</td>
+                        <td><div class="btn-group" role="group" aria-label="Basic example">
+                          <button type="button" class="btn btn-secondary">Seleccionar</button>
+                          <button type="button" class="btn btn-danger">Eliminar</button>
+                        </div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">INF-456</th>
+                        <td>Mallas interactivas avanzadas</td>
+                        <td>6</td>
+                        <td>Seleccionado</td>
+                        <td><div class="btn-group" role="group" aria-label="Basic example">
+                          <button type="button" class="btn btn-secondary">De-seleccionar</button>
+                          <button type="button" class="btn btn-danger">Eliminar</button>
+                        </div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry the Bird</td>
+                        <td>text</td>
+                        <td>Sin aprovar</td>
+                        <td><div class="btn-group" role="group" aria-label="Basic example">
+                          <button type="button" class="btn btn-secondary">Seleccionar</button>
+                          <button type="button" class="btn btn-danger">Eliminar</button>
+                        </div></td>
+                      </tr>
+                    </tbody> -->
+                  </table>
+                  <div class="card-footer">
+                    <button type="button" onclick="prepareToCreate()"  class="btn btn-primary btn-sm">Crear ramo</button>
+                  </div>
+            </div>
+      </div>
+    </div>
     <div class="row">
-      <div class="col">
+      <div class="col-4">
       <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
   
-      <p class="text-center">Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+      <p class="text-center">   Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
       <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
       </div>
     </div>
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearRamoModal">s</button>
 
-
+    <span class="fa-layers fa-fw">
+        <i class="fas fa-circle" style="color:Tomato"></i>
+        <i class="fa-inverse fas fa-times" data-fa-transform="shrink-6"></i>
+    </span>
     <script src='../d3.js'></script>
     <script src='../ramos.js'></script>
     <script src='../selectableRamo.js'></script>
