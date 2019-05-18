@@ -7,19 +7,35 @@ var factorActividadExt = 1;
 var ramosSemestre = [];
 var mallaPriori
 var custom_ramos = new Set();
+var notasSemestres;
+var faeSemestres
+var customRamosProps = {}
 function start_priorix() {
     // los ramos fuera de malla se cargan primero
     mallaPriori = "prioridad-" + current_malla;
     if (localStorage[mallaPriori + "_CUSTOM"]) {
-        let ramosFueraMalla = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
-        for (var sigla in ramosFueraMalla) {
+        let customRamosProps = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
+
+        for (var sigla in customRamosProps) {
             // inicializar ramos fuera de malla
-            let datosRamo = ramosFueraMalla[sigla]
+            let datosRamo = customRamosProps[sigla]
             let ramo = new SelectableRamo(datosRamo[0],datosRamo[1],datosRamo[2],datosRamo[3],[],id,datosRamo[4]);
             id++;
             all_ramos[sigla] = ramo
             custom_ramos.add(sigla)
         }
+    }
+    let cache = localStorage[mallaPriori + '_SEMESTRES'];
+    if (cache) {
+        notasSemestres = JSON.parse(cache)
+    } else {
+        notasSemestres = {}
+    }
+    cache = localStorage[mallaPriori + '_FAE']
+    if (cache) {
+        faeSemestres = JSON.parse(cache)
+    } else {
+        faeSemestres = {}
     }
     // En un momento cargara valores guardados anteriormente
     loadSemester();
@@ -72,8 +88,7 @@ function valoresSemestresAnteriores() {
     creditosAprovados = 0
     creditosTotales = 0
     for ( var s = 1 ; s < semestre; s++) {
-        let id = mallaPriori + '_' + (s);
-        let semestre = JSON.parse(localStorage[id]);
+        let semestre = notasSemestres[s];
         for (var sigla in semestre) {
             ramo = all_ramos[sigla];
             sumaNotasCreditos += semestre[sigla] * ramo.creditos;
@@ -111,7 +126,7 @@ function proximoSemestre() {
     SELECTED.forEach(ramo => {
     ramos.push(ramo);
     });
-    var hayProximoSemestre = localStorage[mallaPriori + '_' + (semestre + 1)];
+    var hayProximoSemestre = notasSemestres[semestre + 1];
     var delay = 300
     ramos.forEach(ramo => {
         if (Number(document.getElementById('nota-' + ramo.sigla).value) > 54) {
@@ -148,32 +163,25 @@ function proximoSemestre() {
 }
 
 function saveSemester() {
-    let id = mallaPriori + '_' + semestre;
+    let id = mallaPriori + '_SEMESTRES';
     // Guardar notas
-    var willStore = {}
+    var notasDelSemestre = {}
     SELECTED.forEach(ramo => {
-        willStore[ramo.sigla] = Number(document.getElementById('nota-' + ramo.sigla).value);
+        notasDelSemestre[ramo.sigla] = Number(document.getElementById('nota-' + ramo.sigla).value);
     });
-    localStorage.setItem(id, JSON.stringify(willStore));
+    notasSemestres[semestre] = notasDelSemestre
+    localStorage.setItem(id, JSON.stringify(notasSemestres));
+
     // Guardar FAE
     id = mallaPriori + '_FAE'
-    willStore = localStorage.getItem(id);
-    if (willStore == null) {
-        willStore = {}
-    } else {
-        willStore = JSON.parse(willStore);
-    }
-    willStore[semestre] = factorActividadExt;
-    localStorage.setItem(id, JSON.stringify(willStore));
+    faeSemestres[semestre] = factorActividadExt;
+    localStorage.setItem(id, JSON.stringify(faeSemestres));
 }
 
 function loadSemester() {
-    let id = mallaPriori + '_' + semestre;
-    var toLoad = localStorage[id];
-    var faeToLoad = localStorage[mallaPriori + '_FAE'];
+    var toLoad = notasSemestres[semestre]
+    var faeToLoad = faeSemestres[semestre];
     if (toLoad) {
-        toLoad = JSON.parse(toLoad);
-        faeToLoad = JSON.parse(faeToLoad);
         for (var sigla in toLoad) {
             var ramo = all_ramos[sigla]
             if (!ramo.isSelected()) {
@@ -212,12 +220,12 @@ function limpiarCalculadora() {
     ramos.forEach(ramo => {
         ramo.approveRamo();
     });
-    var s = 1
-    while (localStorage[mallaPriori + '_' + s] != null) {
-        localStorage.removeItem(mallaPriori + '_' + s);
-        s++;
-    }
-    localStorage.removeItem(mallaPriori + '_FAE')
+    notasSemestres = {}
+    faeSemestres = {}
+
+    
+    localStorage[mallaPriori + '_SEMESTRES'] = {}
+    localStorage[mallaPriori + '_FAE'] = {}
     localStorage.removeItem(mallaPriori + '_CUSTOM')
     document.getElementById('fae').value = 1;
     semestre = 1
@@ -232,36 +240,24 @@ function crearRamo() {
     sigla = document.getElementById('custom-sigla').value;
     creditos = document.getElementById('custom-credits').value;
 
-    let sector = {"CR": ["#000000", "Fuera de la malla oficial"]}
+    let sector = {"CUSTOM": ["#000000", "Fuera de la malla oficial"]}
     let customRamo = [nombre,sigla, creditos, 'CUSTOM' ,sector]
     let ramo = new SelectableRamo(nombre, sigla, Number(creditos), 'CUSTOM', [], id, sector)
     id++
     all_ramos[sigla] = ramo;
+    customRamosProps[sigla] = customRamo;
     custom_ramos.add(sigla);
-    let willStore = localStorage.getItem(mallaPriori+'_CUSTOM');
-    if (willStore == null) {
-        willStore = {};
-    } else {
-        willStore = JSON.parse(willStore);
-    }
-    willStore[sigla] = customRamo
-    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(willStore)
+    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
     ramo.selectRamo();
 }
 
 function borrarRamo(sigla) {
-    let cache = JSON.parse(localStorage[mallaPriori+'_CUSTOM']);
     let ramo = all_ramos[sigla]
-    
-    // No tengo idea de como hacerlo
-    
-    
-    //parte final
     delete all_ramos[ramo.sigla];
     custom_ramos.delete(ramo.sigla)
-    delete cache[ramo.sigla];
-    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(cache)
+    delete customRamosProps[ramo.sigla];
     d3.select('#CUSTOM-' + ramo.sigla).remove();
+    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
 }
 
 function updateCustomTable(){
@@ -371,3 +367,4 @@ function updateCustomTable(){
 d3.interval(function() {
     updateCustomTable();
     }, 200);
+
