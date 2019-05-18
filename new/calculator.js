@@ -191,7 +191,7 @@ function loadSemester() {
                 d3.select('#nota-' + sigla).attr('value', toLoad[sigla]);
             }
         }
-        document.getElementById('fae').value = faeToLoad[semestre];
+        document.getElementById('fae').value = faeToLoad;
     }
 
 }
@@ -224,13 +224,17 @@ function limpiarCalculadora() {
     faeSemestres = {}
 
     
-    localStorage[mallaPriori + '_SEMESTRES'] = {}
-    localStorage[mallaPriori + '_FAE'] = {}
-    localStorage.removeItem(mallaPriori + '_CUSTOM')
+    localStorage[mallaPriori + '_SEMESTRES'] = JSON.stringify({})
+    localStorage[mallaPriori + '_FAE'] = JSON.stringify({})
     document.getElementById('fae').value = 1;
     semestre = 1
     d3.select('#back').attr('disabled', 'disabled');
     d3.select('#semestre').text(semestre);
+    let customSiglas = Array.from(custom_ramos.values());
+    customSiglas.forEach(sigla => {
+        borrarRamo(sigla);
+    });
+
 }
 // Ramos custom
 function crearRamo() {
@@ -252,33 +256,42 @@ function crearRamo() {
 }
 
 function borrarRamo(sigla) {
+    SELECTED.forEach(ramo => {
+        if (ramo.sigla == sigla)
+            ramo.selectRamo();
+    });
     let ramo = all_ramos[sigla]
     delete all_ramos[ramo.sigla];
     custom_ramos.delete(ramo.sigla)
     delete customRamosProps[ramo.sigla];
     d3.select('#CUSTOM-' + ramo.sigla).remove();
     localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
+    saveSemester();
 }
 
 function updateCustomTable(){
     let table = d3.select('#customTableContent');
 	custom_ramos.forEach(ramo => {
-        let approved = false;
+        let approved = 0;
         let selected = false;
         ramo = all_ramos[ramo];
         let fila = d3.select('#CUSTOM-' + ramo.sigla)
-        let acciones;
+        let cursadoEn = [];
         
         SELECTED.forEach(selectedRamo => {
             if (selectedRamo == ramo)
-                selected = true;
+            selected = true;
         });
-        APPROVED.forEach(approvedRamo => {
-            if(approvedRamo == ramo)
-            approved = true;
-        });
-
+        for (var s in notasSemestres) {
+            if (notasSemestres[s][ramo.sigla] != null && notasSemestres[s][ramo.sigla] > 54) {
+                if (Number(s) != semestre)
+                approved = s
+                break;
+            }
+        }
+        
         if (!fila._groups[0][0]) {
+            let acciones;
             fila = table.append('tr');
 
             fila.attr('id','CUSTOM-'+ ramo.sigla);
@@ -292,7 +305,7 @@ function updateCustomTable(){
             if (selected) {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('Seleccionado')
             } else if (approved) {
-                fila.append('td').attr('id','state-' + ramo.sigla).text('Aprobado')
+                fila.append('td').attr('id','state-' + ramo.sigla).text('Aprobado en S-' + approved)
             } else {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('No Seleccionado')
             }
@@ -310,7 +323,6 @@ function updateCustomTable(){
                   .attr('class','btn btn-danger')
                   .attr('type','button')
                   .attr('onclick','borrarRamo("'+ ramo.sigla + '")')
-                  .attr('disabled','disabled')
                   .text('Eliminar Ramo');
 
             } else if (approved) {
@@ -335,12 +347,28 @@ function updateCustomTable(){
                   .attr('type','button')
                   .attr('onclick','all_ramos["'+ ramo.sigla+'"].selectRamo()')
                   .text('Seleccionar Ramo');
+                for (s in notasSemestres) {
+                    if (notasSemestres[s][ramo.sigla] != null && s!=semestre) {
+                        cursadoEn.push(s)
+                    } 
+                }
+                if (cursadoEn.lenght) {
                 acciones.append('button')
                   .attr('id','delete-'+ ramo.sigla)
                   .attr('class','btn btn-danger')
                   .attr('type','button')
                   .attr('onclick','borrarRamo("'+ ramo.sigla + '")')
+                  .attr('disabled','disabled')
                   .text('Eliminar Ramo');
+                } else {
+                    acciones.append('button')
+                      .attr('id','delete-'+ ramo.sigla)
+                      .attr('class','btn btn-danger')
+                      .attr('type','button')
+                      .attr('onclick','borrarRamo("'+ ramo.sigla + '")')
+                      .text('Eliminar Ramo');
+                }
+
             }
         } else {
             let state = d3.select('#state-' + ramo.sigla)
@@ -349,16 +377,24 @@ function updateCustomTable(){
             if (selected) {
                 state.text('Seleccionado')
                 addButton.attr('disabled', null).text('De-Seleccionar Ramo');
-                deleteButton.attr('disabled','disabled').text('Eliminar Ramo');
+                deleteButton.attr('disabled',null);
 
             } else if (approved) {
-                state.text('Aprobado')                
+                state.text('Aprobado en S-' + approved)                
                 addButton.attr('disabled','disabled').text('Seleccionar Ramo');
-                deleteButton.attr('disabled','disabled').text('Eliminar Ramo');
+                deleteButton.attr('disabled','disabled');
             } else {
                 state.text('No Seleccionado')
+                for (var s in notasSemestres) {
+                    if (notasSemestres[s][ramo.sigla] != null && s!=semestre) {
+                        cursadoEn.push(s)
+                    } 
+                }
                 addButton.attr('disabled', null).text('Seleccionar Ramo');
-                deleteButton.attr('disabled', null).text('Eliminar Ramo');
+                if (cursadoEn.lenght) {
+                } else {
+                    deleteButton.attr('disabled', null);
+                }
             }
         } 
     });
