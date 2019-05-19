@@ -71,7 +71,9 @@ function calcularPrioridad() {
     if (d3.select('#resPrioridad').select('div')._groups[0][0]) {
         d3.select('#resPrioridad').select('h4').text('Tu prioridad en S' + semestre + ' es: ' + prioridad)
     } else {
-    d3.select('#resPrioridad').append('div')
+    
+    d3.select('#resPrioridad').attr('style', 'height:auto')
+     .append('div')
       .classed("alert text-center alert-info alert-dismissible fade show mb-2 pb-2", true)
       .attr('id','calculo')
       .attr('role', 'alert')
@@ -87,11 +89,17 @@ function calcularPrioridad() {
       .append('span')
         .attr('aria-hidden','true')
         .html("&times;");
+    $('#calculo').alert()
+    $('#calculo').on('closed.bs.alert', function () {
+        // d3.select('#resPrioridad').attr('style','max-height:0rem');
+      })
     }
     console.log(creditosAprovadosSemestre, creditosTotalesSemestre, sumaNotasCreditosSemestre);
 
     return [creditosTotalesSemestre, creditosAprovadosSemestre, sumaNotasCreditosSemestre, prioridad];
 }
+$(document).ready(function(){
+    });
 
 // recalculo de valores para calculo prioridad semestre
 function valoresSemestresAnteriores() {
