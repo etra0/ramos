@@ -30,11 +30,11 @@ if (d3.select(".canvas")._groups[0][0]) {
 	scaleY = 1;
 	canvas = d3.select(".priori-canvas");
 	tipoRamo = SelectableRamo;
-	welcomeTitle = `¡Bienvenido a [Inserte funcion aqui] de la malla `
-	welcomeDesc = `Si estas aquí, has clonado mi fork y estas presenciando
-	 un preview de una de dos features nuevas para la malla interactiva. 
-	 Si encuentras algun error ,problema o tienes una sugerencia con la pagina,
-	  genera una issue y detalla el problema/sugerencia`
+	welcomeTitle = `¡Bienvenido a la calculadora de prioridad `
+	welcomeDesc = `¡Selecciona los ramos por semestre e ingresal tus notas para
+	 calcular tu prioridad! A medida que avances de semestre, los ramos aprobados
+	 tacharán automaticamente. Si has cursado un ramo que no esta en la malla,
+	 crealo en la tabla de abajo.`;
 
 }
 
