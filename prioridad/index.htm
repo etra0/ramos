@@ -10,10 +10,10 @@
 
         gtag('config', 'UA-140369062-1');
       </script>
-<!-- Para ver cuantos se aldelantan al release -->
 
 <!-- En verdad, lamento la cantidad horrorosa de divs -->
-        <meta charset="UTF-8">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>Malla interativa: prioridad</title>
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
@@ -117,26 +117,26 @@ aria-hidden="true">
       <div class='priori-canvas' style="text-align:center;overflow-x:auto"></div>		          
       <div class='color-description'
       style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;">
-    </div>
+      </div>
     </div>
         <div class="col-lg-auto">
           <!-- Inicio calculadora -->
           <form id="priorix" class="card mt-5" style="height: 42rem">
             <h4 class="card-header text-center">Calculadora de prioridad</h4>
             <div class="card-body container my-0 py-2" style="max-height: 3rem">
-                <div class="row">
+              <div class="row">
                 <div class="col"><div class="badge badge-info text-left">
                   Semestre Nº <span id="semestre"></span>
                 </div></div>
                 <div class="col text-right">
                   <div class="input-group input-group-sm">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">FAE: </span>
-                      </div>
-                      <input id="fae" type="number" class="form-control" value="1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">FAE: </span>
                     </div>
+                    <input id="fae" type="number" class="form-control" value="1">
                   </div>
                 </div>
+              </div>
             </div>
             <div id="resPrioridad" class="card-body my-0 py-0" style="min-height: 1rem">
                 <!-- <div class="alert text-center alert-info alert-dismissible fade show mb-2 pb-2" role="alert">
@@ -145,10 +145,10 @@ aria-hidden="true">
             </div>
             <hr class="my-0 py-0">
             <div class="card-body" style="overflow-y:auto">
-                  <span id="ramos">
-                  <!-- Aqui van los ramos seleccionados -->
-                  </span>
-                </div>
+              <span id="ramos">
+              <!-- Aqui van los ramos seleccionados -->
+              </span>
+            </div>
             <hr class="my-0 py-0">
             <p class="card-body my-0 py-1" style="max-height: 2rem"><small class=" text-muted">
               ¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!
@@ -201,7 +201,7 @@ aria-hidden="true">
             </form>
             <!-- Fin calculadora -->
         </div>
-    <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-5">
           <div class="col-lg-auto">
             <div class="card">
               <div  class="card-header">
@@ -209,21 +209,21 @@ aria-hidden="true">
               </div>
               <div class="table-responsive">
               <table id="customTable" class="card-body table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">Sigla</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Creditos</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
+                <thead>
+                  <tr>
+                    <th scope="col">Sigla</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Creditos</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
                 <tbody id="customTableContent">
                   <!-- Aqui van los ramos fuera de malla -->
                 </tbody>
-                  </table>
+              </table>
               </div>
-                  <div class="card-footer">
+              <div class="card-footer">
                 <button 
                 type="button" 
                 data-toggle="modal" 
@@ -231,14 +231,14 @@ aria-hidden="true">
                 class="btn btn-primary btn-sm">
                   Crear ramo
                 </button>
-                  </div>
+              </div>
             </div>
-      </div>
-    </div>
+          </div>
+        </div>
         <div class="row justify-content-center">
           <div class="col-lg-4">
-      <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
-  
+            <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
+            
             <p class="text-center">
               Hecho con el ❤️ por amor al arte.
               <a href="http://github.com/etra0/ramos">Código fuente</a>
@@ -246,9 +246,9 @@ aria-hidden="true">
             <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">
               Contacto
             </a></p>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </div>
 
 
