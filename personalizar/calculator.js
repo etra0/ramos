@@ -1,16 +1,15 @@
 var semestre = 1;
 // Todos estos valores son con los datos del semestre anterior a calcular
 var factorActividadExt = 1;
-var mallaPriori
+var mallaCustom
 var custom_ramos = new Set();
 var ramosSemestres;
-var faeSemestres
 var customRamosProps = {}
 function start_priorix() {
     // los ramos fuera de malla se cargan primero
-    mallaPriori = "Custom-" + current_malla;
-    if (localStorage[mallaPriori + "_CUSTOM"]) {
-        customRamosProps = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
+    mallaCustom = "Custom-" + current_malla;
+    if (localStorage[mallaCustom + "_CUSTOM"]) {
+        customRamosProps = JSON.parse(localStorage[mallaCustom + "_CUSTOM"]);
 
         for (var sigla in customRamosProps) {
             // inicializar ramos fuera de malla
@@ -21,18 +20,13 @@ function start_priorix() {
             custom_ramos.add(sigla)
         }
     }
-    let cache = localStorage[mallaPriori + '_SEMESTRES'];
+    let cache = localStorage[mallaCustom + '_SEMESTRES'];
     if (cache) {
         ramosSemestres = JSON.parse(cache)
     } else {
         ramosSemestres = {}
     }
-    cache = localStorage[mallaPriori + '_FAE']
-    if (cache) {
-        faeSemestres = JSON.parse(cache)
-    } else {
-        faeSemestres = {}
-    }
+    
     // En un momento cargara valores guardados anteriormente
     loadSemester();
     updateCustomTable();
@@ -91,7 +85,7 @@ function proximoSemestre() {
 }
 
 function saveSemester() {
-    let id = mallaPriori + '_SEMESTRES';
+    let id = mallaCustom + '_SEMESTRES';
     // Guardar ramos
     var ramosDelSemestre = []
     SELECTED.forEach(ramo => {
@@ -136,12 +130,9 @@ function limpiarCalculadora() {
         ramo.approveRamo();
     });
     ramosSemestres = {}
-    faeSemestres = {}
 
     
-    localStorage[mallaPriori + '_SEMESTRES'] = JSON.stringify({})
-    localStorage[mallaPriori + '_FAE'] = JSON.stringify({})
-    document.getElementById('fae').value = 1;
+    localStorage[mallaCustom + '_SEMESTRES'] = JSON.stringify({})
     semestre = 1
     d3.select('#back').attr('disabled', 'disabled');
     d3.select('#semestre').text(semestre);
@@ -166,7 +157,7 @@ function crearRamo() {
     all_ramos[sigla] = ramo;
     customRamosProps[sigla] = customRamo;
     custom_ramos.add(sigla);
-    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
+    localStorage[mallaCustom+'_CUSTOM'] = JSON.stringify(customRamosProps)
     ramo.selectRamo();
     $('#crearRamoModal').modal('hide')
 }
@@ -181,7 +172,7 @@ function borrarRamo(sigla) {
     custom_ramos.delete(ramo.sigla)
     delete customRamosProps[ramo.sigla];
     d3.select('#CUSTOM-' + ramo.sigla).remove();
-    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
+    localStorage[mallaCustom+'_CUSTOM'] = JSON.stringify(customRamosProps)
     saveSemester();
 }
 
