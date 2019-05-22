@@ -124,30 +124,17 @@ aria-hidden="true">
           <form id="priorix" class="card mt-5" style="height: 42rem">
             <h4 class="card-header text-center">Función 2</h4>
             <div class="card-body container my-0 py-2" style="max-height: 3rem">
-              <div class="row">
-                <div class="col"><div class="badge badge-info text-left">
-                  Semestre Nº <span id="semestre"></span>
+              <div class="row justify-content-center">
+                <div class="col-12 justify-content-center text-center"><div class="badge badge-info text-left">
+                  Ramos para el semestre Nº <span id="semestre"></span>
                 </div></div>
-                <div class="col text-right">
-                  <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">FAE: </span>
-                    </div>
-                    <input id="fae" type="number" class="form-control" value="1">
-                  </div>
-                </div>
               </div>
             </div>
-            <div id="resPrioridad" class="card-body my-0 py-0">
-              <!-- Alerta que informa prioridad -->
-            </div>
-            <hr class="my-0 py-0">
-            <div class="card-body" style="max-height: 25rem; min-height: 23rem;overflow-y:auto">
-              <span id="ramos">
+            <div class="card-body" style="overflow-y:auto">
+              <ul class="list-group" id="ramos">
               <!-- Aqui van los ramos seleccionados -->
-              </span>
+              </ul>
             </div>
-            <hr class="my-0 py-0">
             <p class="card-body my-0 py-1" style="max-height: 2rem"><small class=" text-muted">
               ¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!
             </small></p>
@@ -173,7 +160,7 @@ aria-hidden="true">
                   </div>
                   <div class="row justify-content-center">
                     <button onclick="limpiarCalculadora()" type="button" class="btn btn-danger mt-1">
-                      Restablecer Calculadora
+                      Restablecer malla
                     </button>
                   </div>
                   </div>
@@ -243,7 +230,7 @@ aria-hidden="true">
 
     <script src='../d3.js'></script>
     <script src='../ramos.js'></script>
-    <script src='../selectableRamo.js'></script>
+    <script src='./selectableRamo.js'></script>
     <script src="./calculator.js"></script>
 		<script src='../canvas.js'></script>
   </body>

@@ -187,12 +187,19 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		if (!selected) { // Ramo se ha seleccionado
 				d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
 				SELECTED.push(self);
-				let card = d3.select('#ramos');
-
+				let card = d3.select('#ramos').append('li');
+				card.attr('id','per-' + self.sigla)
+				  .classed('list-group-item', true)
+					.style('opacity','0.01')
+					.text(self.nombre)
+					.transition().duration(300).style('opacity','1')
+					
+				
 				// no hace nada en otras partes
 				
 		} else { // Ramo ya no esta seleccionado
 			d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", "0.01");
+			d3.select("#per-" + self.sigla).transition().duration(300).style('opacity','0.01').remove()
 			let _i = SELECTED.indexOf(self)
 			if (_i > -1) {
 				SELECTED.splice(_i, 1);
