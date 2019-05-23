@@ -31,11 +31,19 @@ if (d3.select(".canvas")._groups[0][0]) {
 	canvas = d3.select(".priori-canvas");
 	tipoRamo = SelectableRamo;
 	welcomeTitle = `¡Bienvenido a la calculadora de prioridad `
-	welcomeDesc = `¡Selecciona los ramos por semestre e ingresal tus notas para
-	 calcular tu prioridad! A medida que avances de semestre, los ramos aprobados
+	welcomeDesc = `¡Selecciona los ramos por semestre e ingresa tus notas para
+	 calcular tu prioridad! A medida que avances de semestre, los ramos aprobados se
 	 tacharán automaticamente. Si has cursado un ramo que no esta en la malla,
 	 crealo en la tabla de abajo.`;
 
+} else if (d3.select(".custom-canvas")._groups[0][0]) {
+	scaleX = 0.67;
+	scaleY = 1;
+	canvas = d3.select(".custom-canvas");
+	tipoRamo = SelectableRamo;
+	welcomeTitle = `¡Bienvenido a la generadora de mallas!`
+	welcomeDesc = `¡Selecciona los ramos por semestre y genera una malla a tu gusto!
+	Si quieres un ramo que no esta en la malla,crealo en la tabla de abajo.`;
 }
 
 var height = 730 * scaleX,
@@ -177,7 +185,7 @@ function main_function(error, data, colorBySector) {
 		.call(wrap, 115 * scaleX, (100 - 100/5*2) * scaleY);
 
 	// verificar cache
-	if (d3.select(".priori-canvas")._groups[0][0] == null) {
+	if (d3.select(".priori-canvas")._groups[0][0] == null && d3.select(".custom-canvas")._groups[0][0] == null) {
 		var cache_variable = 'approvedRamos_' + current_malla;
 		if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
 			let approvedRamos = localStorage[cache_variable].split(",");
@@ -205,7 +213,7 @@ function main_function(error, data, colorBySector) {
 
 	// filling the cache!
 	d3.interval(function() {
-		if (d3.select(".priori-canvas")._groups[0][0] == null) { 
+		if (d3.select(".priori-canvas")._groups[0][0] == null && d3.select(".custom-canvas")._groups[0][0] == null) { 
 		let willStore = []
 		APPROVED.forEach(function(ramo) {
 			willStore.push(ramo.sigla);
@@ -232,7 +240,11 @@ function main_function(error, data, colorBySector) {
 		.attr("text-anchor", "middle")
 		.attr("font-size", 40* scaleX)
 		.attr("opacity", 0.01)
-		.text(welcomeTitle + carreras[current_malla] + `!`)
+		.text( function() {
+			if (d3.select(".custom-canvas")._groups[0][0])
+				return welcomeTitle
+			return welcomeTitle + carreras[current_malla]
+		})
 		.transition().duration(800)
 		.attr("y", height/2)
 		.attr("opacity", 1)
@@ -256,8 +268,11 @@ function main_function(error, data, colorBySector) {
 		});
 	});
 
-	if (d3.select(".priori-canvas")._groups[0][0]) 
+	if (d3.select(".priori-canvas")._groups[0][0]) { 
 		start_priorix();
+	} else if (d3.select(".custom-canvas")._groups[0][0]) {
+		start_generator();
+	}
 }
 
 

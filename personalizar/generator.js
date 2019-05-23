@@ -5,7 +5,7 @@ var mallaCustom
 var custom_ramos = new Set();
 var ramosSemestres;
 var customRamosProps = {}
-function start_priorix() {
+function start_generator() {
     // los ramos fuera de malla se cargan primero
     mallaCustom = "Custom-" + current_malla;
     if (localStorage[mallaCustom + "_CUSTOM"]) {
