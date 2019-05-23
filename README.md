@@ -19,13 +19,7 @@ visualizar los ramos aprobados.
 * [x] Generalizar el `JSON`, en lo posible agregar compatibilidad con `CSV`
 * [ ] **Comentar código, limpiarlo.**
 * [x] Disfrutar un buen café.
-
-# TODO (Sin compromisos)
-* [ ] Capacidad de agregar pre-requisitos a ramos fuera de malla
-* [ ] Capacidad de crear convalidaciones (***MUY*** Poco probable)
-* [ ] Capacidad de agregar nuevos sectores a la malla, con colores!
-* [ ] 
-* [ ]  
+ 
 
 
 ## Aportar
