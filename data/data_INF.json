@@ -8,9 +8,9 @@
 	],
 	"s2": [["Química y Sociedad", "QUI-010", 3, "PC"],
 		["Matemáticas II", "MAT-022", 5, "PC", ["MAT-021"]],
-		["Física General I", "FIS-110", 3, "PC", ["MAT-021", "FIS-100"]],
+		["Física General I", "FIS-110", 5, "PC", ["MAT-021", "FIS-100"]],
 		["Introducción a la Ingeniería", "IWG-101", 2, "TIN"],
-		["Humanístico II", "HRW-133", 1, "HUM"],
+		["Humanístico II", "HRW-133", 2, "HUM"],
 		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]]
 	],
 	"s3": [["Estructuras de Datos", "INF-134", 3, "FI", ["IWI-131"]],
