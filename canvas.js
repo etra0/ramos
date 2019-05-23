@@ -286,7 +286,7 @@ function wrap(text, width, height) {
         lineHeight = 1.1, // ems
         y = text.attr("y"),
 				dy = parseFloat(text.attr("dy")),
-				fontsize = Number(text.attr("font-size")),
+				fontsize = parseInt(text.attr("font-size"),10),
 				tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
 				textLines,
 				textHeight;

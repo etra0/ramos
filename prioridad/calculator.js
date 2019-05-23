@@ -14,7 +14,7 @@ function start_priorix() {
     // los ramos fuera de malla se cargan primero
     mallaPriori = "prioridad-" + current_malla;
     if (localStorage[mallaPriori + "_CUSTOM"]) {
-        let customRamosProps = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
+        customRamosProps = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
 
         for (var sigla in customRamosProps) {
             // inicializar ramos fuera de malla
@@ -79,7 +79,7 @@ function calcularPrioridad() {
       .attr('role', 'alert')
       .append('h4')
         .classed('alert-heading', true)
-        .text('Tu prioridad en S-' + semestre + ' es: ' + prioridad);
+        .text('Tu prioridad en S' + semestre + ' es: ' + prioridad);
     d3.select('#resPrioridad').select('div')
       .append('button')
       .classed('close', true)
@@ -271,7 +271,12 @@ function crearRamo() {
     customRamosProps[sigla] = customRamo;
     custom_ramos.add(sigla);
     localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
+    $('#crearRamoModal').modal('hide');
+    document.getElementById('custom-name').value = null
+    document.getElementById('custom-sigla').value = null
+    document.getElementById('custom-credits').value = null
     ramo.selectRamo();
+
 }
 
 function borrarRamo(sigla) {
@@ -324,7 +329,7 @@ function updateCustomTable(){
             if (selected) {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('Seleccionado')
             } else if (approved) {
-                fila.append('td').attr('id','state-' + ramo.sigla).text('Aprobado en S-' + approved)
+                fila.append('td').attr('id','state-' + ramo.sigla).text('Aprobado en S' + approved)
             } else {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('No Seleccionado')
             }
@@ -399,7 +404,7 @@ function updateCustomTable(){
                 deleteButton.attr('disabled',null);
 
             } else if (approved) {
-                state.text('Aprobado en S-' + approved)                
+                state.text('Aprobado en S' + approved)                
                 addButton.attr('disabled','disabled').text('Seleccionar Ramo');
                 deleteButton.attr('disabled','disabled');
             } else {

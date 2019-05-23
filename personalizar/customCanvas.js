@@ -209,16 +209,6 @@ function main_function(error, data, colorBySector) {
 	drawer.selectAll(".ramo-label")
 		.call(wrap, 115 * scaleX, (100 - 100/5*2) * scaleY);
 
-	// verificar cache
-	// if (d3.select(".canvas")._groups[0][0] == null) {
-	// 	var cache_variable = 'approvedRamos_' + current_malla;
-	// 	if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
-	// 		let approvedRamos = localStorage[cache_variable].split(",");
-	// 		approvedRamos.forEach(function(ramo) {
-	// 			all_ramos[ramo].approveRamo();
-	// 		});
-	// 	}
-	// }
 
 	// verificar prerrequisitos
 	d3.interval(function() {
@@ -235,19 +225,6 @@ function main_function(error, data, colorBySector) {
 		});
 		d3.select(".info").select("#creditos").text(`${current_credits} (${parseInt((current_credits/total_creditos)*100)}%), Total ramos: ${parseInt(current_ramos*100/total_ramos)}%`);
 	}, 30);
-
-	// filling the cache!
-	// d3.interval(function() {
-	// 	if (d3.select(".priori-canvas")._groups[0][0] == null) { 
-	// 	let willStore = []
-	// 	APPROVED.forEach(function(ramo) {
-	// 		willStore.push(ramo.sigla);
-	// 	});
-	// 	localStorage[cache_variable] = willStore;
-	// 	}
-	// }, 2000);
-
-
 
 
 	var first_time = canvas.append("g")
@@ -305,7 +282,7 @@ function wrap(text, width, height) {
         lineHeight = 1.1, // ems
         y = text.attr("y"),
 				dy = parseFloat(text.attr("dy")),
-				fontsize = Number(text.attr("font-size")),
+				fontsize = parseInt(text.attr("font-size"), 10),
 				tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
 				textLines,
 				textHeight;

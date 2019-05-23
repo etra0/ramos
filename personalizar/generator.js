@@ -155,9 +155,9 @@ function limpiarCalculadora() {
 function crearRamo() {
     let nombre, sigla, creditos;
 
-    nombre = document.getElementById('custom-name').value;
-    sigla = document.getElementById('custom-sigla').value;
-    creditos = document.getElementById('custom-credits').value;
+    nombre = String(document.getElementById('custom-name').value);
+    sigla = String(document.getElementById('custom-sigla').value);
+    creditos = Number(document.getElementById('custom-credits').value);
 
     let sector = {"CUSTOM": ["#000000", "Fuera de la malla oficial"]}
     let customRamo = [nombre,sigla, creditos, 'CUSTOM' ,sector]
@@ -169,6 +169,10 @@ function crearRamo() {
     localStorage[mallaCustom+'_CUSTOM'] = JSON.stringify(customRamosProps)
     ramo.selectRamo();
     $('#crearRamoModal').modal('hide')
+    document.getElementById('custom-name').value = null
+    document.getElementById('custom-sigla').value = null
+    document.getElementById('custom-credits').value = null
+
 }
 
 function borrarRamo(sigla) {
