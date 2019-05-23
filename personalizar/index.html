@@ -2,20 +2,20 @@
 <html lang="es-CL">
     <head>
       <!-- Global site tag (gtag.js) - Google Analytics -->
-      <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140369062-1"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140369062-1"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'UA-140369062-1');
-      </script> -->
+      </script>
 
 <!-- En verdad, lamento la cantidad horrorosa de divs -->
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Malla interativa: prioridad</title>
+        <title>Malla Interativa personalizada</title>
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -31,7 +31,6 @@
     <style>
 		body {
 			display: inline;
-			/* text-align: center; */
 			justify-content:center;
 		}
 		html {
@@ -44,8 +43,29 @@
 
   </style>  
 
-  <body>
-<!-- Agregar ramo personalizado -->
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"style='justify-content:center'>
+        <ul class="nav navbar-nav">
+          <li><a class="nav-item nav-link" href="?m=ICA">Ambiental</a></li>
+          <li><a class="nav-item nav-link" href="?m=ARQ">Arquitectura</a></li>
+          <li><a class="nav-item nav-link" href="?m=CIV">Civil</a></li>
+          <li><a class="nav-item nav-link" href="?m=ICOM">Comercial</a></li>
+          <li><a class="nav-item nav-link" href="?m=CONSTRU">Construcción</a></li>
+          <li><a class="nav-item nav-link" href="?m=IDP">Diseño de productos</a></li>
+          <li><a class="nav-item nav-link" href="?m=ELI">Eléctrica</a></li>
+          <li><a class="nav-item nav-link" href="?m=ELO">Electrónica</a></li>
+          <li><a class="nav-item nav-link" href="?m=INF">Informática</a></li>
+          <li><a class="nav-item nav-link" href="?m=ICI">Industrial</a></li>
+          <li><a class="nav-item nav-link" href="?m=MAT">Matemática</a></li>
+          <li><a class="nav-item nav-link" href="?m=MEC">Mecánica</a></li>
+          <li><a class="nav-item nav-link" href="?m=MET">Metalúrgica</a></li>
+          <li><a class="nav-item nav-link" href="?m=ICQ">Química</a></li>
+          <li><a class="nav-item nav-link" href="?m=TEL">Telemática</a></li>
+        </ul>
+    </nav>
+    
+  <!-- Agregar ramo personalizado -->
 <div class="modal fade"
 id="crearRamoModal" 
 tabindex="-1" 
@@ -90,25 +110,6 @@ aria-hidden="true">
     <!-- fin ramo -->
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light"style='justify-content:center'>
-    <ul class="nav navbar-nav">
-      <li><a class="nav-item nav-link" href="?m=ICA">Ambiental</a></li>
-      <li><a class="nav-item nav-link" href="?m=ARQ">Arquitectura</a></li>
-      <li><a class="nav-item nav-link" href="?m=CIV">Civil</a></li>
-      <li><a class="nav-item nav-link" href="?m=ICOM">Comercial</a></li>
-      <li><a class="nav-item nav-link" href="?m=CONSTRU">Construcción</a></li>
-      <li><a class="nav-item nav-link" href="?m=IDP">Diseño de productos</a></li>
-      <li><a class="nav-item nav-link" href="?m=ELI">Eléctrica</a></li>
-      <li><a class="nav-item nav-link" href="?m=ELO">Electrónica</a></li>
-      <li><a class="nav-item nav-link" href="?m=INF">Informática</a></li>
-      <li><a class="nav-item nav-link" href="?m=ICI">Industrial</a></li>
-      <li><a class="nav-item nav-link" href="?m=MAT">Matemática</a></li>
-      <li><a class="nav-item nav-link" href="?m=MEC">Mecánica</a></li>
-      <li><a class="nav-item nav-link" href="?m=MET">Metalúrgica</a></li>
-      <li><a class="nav-item nav-link" href="?m=ICQ">Química</a></li>
-      <li><a class="nav-item nav-link" href="?m=TEL">Telemática</a></li>
-    </ul>
-</nav>
 
 <h1 class="title text-center" >Malla <span id="carrera"></span></h1>
 <div class="container-fluid mx-2">
@@ -122,7 +123,7 @@ aria-hidden="true">
         <div class="col-lg-auto">
           <!-- Inicio calculadora -->
           <form id="priorix" class="card mt-5" style="height: 42rem">
-            <h4 class="card-header text-center">Función 2</h4>
+            <h4 class="card-header text-center">Generadora de mallas</h4>
             <div class="card-body container my-0 py-2" style="max-height: 3rem">
               <div class="row justify-content-center">
                 <div class="col-12 justify-content-center text-center"><div class="badge badge-info text-left">
@@ -150,7 +151,7 @@ aria-hidden="true">
                   <div class="container-fluid">
                   <div class="row justify-content-center">
                     <div class="btn-group" role="group">
-                      <button type="button" onclick="" class="btn btn-info">
+                      <button type="button" onclick="generate()" class="btn btn-info">
                         Generar
                       </button>
                       <button type="reset" onclick="limpiarSemestre()" class="btn btn-danger">
@@ -231,7 +232,7 @@ aria-hidden="true">
     <script src='../d3.js'></script>
     <script src='../ramos.js'></script>
     <script src='./selectableRamo.js'></script>
-    <script src="./calculator.js"></script>
+    <script src="./generator.js"></script>
 		<script src='../canvas.js'></script>
   </body>
 </html>

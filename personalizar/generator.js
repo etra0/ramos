@@ -38,8 +38,10 @@ function start_priorix() {
     card.select('#semestre').text(semestre);
 }
 
-// $('#calculo').popover(); 
-
+function generate() {
+    saveSemester();
+    window.location.href = "malla.html?m=" + current_malla;
+}
 
 
 
@@ -54,8 +56,11 @@ function semestreAnterior() {
     setTimeout(function(){ // Tiempo para que se limpie la calculadora
         loadSemester();
         d3.select('#semestre').text(semestre);
-        if (semestre == 1)
-            d3.select('#back').attr('disabled', 'disabled');    
+        if (semestre == 1) {
+            d3.select('#back').attr('disabled', 'disabled');
+        } else if (semestre == 19) {
+            d3.select('#forward').attr('disabled', null);
+        }
         d3.select('#back').attr('onclick', 'semestreAnterior()');
     }, 350)
 }
@@ -74,13 +79,16 @@ function proximoSemestre() {
         ramo.approveRamo()
     });
     d3.select('#semestre').text(semestre);
-    if (semestre == 2) 
+    if (semestre == 2) {
         d3.select('#back').attr('disabled', null);
-        setTimeout(function(){ // Tiempo para que se limpie la calculadora
-            loadSemester();
-            d3.select('#forward').attr('onclick', 'proximoSemestre()');
+    } else if (semestre == 20) {
+        d3.select('#forward').attr('disabled','disabled')
+    }
+    setTimeout(function(){ // Tiempo para que se limpie la calculadora
+        loadSemester();
+        d3.select('#forward').attr('onclick', 'proximoSemestre()');
 
-        }, delay)
+    }, delay)
     
 }
 
@@ -93,6 +101,7 @@ function saveSemester() {
     });
     ramosSemestres[semestre] = ramosDelSemestre
     localStorage.setItem(id, JSON.stringify(ramosSemestres));
+    localStorage.setItem(mallaCustom + '_CUSTOM', JSON.stringify(customRamosProps))
 
 }
 
