@@ -1,6 +1,4 @@
 var semestre = 1;
-// Todos estos valores son con los datos del semestre anterior a calcular
-var factorActividadExt = 1;
 var mallaCustom
 var custom_ramos = new Set();
 var ramosSemestres;
@@ -27,10 +25,8 @@ function start_generator() {
         ramosSemestres = {}
     }
     
-    // En un momento cargara valores guardados anteriormente
     loadSemester();
     updateCustomTable();
-    // Cargar ramos fuera de malla
     var card = d3.select('#priorix');
     if (semestre == 1) {
         d3.select('#back').attr('disabled', 'disabled');
@@ -155,9 +151,9 @@ function limpiarCalculadora() {
 function crearRamo() {
     let nombre, sigla, creditos;
 
-    nombre = document.getElementById('custom-name').value;
-    sigla = document.getElementById('custom-sigla').value;
-    creditos = document.getElementById('custom-credits').value;
+    nombre = String(document.getElementById('custom-name').value);
+    sigla = String(document.getElementById('custom-sigla').value);
+    creditos = Number(document.getElementById('custom-credits').value);
 
     let sector = {"CUSTOM": ["#000000", "Fuera de la malla oficial"]}
     let customRamo = [nombre,sigla, creditos, 'CUSTOM' ,sector]
@@ -169,6 +165,10 @@ function crearRamo() {
     localStorage[mallaCustom+'_CUSTOM'] = JSON.stringify(customRamosProps)
     ramo.selectRamo();
     $('#crearRamoModal').modal('hide')
+    document.getElementById('custom-name').value = null
+    document.getElementById('custom-sigla').value = null
+    document.getElementById('custom-credits').value = null
+
 }
 
 function borrarRamo(sigla) {

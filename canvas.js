@@ -1,5 +1,5 @@
 // Cambie las variables scale para aumentar o reducir las dimensiones de la malla
-// Se recomienda fuertemente valores NO MENORES a 0.5
+// Se recomienda fuertemente valores NO MENORES a 0.5 ademas de no modificar mucho scaleY
 var scaleX, scaleY, canvas, tipoRamo;
 
 // variables de mensaje
@@ -275,7 +275,8 @@ function main_function(error, data, colorBySector) {
 	}
 }
 
-
+// Encaja el texto en un rectangulo dado
+// Si el texto no cabe, se achica la letra!
 function wrap(text, width, height) {
   text.each(function() {
     var text = d3.select(this),
@@ -286,7 +287,7 @@ function wrap(text, width, height) {
         lineHeight = 1.1, // ems
         y = text.attr("y"),
 				dy = parseFloat(text.attr("dy")),
-				fontsize = Number(text.attr("font-size")),
+				fontsize = parseInt(text.attr("font-size"),10),
 				tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
 				textLines,
 				textHeight;

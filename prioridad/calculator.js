@@ -1,20 +1,20 @@
 var semestre = 1;
+var custom_ramos = new Set();
+var customRamosProps = {}
+var ramosSemestre = [];
+var notasSemestres;
+var faeSemestres;
 // Todos estos valores son con los datos del semestre anterior a calcular
 var creditosTotales = 0;
 var creditosAprovados = 0;
 var sumaNotasCreditos = 0
 var factorActividadExt = 1;
-var ramosSemestre = [];
 var mallaPriori
-var custom_ramos = new Set();
-var notasSemestres;
-var faeSemestres
-var customRamosProps = {}
 function start_priorix() {
     // los ramos fuera de malla se cargan primero
     mallaPriori = "prioridad-" + current_malla;
     if (localStorage[mallaPriori + "_CUSTOM"]) {
-        let customRamosProps = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
+        customRamosProps = JSON.parse(localStorage[mallaPriori + "_CUSTOM"]);
 
         for (var sigla in customRamosProps) {
             // inicializar ramos fuera de malla
@@ -37,7 +37,6 @@ function start_priorix() {
     } else {
         faeSemestres = {}
     }
-    // En un momento cargara valores guardados anteriormente
     loadSemester();
     updateCustomTable();
     // Cargar ramos fuera de malla
@@ -48,7 +47,6 @@ function start_priorix() {
     card.select('#semestre').text(semestre);
 }
 
-// $('#calculo').popover(); 
 
 function calcularPrioridad() {
     // Calculo prioridad
@@ -79,7 +77,7 @@ function calcularPrioridad() {
       .attr('role', 'alert')
       .append('h4')
         .classed('alert-heading', true)
-        .text('Tu prioridad en S-' + semestre + ' es: ' + prioridad);
+        .text('Tu prioridad en S' + semestre + ' es: ' + prioridad);
     d3.select('#resPrioridad').select('div')
       .append('button')
       .classed('close', true)
@@ -91,7 +89,6 @@ function calcularPrioridad() {
         .html("&times;");
     $('#calculo').alert()
     $('#calculo').on('closed.bs.alert', function () {
-        // d3.select('#resPrioridad').attr('style','max-height:0rem');
       })
     }
     console.log(creditosAprovadosSemestre, creditosTotalesSemestre, sumaNotasCreditosSemestre);
@@ -271,7 +268,11 @@ function crearRamo() {
     customRamosProps[sigla] = customRamo;
     custom_ramos.add(sigla);
     localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
+    document.getElementById('custom-name').value = null
+    document.getElementById('custom-sigla').value = null
+    document.getElementById('custom-credits').value = null
     ramo.selectRamo();
+    $('#crearRamoModal').modal('hide');
 }
 
 function borrarRamo(sigla) {
@@ -324,7 +325,7 @@ function updateCustomTable(){
             if (selected) {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('Seleccionado')
             } else if (approved) {
-                fila.append('td').attr('id','state-' + ramo.sigla).text('Aprobado en S-' + approved)
+                fila.append('td').attr('id','state-' + ramo.sigla).text('Aprobado en S' + approved)
             } else {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('No Seleccionado')
             }
@@ -399,7 +400,7 @@ function updateCustomTable(){
                 deleteButton.attr('disabled',null);
 
             } else if (approved) {
-                state.text('Aprobado en S-' + approved)                
+                state.text('Aprobado en S' + approved)                
                 addButton.attr('disabled','disabled').text('Seleccionar Ramo');
                 deleteButton.attr('disabled','disabled');
             } else {

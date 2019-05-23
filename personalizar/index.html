@@ -9,7 +9,14 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-140369062-1');
+// <!-- Google Tag Manager -->
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-M5LWCHD');
       </script>
+    <!-- End Google Tag Manager -->
 
 <!-- En verdad, lamento la cantidad horrorosa de divs -->
       <meta charset="UTF-8">
@@ -44,6 +51,7 @@
   </style>  
 
 <body>
+
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light"style='justify-content:center'>
         <ul class="nav navbar-nav">
@@ -102,26 +110,28 @@ aria-hidden="true">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" onclick="crearRamo(true)" class="btn btn-primary">Agregar</button>
+          <button type="button" id="crearRamo" onclick="crearRamo(true)" class="btn btn-primary">Agregar</button>
         </div>
       </div>
     </div>
   </div>
-    <!-- fin ramo -->
+<!-- fin ramo personalizado -->
 
 
 
 <h1 class="title text-center" >Malla <span id="carrera"></span></h1>
 <div class="container-fluid mx-2">
   <div class="row justify-content-center">
+<!-- Inicio canvas -->
     <div class="col-xl-7 ">
       <div class='custom-canvas' style="text-align:center;overflow-x:auto"></div>		          
       <div class='color-description'
       style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;">
       </div>
     </div>
+<!-- Fin canvas -->
         <div class="col-lg-auto">
-          <!-- Inicio calculadora -->
+<!-- Inicio calculadora -->
           <form id="priorix" class="card mt-5" style="height: 42rem">
             <h4 class="card-header text-center">Generadora de mallas</h4>
             <div class="card-body container my-0 py-2" style="max-height: 3rem">
@@ -140,7 +150,7 @@ aria-hidden="true">
               ¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!
             </small></p>
               <div class="card-footer container-fluid">
-              <!-- Botones para cambiar semestre -->
+<!-- Inicio Botones -->
               <div class="row align-items-center justify-content-center">
                 <div class="col-2">
                     <button id="back" onclick="semestreAnterior()" type="button" class="btn btn-secondary">
@@ -151,7 +161,7 @@ aria-hidden="true">
                   <div class="container-fluid">
                   <div class="row justify-content-center">
                     <div class="btn-group" role="group">
-                      <button type="button" onclick="generate()" class="btn btn-info">
+                      <button type="button" id="generar" onclick="generate()" class="btn btn-info">
                         Generar
                       </button>
                       <button type="reset" onclick="limpiarSemestre()" class="btn btn-danger">
@@ -172,13 +182,14 @@ aria-hidden="true">
                   </button>
                 </div>
               </div>
-              <!-- Fin botones -->
+<!-- Fin botones -->
               </div>
             </div>
             </form>
-            <!-- Fin calculadora -->
+<!-- Fin calculadora -->
         </div>
         <div class="row justify-content-center mt-5">
+<!-- Inicio Tabla fuera de malla -->
           <div class="col-lg-auto">
             <div class="card">
               <div  class="card-header">
@@ -211,6 +222,7 @@ aria-hidden="true">
               </div>
             </div>
           </div>
+<!-- Fin Tabla -->
         </div>
         <div class="row justify-content-center">
           <div class="col-lg-4">

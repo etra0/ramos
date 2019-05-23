@@ -175,17 +175,20 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
   this.selectRamo = function() {
         
 		if (self.isApproved()) { // Si el ramo esta aprovado, no se selecciona
+			if (!custom_ramos.has(this.sigla)) {
 			d3.select("#" + self.sigla).select(".selected").attr('stroke','red');
 			d3.select("#" + self.sigla).select(".selected").transition().duration(200).attr("opacity", ".8")
 				.transition().duration(150).attr("opacity", ".5")
 				.transition().duration(150).attr("opacity", ".8")
 				.transition().duration(200).attr("opacity", ".001")
 				.attr('stroke','green');
+			}
 			return;
   	}
         
 		if (!selected) { // Ramo se ha seleccionado
-				d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
+				if (!custom_ramos.has(this.sigla))
+					d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
 				SELECTED.push(self);
 				let card = d3.select('#ramos').append('li');
 				card.attr('id','per-' + self.sigla)
@@ -194,17 +197,15 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 					.text(self.nombre)
 					.transition().duration(300).style('opacity','1')
 					
-				
-				// no hace nada en otras partes
-				
+								
 		} else { // Ramo ya no esta seleccionado
-			d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", "0.01");
+			if (!custom_ramos.has(this.sigla))
+				d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", "0.01");
 			d3.select("#per-" + self.sigla).transition().duration(300).style('opacity','0.01').remove()
 			let _i = SELECTED.indexOf(self)
 			if (_i > -1) {
 				SELECTED.splice(_i, 1);
 			}
-				// no hace nada en otras partes
 
 		}
 		selected = !selected;

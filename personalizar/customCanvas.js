@@ -108,11 +108,13 @@ function main_function(error, data, colorBySector) {
 		return;
 	}
 	// load the data
+	
 	// Agregado de sectores fuera de malla
-
 	let customCache = JSON.parse(localStorage['Custom-'+ current_malla + '_CUSTOM'])
 	for (var sigla in customCache) {
-		colorBySector[customCache[sigla][3]] = customCache[sigla][4][customCache[sigla][3]] // Si no entiende, no lo haga
+		// una parte es para acceder al diccionario que contiene las propiedades del sector
+		colorBySector[customCache[sigla][3]] = customCache[sigla][4][customCache[sigla][3]]
+		// la otra parte es la sigla para acceder
 	}
 	
 	let longest_semester = 0;
@@ -126,6 +128,8 @@ function main_function(error, data, colorBySector) {
 
 		});
 	}
+	
+	// agregado de ramos fuera de malla
 	let customRamosProps = JSON.parse(localStorage['Custom-' + current_malla +"_CUSTOM"])
 	for (var sigla in customRamosProps) {
 		// inicializar ramos fuera de malla
@@ -134,9 +138,9 @@ function main_function(error, data, colorBySector) {
 		id++;
 		all_ramos[sigla] = ramo
 	}
-	// agregado de ramos fuera de malla
+
+// se crea la malla de acorde al usuario
 	let customMalla = JSON.parse(localStorage['Custom-' + current_malla + '_SEMESTRES'])
-	
 	for (var semester in customMalla) {
 		malla[semester] = {}
 		let c = 0
@@ -149,8 +153,6 @@ function main_function(error, data, colorBySector) {
 		if (c > longest_semester)
 			longest_semester = c;
 	}
-	// cargado de malla personalizada
-
 
 	// update width y height debido a que varian segun la malla
 		// + 10 para evitar ocultamiento de parte de la malla
@@ -209,16 +211,6 @@ function main_function(error, data, colorBySector) {
 	drawer.selectAll(".ramo-label")
 		.call(wrap, 115 * scaleX, (100 - 100/5*2) * scaleY);
 
-	// verificar cache
-	// if (d3.select(".canvas")._groups[0][0] == null) {
-	// 	var cache_variable = 'approvedRamos_' + current_malla;
-	// 	if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
-	// 		let approvedRamos = localStorage[cache_variable].split(",");
-	// 		approvedRamos.forEach(function(ramo) {
-	// 			all_ramos[ramo].approveRamo();
-	// 		});
-	// 	}
-	// }
 
 	// verificar prerrequisitos
 	d3.interval(function() {
@@ -235,19 +227,6 @@ function main_function(error, data, colorBySector) {
 		});
 		d3.select(".info").select("#creditos").text(`${current_credits} (${parseInt((current_credits/total_creditos)*100)}%), Total ramos: ${parseInt(current_ramos*100/total_ramos)}%`);
 	}, 30);
-
-	// filling the cache!
-	// d3.interval(function() {
-	// 	if (d3.select(".priori-canvas")._groups[0][0] == null) { 
-	// 	let willStore = []
-	// 	APPROVED.forEach(function(ramo) {
-	// 		willStore.push(ramo.sigla);
-	// 	});
-	// 	localStorage[cache_variable] = willStore;
-	// 	}
-	// }, 2000);
-
-
 
 
 	var first_time = canvas.append("g")
@@ -305,7 +284,7 @@ function wrap(text, width, height) {
         lineHeight = 1.1, // ems
         y = text.attr("y"),
 				dy = parseFloat(text.attr("dy")),
-				fontsize = Number(text.attr("font-size")),
+				fontsize = parseInt(text.attr("font-size"), 10),
 				tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
 				textLines,
 				textHeight;

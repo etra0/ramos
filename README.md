@@ -2,11 +2,31 @@
 Generador de la malla que permitirá
 visualizar los ramos aprobados.
 
+# ¡Novedades!
+
+- ¡Ahora podras calcular tu prioridad usando la malla de tu carrera!  
+![Gif demo de calculo de prioridad](https://media.giphy.com/media/9FZo5ua3aCmXij4xZ5/giphy.gif)
+- ¿Quieres planear tu estadía en la U? ¡Crea una malla personalizada basada en una pre-existente!  
+![Gif demo de la malla personalidada](https://media.giphy.com/media/QK448lB7juUF0ftL7g/giphy.gif)  
+¡Soporta hasta *20* semestres! (En caso de ser necesario, el límite puede expandirse)
+
+- Si por alguna razón un ramo no esta en tu malla, ¡es muy facil agregar una!  
+![Imagen de ventana para agregar un Ramo](https://i.imgur.com/NnCAaP2.png)
+![Imagen de tabla de ramos que están fuera de la malla](https://i.imgur.com/li2TRD7.png)
+
 # TODO
 * [x] Almacenar los ramos aprobados en caché
 * [x] Generalizar el `JSON`, en lo posible agregar compatibilidad con `CSV`
 * [ ] **Comentar código, limpiarlo.**
 * [x] Disfrutar un buen café.
+
+# TODO (Sin compromisos)
+* [ ] Capacidad de agregar pre-requisitos a ramos fuera de malla
+* [ ] Capacidad de crear convalidaciones (***MUY*** Poco probable)
+* [ ] Capacidad de agregar nuevos sectores a la malla, con colores!
+* [ ] 
+* [ ]  
+
 
 ## Aportar
 
