@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140369062-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+  
+          gtag('config', 'UA-140369062-1');
+        </script>
+  
+  <!-- En verdad, lamento la cantidad horrorosa de divs -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+	<title>Malla Interactiva personalizada</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+  </head>
+    <style>
+		body {
+			display: inline;
+			justify-content:center;
+		}
+		html {
+			font-family: sans-serif;
+		}
+
+		.info {
+			font-size: 30px;
+		}
+
+  </style>  
+
+  <body>
+
+
+      <h1 class="title text-center my-5">Malla Interactiva personalizada <span id="carrera"></span></h1>
+      
+      <div class="container-fluid m-2">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class='canvas' style="text-align:center;overflow-x:auto"></div>
+                <!-- Canvas aqui -->
+                <div class='color-description'
+                style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center my-3">
+            <div class="info text-center">
+                Créditos aprobados: <span id='creditos'></span> <br>
+            <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
+            <a href="" id="goBack" class="btn btn-primary" role="button">Continuar editando</a>
+            </div>
+        </div>
+        <div class="row justify-content-center ">
+            <div class="col-lg-4">
+
+            <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
+      
+            <p class="text-center">Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+            <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
+
+            </div>
+        </div>
+
+      </div>
+
+      
+      <script src='../d3.js'></script>
+      <script src='../ramos.js'></script>
+      <script src='./customCanvas.js'></script>
+  </body>
+</html>
+

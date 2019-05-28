@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="es-CL">
+    <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140369062-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-140369062-1');
+// <!-- Google Tag Manager -->
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-M5LWCHD');
+      </script>
+    <!-- End Google Tag Manager -->
+
+<!-- En verdad, lamento la cantidad horrorosa de divs -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Malla Interativa personalizada</title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+        <script 
+        defer
+        src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+        integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" 
+        crossorigin="anonymous">
+        </script>
+    </head>
+    <style>
+		body {
+			display: inline;
+			justify-content:center;
+		}
+		html {
+			font-family: sans-serif;
+		}
+
+		.info {
+			font-size: 30px;
+		}
+
+  </style>  
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5LWCHD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"style='justify-content:center'>
+        <ul class="nav navbar-nav">
+          <li><a class="nav-item nav-link" href="?m=ICA">Ambiental</a></li>
+          <li><a class="nav-item nav-link" href="?m=ARQ">Arquitectura</a></li>
+          <li><a class="nav-item nav-link" href="?m=CIV">Civil</a></li>
+          <li><a class="nav-item nav-link" href="?m=ICOM">Comercial</a></li>
+          <li><a class="nav-item nav-link" href="?m=CONSTRU">Construcción</a></li>
+          <li><a class="nav-item nav-link" href="?m=IDP">Diseño de productos</a></li>
+          <li><a class="nav-item nav-link" href="?m=ELI">Eléctrica</a></li>
+          <li><a class="nav-item nav-link" href="?m=ELO">Electrónica</a></li>
+          <li><a class="nav-item nav-link" href="?m=INF">Informática</a></li>
+          <li><a class="nav-item nav-link" href="?m=ICI">Industrial</a></li>
+          <li><a class="nav-item nav-link" href="?m=MAT">Matemática</a></li>
+          <li><a class="nav-item nav-link" href="?m=MEC">Mecánica</a></li>
+          <li><a class="nav-item nav-link" href="?m=MET">Metalúrgica</a></li>
+          <li><a class="nav-item nav-link" href="?m=ICQ">Química</a></li>
+          <li><a class="nav-item nav-link" href="?m=TEL">Telemática</a></li>
+        </ul>
+    </nav>
+    
+  <!-- Agregar ramo personalizado -->
+<div class="modal fade"
+id="crearRamoModal" 
+tabindex="-1" 
+role="dialog" 
+aria-labelledby="crearRamo" 
+aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="crearRamo">Añadir ramo fuera de la malla</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="newRamo">Nombre asignatura</label>
+                <input type="text"
+                class="form-control" 
+                id="custom-name" 
+                placeholder="Introducción a la malla interactiva">
+              </div>
+              <div class="form-group">
+                  <label for="newRamo">Sigla asignatura</label>
+                  <input type="text" class="form-control" id="custom-sigla" placeholder="INF-123">
+                  <small id="sigla-Help" class="form-text text-muted">
+                    Asegurate de que la sigla NO contenga espacios.
+                  </small>
+                </div>
+                <div class="form-group">
+                    <label for="newRamo">Creditos</label>
+                    <input type="number" class="form-control" id="custom-credits" placeholder="1">
+                  </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="crearRamo" onclick="crearRamo(true)" class="btn btn-primary">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- fin ramo personalizado -->
+
+
+
+<h1 class="title text-center" >Malla <span id="carrera"></span></h1>
+<div class="container-fluid mx-2">
+  <div class="row justify-content-center">
+<!-- Inicio canvas -->
+    <div class="col-xl-7 ">
+      <div class='custom-canvas' style="text-align:center;overflow-x:auto"></div>		          
+      <div class='color-description'
+      style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;">
+      </div>
+    </div>
+<!-- Fin canvas -->
+        <div class="col-lg-auto">
+<!-- Inicio calculadora -->
+          <form id="priorix" class="card mt-5" style="height: 42rem">
+            <h4 class="card-header text-center">Generadora de mallas</h4>
+            <div class="card-body container my-0 py-2" style="max-height: 3rem">
+              <div class="row justify-content-center">
+                <div class="col-12 justify-content-center text-center"><div class="badge badge-info text-left">
+                  Ramos para el semestre Nº <span id="semestre"></span>
+                </div></div>
+              </div>
+            </div>
+            <div class="card-body" style="overflow-y:auto">
+              <ul class="list-group" id="ramos">
+              <!-- Aqui van los ramos seleccionados -->
+              </ul>
+            </div>
+            <p class="card-body my-0 py-1" style="max-height: 2rem"><small class=" text-muted">
+              ¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!
+            </small></p>
+              <div class="card-footer container-fluid">
+<!-- Inicio Botones -->
+              <div class="row align-items-center justify-content-center">
+                <div class="col-2">
+                    <button id="back" onclick="semestreAnterior()" type="button" class="btn btn-secondary">
+                      <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+                <div class="col-8">
+                  <div class="container-fluid">
+                  <div class="row justify-content-center">
+                    <div class="btn-group" role="group">
+                      <button type="button" id="generar" onclick="generate()" class="btn btn-info">
+                        Generar
+                      </button>
+                      <button type="reset" onclick="limpiarSemestre()" class="btn btn-danger">
+                        Limpiar Semestre
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <button onclick="limpiarCalculadora()" type="button" class="btn btn-danger mt-1">
+                      Restablecer malla
+                    </button>
+                  </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <button id="forward" onclick="proximoSemestre()" type="button" class="btn btn-secondary">
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+<!-- Fin botones -->
+              </div>
+            </div>
+            </form>
+<!-- Fin calculadora -->
+        </div>
+        <div class="row justify-content-center mt-5">
+<!-- Inicio Tabla fuera de malla -->
+          <div class="col-lg-auto">
+            <div class="card">
+              <div  class="card-header">
+                <h3 class="card-title">Ramos fuera de malla</h3>
+              </div>
+              <div class="table-responsive">
+              <table id="customTable" class="card-body table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Sigla</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Creditos</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="customTableContent">
+                  <!-- Aqui van los ramos fuera de malla -->
+                </tbody>
+              </table>
+              </div>
+              <div class="card-footer">
+                <button 
+                type="button" 
+                data-toggle="modal" 
+                data-target="#crearRamoModal"  
+                class="btn btn-primary btn-sm">
+                  Crear ramo
+                </button>
+              </div>
+            </div>
+          </div>
+<!-- Fin Tabla -->
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-4">
+              <p class="text-center mt-2"><a href="../" class="btn btn-primary">Volver</a></p>
+
+            <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
+            
+            <p class="text-center">
+              Hecho con el ❤️ por amor al arte.
+              <a href="http://github.com/etra0/ramos">Código fuente</a>
+            </p>
+            <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">
+              Contacto
+            </a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src='../d3.js'></script>
+    <script src='../ramos.js'></script>
+    <script src='./selectableRamo.js'></script>
+    <script src="./generator.js"></script>
+		<script src='../canvas.js'></script>
+  </body>
+</html>
