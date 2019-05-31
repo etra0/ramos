@@ -193,7 +193,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 					SELECTED.push(self);
 				let card = d3.select('#ramos').append('div');
 				card.attr('id', "p-" + self.sigla);
-				card.attr('class', 'form-group mb-1');
+				card.attr('class', 'form-group mb-2');
 				card.attr('style', 'opacity:0.001');
 				card.append('label')
 					.attr('class', 'text-left mb-1')

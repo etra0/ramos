@@ -34,6 +34,9 @@
         integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" 
         crossorigin="anonymous">
         </script>
+
+        <link rel="stylesheet" href="/css/styles.css">
+
     </head>
     <style>
 		body {
@@ -125,7 +128,7 @@ aria-hidden="true">
 </nav>
 
 <h1 class="title text-center" >Malla <span id="carrera"></span></h1>
-<div class="container-fluid mx-2">
+<div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-xl-7 ">
       <div class='priori-canvas' style="text-align:center;overflow-x:auto"></div>		          
@@ -133,79 +136,85 @@ aria-hidden="true">
       style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;">
       </div>
     </div>
-        <div class="col-lg-auto">
+        <div class="col-sm-auto">
           <!-- Inicio calculadora -->
-          <form id="priorix" class="card mt-5" style="height: 42rem">
-            <h4 class="card-header text-center">Calculadora de prioridad</h4>
-            <div class="card-body container my-0 py-2" style="max-height: 3rem">
-              <div class="row">
-                <div class="col"><div class="badge badge-info text-left">
-                  Semestre Nº <span id="semestre"></span>
-                </div></div>
-                <div class="col text-right">
-                  <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">FAE: </span>
-                    </div>
-                    <input id="fae" type="number" class="form-control" value="1">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="resPrioridad" class="card-body my-0 py-0">
-              <!-- Alerta que informa prioridad -->
-            </div>
-            <hr class="my-0 py-0">
-            <div class="card-body" style="max-height: 25rem; min-height: 23rem;overflow-y:auto">
-              <span id="ramos">
-              <!-- Aqui van los ramos seleccionados -->
-              </span>
-            </div>
-            <hr class="my-0 py-0">
-            <p class="card-body my-0 py-1" style="max-height: 2rem"><small class=" text-muted">
-              ¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!
-            </small></p>
-              <div class="card-footer container-fluid">
-              <!-- Botones para cambiar semestre y calcular prioridad -->
-              <div class="row align-items-center justify-content-center">
-                <div class="col-2">
-                    <button id="back" onclick="semestreAnterior()" type="button" class="btn btn-secondary">
-                      <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-                <div class="col-8">
-                  <div class="container-fluid">
-                  <div class="row justify-content-center">
-                    <div class="btn-group" role="group">
-                      <button
-                        type="button"
-                        id="Calcular"
-                        onclick="calcularPrioridad()"
-                        class="btn btn-info">
-                          Calcular
-                      </button>
-                      <button type="reset" onclick="limpiarSemestre()" class="btn btn-danger">
-                        Limpiar Semestre
-                      </button>
+          <form id="priorix" class="card mt-3">
+              <h4 class="card-header text-center">Calculadora de prioridad</h4>
+              <div class="container my-0 py-2">
+                <div class="row justify-content-between mb-2">
+                  <div class="col-1"><div class="badge badge-info text-left">
+                    Semestre Nº <span id="semestre"></span>
+                  </div></div>
+                  <div class="col-sm-4 col-6 text-right">
+                    <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">FAE: </span>
+                      </div>
+                      <input id="fae" type="number" class="form-control" value="1">
                     </div>
                   </div>
-                  <div class="row justify-content-center">
-                    <button onclick="limpiarCalculadora()" type="button" class="btn btn-danger mt-1">
-                      Restablecer Calculadora
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col text-center" id="resPrioridad">
+                      <!-- <div class="alert alert-info mb-0" role="alert">
+                          <h4>Tu prioridad de <em>S2</em> es: <br> <strong>8723.23</strong></h4>
+                      </div> -->
+                    <!-- Alerta que informa prioridad -->
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-0 py-0">
+                
+              <div class="card-body" style="overflow-y: auto" >
+                <span id="ramos">
+                <!-- Aqui van los ramos seleccionados -->
+                </span>
+              </div>
+              <hr class="my-0 py-0">
+              <p class="container mb-0 text-center"><small class=" text-muted">
+                ¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!
+              </small></p>
+                <div class="card-footer container px-3">
+                    <!-- <div class="container"> -->
+                <!-- Botones para cambiar semestre y calcular prioridad -->
+                <div class="row no-gutters align-items-center justify-content-center">
+                  <div class="col-2 text-left">
+                      <button id="back" onclick="semestreAnterior()" type="button" class="btn-card btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                      </button>
+                  </div>
+                  <div class="col-8 col-sm-5 container">
+                    <div class="row justify-content-center no-gutters">
+                      <div class="btn-group" role="group">
+                        <button
+                          type="button"
+                          id="Calcular"
+                          onclick="calcularPrioridad()"
+                          class="btn btn-info btn-card">
+                            Calcular
+                        </button>
+                        <button type="reset" onclick="limpiarSemestre()" class="btn btn-danger btn-card">
+                          Limpiar Semestre
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row justify-content-center">
+                      <button id="resetc" onclick="limpiarCalculadora()" type="button" class="btn btn-danger btn-card mt-1">
+                        Restablecer Calculadora
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-2 text-right">
+                    <button id="forward" onclick="proximoSemestre()" type="button" class="btn btn-secondary btn-card">
+                      <i class="fas fa-arrow-right"></i>
                     </button>
                   </div>
                   </div>
-                </div>
-                <div class="col-2">
-                  <button id="forward" onclick="proximoSemestre()" type="button" class="btn btn-secondary">
-                    <i class="fas fa-arrow-right"></i>
-                  </button>
+                <!-- </div> -->
+                <!-- Fin botones -->
                 </div>
               </div>
-              <!-- Fin botones -->
-              </div>
-            </div>
-            </form>
+              </form>
             <!-- Fin calculadora -->
         </div>
         <div class="row justify-content-center mt-5">
@@ -264,6 +273,33 @@ aria-hidden="true">
     <script src='../ramos.js'></script>
     <script src='./selectableRamo.js'></script>
     <script src="./calculator.js"></script>
-		<script src='../canvas.js'></script>
+    <script src='../canvas.js'></script>
+    <script>
+        var mediaQueryList = window.matchMedia("(max-width: 575.98px)");
+        if (mediaQueryList.matches) {
+                d3.select('.btn-group')
+                .classed('btn-group-sm', true)
+                // .classed('btn-group-vertical', true)
+                // .classed('btn-group', false);
+                d3.select('#resetc').classed('btn-sm', true)
+            }
+        function handleOrientationChange(mql) {
+            if (mql.matches) {
+                d3.select('.btn-group')
+                .classed('btn-group-sm', true)
+                // .classed('btn-group-vertical', true)
+                // .classed('btn-group', false);
+                d3.select('#resetc').classed('btn-sm', true)
+            } else {
+                d3.select('.btn-group')
+                .classed('btn-group-sm', false)
+                // .classed('btn-group-vertical', false)
+                // .classed('btn-group', true);
+                d3.select('#resetc').classed('btn-sm', false)
+            }
+        }
+        mediaQueryList.addListener(handleOrientationChange)
+        handleOrientationChange(mediaQueryList);
+        </script>
   </body>
 </html>

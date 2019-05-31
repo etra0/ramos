@@ -1,0 +1,21 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+/* Exclusivo para la "card" de prioridad y personalizar */
+/* Aqui ocurre el quiebre de la fila */
+@media (max-width: 1214.98px) {
+    /* Por alguna razon ocurre antes */
+    #priorix {
+        height: auto;
+    }
+
+}
+@media (min-width: 1215px) {
+#priorix {
+    
+    height: 42rem;
+}
+}
