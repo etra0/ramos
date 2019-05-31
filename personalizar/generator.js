@@ -35,7 +35,11 @@ function start_generator() {
 }
 
 function generate() {
-    saveSemester();
+    var ramosDelSemestre = []
+    SELECTED.forEach(ramo => {
+        ramosDelSemestre.push(ramo.sigla);
+    });
+    ramosSemestres[semestre] = ramosDelSemestre
     // Verificacion ramos duplicados
     let ramosCursados = new Set()
     let sem = 0
@@ -54,18 +58,20 @@ function generate() {
             ramosSemestres[s].splice(i,1)
         })
     }
-    while (ramosSemestres[sem] == []) {
-        ramosSemestres[sem] = null;
+    // Limpieza de semestres inutiles
+    while (ramosSemestres[sem].length == 0) {
+        delete ramosSemestres[sem]
         sem--
     }
-    saveSemester()
+    // guardado
+    let id = mallaCustom + '_SEMESTRES';
+    localStorage.setItem(id, JSON.stringify(ramosSemestres));
+    localStorage.setItem(mallaCustom + '_CUSTOM', JSON.stringify(customRamosProps))
 
     window.location.href = "malla.html?m=" + current_malla;
 }
 
 
-
-// recalculo de valores para calculo prioridad semestre
 
 
 function semestreAnterior() {
