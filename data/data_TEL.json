@@ -9,7 +9,7 @@
 	],
 	"s2": [
 		["Matemáticas II", "MAT-022", 5, "CSC", ["MAT-021"]],
-		["Física General I", "FIS-110", 3, "FIS", ["MAT-021", "FIS-100"]],
+		["Física General I", "FIS-110", 5, "FIS", ["MAT-021", "FIS-100"]],
 		["Seminario de Programación", "TEL-102", 3, "SW", ["TEL-101"]],
 		["Expresión Oral y Escrita", "HFW-144", 2, "FG"],
 		["Humanístico II", "HRW-102", 2, "FG"],
