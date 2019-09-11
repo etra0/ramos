@@ -35,13 +35,43 @@ function start_generator() {
 }
 
 function generate() {
-    saveSemester();
+    var ramosDelSemestre = []
+    SELECTED.forEach(ramo => {
+        ramosDelSemestre.push(ramo.sigla);
+    });
+    ramosSemestres[semestre] = ramosDelSemestre
+    // Verificacion ramos duplicados
+    let ramosCursados = new Set()
+    let sem = 0
+    for (var s in ramosSemestres) {
+        sem++;
+        let ramosDuplicados = [];
+        ramosSemestres[s].forEach(ramo => {
+            if (ramosCursados.has(ramo)) {
+                ramosDuplicados.push(ramo)
+            } else {
+                ramosCursados.add(ramo)
+            }
+        });
+        ramosDuplicados.forEach(ramo => {
+            let i = ramosSemestres[s].indexOf(ramo);
+            ramosSemestres[s].splice(i,1)
+        })
+    }
+    // Limpieza de semestres inutiles
+    while (ramosSemestres[sem].length == 0) {
+        delete ramosSemestres[sem]
+        sem--
+    }
+    // guardado
+    let id = mallaCustom + '_SEMESTRES';
+    localStorage.setItem(id, JSON.stringify(ramosSemestres));
+    localStorage.setItem(mallaCustom + '_CUSTOM', JSON.stringify(customRamosProps))
+
     window.location.href = "malla.html?m=" + current_malla;
 }
 
 
-
-// recalculo de valores para calculo prioridad semestre
 
 
 function semestreAnterior() {
@@ -141,6 +171,7 @@ function limpiarCalculadora() {
     semestre = 1
     d3.select('#back').attr('disabled', 'disabled');
     d3.select('#semestre').text(semestre);
+    d3.select('#forward').attr('disabled',null);
     let customSiglas = Array.from(custom_ramos.values());
     customSiglas.forEach(sigla => {
         borrarRamo(sigla);
