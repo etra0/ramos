@@ -1,86 +1,86 @@
 {
 	"s1": [
-		["Programación", "IWI-131", 3, "FI"],
 		["Matemáticas I", "MAT-021", 5, "PC"],
 		["Introducción a la Física", "FIS-100", 3, "PC"],
-		["Introducción a la Ingeniería","IWG-101", 2, "PC"],
-		["Educación Física I", "DEW-100", 1, "HUM"]
-		
+		["Programación", "IWI-131", 3, "PC"],
+		["Educación Física I", "DEW-100", 1, "HUM"],
+		["Introducción a la Ingeniería","IWG-101", 2, "FI"]
 	],
-	"s2": [["Química y Sociedad", "QUI-010", 3, "PC"],
+	"s2": [
 		["Matemáticas II", "MAT-022", 5, "PC", ["MAT-021"]],
 		["Física General I", "FIS-110", 3, "PC", ["MAT-021", "FIS-100"]],
-		["Humanístico I", "HXW-001", 2, "HUM"],
-		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]]
+		["Química y Sociedad", "QUI-010", 3, "PC"],
+		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]],
+		["Humanístico I", "HXW-001", 2, "HUM"]
+		
 	],
 	"s3": [
 		["Matemáticas III", "MAT-023", 4, "PC", ["MAT-022"]],
 		["Física General II", "FIS-120", 4, "PC", ["MAT-022", "FIS-110"]],
-		["Estática De Estructuras", "CIV-131", 4, "CIV", ["MAT-022", "FIS-110"]],
-		["Dibujo En Ingeniería Civil", "CIV-103", 3, "SD", ["IWI-131"]],
-		["Humanístico II", "HXW-002", 2, "HUM",["HXW-001"]],
+		["Estática De Estructuras", "CIV-131", 4, "ES", ["MAT-022", "FIS-110"]],
+		["Dibujo En Ingeniería Civil", "CIV-103", 3, "FI", ["IWI-131"]],
+		["Humanístico II", "HXW-002", 2, "HUM"],
 		["Deportes", "DEW-0", 1, "HUM", ["DEW-101"]]
 	],
 	"s4": [
 		["Matemáticas IV", "MAT-024", 4, "PC", ["MAT-023"]],
 		["Física General III", "FIS-130",  4, "PC", ["MAT-022", "FIS-110"]],
-		["Mecánica De Materiales", "CIV-133", 4, "CIV", ["CIV-131", "MAT-023"]],
-		["Topografía", "CIV-206", 4, "CIV", ["CIV-103"]],
-		["Humanístico III", "HXW-003", 2, "HUM",["HXW-002"]]
+		["Mecánica De Materiales", "CIV-133", 4, "ES", ["CIV-131", "MAT-023"]],
+		["Topografía", "CIV-206", 4, "FI", ["CIV-103"]],
+		["Humanístico III", "HXW-003", 2, "HUM"]
 	],
 	"s5": [
-		["Análisis Numérico", "MAT-270", 4, "AN", ["MAT-024"]],
-		["Tecnología de Materiales", "CIV-251", 4, "CIV", ["CIV-133","QUI-010"]],
-		["Mecánica Racional", "CIV-202", 4, "CIV", ["MAT-024", "CIV-131"]],
-		["Geología", "CIV-205", 3, "CIV", ["CIV-206"]],
-		["Humanístico IV", "HXW-004", 2, "HUM", ["HXW-003"]]
+		["Mecánica Racional", "CIV-202", 4, "FI", ["MAT-024", "CIV-131"]],
+		["Análisis Numérico", "MAT-270", 4, "FT", ["MAT-024"]],
+		["Tecnología de Materiales", "CIV-251", 4, "FI", ["CIV-133","QUI-010"]],
+		["Geología", "CIV-205", 3, "FI", ["CIV-206"]],
+		["Humanístico IV", "HXW-004", 2, "HUM"]
 	],
 	"s6": [
-		["Fundamentos de Análisis Estructural", "CIV-233", 3, "CIV", ["CIV-202", "CIV-133"]],
-	
-		["Probabilidad y Estadística Para Ingeniería Civil", "MAT-044", 4, "AN", ["MAT-023"]],
-		["Mecánica de Fluidos", "CIV-244", 4, "CIV", ["CIV-202"]],
-		["Humanístico V", "HXW-005", 2, "HUM", ["HXW-004"]],
-		["Fundamentos de Ing. de Construcción y Administración", "CIV-222", 4, "CIV", ["CIV-251"]]
+		["Fundamentos de Análisis Estructural", "CIV-233", 3, "ES", ["CIV-202", "CIV-133"]],
+		["Mecánica de Fluidos", "CIV-244", 4, "AG", ["CIV-202"]],
+		["Probabilidad y Estadística Para Ingeniería Civil", "MAT-044", 4, "FT", ["MAT-023"]],
+		["Fundamentos de Ing. de Construcción y Administración", "CIV-222", 4, "GE", ["CIV-251"]],
+		["Humanístico V", "HXW-005", 2, "HUM"]
 	],
 	"s7": [
-		["Análisis Estructural", "CIV-234", 3, "CIV", ["CIV-233"]],
-		["Fundamento de Investigación de Operaciones", "ILI-281", 3, "CIV", ["MAT-044"]],
-		["Optativo de Formación Transversal", "OFT-1", 3, "TIN", ["FIS-120","FIS-130"]],
-		["Hidráulica Teórica", "CIV-242", 4, "CIV", ["CIV-244"]],
-	
-		["Economía I-A", "ICS-733", 3, "HUM",["MAT-023"]]
+		["Análisis Estructural", "CIV-234", 3, "ES", ["CIV-233"]],
+		["Hidráulica Teórica", "CIV-242", 4, "AG", ["CIV-244"]],
+		["Optativo de Formación Transversal", "OFT-1", 3, "FT", ["FIS-120","FIS-130"]],
+		["Fundamento de Investigación de Operaciones", "ILI-281", 3, "FT", ["MAT-044"]],
+		["Economía I-A", "ICS-733", 3, "FT",["MAT-023"]]
 	],
 	"s8": [
-		["Dinámica de Estructuras", "CIV-235", 4, "CIV", ["CIV-234"]],
-		["Hidrología", "CIV-243", 3, "CIV", ["CIV-242","MAT-044"]],
-		["Ingeniería en Transporte", "CIV-368", 3, "CIV",["ILI-281"]],
-		["Mecánica de Suelos I", "CIV-261", 4, "CIV", ["CIV-242", "CIV-133"]],
-		["Planficación y control de Proyectos", "CIV-380", 3, "HUM",["CIV-222","ICS-733","ILI-281"]]
+		["Dinámica de Estructuras", "CIV-235", 4, "ES", ["CIV-234"]],
+		["Hidrología", "CIV-243", 3, "AG", ["CIV-242","MAT-044"]],
+		["Mecánica de Suelos I", "CIV-261", 4, "SU", ["CIV-242", "CIV-133"]],
+		["Ingeniería en Transporte", "CIV-368", 3, "VI",["ILI-281"]],
+		["Planficación y control de Proyectos", "CIV-380", 3, "GE",["CIV-222","ICS-733"]]
 	],
 	"s9": [
-		["Diseño Geométrico y Capacidad Vial", "CIV-370", 3, "CIV",["CIV-368"]],
-		["Gest. de la Calidad Total en la Cadena de Suministros", "CIV-381", 3, "HUM",["CIV-380"]],
-		["Hidráulica Aplicada", "CIV-346", 3, "CIV",["CIV-243"]],
-		["Hormigón Armado", "CIV-331", 5, "CIV",["CIV-235","CIV-251"]],
-		["Mecánica de Suelos II", "CIV-366", 4, "CIV", ["CIV-261"]]
+		["Hormigón Armado", "CIV-331", 5, "ES",["CIV-234","CIV-251"]],
+		["Hidráulica Aplicada", "CIV-346", 3, "AG",["CIV-243"]],
+		["Mecánica de Suelos II", "CIV-366", 4, "SU", ["CIV-261"]],
+		["Diseño Geométrico y Capacidad Vial", "CIV-370", 3, "VI",["CIV-368","CIV-261"]],
+		["Gest. de la Calidad Total en la Cadena de Suministros", "CIV-381", 3, "GE",["CIV-380"]]
 	],
 	"s10": [
-		["Diseño en Acero", "CIV-336", 4, "CIV",["CIV-234"]],
-		["Diseño Estructural en Pavimentos", "CIV-371", 3, "CIV",["CIV-366","CIV-370","CIV-251"]],
-		["Ingeniería Sanitaria", "CIV-377", 3, "CIV",["CIV-346"]],
-		["Máquinas y Sistemas Hidráulicos", "CIV-347", 3, "CIV", ["CIV-346"]],
-		["Optativo de Especialidad I", "CIVOE-1", 4, "HUM"]
+		["Diseño en Acero", "CIV-336", 4, "ES",["CIV-234"]],
+		["Máquinas y Sistemas Hidráulicos", "CIV-347", 3, "AG", ["CIV-346"]],
+		["Ingeniería Sanitaria", "CIV-377", 3, "AG",["CIV-242"]],
+		["Diseño Estructural en Pavimentos", "CIV-371", 3, "VI",["CIV-370"]],
+		["Optativo de Especialidad I", "CIVOE-1", 4, "OP"]
 	],
 	"s11": [
-		["Evaluación de Proyectos", "CIV-390", 3, "CIV", ["CIV-380"]],
-		["Ingeniería del Medio Ambiente","CIV-378", 3, "CIV", ["CIV-377"]],
-		["Ingeniería Sísmica", "CIV-338", 3, "CIV", ["CIV-235","CIV-331","CIV-336"]],
-		["Optativo de Especialidad II", "CIVOE-2", 4, "HUM", ["CIVOE-1"]],
-		["Taller de Titulación I", "CIV-397", 4, "CIV"]
+		["Ingeniería Sísmica", "CIV-338", 3, "ES", ["CIV-235","CIV-331","CIV-336"]],
+		["Ingeniería del Medio Ambiente","CIV-378", 3, "AG", ["CIV-377"]],
+		["Evaluación de Proyectos", "CIV-390", 3, "GE", ["CIV-381"]],
+		["Taller de Titulación I", "CIV-397", 4, "OP"],
+		["Optativo de Especialidad II", "CIVOE-2", 4, "OP"]
+		
 	],
 	"s12": [
-		["Proyecto de Ingeniería Civil", "CIVOP-1", 4, "CIV"],
-		["Taller de Titulación II", "CIV-398", 14, "CIV", ["CIV-397"]]
+		["Taller de Titulación II", "CIV-398", 14, "OP", ["CIV-397"]],
+		["Proyecto de Ingeniería Civil", "CIVOP-1", 4, "OP"]
 	]
 }
