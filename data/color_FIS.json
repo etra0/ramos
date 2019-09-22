@@ -1,0 +1,8 @@
+{
+	"MAT": ["#021eab", "Matemáticas"],
+	"FIS": ["#a4f533", "Física"],
+	"HUM": ["#ff7c34", "Humanistas y Deportes"],
+	"PC": ["#cf60f6", "Plan Común"],
+	"IN": ["#3ec540", "Inglés"],
+	"LIC": ["#0cf7a9", "Licenciatura"]
+}
