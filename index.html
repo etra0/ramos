@@ -1,95 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
-	<title>Ramos</title>
-	<meta property="og:title" content="Malla Interactiva" />
-	<meta property="og:url" content="http://labcomp.cl/~saedo/apps/viz/ramos" />
-	<meta property="og:image" content="http://labcomp.cl/~saedo/apps/viz/ramos/thumbnail.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ramos | Malla interactiva</title>
+    <meta property="og:title" content="Malla Interactiva" />
+    <meta property="og:url" content="https://mallas.labcomp.cl/" />
+    <meta property="og:image" content="thumbnail.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+      ga('create', 'UA-108274078-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <style>
+      body {
+        display: inline;
+        text-align: center;
+        justify-content:center;
+      }
+      html {
+      }
+      .info {
+        font-size: 30px;
+      }
+      .color-description {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      img {
+        width: 300px;
+      }
 
-
-  <!-- Google Analytics -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-108274078-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+      img {
+        width: 300px;
+      }
+    </style>
   </head>
-  <style>
-		body {
-			display: inline;
-			text-align: center;
-			justify-content:center;
-		}
-		html {
-			font-family: sans-serif;
-		}
-
-		.info {
-			font-size: 30px;
-		}
-
-  </style>  
-
   <body>
-
-<nav class="navbar navbar-default"style='display:flex;justify-content:center'>
-  <div class="container-fluid" >
-    <ul class="nav navbar-nav">
-      <li><a href="?m=ICA">Ambiental</a></li>
-      <li><a href="?m=ARQ">Arquitectura</a></li>
-      <li><a href="?m=CIV">Civil</a></li>
-      <li><a href="?m=ICOM">Comercial</a></li>
-      <li><a href="?m=CONSTRU">Construcción</a></li>
-      <li><a href="?m=IDP">Diseño de productos</a></li>
-      <li><a href="?m=ELI">Eléctrica</a></li>
-      <li><a href="?m=ELO">Electrónica</a></li>
-      <li><a href="?m=FIS">Lic. Física</a></li>
-      <li><a href="?m=INF">Informática</a></li>
-      <li><a href="?m=ICI">Industrial</a></li>
-      <li><a href="?m=MAT">Matemática</a></li>
-      <li><a href="?m=MEC">Mecánica</a></li>
-      <li><a href="?m=MET">Metalúrgica</a></li>
-      <li><a href="?m=ICQ">Química</a></li>
-      <li><a href="?m=TEL">Telemática</a></li>
-    </ul>
-  </div>
-</nav>
-	  <h1>Malla Interactiva <span id="carrera"></span></h1>
-		<div class='canvas'></div>		
-		<div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
-		<div class="info">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Malla interactiva</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Carreras
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="?m=ICA">Ambiental</a>
+              <a class="dropdown-item" href="?m=ARQ">Arquitectura</a>
+              <a class="dropdown-item" href="?m=CIV">Civil</a>
+              <a class="dropdown-item" href="?m=ICOM">Comercial</a>
+              <a class="dropdown-item" href="?m=CONSTRU">Construcción</a>
+              <a class="dropdown-item" href="?m=IDP">Diseño de productos</a>
+              <a class="dropdown-item" href="?m=ELI">Eléctrica</a>
+              <a class="dropdown-item" href="?m=ELO">Electrónica</a>
+              <a class="dropdown-item" href="?m=FIS">Lic. Física</a>
+              <a class="dropdown-item" href="?m=INF">Informática</a>
+              <a class="dropdown-item" href="?m=ICI">Industrial</a>
+              <a class="dropdown-item" href="?m=MAT">Matemática</a>
+              <a class="dropdown-item" href="?m=MEC">Mecánica</a>
+              <a class="dropdown-item" href="?m=MET">Metalúrgica</a>
+              <a class="dropdown-item" href="?m=ICQ">Química</a>
+              <a class="dropdown-item" href="?m=TEL">Telemática</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="https://github.com/etra0/ramos#aportar">Cambios malla</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="assureMail()" href="javascript:void(0);" tabindex="-1">Contactar</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Malla Interactiva <span id="carrera"></span></h1>
+    <div class='canvas'></div>
+    <div class='color-description'></div>
+    <div class="info">
       Créditos aprobados: <span id='creditos'></span> <br>
-      <a href="./personalizar/" class="btn btn-primary" role="button">Crea tu propia malla!</a>      
+      <a href="./personalizar/" class="btn btn-primary" role="button">Crea tu propia malla!</a>
       <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
       <a href="./prioridad/" class="btn btn-primary" role="button">Calcula tu prioridad!</a>
-
-		</div>
-
-		<p><img src="data/ramo.svg" style="width:300px;"></p>
-
-		<p>Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-        <p><button onclick="assureMail()">Contactar</button></p>
-		<script src='d3.js'></script>
-		<script src='ramos.js'></script>
-		<script src='canvas.js'></script>
-      <script>
-          function assureMail() {
-              if (confirm(`¿Estás seguro que necesitas contactar? Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente, ya que yo personalmente no me dedico a mantenerlas. En el caso de un bug, es recomendado hacerlo.`)) {
-                  window.location = "mailto:sebastian.aedo@sansano.usm.cl"
-              }
+    </div>
+    <p><img src="data/ramo.svg" alt="Desc ramos"></p>
+    <p>Hecho con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/bf671ef02a.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script src='ramos.js'></script>
+    <script src='canvas.js'></script>
+    <script>
+      function assureMail() {
+        Swal.fire({
+          title: '¿Estas seguro?',
+          text: "Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente ¡ahi podras encontrar toda la informacion que necesitas!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Contacto Mail'
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire(
+              'OK!',
+              'Gracias por ponerte en contacto con nosotros :).',
+              'Vale'
+            )
           }
-      </script>
+        })
+      }
+    </script>
   </body>
 </html>
 
