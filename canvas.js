@@ -287,7 +287,7 @@ function wrap(text, width, height) {
 			tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
 			textLines,
 			textHeight;
-		while (word == words.pop()) {
+		while (word = words.pop()) {
 			line.push(word);
 			tspan.text(line.join(" "));
 			while (tspan.node().getComputedTextLength() > width) {
@@ -328,12 +328,3 @@ function limpiarRamos() {
 		APPROVED[i].approveRamo();
 	}
 }
-
-function resize() {
-	width = document.getElementById('.canvas').clientWidth;
-	height = width / 3.236;
-	d3.select('.canvas svg')
-		.attr('width', width)
-		.attr('height', height);
-}
-window.onresize = resize;
