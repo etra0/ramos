@@ -58,22 +58,8 @@
               Carreras
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="?m=ICA">Ambiental</a>
-              <a class="dropdown-item" href="?m=ARQ">Arquitectura</a>
-              <a class="dropdown-item" href="?m=CIV">Civil</a>
-              <a class="dropdown-item" href="?m=ICOM">Comercial</a>
-              <a class="dropdown-item" href="?m=CONSTRU">Construcción</a>
-              <a class="dropdown-item" href="?m=IDP">Diseño de productos</a>
-              <a class="dropdown-item" href="?m=ELI">Eléctrica</a>
-              <a class="dropdown-item" href="?m=ELO">Electrónica</a>
-              <a class="dropdown-item" href="?m=FIS">Lic. Física</a>
-              <a class="dropdown-item" href="?m=INF">Informática</a>
-              <a class="dropdown-item" href="?m=ICI">Industrial</a>
-              <a class="dropdown-item" href="?m=MAT">Matemática</a>
-              <a class="dropdown-item" href="?m=MEC">Mecánica</a>
-              <a class="dropdown-item" href="?m=MET">Metalúrgica</a>
-              <a class="dropdown-item" href="?m=ICQ">Química</a>
-              <a class="dropdown-item" href="?m=TEL">Telemática</a>
+              <div id="carreras-nav">
+              </div>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="https://github.com/etra0/ramos#aportar">Cambios malla</a>
             </div>
@@ -94,36 +80,14 @@
       <a href="./prioridad/" class="btn btn-primary" role="button">Calcula tu prioridad!</a>
     </div>
     <p><img src="data/ramo.svg" alt="Desc ramos"></p>
-    <p>Hecho con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <p>Creado con <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/bf671ef02a.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-    <script src='ramos.js'></script>
-    <script src='canvas.js'></script>
-    <script>
-      function assureMail() {
-        Swal.fire({
-          title: '¿Estas seguro?',
-          text: "Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente ¡Allí podras encontrar toda la informacion que necesitas!",
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Contacto Mail'
-        }).then((result) => {
-          if (result.value) {
-            Swal.fire(
-              'OK!',
-              'Gracias por ponerte en contacto con nosotros :)',
-              'success'
-            );
-            window.location.href = "mailto:sebastian.aedo@sansano.usm.cl";
-          }
-        })
-      }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/loadjs/3.6.1/loadjs.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script type="text/template" data-template="tab-template">
+	    <a class="dropdown-item" href="?m=${Link}">${Nombre}</a>
     </script>
   </body>
 </html>
