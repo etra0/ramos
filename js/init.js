@@ -1,8 +1,7 @@
 /**
  * Obtencion de archivos JS de manera paralela y carga sincronica
- * @author Franco Sanllehi <f.sanllehiromero@uandresbello.edu>
  */
-loadjs(['https://kit.fontawesome.com/bf671ef02a.js', 'https://cdn.jsdelivr.net/npm/sweetalert2@8', 'https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js', 'js/ramos.js', 'js/selectableRamo.js', 'js/calculator.js', 'js/canvas.js'], 'init');
+loadjs(['https://kit.fontawesome.com/bf671ef02a.js', 'https://cdn.jsdelivr.net/npm/sweetalert2@8', 'https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js', '/js/ramos.js', '/js/selectableRamo.js', '/js/calculator.js', '/js/canvas.js'], 'init');
 loadjs.ready('init', function () {
     console.log('Recursos cargados!');
 });
