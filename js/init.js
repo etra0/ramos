@@ -2,8 +2,18 @@
  * Obtencion de archivos JS de manera paralela y carga sincronica
  */
 loadjs(['https://kit.fontawesome.com/bf671ef02a.js', 'https://cdn.jsdelivr.net/npm/sweetalert2@8', 'https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js', '/js/ramos.js', '/js/selectableRamo.js', '/js/calculator.js', '/js/canvas.js'], 'init');
-loadjs.ready('init', function () {
-    console.log('Recursos cargados!');
+loadjs.ready('init', {
+    success: function() { console.log("Recursos cargados") },
+    error: function(depsNotFound) {
+        Swal.fire(
+            "Fallo al cargar",
+            "Tuvimos problemas al cargar algunas dependencias... el sitio se recargara en 5 segundos.",
+            "error"
+        );
+        setTimeout(function(){
+            location.reload();
+        }, 5000);
+    },
 });
 
 function assureMail() {
