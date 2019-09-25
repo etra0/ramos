@@ -23,7 +23,7 @@ visualizar los ramos aprobados.
 * [ ] Fix bugs
 * [ ] Hacer pagina más usable en moviles
     * [X] Prioridad
-	* [ ] Malla personal
+	* [X] Malla personal
 	* [ ] Malla interactiva
 * [ ] otras cosas a detallar...
 
