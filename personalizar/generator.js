@@ -68,6 +68,7 @@ function generate() {
     localStorage.setItem(id, JSON.stringify(ramosSemestres));
     localStorage.setItem(mallaCustom + '_CUSTOM', JSON.stringify(customRamosProps))
 
+    // redireccion
     window.location.href = "malla.html?m=" + current_malla;
 }
 

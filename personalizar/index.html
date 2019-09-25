@@ -39,7 +39,6 @@
     </head>
     <style>
 		body {
-			display: inline;
 			justify-content:center;
 		}
 		html {
@@ -160,7 +159,7 @@ aria-hidden="true">
       </ul>
     </div>
     <p class="container card-text mb-0 text-center"><small class=" text-muted">
-      ¿El ramo que quieres no esta en la malla? ¡Crealo en la tabla de abajo!
+      ¿El ramo que quieres no esta en la malla? ¡Crealo en la <a data-scroll href="#anchor">tabla de abajo</a>!
     </small></p>
       <div class="card-footer  px-3">
 <!-- Inicio Botones -->
@@ -201,7 +200,7 @@ aria-hidden="true">
     </form>
 <!-- Fin calculadora -->
         </div>
-        <div class="row justify-content-center mt-5">
+        <div id="anchor" class="row justify-content-center mt-5">
 <!-- Inicio Tabla fuera de malla -->
           <div class="col-lg-auto">
             <div class="card">
@@ -261,7 +260,13 @@ aria-hidden="true">
     <script src='./selectableRamo.js'></script>
     <script src="./generator.js"></script>
     <script src='../canvas.js'></script>
+    <!-- Smooth scroll --> 
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
     <script>
+        var scroll = new SmoothScroll('a[href*="#"]', {
+          speed: 500,
+          easing: 'easeInOutCubic'
+        });
         var mediaQueryList = window.matchMedia("(max-width: 575.98px)");
         if (mediaQueryList.matches) {
                 d3.select('.btn-group')

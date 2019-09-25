@@ -229,38 +229,20 @@ function main_function(error, data, colorBySector) {
 	}, 30);
 
 
-	var first_time = canvas.append("g")
-	first_time.append("rect")
-		.attr("x", 0)
-		.attr("y", 0)
-		.attr("width", width)
-		.attr("height", height)
-		.attr("fill", "white")
-		.attr("opacity", 0.9);
-	first_time.append("text")
-		.attr("x", width/2)
-		.attr("y", height/2 - 180 * scaleY)
-		.attr("dy", 0)
-		.attr("text-anchor", "middle")
-		.attr("font-size", 40* scaleX)
-		.attr("opacity", 0.01)
-		.text(welcomeTitle)
-		.transition().duration(800)
-		.attr("y", height/2)
-		.attr("opacity", 1)
-		.call(wrap, width * scaleX, height);
-	first_time.append("text")
-		.attr("x", width/2)
-		.attr("y", height/2 - 90 * scaleY)
-		.attr("dy", "2.1em")
-		.attr("text-anchor", "middle")
-		.attr("font-size", 30*scaleX)
-		.attr("opacity", 0.01)
-		.text(welcomeDesc)
-		.transition().duration(800)
-		.attr("y", height/2)
-		.attr("opacity", 1)
-		.call(wrap, width * scaleX, height);
+    var first_time = d3.select(canvas.node().parentNode); // volvemos a canvas/ priori-canvas
+	first_time = first_time.append("div")
+	  .classed("row no-gutters justify-content-center", true)
+	  .attr("id", "overlay")
+	  .append("div");
+	first_time.classed("col", true)
+	.style("max-width","650px");
+	first_time.append('h3')
+	  .classed('text-center py-5 px-3', true)
+	  .text(welcomeTitle);
+	first_time.append("h5")
+	  .classed("text-center py-5 px-3", true)
+	  .text(welcomeDesc)
+	  first_time = d3.select(first_time.node().parentNode)
 
 	first_time.on('click', function() {
 		d3.select(this).transition().duration(200).style('opacity', 0.1).on('end', function() {
