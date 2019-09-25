@@ -8,7 +8,7 @@
 	"s2": [
 		["Taller Introducción a la Arquitectura", "ARQ102", 10, "TAL", ["ARQ101"]],
 		["Matemáticas II", "MAT051", 4, "MAT", ["MAT050"]],
- 		["Física Básica para Arquitectos", "FIS103", 3, "FIS", ["MAT050", "FIS100"]],		
+ 		["Física Básica para Arquitectos", "FIS103", 5, "FIS", ["MAT050", "FIS100"]],		
 		["Educación Física II", "DEW101", 1, "HUM", ["DEW100"]]
 	],
 	"s3": [

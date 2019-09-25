@@ -1,0 +1,58 @@
+{
+	"s1": [
+		["Química y Sociedad", "QUI-010", 3, "PC"],
+		["Matemáticas I", "MAT-021", 5, "MAT"],
+		["Introducción a la Física", "FIS-100", 3, "FIS"],
+		["Introducción a la Física Contemporánea", "FIS-104", 2, "LIC"],
+		["Educación Física I", "DEW-100", 1, "HUM"]
+	],
+	"s2": [
+		["Programación", "IWI-131", 3, "PC"],
+		["Matemáticas II", "MAT-022", 5, "MAT", ["MAT-021"]],
+		["Física General I", "FIS-110", 5, "FIS", ["MAT-021", "FIS-100"]],
+		["Vision Trascendente", "HRW-101", 2, "HUM"],
+		["Educación Física II", "DEW-101", 1, "HUM", ["DEW-100"]]
+	],
+	"s3": [
+		["Matemáticas III", "MAT-023", 4, "MAT", ["MAT-022"]],
+		["Física General II", "FIS-120", 4, "FIS", ["MAT-022", "FIS-110"]],
+		["Física General III", "FIS-130", 4, "FIS", ["MAT-022", "FIS-110"]],
+		["Inglés I", "HCW-100", 2, "IN"],
+		["Deportes", "DEW-0", 1, "HUM", ["DEW-101"]],
+		["Vision Inmanente", "HRW-102", 2, "HUM"]
+	
+	],
+	"s4": [
+		["Matemáticas IV", "MAT-024", 4, "MAT", ["MAT-023"]],
+		["Física General IV", "FIS-140", 4, "FIS", ["FIS-120","FIS-130"]],
+		["Electivo I", "FIS-1", 4, "LIC"],
+		["Inglés II", "HCW-101", 2, "IN",["HCW-100"]],
+		["Mecanica Intermedia I", "FIS-210", 4, "LIC", ["MAT-023","FIS-110"]]
+	],
+	"s5": [
+		["Física Experimental", "FIS-200", 4, "LIC", ["FIS-140"]],
+		["Mecanica Intermedia II", "FIS-211", 4, "LIC", ["FIS-210","FIS-130"]],
+		["Metodos de la Física Matemática", "FIS-245", 4, "LIC", ["MAT-024"]],
+		["Termodinamica y Mecanica Estadistica", "FIS-230", 4, "LIC", ["FIS-140"]],
+		["Vision Estetica", "HRW-103", 2, "HUM"]
+	],
+	"s6": [
+		["Campos Electromagneticos I", "FIS-220", 4, "LIC", ["FIS-120","FIS-130","MAT-023"]],
+		["Estructura Atomica y Nuclear I", "FIS-240", 4, "LIC", ["FIS-140","FIS-211"]],
+		["Física Electronica", "FIS-290", 4, "LIC", ["FIS-140"]],
+		["Inglés III", "HCW-102", 2, "IN",["HCW-101"]],
+		["Probabilidad y Estadistica", "MAT-041", 4, "MAT", ["MAT-023"]]
+	],
+	"s7": [
+		["Campos Electromagneticos II", "FIS-221", 4, "LIC", ["FIS-220"]],
+		["Electivo II", "FIS-2", 4, "LIC"],
+		["Estructura Atomica y Nuclear II", "FIS-241", 4, "LIC", ["FIS-240"]],
+		["Introducción a la Física de Alta Energía", "FIS-270", 3, "LIC", ["FIS-240"]]
+	],
+	"s8": [
+		["Electivo III", "FIS-3", 4, "LIC"],
+		["Introducción a la Física de Solidos", "FIS-250", 4, "LIC", ["FIS-240"]],
+		["Optica", "FIS-222", 4, "LIC", ["FIS-140","FIS-221"]],
+		["Seminario de Grado", "FIS-222", 4, "LIC"]
+	]
+	}

@@ -54,6 +54,7 @@
       <li><a href="?m=IDP">Diseño de productos</a></li>
       <li><a href="?m=ELI">Eléctrica</a></li>
       <li><a href="?m=ELO">Electrónica</a></li>
+      <li><a href="?m=FIS">Lic. Física</a></li>
       <li><a href="?m=INF">Informática</a></li>
       <li><a href="?m=ICI">Industrial</a></li>
       <li><a href="?m=MAT">Matemática</a></li>
@@ -78,10 +79,17 @@
 		<p><img src="data/ramo.svg" style="width:300px;"></p>
 
 		<p>Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-		<p><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
+        <p><button onclick="assureMail()">Contactar</button></p>
 		<script src='d3.js'></script>
 		<script src='ramos.js'></script>
 		<script src='canvas.js'></script>
+      <script>
+          function assureMail() {
+              if (confirm(`¿Estás seguro que necesitas contactar? Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente, ya que yo personalmente no me dedico a mantenerlas. En el caso de un bug, es recomendado hacerlo.`)) {
+                  window.location = "mailto:sebastian.aedo@sansano.usm.cl"
+              }
+          }
+      </script>
   </body>
 </html>
 

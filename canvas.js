@@ -65,6 +65,7 @@ var carreras = {
 	'ICOM': 'Comercial',
 	'CIV': 'Civil',
 	'MAT': 'Matemática',
+	'FIS': 'Licenciatura en Física',
 	'MEC': 'Mecánica',
 	'ICQ': 'Química',
 	'ELI': 'Eléctrica',

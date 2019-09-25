@@ -39,7 +39,7 @@
                 ["Taller de Productos III", "IDP-113", 5, "IDP", ["IDP-112", "IDP-102"]],
                 ["Modelación de Productos", "IDP-205", 3, "IDP", ["IDP-200"]],
                 ["Economía I-A", "IWN-170", 3, "IND", ["MAT-013"]],
-		["Deportes", "DEW 0", 1, "DEFI", ["DEW-101"]]
+		["Deportes", "DEW-0", 1, "DEFI", ["DEW-101"]]
                 
 	],
 	"s6": [
