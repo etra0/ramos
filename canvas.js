@@ -5,6 +5,8 @@ var scaleX, scaleY, canvas, tipoRamo;
 // variables de mensaje
 var welcomeTitle, welcomeDesc;
 
+var prioridad = false
+var personal = false
 // verificamos que malla busca
 var current_malla = 'INF';
 if (window.location.search) {
@@ -25,7 +27,7 @@ if (d3.select(".canvas")._groups[0][0]) {
 	Haz click en cualquier lado para comenzar.`
 
 }	else if (d3.select(".priori-canvas")._groups[0][0]) {
-	
+	prioridad = true
 	scaleX = 0.67;
 	scaleY = 1;
 	canvas = d3.select(".priori-canvas");
@@ -37,13 +39,14 @@ if (d3.select(".canvas")._groups[0][0]) {
 	 crealo en la tabla de abajo.`;
 
 } else if (d3.select(".custom-canvas")._groups[0][0]) {
+	personal = true
 	scaleX = 0.67;
 	scaleY = 1;
 	canvas = d3.select(".custom-canvas");
 	tipoRamo = SelectableRamo;
 	welcomeTitle = `¡Bienvenido a la generadora de mallas!`
 	welcomeDesc = `¡Selecciona los ramos por semestre y genera una malla a tu gusto!
-	Si quieres un ramo que no esta en la malla,crealo en la tabla de abajo.`;
+	Si quieres un ramo que no esta en la malla, crealo en la tabla de abajo.`;
 }
 
 var height = 730 * scaleX,
@@ -86,7 +89,7 @@ var total_creditos = 0;
 var total_ramos = 0;
 let id = 1;
 
-$("#carrera").text(carreras[current_malla]);
+$("#carrera, .carrera").text(carreras[current_malla]);
 
 /* PC: Plan común
  * FI: Fundamentos de Informática
@@ -185,7 +188,7 @@ function main_function(error, data, colorBySector) {
 		.call(wrap, 115 * scaleX, (100 - 100/5*2) * scaleY);
 
 	// verificar cache
-	if (d3.select(".priori-canvas")._groups[0][0] == null && d3.select(".custom-canvas")._groups[0][0] == null) {
+	if (!(prioridad || personal)) {
 		var cache_variable = 'approvedRamos_' + current_malla;
 		if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
 			let approvedRamos = localStorage[cache_variable].split(",");
@@ -213,7 +216,7 @@ function main_function(error, data, colorBySector) {
 
 	// filling the cache!
 	d3.interval(function() {
-		if (d3.select(".priori-canvas")._groups[0][0] == null && d3.select(".custom-canvas")._groups[0][0] == null) { 
+		if ((!(prioridad || personal))) { 
 		let willStore = []
 		APPROVED.forEach(function(ramo) {
 			willStore.push(ramo.sigla);
@@ -222,9 +225,26 @@ function main_function(error, data, colorBySector) {
 		}
 	}, 2000);
 
-
-
-
+    if (prioridad || personal) {
+    var first_time = d3.select(canvas.node().parentNode); // volvemos a canvas/ priori-canvas
+	first_time = first_time.append("div")
+	  .classed("row no-gutters justify-content-center", true)
+	  .attr("id", "overlay")
+	  .append("div");
+	first_time.classed("col", true)
+	.style("max-width","650px");
+	first_time.append('h3')
+	  .classed('text-center py-5 px-3', true)
+	  .text(function() {
+			if (personal)
+				return welcomeTitle
+			return welcomeTitle + carreras[current_malla]
+		});
+	first_time.append("h5")
+	  .classed("text-center py-5 px-3", true)
+	  .text(welcomeDesc)
+	  first_time = d3.select(first_time.node().parentNode)
+	} else {
 	var first_time = canvas.append("g")
 	first_time.append("rect")
 		.attr("x", 0)
@@ -241,9 +261,9 @@ function main_function(error, data, colorBySector) {
 		.attr("font-size", 40* scaleX)
 		.attr("opacity", 0.01)
 		.text( function() {
-			if (d3.select(".custom-canvas")._groups[0][0])
+			if (personal)
 				return welcomeTitle
-			return welcomeTitle + carreras[current_malla]
+			return welcomeTitle + carreras[current_malla] + "!"; 
 		})
 		.transition().duration(800)
 		.attr("y", height/2)
@@ -261,7 +281,7 @@ function main_function(error, data, colorBySector) {
 		.attr("y", height/2)
 		.attr("opacity", 1)
 		.call(wrap, 900 * scaleX, height);
-
+	}
 	first_time.on('click', function() {
 		d3.select(this).transition().duration(200).style('opacity', 0.1).on('end', function() {
 			d3.select(this).remove();
