@@ -6,7 +6,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /* Exclusivo para la "card" de prioridad y personalizar */
 /* Aqui ocurre el quiebre de la fila */
-@media (max-width: 1214.98px) {
+@media (max-width: 1214.99px) {
     /* Por alguna razon ocurre antes */
     #priorix {
         height: auto;
@@ -21,12 +21,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* General */
+html, body { min-height: 100%; }
+
 
 #overlay {
     position: absolute; /* Sit on top of the parent content*/
     /* display: none; Hidden by default */
-    width: 100%; Full width /*(cover the whole page)*/
-    height: 100%; Full height /*(cover the whole page)*/
+    width: 100%;  /*Full width (cover the whole page)*/
+    height: 100%; /*Full height /*(cover the whole page)*/
     align-self: stretch;
     justify-self: stretch;
     top: 0; 
@@ -38,3 +40,9 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 200; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
   }
+
+#footer {
+    position: static;
+    bottom: 0;
+    min-width: 100%;;
+}

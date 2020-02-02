@@ -2,14 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Ramos</title>
 	<meta property="og:title" content="Malla Interactiva" />
 	<meta property="og:url" content="http://labcomp.cl/~saedo/apps/viz/ramos" />
 	<meta property="og:image" content="http://labcomp.cl/~saedo/apps/viz/ramos/thumbnail.png" />
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
 
 
@@ -25,65 +27,85 @@
 
   </script>
   </head>
-  <style>
-		body {
-			display: inline;
-			text-align: center;
-			justify-content:center;
-		}
-		html {
-			font-family: sans-serif;
-		}
 
-		.info {
-			font-size: 30px;
-		}
 
-  </style>
 
-  <body>
+<body>
 
-<nav class="navbar navbar-default"style='display:flex;justify-content:center'>
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li><a href="?m=ICA">Ambiental</a></li>
-      <li><a href="?m=ARQ">Arquitectura</a></li>
-      <li><a href="?m=CIV">Civil</a></li>
-      <li><a href="?m=ICOM">Comercial</a></li>
-      <li><a href="?m=CONSTRU">Construcción</a></li>
-      <li><a href="?m=IDP">Diseño de productos</a></li>
-      <li><a href="?m=ELI">Eléctrica</a></li>
-      <li><a href="?m=ELO">Electrónica</a></li>
-      <li><a href="?m=FIS">Lic. Física</a></li>
-      <li><a href="?m=INF">Informática</a></li>
-      <li><a href="?m=ICI">Industrial</a></li>
-      <li><a href="?m=MAT">Matemática</a></li>
-      <li><a href="?m=MEC">Mecánica</a></li>
-      <li><a href="?m=MET">Metalúrgica</a></li>
-      <li><a href="?m=ICQ">Química</a></li>
-      <li><a href="?m=TEL">Telemática</a></li>
-    </ul>
-  </div>
-</nav>
-	  <h1>Malla Interactiva <span id="carrera"></span></h1>
-		<div class='canvas'></div>		
-		<div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
-		<div class="info">
-      Créditos aprobados: <span id='creditos'></span> <br>
-      <a href="./personalizar/" class="btn btn-primary" role="button">Crea tu propia malla!</a>      
-      <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
-      <a href="./prioridad/" class="btn btn-primary" role="button">Calcula tu prioridad!</a>
+    <nav class="navbar navbar-light navbar-expand-md bg-light">
 
-		</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand mb-0 " href="#">Malla Interactiva <span class="carrera"></span></a>
+        
+        <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
+          <a class="nav-link" href="./prioridad/">Calculadora Prioridad</a>
+          <a class="nav-link" href="./personalizar/">Malla Personal</a>
+          <a class="d-none d-md-block nav-link dropdown-toggle" data-toggle="collapse" href="#" data-target="#carreras" aria-controls="carreras" aria-expanded="false" aria-label="Toggle navigation">
+            Carreras
+          </a>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-md-none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Carreras
+            </a>
+            <div class="dropdown-menu" id="carreras2-nav" aria-labelledby="navbarDropdown">
+            </div>
+          </div>
+          <div class="nav-link">Contacto</div>
 
-		<p><img src="data/ramo.svg" style="width:300px;"></p>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar py-0 navbar-light navbar-expand-md bg-light d-none d-md-block">
+                <div class="collapse" id="carreras">
+                  <ul id="carreras1-nav" class="navbar navbar-nav">
+                  </ul>
+              </div>
+    </nav>
+  
+      
 
-		<p>Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-        <p><button onclick="assureMail()">Contactar</button></p>
-		<script src='d3.js'></script>
+
+ 
+   
+    <section class="container-fluid flex-grow-1">
+      <div class="row justify-content-center no-gutters">
+        <div class="col">
+          <div class='canvas text-center' style="overflow-x:auto"></div>		
+          <div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
+        </div>
+      </div>
+		<div class="info row">
+      <div class="col text-center center-block">
+
+        <h5>Créditos aprobados: <span id='creditos'></span> </h5>
+        <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
+      </div>
+    </div>
+  </section> <!-- end container-fluid  -->
+  <!-- <footer  class="container-fluid text-center">        
+      <div class="row bg-light pt-2 align-items-end">
+        <p class="col">Creado con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+      </div>
+  </footer> -->
+
+
+
+  
+      <script src='d3.js'></script>
 		<script src='ramos.js'></script>
-		<script src='canvas.js'></script>
+    <script src='canvas.js'></script>
+    <script src="/js/init.js"></script>
+    <script src="https://kit.fontawesome.com/bf671ef02a.js"></script>
+    <script type="text/template" data-template="tab-template1">
+      <li><a class="nav-item nav-link" href="?m=${Link}"><span class="d-md-none">Malla </span>${Nombre}</a></li>
+    </script>
+    <script type="text/template" data-template="tab-template2">
+      <a class="dropdown-item" href="#${Link}">Malla ${Nombre}</a>
+    </script>
       <script>
+
           function assureMail() {
               if (confirm(`¿Estás seguro que necesitas contactar? Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente, ya que yo personalmente no me dedico a mantenerlas. En el caso de un bug, es recomendado hacerlo.`)) {
                   window.location = "mailto:sebastian.aedo@sansano.usm.cl"

@@ -105,32 +105,37 @@ aria-hidden="true">
     </div>
   </div>
     <!-- fin ramo -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-light navbar-expand-md bg-light">
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <h1 class="navbar-brand mb-0 d-md-none">Malla <span class="carrera"></span></h1>
-      <div class="collapse navbar-collapse" id="mallaNavbar">
-      <ul class="navbar navbar-nav">
-        <li><a class="nav-item nav-link" href="?m=ICA"><span class="d-md-none">Malla </span>Ambiental</a></li>
-        <li><a class="nav-item nav-link" href="?m=ARQ"><span class="d-md-none">Malla </span>Arquitectura</a></li>
-        <li><a class="nav-item nav-link" href="?m=CIV"><span class="d-md-none">Malla </span>Civil</a></li>
-        <li><a class="nav-item nav-link" href="?m=ICOM"><span class="d-md-none">Malla </span>Comercial</a></li>
-        <li><a class="nav-item nav-link" href="?m=CONSTRU"><span class="d-md-none">Malla </span>Construcción</a></li>
-        <li><a class="nav-item nav-link" href="?m=IDP"><span class="d-md-none">Malla </span>Diseño de productos</a></li>
-        <li><a class="nav-item nav-link" href="?m=ELI"><span class="d-md-none">Malla </span>Eléctrica</a></li>
-        <li><a class="nav-item nav-link" href="?m=ELO"><span class="d-md-none">Malla </span>Electrónica</a></li>
-        <li><a class="nav-item nav-link" href="?m=FIS"><span class="d-md-none">Malla </span>Lic. Física</a></li>
-        <li><a class="nav-item nav-link" href="?m=INF"><span class="d-md-none">Malla </span>Informática</a></li>
-        <li><a class="nav-item nav-link" href="?m=ICI"><span class="d-md-none">Malla </span>Industrial</a></li>
-        <li><a class="nav-item nav-link" href="?m=MAT"><span class="d-md-none">Malla </span>Matemática</a></li>
-        <li><a class="nav-item nav-link" href="?m=MEC"><span class="d-md-none">Malla </span>Mecánica</a></li>
-        <li><a class="nav-item nav-link" href="?m=MET"><span class="d-md-none">Malla </span>Metalúrgica</a></li>
-        <li><a class="nav-item nav-link" href="?m=ICQ"><span class="d-md-none">Malla </span>Química</a></li>
-        <li><a class="nav-item nav-link" href="?m=TEL"><span class="d-md-none">Malla </span>Telemática</a></li>
-      </ul>
+      <a class="navbar-brand mb-0 " href="../">Malla Interactiva <span class="carrera"></span></a>
+      
+      <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
+        <a class="nav-link active" href="#">Calculadora Prioridad</a>
+        <a class="nav-link" href="../personalizar/">Malla Personal</a>
+        <a class="d-none d-md-block nav-link dropdown-toggle" data-toggle="collapse" href="#" data-target="#carreras" aria-controls="carreras" aria-expanded="false" aria-label="Toggle navigation">
+          Carreras
+        </a>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-md-none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Carreras
+          </a>
+          <div class="dropdown-menu" id="carreras2-nav" aria-labelledby="navbarDropdown">
+          </div>
+        </div>
+        <div class="nav-link">Contacto</div>
+
       </div>
-    </nav>
+    </div>
+  </nav>
+  <nav class="navbar py-0 navbar-light navbar-expand-md bg-light d-none d-md-block">
+              <div class="collapse" id="carreras">
+                <ul id="carreras1-nav" class="navbar navbar-nav">
+                </ul>
+            </div>
+  </nav>
 
 <h1 class="title text-center d-none d-md-block" >Malla <span id="carrera"></span></h1>
 <div class="container-fluid">
@@ -256,18 +261,9 @@ aria-hidden="true">
             </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-4">
-            <p class="text-center mt-2"><a href="../" class="btn btn-primary">Volver</a></p>
-            <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
-            
-            <p class="text-center">
-              Hecho con el ❤️ por amor al arte.
-              <a href="http://github.com/etra0/ramos">Código fuente</a>
-            </p>
-            <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">
-              Contacto
-            </a></p>
+        <div id="footer" class="row fixed-bottom bg-light pt-2 align-items-end">
+          <div class="col text-center">        
+            <p>Creado con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
           </div>
         </div>
       </div>
@@ -281,6 +277,13 @@ aria-hidden="true">
     <script src='../canvas.js'></script>
     <!-- Smooth scroll --> 
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script type="text/template" data-template="tab-template1">
+      <li><a class="nav-item nav-link" href="?m=${Link}"><span class="d-md-none">Malla </span>${Nombre}</a></li>
+    </script>
+    <script type="text/template" data-template="tab-template2">
+      <a class="dropdown-item" href="#${Link}">Malla ${Nombre}</a>
+    </script>
     <script>
         var scroll = new SmoothScroll('a[href*="#"]', {
           speed: 500,
