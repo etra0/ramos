@@ -16,25 +16,9 @@
     },
 });*/
 
-function assureMail() {
-    Swal.fire({
-        title: '¿Estas seguro?',
-        text: "Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente ¡Allí podras encontrar toda la informacion que necesitas!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Contacto Mail'
-    }).then((result) => {
-        if (result.value) {
-            Swal.fire(
-                'OK!',
-                'Gracias por ponerte en contacto con nosotros :)',
-                'success'
-            );
-            window.location.href = "mailto:sebastian.aedo@sansano.usm.cl";
-        }
-    })
+function contactar() {
+    window.location = "mailto:sebastian.aedo@sansano.usm.cl"
+    $('#contacto').modal('hide')
 }
 
 function render(props) {

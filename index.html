@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Ramos</title>
-	<meta property="og:title" content="Malla Interactiva" />
-	<meta property="og:url" content="http://labcomp.cl/~saedo/apps/viz/ramos" />
-	<meta property="og:image" content="http://labcomp.cl/~saedo/apps/viz/ramos/thumbnail.png" />
+<html lang="es-cl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ramos</title>
+  <meta property="og:title" content="Malla Interactiva" />
+  <meta property="og:url" content="https://mallas.labcomp.cl" />
+  <meta property="og:image" content="http://labcomp.cl/~saedo/apps/viz/ramos/thumbnail.png" />
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
   <link rel="stylesheet" href="/css/styles.css">
@@ -26,92 +26,130 @@
     ga('send', 'pageview');
 
   </script>
-  </head>
+</head>
 
 
 
-<body>
+<body class="d-flex flex-column">
 
-    <nav class="navbar navbar-light navbar-expand-md bg-light">
+  <!-- Contact Modal -->
+  <div class="modal fade bg-danger"
+    id="contacto" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="contacto" 
+    aria-hidden="true">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand mb-0 " href="#">Malla Interactiva <span class="carrera"></span></a>
-        
-        <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
-          <a class="nav-link" href="./prioridad/">Calculadora Prioridad</a>
-          <a class="nav-link" href="./personalizar/">Malla Personal</a>
-          <a class="d-none d-md-block nav-link dropdown-toggle" data-toggle="collapse" href="#" data-target="#carreras" aria-controls="carreras" aria-expanded="false" aria-label="Toggle navigation">
-            Carreras
-          </a>
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle d-md-none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Carreras
-            </a>
-            <div class="dropdown-menu" id="carreras2-nav" aria-labelledby="navbarDropdown">
-            </div>
-          </div>
-          <div class="nav-link">Contacto</div>
-
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" ><i class="fas fa-exclamation-triangle"></i> Antes de contactar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Si deseas <strong> agregar o cambiar </strong> una <strong> malla</strong>, primero te invito a mirar el codigo fuente. ¡Allí podras encontrar toda la informacion que necesitas! <br>
+          Si encontraste un <strong> error/bug </strong> en la pagina puedes reportarlo desde el codigo fuente vía "Issues". De todas formas puedes contactarme.
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <a href="http://github.com/etra0/ramos" class="btn btn-primary"><i class="fas fa-code-branch"></i> Codigo fuente</a>
+          <button type="button" id="contactar" onclick="contactar()" class="btn btn-danger"><i class="fas fa-envelope"></i> Contactar</button>
         </div>
       </div>
-    </nav>
-    <nav class="navbar py-0 navbar-light navbar-expand-md bg-light d-none d-md-block">
-                <div class="collapse" id="carreras">
-                  <ul id="carreras1-nav" class="navbar navbar-nav">
-                  </ul>
-              </div>
-    </nav>
-  
+    </div>
+  </div>
+  <!-- Contact Modal END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Header -->
+  <nav class="navbar navbar-light navbar-expand-md bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand mb-0 " href="#">Malla Interactiva <span class="carrera"></span></a>
+        
+    <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
+      <a class="nav-link" href="./prioridad/">Calculadora Prioridad</a>
+      <a class="nav-link" href="./personalizar/">Generadora Malla</a>
+      <a class="d-none d-md-block nav-link dropdown-toggle" data-toggle="collapse" href="#" data-target="#carreras" aria-controls="carreras" aria-expanded="false" aria-label="Toggle navigation">
+        Carreras
+      </a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-md-none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Carreras
+        </a>
+        <div class="dropdown-menu" id="carreras2-nav" aria-labelledby="navbarDropdown">
+        </div>
+      </div>
+      <div class="nav-link" data-toggle="modal" data-target="#contacto"><i class="far fa-envelope"></i> Contacto</div>
+    </div>
+  </nav>
+  <nav class="navbar py-0 navbar-light navbar-expand-md bg-light d-none d-md-block">
+    <div class="collapse" id="carreras">
+      <ul id="carreras1-nav" class="navbar navbar-nav">
+      </ul>
+    </div>
+  </nav>
+  <!-- Header END -->
       
 
 
  
-   
-    <section class="container-fluid flex-grow-1">
-      <div class="row justify-content-center no-gutters">
-        <div class="col">
-          <div class='canvas text-center' style="overflow-x:auto"></div>		
-          <div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
-        </div>
+  <!-- Main -->
+  <section class="container-fluid flex-grow-1">
+    <div class="row justify-content-center no-gutters">
+      <div class="col">
+        <div class='canvas text-center' style="overflow-x:auto"></div>		
+        <div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
       </div>
-		<div class="info row">
+    </div>
+    <div class="info row">
       <div class="col text-center center-block">
-
         <h5>Créditos aprobados: <span id='creditos'></span> </h5>
         <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
       </div>
     </div>
-  </section> <!-- end container-fluid  -->
-  <!-- <footer  class="container-fluid text-center">        
-      <div class="row bg-light pt-2 align-items-end">
-        <p class="col">Creado con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-      </div>
-  </footer> -->
-
-
-
+  </section>
+  <!-- Main END  -->
   
-      <script src='d3.js'></script>
-		<script src='ramos.js'></script>
-    <script src='canvas.js'></script>
-    <script src="/js/init.js"></script>
-    <script src="https://kit.fontawesome.com/bf671ef02a.js"></script>
-    <script type="text/template" data-template="tab-template1">
-      <li><a class="nav-item nav-link" href="?m=${Link}"><span class="d-md-none">Malla </span>${Nombre}</a></li>
-    </script>
-    <script type="text/template" data-template="tab-template2">
-      <a class="dropdown-item" href="#${Link}">Malla ${Nombre}</a>
-    </script>
-      <script>
+  
+  <!-- Footer -->
+  <footer  class="container-fluid text-center mt-3 mt-md-1">        
+    <div class="row bg-light pt-2 align-items-end">
+      <p class="col">Creado con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+    </div>
+  </footer>
+  <!-- Footer END -->
 
-          function assureMail() {
-              if (confirm(`¿Estás seguro que necesitas contactar? Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente, ya que yo personalmente no me dedico a mantenerlas. En el caso de un bug, es recomendado hacerlo.`)) {
-                  window.location = "mailto:sebastian.aedo@sansano.usm.cl"
-              }
-          }
-      </script>
-  </body>
+
+    <!-- scripts -->
+  <script src='d3.js'></script>
+  <script src='ramos.js'></script>
+  <script src='canvas.js'></script>
+  <script src="/js/init.js"></script>
+  <script src="https://kit.fontawesome.com/bf671ef02a.js"></script>
+  <script type="text/template" data-template="tab-template1">
+    <li><a class="nav-item nav-link" href="?m=${Link}"><span class="d-md-none">Malla </span>${Nombre}</a></li>
+  </script>
+  <script type="text/template" data-template="tab-template2">
+    <a class="dropdown-item" href="#${Link}">Malla ${Nombre}</a>
+  </script>
+</body>
 </html>
-

@@ -239,6 +239,9 @@ function main_function(error, data, colorBySector) {
 	first_time.append('h3')
 	  .classed('text-center py-5 px-3', true)
 	  .text(welcomeTitle);
+	first_time.append("img")
+	  .property("src","/data/ramo.svg")
+	  .style("width", "300px")
 	first_time.append("h5")
 	  .classed("text-center py-5 px-3", true)
 	  .text(welcomeDesc)
