@@ -43,7 +43,7 @@ if (d3.select(".canvas")._groups[0][0]) {
 	scaleX = 0.67;
 	scaleY = 1;
 	canvas = d3.select(".custom-canvas");
-	tipoRamo = SelectableRamo;
+	tipoRamo = CustomRamo;
 	welcomeTitle = `¡Bienvenido a la generadora de mallas!`
 	welcomeDesc = `¡Selecciona los ramos por semestre y genera una malla a tu gusto!
 	Si quieres un ramo que no esta en la malla, crealo en la tabla de abajo.`;
