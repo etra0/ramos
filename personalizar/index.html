@@ -273,16 +273,15 @@
   </footer>
   <!-- Footer END -->
 
-
-  <script src='../d3.js'></script>
-  <script src='../ramos.js'></script>
-  <script src='/prioridad/selectableRamo.js'></script>
-  <script src="./customRamo.js"></script>
-  <script src="./generator.js"></script>
-  <script src='../canvas.js'></script>
+  <script src='../js/d3.js'></script>
+  <script src='../js/ramos.js'></script>
+  <script src='../js/selectableRamo.js'></script>
+  <script src='../js/customRamo.js'></script>
+  <script src="../js/generator.js"></script>
+  <script src='../js/canvas.js'></script>
+  <script src="/js/init.js"></script>
   <!-- Smooth scroll --> 
   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-  <script src="/js/init.js"></script>
   <script type="text/template" data-template="tab-template1">
     <li>
       <a class="nav-item nav-link" href="?m=${Link}"><span class="d-md-none">Malla </span>${Nombre}</a>
@@ -292,21 +291,21 @@
     <a class="dropdown-item" href="#${Link}">Malla ${Nombre}</a>
   </script>
   <script>
-    var scroll = new SmoothScroll('a[href*="#"]', {
       speed: 500,
-      easing: 'easeInOutCubic'
+    var scroll = new SmoothScroll('a[href*="#"]', {
     });
+      easing: 'easeInOutCubic'
     var mediaQueryList = window.matchMedia("(max-width: 575.98px)");
     if (mediaQueryList.matches) {
       d3.select('.btn-group')
         .classed('btn-group-sm', true)
       // .classed('btn-group-vertical', true)
-      // .classed('btn-group', false);
-      d3.select('#resetc').classed('btn-sm', true)
     }
+      d3.select('#resetc').classed('btn-sm', true)
+      // .classed('btn-group', false);
     function handleOrientationChange(mql) {
-      if (mql.matches) {
         d3.select('.btn-group')
+      if (mql.matches) {
           .classed('btn-group-sm', true)
         // .classed('btn-group-vertical', true)
         // .classed('btn-group', false);
@@ -319,8 +318,8 @@
         d3.select('#resetc').classed('btn-sm', false)
       }
     }
-    mediaQueryList.addListener(handleOrientationChange)
     handleOrientationChange(mediaQueryList);
+    mediaQueryList.addListener(handleOrientationChange)
   </script>
 </body>
 </html>
