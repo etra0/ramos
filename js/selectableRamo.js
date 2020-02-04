@@ -5,10 +5,11 @@ var SELECTED = [];
 // Aprobar el ramo sigue siendo posible,
 // pero ahora queda a discreción del desarrollador el como accionarlo
 function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
-	Ramo.call(this, nombre, sigla, creditos, sector, prer, id, colorBySector);
-	var selected = false;
-	var self = this;
-  let ramo;
+	this.base = Ramo
+	this.base(nombre, sigla, creditos, sector, prer, id, colorBySector)
+	this.selected = false;
+	let self = this;
+  	// let ramo;
 
     this.draw = function(canvas, posX, posY, scaleX, scaleY) {
 		ramo = canvas.append('g')
@@ -186,14 +187,14 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			return;
   	}
         
-		if (!selected) { // Ramo se ha seleccionado
+		if (!self.selected) { // Ramo se ha seleccionado
 				if (!custom_ramos.has(this.sigla))
 					d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
 				
 					SELECTED.push(self);
 				let card = d3.select('#ramos').append('div');
 				card.attr('id', "p-" + self.sigla);
-				card.attr('class', 'form-group mb-1');
+				card.attr('class', 'form-group mb-2');
 				card.attr('style', 'opacity:0.001');
 				card.append('label')
 					.attr('class', 'text-left mb-1')
@@ -232,11 +233,11 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			card.transition().duration(300).style("opacity", "0.001").remove();
 
 		}
-		selected = !selected;
+		self.selected = !self.selected;
 	}
 
 	this.isSelected = function() {
-		return selected;
+		return self.selected;
 	}
 
     // Ligero cambio en la opacidad
@@ -256,3 +257,5 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 	}
 
 }
+
+SelectableRamo.prototype = Ramo

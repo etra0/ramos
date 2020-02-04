@@ -1,101 +1,151 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ramos | Malla interactiva</title>
-    <meta property="og:title" content="Malla Interactiva" />
-    <meta property="og:url" content="https://mallas.labcomp.cl/" />
-    <meta property="og:image" content="thumbnail.png" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<html lang="es-cl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ramos | Malla interactiva</title>
+  <meta property="og:title" content="Malla Interactiva" />
+  <meta property="og:url" content="https://mallas.labcomp.cl/" />
+  <meta property="og:image" content="thumbnail.png" />
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-108274078-1', 'auto');
       ga('send', 'pageview');
-    </script>
-    <style>
-      body {
-        display: inline;
-        text-align: center;
-        justify-content:center;
-      }
-      html {
-      }
-      .info {
-        font-size: 30px;
-      }
-      .color-description {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
+  </script>
 
-      img {
-        width: 300px;
-      }
+</head>
+<body class="d-flex flex-column">
 
-      img {
-        width: 300px;
-      }
+  <!-- Contact Modal -->
+  <div class="modal fade bg-danger"
+    id="contacto" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="contacto" 
+    aria-hidden="true">
 
-      .canvas {
-        text-align: center;
-        overflow-x: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Malla interactiva</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Carreras
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <div id="carreras-nav">
-              </div>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="https://github.com/etra0/ramos#aportar">Cambios malla</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="assureMail()" href="javascript:void(0);" tabindex="-1">Contactar</a>
-          </li>
-        </ul>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" ><i class="fas fa-exclamation-triangle"></i> Antes de contactar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Si deseas <strong> agregar o cambiar </strong> una <strong> malla</strong>, primero te invito a mirar el codigo fuente. ¡Allí podras encontrar toda la informacion que necesitas! <br>
+          Si encontraste un <strong> error/bug </strong> en la pagina puedes reportarlo desde el codigo fuente vía "Issues". De todas formas puedes contactarme.
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <a href="http://github.com/etra0/ramos" class="btn btn-primary"><i class="fas fa-code-branch"></i> Codigo fuente</a>
+          <button type="button" id="contactar" onclick="contactar()" class="btn btn-danger"><i class="fas fa-envelope"></i> Contactar</button>
+        </div>
       </div>
-    </nav>
-    <h1 class="title text-center">Malla Interactiva <span id="carrera"></span></h1>
-    <div class='canvas'></div>
-
-    <div class='color-description'></div>
-    <div class="info">
-      Créditos aprobados: <span id='creditos'></span> <br>
-      <a href="./personalizar/" class="btn btn-primary" role="button">Crea tu propia malla!</a>
-      <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
-      <a href="./prioridad/" class="btn btn-primary" role="button">Calcula tu prioridad!</a>
     </div>
-    <p><img src="data/ramo.svg" alt="Desc ramos"></p>
-    <p>Creado con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/loadjs/3.6.1/loadjs.min.js"></script>
-    <script src="/js/init.js"></script>
-    <script type="text/template" data-template="tab-template">
-	    <a class="dropdown-item" href="?m=${Link}">${Nombre}</a>
-    </script>
-  </body>
-</html>
+  </div>
+  <!-- Contact Modal END -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Header -->
+  <nav class="navbar navbar-light navbar-expand-md bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand mb-0 " href="#">Malla Interactiva <span class="carrera"></span></a>
+        
+    <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
+      <a class="nav-link" href="./prioridad/">Calculadora Prioridad</a>
+      <a class="nav-link" href="./personalizar/">Generadora Malla</a>
+      <a class="d-none d-md-block nav-link dropdown-toggle" data-toggle="collapse" href="#" data-target="#carreras" aria-controls="carreras" aria-expanded="false" aria-label="Toggle navigation">
+        Carreras
+      </a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-md-none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Carreras
+        </a>
+        <div class="dropdown-menu" id="carreras2-nav" aria-labelledby="navbarDropdown">
+        </div>
+      </div>
+      <div class="nav-link" data-toggle="modal" data-target="#contacto"><i class="far fa-envelope"></i> Contacto</div>
+    </div>
+  </nav>
+  <nav class="navbar py-0 navbar-light navbar-expand-md bg-light d-none d-md-block">
+    <div class="collapse" id="carreras">
+      <ul id="carreras1-nav" class="navbar navbar-nav">
+      </ul>
+    </div>
+  </nav>
+  <!-- Header END -->
+      
+
+
+ 
+  <!-- Main -->
+  <section class="container-fluid flex-grow-1">
+    <div class="row justify-content-center no-gutters">
+      <div class="col">
+        <div class='canvas text-center' style="overflow-x:auto"></div>		
+        <div class='color-description' style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;"></div>
+      </div>
+    </div>
+    <div class="info row">
+      <div class="col text-center center-block">
+        <h5>Créditos aprobados: <span id='creditos'></span> </h5>
+        <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
+      </div>
+    </div>
+  </section>
+  <!-- Main END  -->
+  
+  
+  <!-- Footer -->
+  <footer  class="container-fluid text-center mt-3 mt-md-1">        
+    <div class="row bg-light pt-2 align-items-end">
+      <p class="col">Creado con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+    </div>
+  </footer>
+  <!-- Footer END -->
+
+
+    <!-- scripts -->
+  <script src='/js/d3.js'></script>
+  <script src='/js/ramos.js'></script>
+  <script src='/js/canvas.js'></script>
+  <script src="/js/init.js"></script>
+  <script src="https://kit.fontawesome.com/bf671ef02a.js"></script>
+  <script type="text/template" data-template="tab-template1">
+    <li><a class="nav-item nav-link" href="?m=${Link}"><span class="d-md-none">Malla </span>${Nombre}</a></li>
+  </script>
+  <script type="text/template" data-template="tab-template2">
+    <a class="dropdown-item" href="#${Link}">Malla ${Nombre}</a>
+  </script>
+</body>
+</html>

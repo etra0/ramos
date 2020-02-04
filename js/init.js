@@ -1,8 +1,8 @@
 /**
  * Obtencion de archivos JS de manera paralela y carga sincronica
  */
-loadjs(['https://kit.fontawesome.com/bf671ef02a.js', 'https://cdn.jsdelivr.net/npm/sweetalert2@8', 'https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js', '/js/ramos.js', '/js/selectableRamo.js', '/js/calculator.js', '/js/canvas.js'], 'init');
-loadjs.ready('init', {
+//loadjs(['https://kit.fontawesome.com/bf671ef02a.js', 'https://cdn.jsdelivr.net/npm/sweetalert2@8', 'https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js', '/js/ramos.js', '/js/selectableRamo.js', '/js/calculator.js', '/js/canvas.js'], 'init');
+/*loadjs.ready('init', {
     success: function() { console.log("Recursos cargados") },
     error: function(depsNotFound) {
         Swal.fire(
@@ -14,27 +14,11 @@ loadjs.ready('init', {
             location.reload();
         }, 5000);
     },
-});
+});*/
 
-function assureMail() {
-    Swal.fire({
-        title: '¿Estas seguro?',
-        text: "Para hacer cambios en alguna malla, primero te invito a mirar el codigo fuente ¡Allí podras encontrar toda la informacion que necesitas!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Contacto Mail'
-    }).then((result) => {
-        if (result.value) {
-            Swal.fire(
-                'OK!',
-                'Gracias por ponerte en contacto con nosotros :)',
-                'success'
-            );
-            window.location.href = "mailto:sebastian.aedo@sansano.usm.cl";
-        }
-    })
+function contactar() {
+    window.location = "mailto:sebastian.aedo@sansano.usm.cl"
+    $('#contacto').modal('hide')
 }
 
 function render(props) {
@@ -45,10 +29,14 @@ function render(props) {
 
 $.getJSON('/data/carreras.json', function(data) {
     $.each(data, function(index, value) {
-        let tabTpl = $('script[data-template="tab-template"]').text().split(/\${(.+?)}/g);
+        let tabTpl1 = $('script[data-template="tab-template1"]').text().split(/\${(.+?)}/g);
+        let tabTpl2 = $('script[data-template="tab-template2"]').text().split(/\${(.+?)}/g);
         value = [value];
-        $('#carreras-nav').append(value.map(function (value) {
-            return tabTpl.map(render(value)).join('');
+        $('#carreras1-nav').append(value.map(function (value) {
+            return tabTpl1.map(render(value)).join('');
+        }));
+        $('#carreras2-nav').append(value.map(function (value) {
+            return tabTpl2.map(render(value)).join('');
         }));
     });
 });

@@ -20,7 +20,12 @@ visualizar los ramos aprobados.
 * [ ] **Comentar código, limpiarlo.**
 * [x] Disfrutar un buen café.
  
-
+* [ ] Fix bugs
+* [ ] Hacer pagina más usable en moviles
+    * [X] Prioridad
+	* [X] Malla personal
+	* [ ] Malla interactiva
+* [ ] otras cosas a detallar...
 
 ## Aportar
 

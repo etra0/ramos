@@ -1,0 +1,42 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+/* Exclusivo para la "card" de prioridad y personalizar */
+/* Aqui ocurre el quiebre de la fila */
+@media (max-width: 1214.99px) {
+    /* Por alguna razon ocurre antes */
+    #priorix {
+        height: auto;
+    }
+
+}
+@media (min-width: 1215px) {
+#priorix {
+    
+    height: 42rem;
+}
+}
+
+/* General */
+body { min-height: 100vh; }
+
+
+#overlay {
+    position: absolute; /* Sit on top of the parent content*/
+    /* display: none; Hidden by default */
+    width: 100%;  /*Full width (cover the whole page)*/
+    height: 100%; /*Full height /*(cover the whole page)*/
+    align-self: stretch;
+    justify-self: stretch;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    background-color: rgba(255,255,255,0.9); /* Black background with opacity */
+    z-index: 200; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }

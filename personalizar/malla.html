@@ -1,81 +1,126 @@
 <!DOCTYPE html>
-<html>
-  <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140369062-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+<html lang="es-CL">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140369062-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
   
-          gtag('config', 'UA-140369062-1');
-        </script>
+    gtag('config', 'UA-140369062-1');
+  </script>
   
-  <!-- En verdad, lamento la cantidad horrorosa de divs -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-	<title>Malla Interactiva personalizada</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
-  </head>
-    <style>
-		body {
-			display: inline;
-			justify-content:center;
-		}
-		html {
-			font-family: sans-serif;
-		}
+  <title>Malla Interactiva personal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+  <script 
+  defer
+  src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+  integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" 
+  crossorigin="anonymous">
+</script>
 
-		.info {
-			font-size: 30px;
-		}
-
-  </style>  
-
-  <body>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+  
+  <link rel="stylesheet" href="/css/styles.css">
+  
+</head>
 
 
-      <h1 class="title text-center my-5">Malla Interactiva personalizada <span id="carrera"></span></h1>
-      
-      <div class="container-fluid m-2">
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class='canvas' style="text-align:center;overflow-x:auto"></div>
-                <!-- Canvas aqui -->
-                <div class='color-description'
-                style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;">
-                </div>
-            </div>
+<!-- En verdad, lamento la cantidad horrorosa de divs -->
+<body class="d-flex flex-column"></body>
+
+
+  <!-- Contact Modal -->
+  <div class="modal fade bg-danger"
+    id="contacto" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="contacto" 
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" ><i class="fas fa-exclamation-triangle"></i> Antes de contactar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="row justify-content-center my-3">
-            <div class="info text-center">
-                Créditos aprobados: <span id='creditos'></span> <br>
-            <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
-            <a href="" id="goBack" class="btn btn-primary" role="button">Continuar editando</a>
-            </div>
+        <div class="modal-body">
+          Si deseas <strong> agregar o cambiar </strong> una <strong> malla</strong>, primero te invito a mirar el codigo fuente. ¡Allí podras encontrar toda la informacion que necesitas! <br>
+          Si encontraste un <strong> error/bug </strong> en la pagina puedes reportarlo desde el codigo fuente vía "Issues". De todas formas puedes contactarme.
         </div>
-        <div class="row justify-content-center ">
-            <div class="col-lg-4">
-
-            <p class="text-center"><img src="../data/ramo.svg" style="width:300px;"></p>
-      
-            <p class="text-center">Hecho con el ❤️ por amor al arte. <a href="http://github.com/etra0/ramos">Código fuente</a></p>
-            <p class="text-center"><a href="mailto:saedo@alumnos.inf.utfsm.cl">Contacto</a></p>
-
-            </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <a href="http://github.com/etra0/ramos" class="btn btn-primary"><i class="fas fa-code-branch"></i> Codigo fuente</a>
+          <button type="button" id="contactar" onclick="contactar()" class="btn btn-danger"><i class="fas fa-envelope"></i> Contactar</button>
         </div>
-
       </div>
+    </div>
+  </div>
+  <!-- Contact Modal END -->
 
+
+
+
+
+
+
+  <!-- Header -->
+  <nav class="navbar navbar-light navbar-expand-md bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand mb-0 " href="/">Malla Interactiva Personal<span class="carrera"></span></a>
+        
+    <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
+      <a class="nav-link" href="/personalizar/">Continuar edición</a>
+      <div class="nav-link" data-toggle="modal" data-target="#contacto"><i class="far fa-envelope"></i> Contacto</div>
+    </div>
+  </nav>
+  <!-- Header END -->
+
+  <h1 class="title text-center my-5">Malla Interactiva personal de <span id="carrera"></span></h1>
       
-      <script src='../js/d3.js'></script>
-      <script src='../js/ramos.js'></script>
-      <script src='./customCanvas.js'></script>
-  </body>
+  <div class="container-fluid flex-grow-1">
+    <div class="row justify-content-center">
+      <div class="col">
+        <div class='canvas' style="text-align:center;overflow-x:auto"></div>
+        <!-- Canvas aqui -->
+        <div class='color-description'
+          style="position:relative;display:flex;justify-content:center;flex-wrap:wrap;">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <div class="info text-center">
+        Créditos aprobados: <span id='creditos'></span> <br>
+        <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
+        <a href="" id="goBack" class="btn btn-primary" role="button">Continuar editando</a>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer  class="container-fluid text-center mt-3 mt-md-1">        
+    <div class="row bg-light pt-2 align-items-end">
+      <p class="col">Creado con el <i class="fas fa-heart"></i>️ por estudiantes para estudiantes <br/> <i class="fas fa-code-branch"></i> <a href="http://github.com/etra0/ramos">Código fuente</a></p>
+    </div>
+  </footer>
+  <!-- Footer END -->
+  
+
+ 
+
+
+  <script src='../js/d3.js'></script>
+  <script src='../js/ramos.js'></script>
+  <script src='../js/customCanvas.js'></script>
 </html>
 
