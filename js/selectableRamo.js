@@ -9,16 +9,16 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 	this.base(nombre, sigla, creditos, sector, prer, id, colorBySector)
 	this.selected = false;
 	let self = this;
-  	// let ramo;
+  	// let ramo = this.ramo;
 
     this.draw = function(canvas, posX, posY, scaleX, scaleY) {
-		ramo = canvas.append('g')
+		self.ramo = canvas.append('g')
 			.attr('id', self.sigla);
 		var sizeX = 100 * scaleX,
 			sizeY = 100 * scaleY
 		var graybar = sizeY/5;
 
-		ramo.append("rect")
+		self.ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
 			.attr("width", sizeX*1.2)
@@ -26,7 +26,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("fill", colorBySector[sector][0]);
 
 		// above bar
-		ramo.append("rect")
+		self.ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
 			.attr("width", sizeX*1.2)
@@ -34,7 +34,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("fill", '#6D6E71');
 
 		// below bar
-		ramo.append("rect")
+		self.ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY + sizeY - graybar)
 			.attr("width", sizeX*1.2)
@@ -42,13 +42,13 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("fill", '#6D6E71');
 
 		// credits rect
-		ramo.append("rect")
+		self.ramo.append("rect")
 			.attr("x", posX + sizeX *1.2 - 23 * scaleX)
 			.attr("y", posY + sizeY - graybar + 1)
 			.attr("width", 19 * scaleX)
 			.attr("height", 18 * scaleY)
 			.attr("fill", 'white');
-		ramo.append("text")
+		self.ramo.append("text")
 			.attr("x", posX + sizeX*1.2 - 17 * scaleX)
 			.attr("y", posY + sizeY - 6 * scaleY)
 			.text(self.creditos)
@@ -58,7 +58,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("font-size", 12 * scaleY);
 			
 		
-		ramo.append("text")
+		self.ramo.append("text")
 			.attr("x", posX + sizeX*1.2/2)
 			.attr("y", posY + sizeY/2)
 			.text(self.nombre)
@@ -74,7 +74,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("dy", 0)
 
 		// Sigla
-		ramo.append("text")
+		self.ramo.append("text")
 			.attr("x", posX + 2)
 			.attr("y", posY + sizeY/7)
 			.text(self.sigla)
@@ -88,7 +88,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
             });
             
         // Ramos sin requisitos
-		ramo.append("rect")
+		self.ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
 			.attr("width", sizeX*1.2)
@@ -98,7 +98,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("class", "non-approved");
 
 			// Ramo selccionado (NEW!!!)
-			ramo.append("rect")
+			self.ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
 			.attr("width", sizeX*1.2)
@@ -110,19 +110,19 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("class", "selected");
 
 
-		var cross = ramo.append('g').attr("class", "cross").attr("opacity", 0);
+		var cross = self.ramo.append('g').attr("class", "cross").attr("opacity", 0);
 		cross.append("path")
 			.attr("d", "M" + posX + "," + posY + "L" + (posX+sizeX*1.1) + "," + (posY+sizeY))
 			.attr("stroke", "#550000")
 			.attr("stroke-width", 9);
 
 		// id
-		ramo.append("circle")
+		self.ramo.append("circle")
 			.attr("cx", posX + sizeX*1.2-10)
 			.attr("cy", posY + graybar/2 )
 			.attr("fill", "white")
 			.attr("r", 8);
-		ramo.append("text")
+		self.ramo.append("text")
 			.attr("x", function() {
 				if (self.id > 9)
 					return posX + sizeX*1.2 - 10
@@ -148,13 +148,13 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 				variantX = 1;
 				variantY--;
 			}
-			ramo.append("circle")
+			self.ramo.append("circle")
 				.attr('cx', posX + r + c_x + variantX)
 				.attr('cy', posY + sizeY - graybar/2)
 				.attr('r', r)
 				.attr('fill', colorBySector[all_ramos[p].sector][0])
 				.attr('stroke', 'white');
-			ramo.append('text')
+			self.ramo.append('text')
 				.attr('x', posX + r + c_x + variantX)
 				.attr('y', posY + sizeY - graybar/2 + variantY)
 				.text(all_ramos[p].id)
@@ -166,7 +166,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		});
 
         // Ahora se selecciona en vez de aprobar
-		ramo.on('click', self.selectRamo);
+		self.ramo.on('click', self.selectRamo);
 
 		return;
 	}
@@ -249,11 +249,11 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		_a = new Set(_a);
 		for(let r of self.prer) {
 			if (!_a.has(r)) {
-				ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.5");
+				self.ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.5");
 				return;
 			}
 		}
-		ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.0");
+		self.ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.0");
 	}
 
 }
