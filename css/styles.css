@@ -14,10 +14,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 @media (min-width: 1215px) {
-#priorix {
+    #priorix {
     
     height: 42rem;
-}
+    }
 }
 
 /* General */
@@ -39,4 +39,16 @@ body { min-height: 100vh; }
     background-color: rgba(255,255,255,0.9); /* Black background with opacity */
     z-index: 200; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
-  }
+}
+
+/* .sector:hover {
+      filter: brightness(85%);
+} */
+
+/* 
+#t1 {
+    background-color: aqua;
+}
+#t1:hover {
+    background-color: aquamarine;
+} */

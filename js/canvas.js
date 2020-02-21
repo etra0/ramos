@@ -86,6 +86,7 @@ var _s = ["I", "II", "III", "IV", "V", 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XI
 
 var malla = {};
 var all_ramos = {};
+var all_sectors = {};
 var total_creditos = 0;
 var total_ramos = 0;
 let id = 1;
@@ -105,6 +106,44 @@ d3.queue()
 	.defer(d3.json, "/data/colors_" + current_malla + ".json")
   .await(main_function);
 
+function getLightPercentage(colorHex) {
+    // Convert hex to RGB first
+    let r = 0, g = 0, b = 0;
+    if (colorHex.length == 4) {
+      r = "0x" + colorHex[1] + colorHex[1];
+      g = "0x" + colorHex[2] + colorHex[2];
+      b = "0x" + colorHex[3] + colorHex[3];
+    } else if (colorHex.length == 7) {
+      r = "0x" + colorHex[1] + colorHex[2];
+      g = "0x" + colorHex[3] + colorHex[4];
+      b = "0x" + colorHex[5] + colorHex[6];
+    }
+    // console.log(r,g,b)
+    // Then to HSL
+    rgb = [0,0,0]
+    rgb[0] = r / 255;
+    rgb[1] = g / 255;
+    rgb[2] = b / 255;
+
+    for (let color in rgb) {
+        if (rgb[color] <= 0.03928) {
+            rgb[color] /= 12.92
+        } else {
+            rgb[color] = Math.pow(((rgb[color] + 0.055) / 1.055), 2.4)
+        }
+
+    }
+
+    // c <= 0.03928 then c = c/12.92 else c = ((c+0.055)/1.055) ^ 2.4
+    let l = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]
+    // console.log(l)
+    if (l > 0.6) { // segun el standard, l > 0.179... pero no me gustan los resultados de eso :( 
+        return false
+    } else {
+        return true
+    }
+}
+
 function main_function(error, data, colorBySector) {
 	if (error) {
 		console.log(error);
@@ -118,17 +157,30 @@ function main_function(error, data, colorBySector) {
 
 		if (data[semester].length > longest_semester)
 			longest_semester = data[semester].length;
-
+	let thisRamoUnlocks = {}
 		data[semester].forEach(function(ramo) {
 			malla[semester][ramo[1]] = new tipoRamo(ramo[0], ramo[1], ramo[2], ramo[3], (function() {
-				if (ramo.length > 4)
+				if (ramo.length > 4) {
+					ramo[4].forEach( function (sigla) {
+						if (thisRamoUnlocks[sigla]){
+							thisRamoUnlocks[sigla].add(ramo[0])
+						} else {
+							thisRamoUnlocks[sigla] = new Set(ramo[0])
+						}
+					})
 					return ramo[4];
+				}
 				return [];
+					
 			})(), id++, colorBySector)
 			all_ramos[ramo[1]] = malla[semester][ramo[1]];
             total_creditos += ramo[2];
             total_ramos++;
 		});
+		for ramo 
+	}
+	for (var sector in colorBySector) {
+		all_sectors[sector] = colorBySector[sector]
 	}
 
 	// update width y height debido a que varian segun la malla

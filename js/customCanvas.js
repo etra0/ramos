@@ -86,6 +86,53 @@ var total_creditos = 0;
 var total_ramos = 0;
 let id = 1;
 
+
+
+
+
+
+
+
+function getLightPercentage(colorHex) {
+    // Convert hex to RGB first
+    let r = 0, g = 0, b = 0;
+    if (colorHex.length == 4) {
+      r = "0x" + colorHex[1] + colorHex[1];
+      g = "0x" + colorHex[2] + colorHex[2];
+      b = "0x" + colorHex[3] + colorHex[3];
+    } else if (colorHex.length == 7) {
+      r = "0x" + colorHex[1] + colorHex[2];
+      g = "0x" + colorHex[3] + colorHex[4];
+      b = "0x" + colorHex[5] + colorHex[6];
+    }
+    // console.log(r,g,b)
+    // Then to HSL
+    rgb = [0,0,0]
+    rgb[0] = r / 255;
+    rgb[1] = g / 255;
+    rgb[2] = b / 255;
+
+    for (let color in rgb) {
+        if (rgb[color] <= 0.03928) {
+            rgb[color] /= 12.92
+        } else {
+            rgb[color] = Math.pow(((rgb[color] + 0.055) / 1.055), 2.4)
+        }
+
+    }
+
+    // c <= 0.03928 then c = c/12.92 else c = ((c+0.055)/1.055) ^ 2.4
+    let l = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]
+    // console.log(l)
+    if (l > 0.6) { // segun el standard, l > 0.179... pero no me gustan los resultados de eso :( 
+        return false
+    } else {
+        return true
+    }
+}
+
+
+
 $("#carrera").text(carreras[current_malla]);
 
 /* PC: Plan común
@@ -134,7 +181,11 @@ function main_function(error, data, colorBySector) {
 	for (var sigla in customRamosProps) {
 		// inicializar ramos fuera de malla
 		let datosRamo = customRamosProps[sigla]
-		let ramo = new Ramo(datosRamo[0],datosRamo[1], Number(datosRamo[2]),datosRamo[3],[],id,datosRamo[4]);
+		let prer = []
+        if (datosRamo.length == 6) {
+            prer = datosRamo[5]
+        }
+		let ramo = new Ramo(datosRamo[0],datosRamo[1], Number(datosRamo[2]),datosRamo[3],prer, id,colorBySector);
 		id++;
 		all_ramos[sigla] = ramo
 	}

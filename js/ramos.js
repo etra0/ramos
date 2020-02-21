@@ -65,9 +65,9 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 			.text(self.nombre)
 			.attr("class", "ramo-label")
 			.attr("fill", function() {
-				if (self.sector !== 'IS')
+				if (getLightPercentage(colorBySector[sector][0]))
 					return "white";
-				return '#6D6E71';
+				return '#222222';
 			})
 			.attr("font-size", 13)
 			.attr("text-anchor", "middle")

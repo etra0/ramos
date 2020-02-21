@@ -65,7 +65,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("class", "ramo-label")
 			.attr("font-family", 'sans-serif')
 			.attr("fill", function() {
-				if (self.sector != 'IS')
+				if (getLightPercentage(colorBySector[sector][0]))
 					return "white";
 				return '#6D6E71';
 			})
