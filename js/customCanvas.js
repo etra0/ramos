@@ -1,14 +1,14 @@
 // Cambie las variables scale para aumentar o reducir las dimensiones de la malla
 // Se recomienda fuertemente valores NO MENORES a 0.5
-var scaleX, scaleY, canvas, tipoRamo;
+let scaleX, scaleY, canvas, tipoRamo;
 
 // variables de mensaje
-var welcomeTitle, welcomeDesc;
+let welcomeTitle, welcomeDesc;
 
 // verificamos que malla busca
-var current_malla = 'INF';
+let current_malla = 'INF';
 if (window.location.search) {
-	var params = new URLSearchParams(window.location.search);
+	const params = new URLSearchParams(window.location.search);
 	if (params.has('m'))
 		current_malla = params.get('m');
 	
@@ -17,24 +17,23 @@ if (window.location.search) {
 	scaleY = 1;
 	canvas = d3.select(".canvas");
 	tipoRamo = Ramo;
-	welcomeTitle = `¡Bienvenido a tu propia malla!`
+	welcomeTitle = `¡Bienvenido a tu propia malla!`;
 	welcomeDesc = `Puedes tachar tus ramos aprobados haciendo click sobre ellos.
 	A medida que vas aprobando ramos, se van liberando los que tienen prerrequisitos.
 	Haz click en cualquier lado para comenzar.`;
 
 
-
-var height = 730 * scaleX,
-	width =1570 * scaleY;
+let height = 730 * scaleX,
+	width = 1570 * scaleY;
 
 canvas = canvas.append("svg")
 		.attr('width', width)
 		.attr('height', height);
 
-var carreras = {
+const carreras = {
 	'ARQ': 'Arquitectura',
 	'INF': 'Informática',
-    'ICI': 'Industrial',
+	'ICI': 'Industrial',
 	'ELO': 'Electrónica',
 	'TEL': 'Telemática',
 	'ICOM': 'Comercial',
@@ -43,47 +42,47 @@ var carreras = {
 	'MEC': 'Mecánica',
 	'ICQ': 'Química',
 	'ELI': 'Eléctrica',
-    'CONSTRU': 'Construcción',
+	'CONSTRU': 'Construcción',
 	'IDP': 'Diseño de Productos',
-    'MET': 'Metalúrgica',
-    'ICA': 'Ambiental'
-}
+	'MET': 'Metalúrgica',
+	'ICA': 'Ambiental'
+};
 
 /* ---------- axis ---------- */
-var drawer = canvas.append('g')
+const drawer = canvas.append('g')
 	.attr('transform', 'translate(10, 20)');
 
-var globalY = 0;
-var globalX = 0;
-var _semester = 1;
+let globalY = 0;
+let globalX = 0;
+let _semester = 1;
 // Soporte hasta 20 semestres
-var _s = [
-		"I",
-		"II",
-		"III",
-		"IV",
-		"V",
-		'VI',
-		'VII',
-		'VIII',
-		'IX',
-		'X',
-		'XI',
-		'XII',
-		'XIII',
-		'XIV',
-		'XV',
-		'XVI',
-		'XVII',
-		'XVII',
-		'XIX',
-		'XX'
-	]
+const _s = [
+	"I",
+	"II",
+	"III",
+	"IV",
+	"V",
+	'VI',
+	'VII',
+	'VIII',
+	'IX',
+	'X',
+	'XI',
+	'XII',
+	'XIII',
+	'XIV',
+	'XV',
+	'XVI',
+	'XVII',
+	'XVII',
+	'XIX',
+	'XX'
+];
 
-var malla = {};
-var all_ramos = {};
-var total_creditos = 0;
-var total_ramos = 0;
+const malla = {};
+const all_ramos = {};
+let total_creditos = 0;
+let total_ramos = 0;
 let id = 1;
 
 
@@ -96,18 +95,18 @@ let id = 1;
 function getLightPercentage(colorHex) {
     // Convert hex to RGB first
     let r = 0, g = 0, b = 0;
-    if (colorHex.length == 4) {
+    if (colorHex.length === 4) {
       r = "0x" + colorHex[1] + colorHex[1];
       g = "0x" + colorHex[2] + colorHex[2];
       b = "0x" + colorHex[3] + colorHex[3];
-    } else if (colorHex.length == 7) {
+    } else if (colorHex.length === 7) {
       r = "0x" + colorHex[1] + colorHex[2];
       g = "0x" + colorHex[3] + colorHex[4];
       b = "0x" + colorHex[5] + colorHex[6];
     }
     // console.log(r,g,b)
     // Then to HSL
-    rgb = [0,0,0]
+	let rgb = [0, 0, 0];
     rgb[0] = r / 255;
     rgb[1] = g / 255;
     rgb[2] = b / 255;
@@ -122,13 +121,9 @@ function getLightPercentage(colorHex) {
     }
 
     // c <= 0.03928 then c = c/12.92 else c = ((c+0.055)/1.055) ^ 2.4
-    let l = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]
+    let l = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
     // console.log(l)
-    if (l > 0.6) { // segun el standard, l > 0.179... pero no me gustan los resultados de eso :( 
-        return false
-    } else {
-        return true
-    }
+    return l <= 0.6;
 }
 
 
@@ -149,6 +144,8 @@ d3.queue()
   .await(main_function);
 
 function main_function(error, data, colorBySector) {
+	let semester;
+	let sigla;
 	if (error) {
 		console.log(error);
 		$(".canvas").prepend("<h1>OPS!, malla no encontrada, <a href='http://labcomp.cl/~saedo/apps/viz/ramos'>Volver al inicio</a></h1>");
@@ -157,15 +154,15 @@ function main_function(error, data, colorBySector) {
 	// load the data
 	
 	// Agregado de sectores fuera de malla
-	let customCache = JSON.parse(localStorage['Custom-'+ current_malla + '_CUSTOM'])
-	for (var sigla in customCache) {
+	let customCache = JSON.parse(localStorage['Custom-'+ current_malla + '_CUSTOM']);
+	for (sigla in customCache) {
 		// una parte es para acceder al diccionario que contiene las propiedades del sector
 		colorBySector[customCache[sigla][3]] = customCache[sigla][4][customCache[sigla][3]]
 		// la otra parte es la sigla para acceder
 	}
 	
 	let longest_semester = 0;
-	for (var semester in data) {
+	for (semester in data) {
 		data[semester].forEach(function(ramo) {
 			all_ramos[ramo[1]] = new tipoRamo(ramo[0], ramo[1], ramo[2], ramo[3], (function() {
 				if (ramo.length > 4)
@@ -177,29 +174,53 @@ function main_function(error, data, colorBySector) {
 	}
 	
 	// agregado de ramos fuera de malla
-	let customRamosProps = JSON.parse(localStorage['Custom-' + current_malla +"_CUSTOM"])
-	for (var sigla in customRamosProps) {
+	let customRamosProps = JSON.parse(localStorage['Custom-' + current_malla +"_CUSTOM"]);
+	for (sigla in customRamosProps) {
 		// inicializar ramos fuera de malla
-		let datosRamo = customRamosProps[sigla]
-		let prer = []
-        if (datosRamo.length == 6) {
+		let datosRamo = customRamosProps[sigla];
+		let prer = [];
+        if (datosRamo.length === 6) {
             prer = datosRamo[5]
-        }
+		}
 		let ramo = new Ramo(datosRamo[0],datosRamo[1], Number(datosRamo[2]),datosRamo[3],prer, id,colorBySector);
 		id++;
+		
 		all_ramos[sigla] = ramo
 	}
-
-// se crea la malla de acorde al usuario
-	let customMalla = JSON.parse(localStorage['Custom-' + current_malla + '_SEMESTRES'])
-	for (var semester in customMalla) {
-		malla[semester] = {}
-		let c = 0
+	
+	let customMalla = JSON.parse(localStorage['Custom-' + current_malla + '_SEMESTRES']);
+	const ramosInMalla = new Set();
+	for (let semester in customMalla) {
 		customMalla[semester].forEach(siglaRamo => {
+			ramosInMalla.add(siglaRamo)
+		})
+	}
+	for (let ramo in all_ramos) {
+		if (!ramosInMalla.has(ramo)) {
+			delete all_ramos[ramo]
+		} else {
+			all_ramos[ramo].prer.forEach(sigla =>{
+				if (!ramosInMalla.has(sigla)) {
+					all_ramos[ramo].prer.delete(sigla)
+				}
+			})
+		}
+	}
+	
+	// se crea la malla de acorde al usuario
+	let newId = 1;
+	let sectorsUsed = new Set();
+	for (semester in customMalla) {
+		malla[semester] = {};
+		let c = 0;
+		customMalla[semester].forEach(siglaRamo => {
+			all_ramos[siglaRamo].id = newId;
+			newId++;
 			malla[semester][siglaRamo] = all_ramos[siglaRamo];
-			c++
+			c++;
 			total_creditos += all_ramos[siglaRamo].creditos;
 			total_ramos++;
+			sectorsUsed.add(all_ramos[siglaRamo].sector) 
 		});
 		if (c > longest_semester)
 			longest_semester = c;
@@ -217,9 +238,12 @@ function main_function(error, data, colorBySector) {
 
 	// colores de la malla
 	Object.keys(colorBySector).forEach(key => {
-		color_description = d3.select(".color-description").append("div")
+		if (!sectorsUsed.has(key)) {
+			return
+		}
+		let color_description = d3.select(".color-description").append("div")
 			.attr("style", "display:flex;vertical-align:middle;margin-right:15px;");
-		circle_color = color_description.append("svg")
+		let circle_color = color_description.append("svg")
 			.attr("height", "25px")
 			.attr("width", "25px");
 		circle_color.append("circle")
@@ -232,7 +256,7 @@ function main_function(error, data, colorBySector) {
 
 	});
 
-	for (var semester in malla) {
+	for (semester in malla) {
 		globalY = 0;
 		// draw the axis
 		drawer.append("rect")
@@ -256,17 +280,17 @@ function main_function(error, data, colorBySector) {
 		for (var ramo in malla[semester]) {
 			malla[semester][ramo].draw(drawer, globalX, globalY, scaleX, scaleY);
 			globalY += 110 * scaleY;
-		};
+		}
 		globalX += 130 * scaleX;
-	};
+	}
 	drawer.selectAll(".ramo-label")
 		.call(wrap, 115 * scaleX, (100 - 100/5*2) * scaleY);
 
 
 	// verificar prerrequisitos
 	d3.interval(function() {
-		for (var semester in malla) {
-			for (var ramo in malla[semester]) {
+		for (const semester in malla) {
+			for (const ramo in malla[semester]) {
 				malla[semester][ramo].verifyPrer();
 			}
 		}
@@ -280,7 +304,7 @@ function main_function(error, data, colorBySector) {
 	}, 30);
 
 
-    var first_time = d3.select(canvas.node().parentNode); // volvemos a canvas/ priori-canvas
+	let first_time = d3.select(canvas.node().parentNode); // volvemos a canvas/ priori-canvas
 	first_time = first_time.append("div")
 	  .classed("row no-gutters justify-content-center", true)
 	  .attr("id", "overlay")
@@ -292,11 +316,11 @@ function main_function(error, data, colorBySector) {
 	  .text(welcomeTitle);
 	first_time.append("img")
 	  .property("src","/data/ramo.svg")
-	  .style("width", "300px")
+	  .style("width", "300px");
 	first_time.append("h5")
 	  .classed("text-center py-5 px-3", true)
-	  .text(welcomeDesc)
-	  first_time = d3.select(first_time.node().parentNode)
+	  .text(welcomeDesc);
+	  first_time = d3.select(first_time.node().parentNode);
 
 	first_time.on('click', function() {
 		d3.select(this).transition().duration(200).style('opacity', 0.1).on('end', function() {
@@ -312,23 +336,23 @@ function main_function(error, data, colorBySector) {
 
 function wrap(text, width, height) {
   text.each(function() {
-    var text = d3.select(this),
-        words = text.text().split(/\s+/).reverse(),
-        word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = 1.1, // ems
-        y = text.attr("y"),
-				dy = parseFloat(text.attr("dy")),
-				fontsize = parseInt(text.attr("font-size"), 10),
-				tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
-				textLines,
-				textHeight;
-    while (word = words.pop()) {
+	  let text = d3.select(this),
+		  words = text.text().split(/\s+/).reverse(),
+		  word,
+		  line = [],
+		  lineNumber = 0,
+		  lineHeight = 1.1, // ems
+		  y = text.attr("y"),
+		  dy = parseFloat(text.attr("dy")),
+		  fontsize = parseInt(text.attr("font-size"), 10),
+		  tspan = text.text(null).append("tspan").attr("x", text.attr("x")).attr("y", y).attr("dy", dy + "em"),
+		  textLines,
+		  textHeight;
+	  while (word = words.pop()) {
 				line.push(word);
 				tspan.text(line.join(" "));
 				while (tspan.node().getComputedTextLength() > width) {
-					if (line.length == 1) {
+					if (line.length === 1) {
 						text.attr("font-size", String(--fontsize));
 					}
 					else {
@@ -351,10 +375,10 @@ function wrap(text, width, height) {
 			text.attr("font-size", String(--fontsize));
 			textHeight = text.node().getBoundingClientRect().height;
 			lineNumber = 0;
-			let tspans = text.selectAll('tspan')
+			let tspans = text.selectAll('tspan');
 			for (let index = 0; index < textLines; index++) {
 				let tspan = tspans._groups[0][index];
-				tspan.setAttribute('dy', lineNumber++ * 1 + dy + 'em'); 
+				tspan.setAttribute('dy', lineNumber++ + dy + 'em');
 				
 			}
 		}

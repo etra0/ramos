@@ -1,4 +1,4 @@
-var APPROVED = [];
+const APPROVED = [];
 
 function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 	this.nombre = nombre;
@@ -8,15 +8,15 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 	this.prer = new Set(prer);
 	this.id = id;
 	this.ramo;
-	let approved = false;
+	this.approved = false;
 	let self = this;
 
 	this.draw = function(canvas, posX, posY, scaleX, scaleY) {
 		self.ramo = canvas.append('g')
 			.attr('id', self.sigla);
-		var sizeX = 100 * scaleX,
+		let sizeX = 100 * scaleX,
 			sizeY = 100 * scaleY;
-		var graybar = sizeY / 5;
+		let graybar = sizeY / 5;
 
 		self.ramo.append("rect")
 			.attr("x", posX)
@@ -125,7 +125,7 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 			let r = 9,
 				fontsize = 12,
 				variantX = 5;
-			variantY = 5;
+			let variantY = 5;
 			if (scaleX < 0.75) {
 				r--;
 				fontsize--;
@@ -152,7 +152,7 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 	};
 
 	this.approveRamo = function() {
-		if (!approved) {
+		if (!self.approved) {
 			d3.select("#" + self.sigla).select(".cross").transition().delay(20).attr("opacity", "1");
 			APPROVED.push(self);
 		} else {
@@ -162,7 +162,7 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 				APPROVED.splice(_i, 1);
 			}
 		}
-		approved = !approved;
+		self.approved = !self.approved;
 	};
 
 	this.verifyPrer = function() {
@@ -182,7 +182,7 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 
 	// Lo necesito
 	this.isApproved = function() {
-		return approved;
+		return self.approved;
 	};
 
 }

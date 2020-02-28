@@ -1,22 +1,23 @@
-var APPROVED = [];
-var SELECTED = [];
+//const APPROVED = [];
+const SELECTED = [];
 
 // Clase hijo de ramo, al clickear el ramo, este se selecciona en vez de aprobar
 // Aprobar el ramo sigue siendo posible,
 // pero ahora queda a discreción del desarrollador el como accionarlo
 function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySector) {
-	this.base = Ramo
-	this.base(nombre, sigla, creditos, sector, prer, id, colorBySector)
+	this.base = Ramo;
+	this.base(nombre, sigla, creditos, sector, prer, id, colorBySector);
 	this.selected = false;
+	this.isCustom = false;
 	let self = this;
   	// let ramo = this.ramo;
 
     this.draw = function(canvas, posX, posY, scaleX, scaleY) {
 		self.ramo = canvas.append('g')
 			.attr('id', self.sigla);
-		var sizeX = 100 * scaleX,
-			sizeY = 100 * scaleY
-		var graybar = sizeY/5;
+		const sizeX = 100 * scaleX,
+			sizeY = 100 * scaleY;
+		const graybar = sizeY / 5;
 
 		self.ramo.append("rect")
 			.attr("x", posX)
@@ -110,7 +111,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("class", "selected");
 
 
-		var cross = self.ramo.append('g').attr("class", "cross").attr("opacity", 0);
+		let cross = self.ramo.append('g').attr("class", "cross").attr("opacity", 0);
 		cross.append("path")
 			.attr("d", "M" + posX + "," + posY + "L" + (posX+sizeX*1.1) + "," + (posY+sizeY))
 			.attr("stroke", "#550000")
@@ -125,7 +126,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		self.ramo.append("text")
 			.attr("x", function() {
 				if (self.id > 9)
-					return posX + sizeX*1.2 - 10
+					return posX + sizeX*1.2 - 10;
 				return posX + sizeX*1.2 - 10.5
 			})
 			.attr("y", posY + graybar/2 + 3)
@@ -168,13 +169,13 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
         // Ahora se selecciona en vez de aprobar
 		self.ramo.on('click', self.selectRamo);
 
-		return;
-	}
+
+	};
 
 
     // NEW!!!
   this.selectRamo = function() {
-        
+
 		if (self.isApproved()) { // Si el ramo esta aprovado, no se selecciona
 			if (!custom_ramos.has(this.sigla)) {
 			d3.select("#" + self.sigla).select(".selected").attr('stroke','red');
@@ -225,7 +226,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			if (!custom_ramos.has(this.sigla))
 				d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", "0.01");
 			
-				let _i = SELECTED.indexOf(self)
+				let _i = SELECTED.indexOf(self);
 			if (_i > -1) {
 				SELECTED.splice(_i, 1);
 			}
@@ -234,11 +235,11 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 
 		}
 		self.selected = !self.selected;
-	}
+	};
 
 	this.isSelected = function() {
 		return self.selected;
-	}
+	};
 
     // Ligero cambio en la opacidad
 	this.verifyPrer = function() {
@@ -255,7 +256,25 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		}
 		self.ramo.select(".non-approved").transition().duration(70).attr("opacity", "0.0");
 	}
-
+	
+	this.approveRamo = function () {
+		if (!self.approved) {
+			if (!self.isCustom) {
+				d3.select("#" + self.sigla).select(".cross").transition().delay(20).attr("opacity", "1");
+			 }
+			APPROVED.push(self);
+		} else {
+			if (!self.isCustom) {
+				d3.select("#" + self.sigla).select(".cross").transition().delay(20).attr("opacity", "0.01");
+			}
+			let _i = APPROVED.indexOf(self);
+			if (_i > -1) {
+				APPROVED.splice(_i, 1);
+			}
+		}
+		self.approved = !self.approved;
+	}
 }
 
-SelectableRamo.prototype = Ramo
+
+SelectableRamo.prototype = Ramo;

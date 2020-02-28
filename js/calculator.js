@@ -1,15 +1,15 @@
-var semestre = 1;
-var custom_ramos = new Set();
-var customRamosProps = {}
-var ramosSemestre = [];
-var notasSemestres;
-var faeSemestres;
+let semestre = 1;
+const custom_ramos = new Set();
+let customRamosProps = {};
+let notasSemestres;
+let faeSemestres;
 // Todos estos valores son con los datos del semestre anterior a calcular
-var creditosTotales = 0;
-var creditosAprovados = 0;
-var sumaNotasCreditos = 0
-var factorActividadExt = 1;
-var mallaPriori
+let creditosTotales = 0;
+let creditosAprovados = 0;
+let sumaNotasCreditos = 0;
+let factorActividadExt = 1;
+let mallaPriori;
+
 function start_priorix() {
     // los ramos fuera de malla se cargan primero
     mallaPriori = "prioridad-" + current_malla;
@@ -18,10 +18,11 @@ function start_priorix() {
 
         for (var sigla in customRamosProps) {
             // inicializar ramos fuera de malla
-            let datosRamo = customRamosProps[sigla]
+            let datosRamo = customRamosProps[sigla];
             let ramo = new SelectableRamo(datosRamo[0],datosRamo[1],datosRamo[2],datosRamo[3],[],id,datosRamo[4]);
             id++;
-            all_ramos[sigla] = ramo
+            ramo.isCustom = true;
+            all_ramos[sigla] = ramo;
             custom_ramos.add(sigla)
         }
     }
@@ -31,7 +32,7 @@ function start_priorix() {
     } else {
         notasSemestres = {}
     }
-    cache = localStorage[mallaPriori + '_FAE']
+    cache = localStorage[mallaPriori + '_FAE'];
     if (cache) {
         faeSemestres = JSON.parse(cache)
     } else {
@@ -40,8 +41,8 @@ function start_priorix() {
     loadSemester();
     updateCustomTable();
     // Cargar ramos fuera de malla
-    var card = d3.select('#priorix');
-    if (semestre == 1) {
+    const card = d3.select('#priorix');
+    if (semestre === 1) {
         d3.select('#back').attr('disabled', 'disabled');
     }
     card.select('#semestre').text(semestre);
@@ -55,7 +56,7 @@ function calcularPrioridad() {
     var creditosAprovadosSemestre = creditosAprovados;
     var sumaNotasCreditosSemestre = sumaNotasCreditos;
     SELECTED.forEach(ramo => {
-        let nota = Number(document.getElementById('nota-' + ramo.sigla).value)
+        let nota = Number(document.getElementById('nota-' + ramo.sigla).value);
         sumaNotasCreditosSemestre += nota * ramo.creditos;
         creditosTotalesSemestre += ramo.creditos;
         if (nota > 54) {
@@ -63,9 +64,9 @@ function calcularPrioridad() {
         }
     });
     saveSemester();
-    let prioridad = 100 * (sumaNotasCreditosSemestre/(14 * Math.pow(semestre,1.06))) * (creditosAprovadosSemestre/creditosTotalesSemestre) * factorActividadExt;
+    let prioridad = 100 * (sumaNotasCreditosSemestre/(23 * Math.pow(semestre,1.06))) * (creditosAprovadosSemestre/creditosTotalesSemestre) * factorActividadExt;
     // Mostrar resultado
-    prioridad = Math.round(prioridad * 100) / 100.0
+    prioridad = Math.round(prioridad * 100) / 100.0;
     if (d3.select('#resPrioridad').select('div')._groups[0][0]) {
         d3.select('#resPrioridad').select('h4').text('Tu prioridad en S' + semestre + ' es: ' + prioridad)
     } else {
@@ -87,7 +88,7 @@ function calcularPrioridad() {
       .append('span')
         .attr('aria-hidden','true')
         .html("&times;");
-    $('#calculo').alert()
+    $('#calculo').alert();
     $('#calculo').on('closed.bs.alert', function () {
       })
     }
@@ -100,31 +101,31 @@ $(document).ready(function(){
 
 // recalculo de valores para calculo prioridad semestre
 function valoresSemestresAnteriores() {
-    sumaNotasCreditos = 0
-    creditosAprovados = 0
-    creditosTotales = 0
-    for ( var s = 1 ; s < semestre; s++) {
+    sumaNotasCreditos = 0;
+    creditosAprovados = 0;
+    creditosTotales = 0;
+    for (let s = 1; s < semestre; s++) {
         let semestre = notasSemestres[s];
-        for (var sigla in semestre) {
-            ramo = all_ramos[sigla];
+        for (const sigla in semestre) {
+            let ramo = all_ramos[sigla];
             sumaNotasCreditos += semestre[sigla] * ramo.creditos;
             creditosTotales += ramo.creditos;
             if (semestre[sigla] > 54)
-                creditosAprovados += ramo.creditos;       
+                creditosAprovados += ramo.creditos;
         }
     }
 }
 
 function semestreAnterior() {
-    if (semestre == 1) return;
+    if (semestre === 1) return;
     d3.select('#back').attr('onclick', null);
-    semestre--
+    semestre--;
     valoresSemestresAnteriores();
     limpiarSemestre();
     setTimeout(function(){ // Tiempo para que se limpie la calculadora
         loadSemester();
         d3.select('#semestre').text(semestre);
-        if (semestre == 1)
+        if (semestre === 1)
             d3.select('#back').attr('disabled', 'disabled');    
         d3.select('#back').attr('onclick', 'semestreAnterior()');
     }, 350)
@@ -137,18 +138,18 @@ function proximoSemestre() {
     creditosAprovados = valoresPrioridad[1];
     sumaNotasCreditos =valoresPrioridad[2];
     saveSemester();
-    ++semestre
-    let ramos = []
+    ++semestre;
+    let ramos = [];
     SELECTED.forEach(ramo => {
     ramos.push(ramo);
     });
-    var hayProximoSemestre = notasSemestres[semestre + 1];
-    var delay = 300
+    const hayProximoSemestre = notasSemestres[semestre + 1];
+    let delay = 300;
     ramos.forEach(ramo => {
         if (Number(document.getElementById('nota-' + ramo.sigla).value) > 54) {
             ramo.selectRamo();
             ramo.approveRamo();
-        } else  if (hayProximoSemestre) {
+        } else  if (hayProximoSemestre && !ramo.isCustom) {
             ramo.selectRamo();
             d3.select("#" + ramo.sigla).select(".selected").transition().duration(150).attr('stroke','yellow')
               .transition().duration(150).attr("opacity", ".8")
@@ -157,7 +158,7 @@ function proximoSemestre() {
               .transition().duration(150).attr("opacity", ".001")
               .attr('stroke','green');
             delay = 760;
-        } else {
+        } else if (!ramo.isCustom){
             d3.select("#" + ramo.sigla).select(".selected").transition().duration(150).attr('stroke','red')
                 .transition().duration(150).attr("opacity", ".5")
                 .transition().duration(150).attr("opacity", ".8")
@@ -168,7 +169,7 @@ function proximoSemestre() {
         }
     });
     d3.select('#semestre').text(semestre);
-    if (semestre == 2) 
+    if (semestre === 2)
         d3.select('#back').attr('disabled', null);
         setTimeout(function(){ // Tiempo para que se limpie la calculadora
             loadSemester();
@@ -181,25 +182,25 @@ function proximoSemestre() {
 function saveSemester() {
     let id = mallaPriori + '_SEMESTRES';
     // Guardar notas
-    var notasDelSemestre = {}
+    const notasDelSemestre = {};
     SELECTED.forEach(ramo => {
         notasDelSemestre[ramo.sigla] = Number(document.getElementById('nota-' + ramo.sigla).value);
     });
-    notasSemestres[semestre] = notasDelSemestre
+    notasSemestres[semestre] = notasDelSemestre;
     localStorage.setItem(id, JSON.stringify(notasSemestres));
 
     // Guardar FAE
-    id = mallaPriori + '_FAE'
+    id = mallaPriori + '_FAE';
     faeSemestres[semestre] = factorActividadExt;
     localStorage.setItem(id, JSON.stringify(faeSemestres));
 }
 
 function loadSemester() {
-    var toLoad = notasSemestres[semestre]
-    var faeToLoad = faeSemestres[semestre];
+    const toLoad = notasSemestres[semestre];
+    const faeToLoad = faeSemestres[semestre];
     if (toLoad) {
-        for (var sigla in toLoad) {
-            var ramo = all_ramos[sigla]
+        for (const sigla in toLoad) {
+            const ramo = all_ramos[sigla];
             if (!ramo.isSelected()) {
                 if (ramo.isApproved()) 
                     ramo.approveRamo();
@@ -214,7 +215,7 @@ function loadSemester() {
 
 
 function limpiarSemestre() {
-    let ramos = []
+    let ramos = [];
     SELECTED.forEach(ramo => {
     ramos.push(ramo);
     });
@@ -225,9 +226,9 @@ function limpiarSemestre() {
 }
 
 function limpiarCalculadora() {
-    creditosTotales = 0
-    creditosAprovados = 0
-    sumaNotasCreditos = 0
+    creditosTotales = 0;
+    creditosAprovados = 0;
+    sumaNotasCreditos = 0;
     limpiarSemestre();
     let ramos = [];
     APPROVED.forEach(ramo => {
@@ -236,14 +237,14 @@ function limpiarCalculadora() {
     ramos.forEach(ramo => {
         ramo.approveRamo();
     });
-    notasSemestres = {}
-    faeSemestres = {}
+    notasSemestres = {};
+    faeSemestres = {};
 
     
-    localStorage[mallaPriori + '_SEMESTRES'] = JSON.stringify({})
-    localStorage[mallaPriori + '_FAE'] = JSON.stringify({})
+    localStorage[mallaPriori + '_SEMESTRES'] = JSON.stringify({});
+    localStorage[mallaPriori + '_FAE'] = JSON.stringify({});
     document.getElementById('fae').value = 1;
-    semestre = 1
+    semestre = 1;
     d3.select('#back').attr('disabled', 'disabled');
     d3.select('#semestre').text(semestre);
     let customSiglas = Array.from(custom_ramos.values());
@@ -260,52 +261,54 @@ function crearRamo() {
     sigla = document.getElementById('custom-sigla').value;
     creditos = document.getElementById('custom-credits').value;
 
-    let sector = {"CUSTOM": ["#000000", "Fuera de la malla oficial"]}
-    let customRamo = [nombre,sigla, creditos, 'CUSTOM' ,sector]
-    let ramo = new SelectableRamo(nombre, sigla, Number(creditos), 'CUSTOM', [], id, sector)
-    id++
+    let sector = {"CUSTOM": ["#000000", "Fuera de la malla oficial"]};
+    let customRamo = [nombre,sigla, creditos, 'CUSTOM' ,sector];
+    let ramo = new SelectableRamo(nombre, sigla, Number(creditos), 'CUSTOM', [], id, sector);
+    id++;
     all_ramos[sigla] = ramo;
     customRamosProps[sigla] = customRamo;
     custom_ramos.add(sigla);
-    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
-    document.getElementById('custom-name').value = null
-    document.getElementById('custom-sigla').value = null
-    document.getElementById('custom-credits').value = null
+    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps);
+    document.getElementById('custom-name').value = null;
+    document.getElementById('custom-sigla').value = null;
+    document.getElementById('custom-credits').value = null;
+    ramo.isCustom = true;
     ramo.selectRamo();
     $('#crearRamoModal').modal('hide');
 }
 
 function borrarRamo(sigla) {
     SELECTED.forEach(ramo => {
-        if (ramo.sigla == sigla)
+        if (ramo.sigla === sigla)
             ramo.selectRamo();
     });
-    let ramo = all_ramos[sigla]
+    let ramo = all_ramos[sigla];
     delete all_ramos[ramo.sigla];
-    custom_ramos.delete(ramo.sigla)
+    custom_ramos.delete(ramo.sigla);
     delete customRamosProps[ramo.sigla];
     d3.select('#CUSTOM-' + ramo.sigla).remove();
-    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps)
+    localStorage[mallaPriori+'_CUSTOM'] = JSON.stringify(customRamosProps);
     saveSemester();
 }
 
 function updateCustomTable(){
     let table = d3.select('#customTableContent');
 	custom_ramos.forEach(ramo => {
+        let s;
         let approved = 0;
         let selected = false;
         ramo = all_ramos[ramo];
-        let fila = d3.select('#CUSTOM-' + ramo.sigla)
+        let fila = d3.select('#CUSTOM-' + ramo.sigla);
         let cursadoEn = [];
-        
+
         SELECTED.forEach(selectedRamo => {
-            if (selectedRamo == ramo)
+            if (selectedRamo === ramo)
             selected = true;
         });
-        for (var s in notasSemestres) {
+        for (s in notasSemestres) {
             if (notasSemestres[s][ramo.sigla] != null && notasSemestres[s][ramo.sigla] > 54) {
-                if (Number(s) != semestre)
-                approved = s
+                if (Number(s) !== semestre)
+                approved = s;
                 break;
             }
         }
@@ -319,7 +322,7 @@ function updateCustomTable(){
               .attr('scope','row')
               .text(ramo.sigla);
             fila.append('td')
-              .text(ramo.nombre)
+              .text(ramo.nombre);
             fila.append('td')
               .text(ramo.creditos);
             if (selected) {
@@ -329,8 +332,8 @@ function updateCustomTable(){
             } else {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('No Seleccionado')
             }
-            acciones = fila.append('td').append('div')
-            acciones.attr('class', 'btn-group').attr('role','group')
+            acciones = fila.append('td').append('div');
+            acciones.attr('class', 'btn-group').attr('role','group');
             if (selected) {
                 acciones.append('button')
                   .attr('id','add-'+ ramo.sigla)
@@ -368,11 +371,11 @@ function updateCustomTable(){
                   .attr('onclick','all_ramos["'+ ramo.sigla+'"].selectRamo()')
                   .text('Seleccionar Ramo');
                 for (s in notasSemestres) {
-                    if (notasSemestres[s][ramo.sigla] != null && s!=semestre) {
+                    if (notasSemestres[s][ramo.sigla] != null && s!==semestre) {
                         cursadoEn.push(s)
                     } 
                 }
-                if (cursadoEn.lenght) {
+                if (cursadoEn.length) {
                 acciones.append('button')
                   .attr('id','delete-'+ ramo.sigla)
                   .attr('class','btn btn-danger')
@@ -391,27 +394,27 @@ function updateCustomTable(){
 
             }
         } else {
-            let state = d3.select('#state-' + ramo.sigla)
+            let state = d3.select('#state-' + ramo.sigla);
             let addButton = d3.select('#add-' + ramo.sigla);
             let deleteButton = d3.select('#delete-' + ramo.sigla);
             if (selected) {
-                state.text('Seleccionado')
+                state.text('Seleccionado');
                 addButton.attr('disabled', null).text('De-Seleccionar Ramo');
                 deleteButton.attr('disabled',null);
 
             } else if (approved) {
-                state.text('Aprobado en S' + approved)                
+                state.text('Aprobado en S' + approved);
                 addButton.attr('disabled','disabled').text('Seleccionar Ramo');
                 deleteButton.attr('disabled','disabled');
             } else {
-                state.text('No Seleccionado')
-                for (var s in notasSemestres) {
-                    if (notasSemestres[s][ramo.sigla] != null && s!=semestre) {
+                state.text('No Seleccionado');
+                for (s in notasSemestres) {
+                    if (notasSemestres[s][ramo.sigla] != null && s!==semestre) {
                         cursadoEn.push(s)
                     } 
                 }
                 addButton.attr('disabled', null).text('Seleccionar Ramo');
-                if (cursadoEn.lenght) {
+                if (cursadoEn.length) {
                 } else {
                     deleteButton.attr('disabled', null);
                 }
