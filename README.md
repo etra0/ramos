@@ -2,13 +2,19 @@
 Generador de la malla que permitirá
 visualizar los ramos aprobados.
 
-# Indice
-
+# Índice
+1. [Novedades](#¡Novedades!)  
+2. [Caracteristicas de la malla](#Caracteristicas-de-la-malla)  
+3. [TODO](#TODO)  
+4. [Agregar o cambiar una malla](#Agregar-o-cambiar-una-malla)  
+5. [Probar malla](#Probar-malla)  
+6. [Agradecimientos](#Gracias)    
 # ¡Novedades!
 - Ahora se pueden agregar y cambiar los pre-requisitos de los ramos!
+![Imgur](https://i.imgur.com/b92qXHk.png)
 - Se pueden visualizar los creditos según el Sistema USM o según el Sistema de creditos transferibles (SCT).
 - ***Dark Mode*** automatico segun las preferencias del SO.
--
+![Imgur](https://i.imgur.com/lDTKZol.png)
 
 # Caracteristicas de la malla
 
