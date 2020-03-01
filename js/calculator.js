@@ -314,6 +314,10 @@ function updateCustomTable(){
         }
         
         if (!fila._groups[0][0]) {
+            let creditos = ramo.creditos
+            if (sct) {
+                creditos = Math.ceil(creditos * 1.6)
+            }
             let acciones;
             fila = table.append('tr');
 
@@ -324,7 +328,7 @@ function updateCustomTable(){
             fila.append('td')
               .text(ramo.nombre);
             fila.append('td')
-              .text(ramo.creditos);
+              .text(creditos);
             if (selected) {
                 fila.append('td').attr('id','state-' + ramo.sigla).text('Seleccionado')
             } else if (approved) {

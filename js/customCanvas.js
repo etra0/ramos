@@ -7,12 +7,20 @@ let welcomeTitle, welcomeDesc;
 
 // verificamos que malla busca
 let current_malla = 'INF';
+let sct = false
 if (window.location.search) {
 	const params = new URLSearchParams(window.location.search);
 	if (params.has('m'))
 		current_malla = params.get('m');
+		if (params.has('SCT'))
+		sct = ('true' == params.get('SCT'))
 	
 }
+
+d3.select('#goToHome').attr('href', '/?m=' + current_malla)
+d3.select('#goToGenerator').attr('href', '/personalizar/?m=' + current_malla)
+
+
 	scaleX = 1;
 	scaleY = 1;
 	canvas = d3.select(".canvas");
@@ -190,10 +198,28 @@ function main_function(error, data, colorBySector) {
 	
 	let customMalla = JSON.parse(localStorage['Custom-' + current_malla + '_SEMESTRES']);
 	const ramosInMalla = new Set();
+	let newId = 1
+	let sectorsUsed = new Set();
 	for (let semester in customMalla) {
+		let c = 0;
 		customMalla[semester].forEach(siglaRamo => {
 			ramosInMalla.add(siglaRamo)
+			all_ramos[siglaRamo].id = newId
+
+			newId++;
+			c++;
+			let creditos = all_ramos[siglaRamo].creditos
+			if (sct) {
+				creditos = Math.ceil(creditos * 1.6)
+			}
+			total_creditos += creditos;
+			total_ramos++;
+			sectorsUsed.add(all_ramos[siglaRamo].sector) 
+
 		})
+		if (c > longest_semester)
+		longest_semester = c;
+
 	}
 	for (let ramo in all_ramos) {
 		if (!ramosInMalla.has(ramo)) {
@@ -208,27 +234,19 @@ function main_function(error, data, colorBySector) {
 	}
 	
 	// se crea la malla de acorde al usuario
-	let newId = 1;
-	let sectorsUsed = new Set();
-	for (semester in customMalla) {
-		malla[semester] = {};
-		let c = 0;
-		customMalla[semester].forEach(siglaRamo => {
-			all_ramos[siglaRamo].id = newId;
-			newId++;
-			malla[semester][siglaRamo] = all_ramos[siglaRamo];
-			c++;
-			total_creditos += all_ramos[siglaRamo].creditos;
-			total_ramos++;
-			sectorsUsed.add(all_ramos[siglaRamo].sector) 
-		});
-		if (c > longest_semester)
-			longest_semester = c;
-	}
+	// let newId = 1;
+	// for (semester in customMalla) {
+	// 	malla[semester] = {};
+	// 	customMalla[semester].forEach(siglaRamo => {
+	// 		all_ramos[siglaRamo].id = newId;
+	// 		newId++;
+	// 		malla[semester][siglaRamo] = all_ramos[siglaRamo];
+	// 	});
+	// }
 
 	// update width y height debido a que varian segun la malla
 		// + 10 para evitar ocultamiento de parte de la malla
-	width = (130*Object.keys(malla).length) * scaleX + 10;
+	width = (130*Object.keys(customMalla).length) * scaleX + 10;
 	height = (110*longest_semester + 30 + 25) * scaleY + 10;
 
 	canvas.attr("width", width)
@@ -256,7 +274,7 @@ function main_function(error, data, colorBySector) {
 
 	});
 
-	for (semester in malla) {
+	for (semester in customMalla) {
 		globalY = 0;
 		// draw the axis
 		drawer.append("rect")
@@ -277,8 +295,8 @@ function main_function(error, data, colorBySector) {
 		_semester++;
 		globalY += 40 * scaleY;
 
-		for (var ramo in malla[semester]) {
-			malla[semester][ramo].draw(drawer, globalX, globalY, scaleX, scaleY);
+		for (var ramo in customMalla[semester]) {
+			all_ramos[customMalla[semester][ramo]].draw(drawer, globalX, globalY, scaleX, scaleY);
 			globalY += 110 * scaleY;
 		}
 		globalX += 130 * scaleX;
@@ -289,16 +307,21 @@ function main_function(error, data, colorBySector) {
 
 	// verificar prerrequisitos
 	d3.interval(function() {
-		for (const semester in malla) {
-			for (const ramo in malla[semester]) {
-				malla[semester][ramo].verifyPrer();
+		for (const semester in customMalla) {
+			for (const ramo in customMalla[semester]) {
+				all_ramos[customMalla[semester][ramo]].verifyPrer();
 			}
 		}
 
 		let current_credits = 0;
         let current_ramos = APPROVED.length;
 		APPROVED.forEach(function(ramo) {
-			current_credits += ramo.creditos;
+			let creditos = ramo.creditos
+			if (sct) {
+				creditos = Math.ceil(creditos * 1.6)
+			}
+			// total_creditos += creditos;
+			current_credits += creditos;
 		});
 		d3.select(".info").select("#creditos").text(`${current_credits} (${parseInt((current_credits/total_creditos)*100)}%), Total ramos: ${parseInt(current_ramos*100/total_ramos)}%`);
 	}, 30);
@@ -391,3 +414,31 @@ function limpiarRamos() {
 	}
 }
 
+function changeCreditsSystem()
+{
+	let key = 'SCT'
+	let value = 'true'
+	const params = new URLSearchParams(window.location.search);
+	if (params.has(key)) {
+		value = !('true' == params.get(key))
+	}
+    key = encodeURI(key); value = encodeURI(value);
+    var kvp = document.location.search.substr(1).split('&');
+
+    var i=kvp.length; var x; while(i--) 
+    {
+        x = kvp[i].split('=');
+
+        if (x[0]==key)
+        {
+            x[1] = value;
+            kvp[i] = x.join('=');
+            break;
+        }
+    }
+
+    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+
+    //this will reload the page, it's likely better to store this until finished
+    document.location.search = kvp.join('&'); 
+}

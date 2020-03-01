@@ -41,8 +41,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2f58a7">
+  <meta name="apple-mobile-web-app-title" content="Mallla Interactiva">
+  <meta name="application-name" content="Mallla Interactiva">
   <meta name="msapplication-TileColor" content="#2f58a7">
-  <meta name="theme-color" content="#2f58a7">
+  <meta name="theme-color" content="#f8f9fa">
 </head>
 <body class="d-flex flex-column">
   <!-- En verdad, lamento la cantidad horrorosa de divs -->
@@ -261,11 +263,11 @@ aria-hidden="true">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand mb-0 " href="/">Malla Interactiva <span class="carrera"></span></a>
+    <a id='goToHome' class="navbar-brand mb-0 " href="/">Malla Interactiva <span class="carrera"></span></a>
         
     <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
-      <a class="nav-link" href="/prioridad/">Calculadora Prioridad</a>
-      <a class="nav-link active" href="#">Generadora Malla</a>
+      <a id='goToCalculator' class="nav-link" href="/prioridad/">Calculadora Prioridad</a>
+      <a id='goToGenerator' class="nav-link active" href="#">Generadora Malla</a>
       <a class="d-none d-md-block nav-link dropdown-toggle" data-toggle="collapse" href="#" data-target="#carreras" aria-controls="carreras" aria-expanded="false" aria-label="Toggle navigation">
         Carreras
       </a>
@@ -454,7 +456,7 @@ aria-hidden="true">
     </li>
   </script>
   <script type="text/template" data-template="tab-template2">
-    <a class="dropdown-item" href="#${Link}">Malla ${Nombre}</a>
+    <a class="dropdown-item" href="?m=${Link}">Malla ${Nombre}</a>
   </script>
   <script>
     scroll = new SmoothScroll('a[href*="#"]', {

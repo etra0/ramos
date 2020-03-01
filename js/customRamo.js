@@ -76,6 +76,10 @@ function CustomRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySector)
 	};
 
 	this.addToCustomTable = function() {
+		let creditos = self.creditos
+		if (sct) {
+			creditos = Math.ceil(creditos * 1.6)
+		}
 		let table = d3.select('#customTableContent');
 
 		let acciones;
@@ -90,7 +94,7 @@ function CustomRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySector)
 			.text(self.nombre);
 			fila.append('td')
 			.attr('id', 'C-credits-' + self.sigla)
-            .text(self.creditos);
+            .text(creditos);
         if (self.selected) {
             fila.append('td').attr('id','state-' + self.sigla).text('Seleccionado')
         } else {

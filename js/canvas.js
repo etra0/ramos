@@ -9,10 +9,13 @@ let prioridad = false;
 let personal = false;
 // verificamos que malla busca
 let current_malla = 'INF';
+let sct = false
 if (window.location.search) {
 	const params = new URLSearchParams(window.location.search);
 	if (params.has('m'))
 		current_malla = params.get('m');
+	if (params.has('SCT'))
+		sct = ('true' == params.get('SCT'))
 	
 }
 if (d3.select(".canvas")._groups[0][0]) {
@@ -48,6 +51,24 @@ if (d3.select(".canvas")._groups[0][0]) {
 	welcomeDesc = `¡Selecciona los ramos por semestre y genera una malla a tu gusto!
 	Si quieres un ramo que no esta en la malla, crealo en la tabla de abajo.`;
 }
+if (!(prioridad|personal)) {
+	d3.select('#goToCalculator').attr('href', '/prioridad/?m=' + current_malla)
+	d3.select('#goToGenerator').attr('href', '/personalizar/?m=' + current_malla)
+} else if (prioridad) {
+	d3.select('#goToHome').attr('href', '/?m=' + current_malla)
+	d3.select('#goToGenerator').attr('href', '/personalizar/?m=' + current_malla)
+} else {
+	d3.select('#goToHome').attr('href', '/?m=' + current_malla)
+	d3.select('#goToCalculator').attr('href', '/prioridad/?m=' + current_malla)
+
+}
+
+let creditSystem = 'USM'
+if (sct) {
+	creditSystem = 'SCT'
+}
+d3.select('#credits-system').text(creditSystem)
+
 
 let height = 730 * scaleX,
 	width = 1570 * scaleY;
@@ -177,7 +198,11 @@ function main_function(error, data, colorBySector) {
 					all_ramos[ramo].addReq()
 				});
 			}
-            total_creditos += ramo[2];
+			let creditos = ramo[2]
+			if (sct) {
+				creditos = Math.ceil(creditos * 1.6)
+			}
+			total_creditos += creditos;
             total_ramos++;
 		});
 		// for ramo 
@@ -245,7 +270,7 @@ function main_function(error, data, colorBySector) {
 
 	// verificar cache
 	if (!(prioridad || personal)) {
-		let cache_variable = 'approvedRamos_' + current_malla;
+		var cache_variable = 'approvedRamos_' + current_malla;
 		if (cache_variable in localStorage && localStorage[cache_variable] !== "") {
 			let approvedRamos = localStorage[cache_variable].split(",");
 			approvedRamos.forEach(function(ramo) {
@@ -265,7 +290,11 @@ function main_function(error, data, colorBySector) {
 		let current_credits = 0;
         let current_ramos = APPROVED.length;
 		APPROVED.forEach(function(ramo) {
-			current_credits += ramo.creditos;
+			let creditos = ramo.creditos
+			if (sct) {
+				creditos = Math.ceil(creditos * 1.6)
+			}
+			current_credits += creditos;
 		});
 		d3.select(".info").select("#creditos").text(`${current_credits} (${parseInt((current_credits/total_creditos)*100)}%), Total ramos: ${parseInt(current_ramos*100/total_ramos)}%`);
 	}, 30);
@@ -413,3 +442,31 @@ function limpiarRamos() {
 	}
 }
 
+function changeCreditsSystem()
+{
+	let key = 'SCT'
+	let value = 'true'
+	const params = new URLSearchParams(window.location.search);
+	if (params.has(key)) {
+		value = !('true' == params.get(key))
+	}
+    key = encodeURI(key); value = encodeURI(value);
+    var kvp = document.location.search.substr(1).split('&');
+
+    var i=kvp.length; var x; while(i--) 
+    {
+        x = kvp[i].split('=');
+
+        if (x[0]==key)
+        {
+            x[1] = value;
+            kvp[i] = x.join('=');
+            break;
+        }
+    }
+
+    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+
+    //this will reload the page, it's likely better to store this until finished
+    document.location.search = kvp.join('&'); 
+}

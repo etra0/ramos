@@ -634,12 +634,15 @@ function finishedEditingRamo(bool) {
     if (d3.select('#CUSTOM-'+sigla)._groups[0][0] == null && !ramoToApplyEdits.isCustom){
         ramoToApplyEdits.addToCustomTable()
     }
+    updateGenerator(sigla)
     // cleanRamoAdvanced(null, null, null)
 
     $('#crearRamoAvanzado').modal('hide')
 
 }
-
+function updateGenerator(sigla) {
+    d3.select('#per-' + sigla).select('div').text(all_ramos[sigla].nombre)
+}
 
 function createRamoAdvanced() {
 

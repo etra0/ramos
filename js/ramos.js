@@ -1,4 +1,4 @@
-const APPROVED = [];
+var APPROVED = [];
 
 function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 	this.nombre = nombre;
@@ -17,6 +17,10 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 		let sizeX = 100 * scaleX,
 			sizeY = 100 * scaleY;
 		let graybar = sizeY / 5;
+		let creditos = self.creditos
+		if (sct) {
+			creditos = Math.ceil(creditos * 1.6)
+		}
 
 		self.ramo.append("rect")
 			.attr("x", posX)
@@ -53,7 +57,7 @@ function Ramo(nombre, sigla, creditos, sector, prer = [], id, colorBySector) {
 		self.ramo.append("text")
 			.attr("x", posX + sizeX * 1.2 - 17 * scaleX)
 			.attr("y", posY + sizeY - 6 * scaleY)
-			.text(self.creditos)
+			.text(creditos)
 			.attr("font-weight", "regular")
 			.attr("fill", "black")
 			.attr("font-size", 12 * scaleY);

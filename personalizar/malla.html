@@ -37,8 +37,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2f58a7">
+  <meta name="apple-mobile-web-app-title" content="Mallla Interactiva">
+  <meta name="application-name" content="Mallla Interactiva">
   <meta name="msapplication-TileColor" content="#2f58a7">
-  <meta name="theme-color" content="#2f58a7">
+  <meta name="theme-color" content="#f8f9fa">
 </head>
 
 
@@ -87,10 +89,10 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mallaNavbar" aria-controls="mallaNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand mb-0 " href="/">Malla Interactiva Personal<span class="carrera"></span></a>
+    <a id='goToHome' class="navbar-brand mb-0 " href="/">Malla Interactiva Personal<span class="carrera"></span></a>
         
     <div class="collapse navbar-nav mr-auto navbar-collapse navbar-expand-md " id="mallaNavbar">
-      <a class="nav-link" href="/personalizar/">Continuar edición</a>
+      <a id='goToGenerator' class="nav-link" href="/personalizar/">Continuar edición</a>
       <div class="nav-link" data-toggle="modal" data-target="#contacto"><i class="far fa-envelope"></i> Contacto</div>
     </div>
   </nav>
@@ -109,10 +111,10 @@
       </div>
     </div>
     <div class="row justify-content-center my-3">
-      <div class="info text-center">
+      <div class="info class text-center">
         <h5>Créditos aprobados: <span id='creditos'></span> </h5>
-        <button type="button" onclick="limpiarRamos()" class="btn btn-info">Limpiar ramos aprobados</button>
-        <a href="" id="goBack" class="btn btn-primary" role="button">Continuar editando</a>
+        <button type="button" onclick="limpiarRamos()" class="btn mb-1 btn-info">Limpiar ramos aprobados</button>
+        <button type="button" onclick="changeCreditsSystem()" class="btn mb-1 btn-secondary"> Cambiar sistema de créditos </button>
       </div>
     </div>
   </div>

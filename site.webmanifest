@@ -1,6 +1,6 @@
 {
-    "name": "Malla Interactiva USM",
-    "short_name": "Malla Interactiva",
+    "name": "Mallla Interactiva",
+    "short_name": "Mallla Interactiva",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -8,12 +8,12 @@
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
+            "src": "/android-chrome-256x256.png",
+            "sizes": "256x256",
             "type": "image/png"
         }
     ],
-    "theme_color": "#2f58a7",
-    "background_color": "#2f58a7",
+    "theme_color": "#f8f9fa",
+    "background_color": "#f8f9fa",
     "display": "standalone"
 }

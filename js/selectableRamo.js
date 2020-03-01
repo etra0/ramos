@@ -1,5 +1,5 @@
 //const APPROVED = [];
-const SELECTED = [];
+var SELECTED = [];
 
 // Clase hijo de ramo, al clickear el ramo, este se selecciona en vez de aprobar
 // Aprobar el ramo sigue siendo posible,
@@ -18,7 +18,10 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		const sizeX = 100 * scaleX,
 			sizeY = 100 * scaleY;
 		const graybar = sizeY / 5;
-
+		let creditos = self.creditos
+		if (sct) {
+			creditos = Math.ceil(creditos * 1.6)
+		}
 		self.ramo.append("rect")
 			.attr("x", posX)
 			.attr("y", posY)
@@ -52,7 +55,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 		self.ramo.append("text")
 			.attr("x", posX + sizeX*1.2 - 17 * scaleX)
 			.attr("y", posY + sizeY - 6 * scaleY)
-			.text(self.creditos)
+			.text(creditos)
 			.attr("font-family", "sans-serif")
 			.attr("font-weight", "regular")
 			.attr("fill", "black")
@@ -189,6 +192,12 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
   	}
         
 		if (!self.selected) { // Ramo se ha seleccionado
+
+			let creditos = self.creditos
+			if (sct) {
+				creditos = Math.ceil(creditos * 1.6)
+			}
+
 				if (!custom_ramos.has(this.sigla))
 					d3.select("#" + self.sigla).select(".selected").transition().delay(20).attr("opacity", ".8");
 				
@@ -220,7 +229,7 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 					.attr('class','input-group-append')
 					.append('span')
 						.attr('class','input-group-text')
-					.text('x ' + self.creditos + ' creditos');
+					.text('x ' + creditos + ' creditos');
 				card.transition().duration(300).style("opacity", "1");
 		} else { // Ramo ya no esta seleccionado
 			if (!custom_ramos.has(this.sigla))
