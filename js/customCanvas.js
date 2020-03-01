@@ -19,7 +19,11 @@ if (window.location.search) {
 
 d3.select('#goToHome').attr('href', '/?m=' + current_malla)
 d3.select('#goToGenerator').attr('href', '/personalizar/?m=' + current_malla)
-
+let creditSystem = 'USM'
+if (sct) {
+	creditSystem = 'SCT'
+}
+d3.select('#credits-system').text(creditSystem)
 
 	scaleX = 1;
 	scaleY = 1;
@@ -282,7 +286,9 @@ function main_function(error, data, colorBySector) {
 			.attr("y", globalY)
 			.attr("width", 120 * scaleX)
 			.attr("height", 30 * scaleY)
-			.attr("fill", 'gray');
+			.attr("fill", 'gray')
+			.classed('bars', true);
+
 
 		drawer.append("text")
 			.attr('x', globalX + 110/2 * scaleX)
@@ -329,7 +335,7 @@ function main_function(error, data, colorBySector) {
 
 	let first_time = d3.select(canvas.node().parentNode); // volvemos a canvas/ priori-canvas
 	first_time = first_time.append("div")
-	  .classed("row no-gutters justify-content-center", true)
+	  .classed("row no-gutters bg-light justify-content-center", true)
 	  .attr("id", "overlay")
 	  .append("div");
 	first_time.classed("col", true)

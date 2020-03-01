@@ -2,15 +2,23 @@
 Generador de la malla que permitirá
 visualizar los ramos aprobados.
 
+# Indice
+
 # ¡Novedades!
+- Ahora se pueden agregar y cambiar los pre-requisitos de los ramos!
+- Se pueden visualizar los creditos según el Sistema USM o según el Sistema de creditos transferibles (SCT).
+- ***Dark Mode*** automatico segun las preferencias del SO.
+-
 
-- ¡Ahora podras calcular tu prioridad usando la malla de tu carrera!  
+# Caracteristicas de la malla
+
+- Calcular tu prioridad
 ![Gif demo de calculo de prioridad](https://media.giphy.com/media/9FZo5ua3aCmXij4xZ5/giphy.gif)
-- ¿Quieres planear tu estadía en la U? ¡Crea una malla personalizada basada en una pre-existente!  
+- Crear una malla personal que se adecue a tu desdicha recorrida en la Universidad
 ![Gif demo de la malla personalidada](https://media.giphy.com/media/QK448lB7juUF0ftL7g/giphy.gif)  
-¡Soporta hasta *20* semestres! (En caso de ser necesario, el límite puede expandirse)
+(Tal desdicha tiene que ser menor a *20* semestres) (Si se necesitan mas semestres puedes contactarme. @CsarMan)
 
-- Si por alguna razón un ramo no esta en tu malla, ¡es muy facil agregar una!  
+- Agregar ramos que no se encuentren en la malla oficial pero que hayas cursado.
 ![Imagen de ventana para agregar un Ramo](https://i.imgur.com/NnCAaP2.png)
 ![Imagen de tabla de ramos que están fuera de la malla](https://i.imgur.com/li2TRD7.png)
 
@@ -21,13 +29,14 @@ visualizar los ramos aprobados.
 * [x] Disfrutar un buen café.
  
 * [ ] Fix bugs
-* [ ] Hacer pagina más usable en moviles
+* [X] Hacer pagina más usable en moviles
     * [X] Prioridad
 	* [X] Malla personal
-	* [ ] Malla interactiva
-* [ ] otras cosas a detallar...
+	* [X] Malla interactiva
+* [ ] Facilitar creacion y modificación de mallas oficiales
+* [ ] **Refactorisar codigo** @CsarMan
 
-## Aportar
+## Agregar o cambiar una malla
 
 Para aportar, en la carpeta `data` se tienen dos ficheros por cada
 carrera, estos son  `data_CARR.json` y `colors_CARR.json`. Se deben
@@ -73,14 +82,14 @@ Ejemplo:
 ```
 
 ## Probar malla
-Para probar la malla, existen dos metodos:
+Para probar la malla, existen tres metodos:
 
 ### Usando python (preferido)
 Lo ideal sería probarlo usando python, ya que permite levantar un mini servidor http lo que facilita la carga
 para el navegador. Para esto, se tiene que abrir una terminal, ir al directorio principal de la malla (ramos/)
 y ejecutar lo siguiente:
 
-* Si tiene Python 2 (el usado en la universidad): `python -m SimpleHTTPServer`
+* Si tiene Python 2 (el usado en la universidad hasta hace poco): `python -m SimpleHTTPServer`
 * Si tiene Python 3 (el actual): `python -m http.server`
 
 Independiente de la version, una vez ejecutado la linea, despues se debe abrir un navegador
@@ -94,6 +103,11 @@ desactivada la lectura de archivos locales por defecto), y al final de la URL ag
 para abrir `data_INF.json` debería quedar algo como `index.html?m=INF`.
 
 Se aceptan Pull Requests para agregar carreras.
+
+### Usando Browser-sync
+Con *NPM* instalado en el equipo, ejecute desde una terminal `npm install -g browser-sync` si no lo tiene instalado. Completado el paso anterior, ejecute `browser-sync -w` desde la carpeta raíz del repositorio y tendrá en su explorador favorito una versión local de la página.
+
+Con esto la pagina se actualizará cada vez que guarde un archivo. Si su explorador tiene problemas, abra *Firefox* y copie y pegue la dirección de la página.
 
 ---
 # Gracias

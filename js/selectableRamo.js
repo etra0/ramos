@@ -35,7 +35,9 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("y", posY)
 			.attr("width", sizeX*1.2)
 			.attr("height", graybar)
-			.attr("fill", '#6D6E71');
+            .attr("fill", '#6D6E71')
+			.classed('bars', true);
+            
 
 		// below bar
 		self.ramo.append("rect")
@@ -43,7 +45,8 @@ function SelectableRamo(nombre, sigla, creditos, sector, prer=[], id, colorBySec
 			.attr("y", posY + sizeY - graybar)
 			.attr("width", sizeX*1.2)
 			.attr("height", graybar)
-			.attr("fill", '#6D6E71');
+			.attr("fill", '#6D6E71')
+			.classed('bars', true);
 
 		// credits rect
 		self.ramo.append("rect")

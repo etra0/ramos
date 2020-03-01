@@ -23,7 +23,13 @@ input[type=number]::-webkit-outer-spin-button {
 /* General */
 body { min-height: 100vh; }
 
+.non-approved {
+    fill: white;
+}
 
+.bars {
+    fill: grey;
+}
 #overlay {
     position: absolute; /* Sit on top of the parent content*/
     /* display: none; Hidden by default */
@@ -36,7 +42,8 @@ body { min-height: 100vh; }
     right: 0;
     bottom: 0;
     padding: 0;
-    background-color: rgba(255,255,255,0.9); /* Black background with opacity */
+    filter: opacity(90%);
+    /* background-color: rgba(255,255,255,0.9); Black background with opacity */
     z-index: 200; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
 }
@@ -52,3 +59,13 @@ body { min-height: 100vh; }
 #t1:hover {
     background-color: aquamarine;
 } */
+
+@media(prefers-color-scheme: dark) {
+   
+    .non-approved {
+        fill: #000;
+    }
+    .bars {
+        fill: #404040;
+    }
+}

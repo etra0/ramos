@@ -55,15 +55,14 @@ function start_generator() {
     card.select('#semestre').text(semestre);
 
     // New!
-    let groupCache = localStorage[mallaCustom + '_SECTORS'] ;
-    if (groupCache && groupCache['CUSTOM']) {
-        customSectors = JSON.parse(localStorage[mallaCustom + '_SECTORS']);
-        for (let sector in customSectors) {
-            all_sectors[sector] = customSectors[sector]
+    let groupCache = localStorage[mallaCustom + '_SECTORS'];
+    if (groupCache && groupCache['CUSTOM']) {;
+        groupCache = JSON.parse(groupCache)
+        for (let sector in groupCache) {
+            all_sectors[sector] = groupCache[sector]
         }
     } else {
-        customSectors['CUSTOM'] = ["#000000", "Fuera de la malla oficial"];
-        all_sectors['CUSTOM'] = customSectors['CUSTOM'] 
+        all_sectors['CUSTOM'] = ["#000000", "Fuera de la malla oficial"]; 
     }
     fillSector()
 
@@ -333,7 +332,7 @@ function updateCustomTable(){
                 state.text('Seleccionado');
                 addButton.attr('disabled', null).text('De-Seleccionar Ramo');
                 if (ramo.isAPrer()) {
-                    deletetip.attr('data-or;iginal-title', 'El ramo esta seleccionado en otro semestre o es pre-requisito de otro');
+                    deletetip.attr('data-original-title', 'El ramo esta seleccionado en otro semestre o es pre-requisito de otro');
                     deleteButton.attr('disabled', 'disabled')
 				        .style('pointer-events','none')
                 } else {

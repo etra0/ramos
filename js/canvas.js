@@ -106,7 +106,7 @@ let _semester = 1;
 const _s = ["I", "II", "III", "IV", "V", 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV'];
 
 const malla = {};
-const all_ramos = {};
+var all_ramos = {};
 const all_sectors = {};
 let total_creditos = 0;
 let total_ramos = 0;
@@ -246,7 +246,9 @@ function main_function(error, data, colorBySector) {
 			.attr("y", globalY)
 			.attr("width", 120 * scaleX)
 			.attr("height", 30 * scaleY)
-			.attr("fill", 'gray');
+			.attr("fill", 'gray')
+			.classed('bars', true);
+
 
 		drawer.append("text")
 			.attr('x', globalX + 110/2 * scaleX)
@@ -313,7 +315,7 @@ function main_function(error, data, colorBySector) {
     // if (prioridad || personal) {
     var first_time = d3.select(canvas.node().parentNode); // volvemos a canvas/ priori-canvas
 	first_time = first_time.append("div")
-	  .classed("row no-gutters justify-content-center", true)
+	  .classed("row no-gutters bg-light justify-content-center", true)
 	  .attr("id", "overlay")
 	  .append("div");
 	first_time.classed("col", true)
