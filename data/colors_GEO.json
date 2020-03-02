@@ -1,0 +1,16 @@
+{
+	"GEOH": ["#00897B", "Geología Acuosa"],
+	"ING": ["#FF5252", "Inglés"],
+	"GEO": ["#880E4F", "Geología"],
+	"MEC": ["#EA80FC", "Mecánica"],
+	"MATE": ["#1A237E", "Matemáticas"],
+	"CAL": ["#64B5F6", "Cálculo"],
+	"INF": ["#81C784", "Informática"],
+	"FIS": ["#1B5E20", "Física"],
+	"QUI": ["#B2FF59", "Química"],
+  "ECO": ["#F57F17", "Economía"],
+	"PRE": ["#FFEB3B", "Req. Titulación"],
+	"GEOT": ["#F06292", "Geotecnia"],
+	"ELE": ["#757575", "Electivo"],
+  "COM": ["#004D40", "Comunes"]
+}
