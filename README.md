@@ -1,3 +1,6 @@
+# Este proyecto no se encuentra actualmente en mantención.
+Hay un fork activo que es mantenido por otra persona [En este enlace](https://github.com/CsarMan/malla-interactiva)
+
 # Ramos SVG
 Generador de la malla que permitirá
 visualizar los ramos aprobados.
