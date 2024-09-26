@@ -1,0 +1,104 @@
+{
+	"s1": [
+		["Álgebra en Contexto", "MAT1115", 10, "MAT"],
+		["Introducción a la Ingeniería", "ICI1110", 5, "COM"],
+		["Introducción a la Programación", "INF1110", 4, "INF"],
+		["Ingeniería y Medio Ambiente", "ICA1110", 4, "COM"],
+    ["Inglés I", "LEN1701", 5, "ING"]
+	],
+
+
+	"s2": [
+		["Álgebra Lineal", "MAT1128", 6, "MAT"],
+		["Cálculo I", "MAT1117", 7, "CAL", ["MAT1115"]],
+
+		["Fisica I", "FIS1106", 8, "FIS", ["MAT1115"]],
+    ["Quimica en Contexto", "QUI1103", 8, "QUI"],
+    ["Electivo Antropológico Cristiano", "ELAC", 3, "ELE"]
+	],
+
+
+	"s3": [
+		["Cálculo II", "MAT1118", 5, "CAL", ["MAT1115"]],
+    ["Resistencia de los Materiales", "ICOC1102", 5, "COM", ["FIS1106"],
+		["Termodinámica Aplicada", "ICOC1134", 5, "COM"],
+    ["Geología General", "ICG1140", 5, "GEO", ["ICI1110"],
+    ["Dibujo por Computadora", "ICOC1101", 4, "INF"],
+    ["Inglés II", "LEN1702", 3, "ING", ["LEN1701"]],
+    ["Electivo Teológico", "ELTE", 3, "ELE"]
+	],
+
+
+	"s4": [
+		["Ecuaciones Diferenciales", "MAT1129", 5, "MAT", ["MAT1118", "MAT1128"]],
+    ["Cálculo III", "MAT1119", 5, "CAL", ["MAT1118", "MAT1128"]],
+    ["Fisica II", "FIS1107", 6, "FIS", ["FIS1106"]],
+		["Quimica de los Materiales", "ICG1136", 5, "QUI", ["QUI1103"]],
+		["Fundamentos de la Mineralogía y Petrología", "ICG1150", 5, "GEO", ["ICG1140"]],
+		["Inglés Técnico", "LEN1705", 4, "ING", ["LEN1702"]]
+	],
+
+
+
+	"s5": [
+		["Cálculo Numérico", "MAT1123", 4, "CAL", ["MAT1119", "MAT1129"]],
+		["Probabilidad y Estadística", "MAT1124", 4, "MAT", ["MAT1118"]],
+		["Mecánica de Suelos", "ICG1121", 5, "MEC", ["FIS1107", "ICG1140"]],
+		["Geoquímica", "ICG1141", 5, "QUI", ["ICG1136"]],
+		["Mecánica de Fluidos", "ICOC1160", 5, "MEC", ["ICO1134"]],
+		["Mecánica de Rocas", "ICG1120", 5, "MEC", ["ICG1140"]],
+    ["Sedimentología y Estratigrafía", "ICG1151", 5, "GEO", ["ICG1150"]]
+	],
+
+	"s6": [
+		["Costos y Presupuestos", "ICG1129", 3, "ECO"],
+		["Geología Estructural", "ICG1153", 6, "GEO", ["ICG1151"]],
+		["Ingeniería Geotécnica", "ICG1155", 4, "GEOT"],
+		["Hidrología e Hidráulica", "ICG1156", 4, "GEOH", ["MAT1124", "ICOC1160"]],
+		["Geomorfología", "ICG1122", 5, "GEO", ["ICG1150"]],
+    ["Recursos Tecnológicos para la Geología", "ICG1154", 5, "GEO", ["ICOC1101"]]
+	],
+
+
+	"s7": [
+		["Economía", "CEA1110", 3, "ECO"],
+		["Geofísica", "ICG1123", 5, "GEO", ["ICG1120"]],
+		["Taller de Geotecnia", "ICG1157", 6, "GEOT", ["ICG1155"]],
+		["Hidrogeología", "ICG1158", 4, "GEOH", ["ICOC1160"]],
+		["Taller de Integración", "ICG1143", 3, "PRE", ["MAT1115", "ICI1110", "INF1110", "ICA1110", "LEN1701", "MAT1128", "MAT1117", "FIS1106", "QUI1103", "ELAC", "MAT1118", "ICOC1102", "ICOC1134", "ICG1140", "ICOC1101", "LEN1702", "ELTE", "MAT1129", "MAT1119", "FIS1107", "ICG1136", "ICG1150", "LEN1705"]],
+    ["Práctica Inicial", "ICG1144", 4, "PRE", ["MAT1115", "ICI1110", "INF1110", "ICA1110", "LEN1701", "MAT1128", "MAT1117", "FIS1106", "QUI1103", "ELAC", "MAT1118", "ICOC1102", "ICOC1134", "ICG1140", "ICOC1101", "LEN1702", "ELTE", "MAT1129", "MAT1119", "FIS1107", "ICG1136", "ICG1150", "LEN1705", "MAT1123", "MAT1124", "ICG1121", "ICG1141", "ICOC1160", "ICG1120", "ICG1151", "ICG1129", "ICG1153", "ICG1155", "ICG1156", "ICG1122", "ICG1154"]],
+    ["Electivo para la Diversidad", "EI1", 3, "ELE"]
+	],
+
+
+	"s8": [
+		["Ingeniería Económica", "ICG1160", 4, "ECO", ["ICG1129"]],
+		["Investigación de Operaciones", "ICG1145", 5, "GEO", ["MAT1128", "MAT1124"]],
+		["Análisis de Estructuras", "ICG1159", 5, "GEO", ["FIS1107", "MAT1123"]],
+		["Ingeniería Sismorresistente", "ICG1124", 5, "GEO", ["ICG1123"]],
+		["Volcanología", "ICG1125", 6, "GEO", ["ICG1153", "ICG1122", "ICG1123"]],
+		["Geología Ambiental", "ICG1126", 4, "GEO", ["ICA1110"]],
+    ["Electivo para la Diversidad II", "EI2", 3, "ELE"]
+    
+	],
+
+
+	"s9": [
+		["Seminario de Titulación", "ICG1162", 4, "PRE", ["MAT1115", "ICI1110", "INF1110", "ICA1110", "LEN1701", "MAT1128", "MAT1117", "FIS1106", "QUI1103", "ELAC", "MAT1118", "ICOC1102", "ICOC1134", "ICG1140", "ICOC1101", "LEN1702", "ELTE", "MAT1129", "MAT1119", "FIS1107", "ICG1136", "ICG1150", "LEN1705", "MAT1123", "MAT1124", "ICG1121", "ICG1141", "ICOC1160", "ICG1120", "ICG1151", "ICG1129", "ICG1153", "ICG1155", "ICG1156", "ICG1122", "ICG1154", "CEA1110", "ICG1123", "ICG1157", "ICG1158", "ICG1143", "ICG1144", "EI1"]],
+		["Evaluación de Proyectos Geológicos", "ICG1161", 6, "GEO", ["CEA1110"],
+		["Programación y Control de Proyectos Geológicos", "ICG1163", 6, "GEO", ["ICG1129", "ICG1145"]],
+		["Excavaciones Subterráneas", "ICG1127", 6, "GEO", ["ICG1155", "MAT1123"]],
+		["Gestión de Riesgos Tecnológicos y Geológicos", "ICG1128", 5, "GEO", ["ICG1154", "ICG1125", "ICG1123"]],
+    ["Ética Profesional", "IET1433", 3, "ELE"],
+    ["Electivo para la Diversidad III", "EI3", 3, "ELE"]
+
+	],
+
+
+	"s10": [
+		["Proyecto de Título", "ICG1147", 12, "GEO", ["ICG1162", "ICG1161"]],
+    ["Legislación", "ICG1164", 4, "GEO"],
+		["Práctica Profesional", "ICG1146", 11, "PRE", ["MAT1115", "ICI1110", "INF1110", "ICA1110", "LEN1701", "MAT1128", "MAT1117", "FIS1106", "QUI1103", "ELAC", "MAT1118", "ICOC1102", "ICOC1134", "ICG1140", "ICOC1101", "LEN1702", "ELTE", "MAT1129", "MAT1119", "FIS1107", "ICG1136", "ICG1150", "LEN1705", "MAT1123", "MAT1124", "ICG1121", "ICG1141", "ICOC1160", "ICG1120", "ICG1151", "ICG1129", "ICG1153", "ICG1155", "ICG1156", "ICG1122", "ICG1154", "CEA1110", "ICG1123", "ICG1157", "ICG1158", "ICG1143", "ICG1144", "EI1", "ICG1160", "ICG1145", "ICG1159", "ICG1124", "ICG1125", "ICG1126", "EI2"]]
+
+	]
+}
